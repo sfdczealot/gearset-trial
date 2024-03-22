@@ -4223,6 +4223,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Case.Created_For_Gearset_Trial__c</field>
+        <readable>true</readable>
+      </fieldPermissions>
+      <fieldPermissions>
+        <editable>true</editable>
         <field>Contact.AccountId</field>
         <readable>true</readable>
     </fieldPermissions>
