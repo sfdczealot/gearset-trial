@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Created_For_Gearset_Trial__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Pls ignore as this is only used for poc purpose</description>
+    <externalId>false</externalId>
+    <label>Created For Gearset Trial</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>
