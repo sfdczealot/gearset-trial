@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Targeting_Widget_Hierarchy_Depth_Limit__c</fullName>
+    <defaultValue>20</defaultValue>
+    <description>Targeting Widget Root Path Batch job will be processing object hierarchies up to this depth (200 max.)</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Targeting Widget Root Path Batch job will be processing object hierarchies up to this depth (200 max.)</inlineHelpText>
+    <label>Targeting Widget Hierarchy Depth Limit</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

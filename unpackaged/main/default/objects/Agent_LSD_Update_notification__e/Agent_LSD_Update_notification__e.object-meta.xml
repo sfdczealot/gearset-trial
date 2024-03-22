@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Notify workAto about agent LSD update</description>
+    <eventType>HighVolume</eventType>
+    <label>Agent LSD Update notification</label>
+    <pluralLabel>Agent LSD Update notifications</pluralLabel>
+    <publishBehavior>PublishAfterCommit</publishBehavior>
+</CustomObject>

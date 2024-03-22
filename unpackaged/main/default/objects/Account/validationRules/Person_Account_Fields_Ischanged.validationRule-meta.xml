@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Person_Account_Fields_Ischanged</fullName>
+    <active>true</active>
+    <description>For person account fields are not editable for some profile</description>
+    <errorConditionFormula>AND( IsPersonAccount, OR($Profile.Name = &#39;B2C Sales User&#39;, $Profile.Name = &#39;MY B2C Sales User&#39; ),OR( ISCHANGED( FirstName ), ISCHANGED(LastName ), ISCHANGED(  PersonTitle ), ISCHANGED( PersonBirthdate ), ISCHANGED(PersonEmail ), ISCHANGED(Fax ),ISCHANGED(   Agency_Name__c),ISCHANGED(CEA_Salesperson_Number__c ),ISCHANGED(PersonMobilePhone ),ISCHANGED(BillingStreet),ISCHANGED( BillingCountry ),ISCHANGED(  BillingPostalCode ),ISCHANGED(  BillingCity ),ISCHANGED(  BillingState ), ISCHANGED(Phone) )  )</errorConditionFormula>
+    <errorMessage>You don&quot;t have Access to update these fields.</errorMessage>
+</ValidationRule>

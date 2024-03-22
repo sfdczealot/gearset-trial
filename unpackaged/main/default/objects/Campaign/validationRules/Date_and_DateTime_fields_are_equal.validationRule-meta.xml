@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Date_and_DateTime_fields_are_equal</fullName>
+    <active>true</active>
+    <description>To ensure date and date time fields should be equal.</description>
+    <errorConditionFormula>AND(
+OR(
+StartDate &lt;&gt; DATEVALUE(Campaign_Start_DateTime__c),
+EndDate &lt;&gt; DATEVALUE(Campaign_End_DateTime__c)
+),
+$Profile.Name = &quot;Trade Marketing&quot;)</errorConditionFormula>
+    <errorMessage>Start Date should be equal to Campaign Start Date Time and End Date should be equal to Campaign End Date Time.</errorMessage>
+</ValidationRule>

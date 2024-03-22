@@ -1,0 +1,407 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>B2C</fullName>
+    <active>true</active>
+    <label>B2C</label>
+    <picklistValues>
+        <picklist>Allowed_Payment_Type__c</picklist>
+        <values>
+            <fullName>All</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>Offline only</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Online only</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Approval_Selector__c</picklist>
+        <values>
+            <fullName>Deputy</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Primary</fullName>
+            <default>true</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Approval_Status__c</picklist>
+        <values>
+            <fullName>Awaits OMC Approval</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Discount Approval Approved</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Discount Approval Recalled</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Discount Approval Rejected</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Discount Approval Submitted</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>NS Order Generated</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Not Required</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>OMC Approval Approved</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>OMC Approval Recalled</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>OMC Approval Rejected</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>OMC Approval Submitted</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Re-submit Discount Approval</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Floor_Price_Type__c</picklist>
+        <values>
+            <fullName>Above Floor Price</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Below Floor Price</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Below List Price</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Below List Price with Discount</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Between Floor Price</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Loss_Reason__c</picklist>
+        <values>
+            <fullName>Agent is suspended or cancelled</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Already Renewed - VIP</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Already Renewed%2FPurchased%2FRegistered%2FBosted</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>DO NOT CALL list</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Duplicate Record</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Expired Offer</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Expired Proposal</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Lost to Competitor</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>No Budget %2F Lost Funding</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>No Payment</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Not Eligible</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Not Interested</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Payment Expired</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Price</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Product Features</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Project Abandoned</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Transacted via Self-Serve</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Unable to reach %28at least 5 attempts%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Wrong Number</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Lost_Sub_Reason__c</picklist>
+        <values>
+            <fullName>Agent will call back if keen on product</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Bad experience with our workshop %2F event</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Content is irrelevant</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Credits are not useful</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Don%27t need a subscription %2F product</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Don%27t need so many concurrent listings</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Features are not attractive</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Inactive</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Location is inaccessible</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>No budget</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Not available at the time slot</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Not enough credits to boost</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Not receiving leads</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Past Bad Customer Experience</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pricing%2F Too Expensive</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Too many credits left</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Unhappy with change of features</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Using 99%2Eco product</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Using STProp%2FSRX product</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Using The Edge product</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Using iProp product</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>With other competitors</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Product_Type__c</picklist>
+        <values>
+            <fullName>Ad Credit</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Prime Credit</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Quote_Type__c</picklist>
+        <values>
+            <fullName>B2C - Conversion</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>B2C - Renewal</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>B2C - Standard</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>B2C - Upgrade</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Renewal_State__c</picklist>
+        <values>
+            <fullName>Actual Month</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Actual Month %2B1</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Early Bird</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Stage__c</picklist>
+        <values>
+            <fullName>Closed Lost</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Closed Won</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Needs Analysis</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Negotiating</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Negotiation</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>New</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pending Client Signatory</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pending OMC Approval</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pending Online Payment</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Proposal</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Prospecting</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Qualifying</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Solutioning</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Status</picklist>
+        <values>
+            <fullName>Accepted</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Expired</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Invalid</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pending OMC Approval</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pending Online Payment</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Proposal</fullName>
+            <default>true</default>
+        </values>
+    </picklistValues>
+</RecordType>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>My_overlapping_account</fullName>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>AgentNet_ID__c</columns>
+    <columns>Agency__c</columns>
+    <columns>Account_Rule_Code__c</columns>
+    <columns>CEA_Salesperson_Number__c</columns>
+    <columns>Subscription_Start_Date__c</columns>
+    <columns>Subscription_End_Date__c</columns>
+    <filterScope>Mine</filterScope>
+    <filters>
+        <field>Country__c</field>
+        <operation>equals</operation>
+        <value>Malaysia</value>
+    </filters>
+    <filters>
+        <field>External_Field__c</field>
+        <operation>notEqual</operation>
+    </filters>
+    <label>My overlapping account</label>
+</ListView>

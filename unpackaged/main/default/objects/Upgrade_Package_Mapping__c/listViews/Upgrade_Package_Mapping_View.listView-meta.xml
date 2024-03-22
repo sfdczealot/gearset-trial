@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Upgrade_Package_Mapping_View</fullName>
+    <columns>NAME</columns>
+    <columns>Country__c</columns>
+    <columns>Origin_Rule_Code__c</columns>
+    <columns>Destination_Rule_Code__c</columns>
+    <columns>Rack_Price__c</columns>
+    <columns>Unit_Price__c</columns>
+    <columns>SKU_Code__c</columns>
+    <columns>Quantity__c</columns>
+    <columns>OBJECT_ID</columns>
+    <columns>SETUP_TYPE</columns>
+    <columns>SETUP_OWNER_NAME</columns>
+    <columns>CREATED_DATE</columns>
+    <columns>UPDATEDBY_USER.ALIAS</columns>
+    <columns>UPDATEDBY_USER</columns>
+    <columns>LAST_UPDATE</columns>
+    <filterScope>Everything</filterScope>
+    <label>Upgrade Package Mapping View</label>
+</ListView>

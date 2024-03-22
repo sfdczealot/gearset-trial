@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Additional_comment__c</fullName>
+    <externalId>false</externalId>
+    <formula>&quot;Proposal ID: &quot; + Staged_Sales_Order__r.Migrated_Proposal_Id__c + &quot; - Proposal Line ID: &quot; +  Migrated_Proposal_Line_Id__c</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Additional comment</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

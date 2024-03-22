@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Agency_Client_del__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <externalId>false</externalId>
+    <inlineHelpText>Please add the advertiser account here. Use the &quot;Bill Advertiser&quot;-button to bill to this account.</inlineHelpText>
+    <label>Advertiser Name</label>
+    <lookupFilter>
+        <active>false</active>
+        <booleanFilter>1 OR 2</booleanFilter>
+        <errorMessage>Only accounts having &quot;Type = Advertiser&quot; can be added here. If you dont find your account please make sure that it exist and that the Type is set to Advertiser.</errorMessage>
+        <filterItems>
+            <field>Account.Type</field>
+            <operation>equals</operation>
+            <value>Advertiser</value>
+        </filterItems>
+        <filterItems>
+            <field>$Source.In_House_Sales__c</field>
+            <operation>equals</operation>
+            <value>In House Sales</value>
+        </filterItems>
+        <isOptional>false</isOptional>
+    </lookupFilter>
+    <referenceTo>Account</referenceTo>
+    <relationshipLabel>Opportunities (Advertiser)</relationshipLabel>
+    <relationshipName>Opportunities</relationshipName>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

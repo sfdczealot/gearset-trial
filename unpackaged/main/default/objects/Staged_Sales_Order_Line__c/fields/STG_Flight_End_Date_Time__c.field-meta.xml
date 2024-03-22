@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>STG_Flight_End_Date_Time__c</fullName>
+    <externalId>false</externalId>
+    <formula>DATETIMEVALUE( 
+TEXT(YEAR( Flight_End__c)) + &#39;-&#39; + TEXT(MONTH(Flight_End__c)) + &#39;-&#39; + TEXT(DAY(Flight_End__c)) + &#39; &#39; + Flight_End_Time__c + &#39;:00&#39;)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>STG Flight End Date Time</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>DateTime</type>
+</CustomField>

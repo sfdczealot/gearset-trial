@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>change_owner_restriction</fullName>
+    <active>false</active>
+    <description>Sales Rep should not be able to change owner</description>
+    <errorConditionFormula>AND(OR($Profile.Name =&#39;B2C Sales User&#39;,
+							$Profile.Name =&#39;MY B2C Sales User&#39;,
+							$Profile.Name =&#39;TH B2C Sales User&#39;),
+				NOT(CONTAINS($Label.PG_LABEL_AllowOpptyOwnerChange, $User.Alias)) ,
+				ISCHANGED(OwnerId))</errorConditionFormula>
+    <errorMessage>You don&#39;t have Access to update these fields.</errorMessage>
+</ValidationRule>

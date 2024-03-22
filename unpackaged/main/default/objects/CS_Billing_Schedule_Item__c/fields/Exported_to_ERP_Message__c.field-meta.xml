@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Exported_to_ERP_Message__c</fullName>
+    <description>Exported to ERP Message</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Exported to ERP Message</inlineHelpText>
+    <label>Exported to ERP Message</label>
+    <length>255</length>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

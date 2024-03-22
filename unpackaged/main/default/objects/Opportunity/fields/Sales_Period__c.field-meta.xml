@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Sales_Period__c</fullName>
+    <deleteConstraint>Restrict</deleteConstraint>
+    <externalId>false</externalId>
+    <label>Sales Period</label>
+    <lookupFilter>
+        <active>false</active>
+        <filterItems>
+            <field>Sales_Period__c.Period_Start__c</field>
+            <operation>lessOrEqual</operation>
+            <valueField>$Source.OMC_Submitted_Time__c</valueField>
+        </filterItems>
+        <filterItems>
+            <field>Sales_Period__c.Period_End__c</field>
+            <operation>greaterOrEqual</operation>
+            <valueField>$Source.OMC_Submitted_Time__c</valueField>
+        </filterItems>
+        <isOptional>true</isOptional>
+    </lookupFilter>
+    <referenceTo>Sales_Period__c</referenceTo>
+    <relationshipLabel>Opportunities</relationshipLabel>
+    <relationshipName>Opportunities</relationshipName>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

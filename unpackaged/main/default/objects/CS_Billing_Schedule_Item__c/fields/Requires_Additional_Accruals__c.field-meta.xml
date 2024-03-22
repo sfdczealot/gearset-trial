@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Requires_Additional_Accruals__c</fullName>
+    <description>Check if Billing extends into calendar month after Billing Period End... if so, then additional accrual processing is required</description>
+    <externalId>false</externalId>
+    <formula>/*
+
+Craig Steen 12/06/19
+
+Flag if the Billing Sechedules run into an extra month than the Revenue Schedules. 
+Not this will only happen for SOME Broadcast Calendar Lines AND only on the last line of the Schedule.
+Revenue Recognition is always based on Calendar month, so we know if the Bill Date of the last BSI is in a different Month/Year to the Period End Date, then there will be no matching Rev schedule Item, and it must be accrued using a manual process or by some custom functionality within Squid.
+
+NOTE- This is not a flaw in the CS implementation, we are simply helping the Integration teams and users identify and report on these issues (although they are edge cases).
+
+*/
+
+AND( 
+TEXT(Billing_Calendar__c) = &#39;Broadcast&#39;,  
+Is_Last_Line_in_Schedule__c ,
+IF(VALUE(TEXT(YEAR( Billing_Date__c )) + RIGHT(&#39;0&#39;+TEXT(MONTH(Billing_Date__c)),2))  &gt;   VALUE(TEXT(YEAR( Billing_Period_End_Date__c )) + RIGHT(&#39;0&#39; +TEXT(MONTH(Billing_Period_End_Date__c)),2)),true,false)
+)</formula>
+    <inlineHelpText>Check if Billing extends into calendar month after Billing / Revenue Period End... if so, then additional accrual processing is required</inlineHelpText>
+    <label>Requires Additional Accruals</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

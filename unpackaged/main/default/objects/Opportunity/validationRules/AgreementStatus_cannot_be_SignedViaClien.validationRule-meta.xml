@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>AgreementStatus_cannot_be_SignedViaClien</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(ISCHANGED(Agreement_Status__c), 
+		
+				$Profile.Name !=&#39;clickapprove Profile&#39;,
+				 		$Profile.Name !=&#39;System Administrator&#39;,
+		
+		
+			TEXT(Agreement_Status__c)=&#39;Signed via Client IO Link&#39;)</errorConditionFormula>
+    <errorMessage>you are not allowed to select &#39;Signed via Client IO Link&#39;</errorMessage>
+</ValidationRule>

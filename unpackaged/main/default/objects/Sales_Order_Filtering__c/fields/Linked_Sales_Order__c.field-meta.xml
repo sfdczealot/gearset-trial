@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Linked_Sales_Order__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>Sales Order</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Sales Order</inlineHelpText>
+    <label>Linked Sales Order</label>
+    <referenceTo>csmso__Sales_Order__c</referenceTo>
+    <relationshipLabel>Sales Order Filterings</relationshipLabel>
+    <relationshipName>Sales_Order_Filterings</relationshipName>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

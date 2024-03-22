@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>My_Open_Renewal_Oppty_EB</fullName>
+    <booleanFilter>1 AND 2 AND 3</booleanFilter>
+    <columns>OPPORTUNITY.NAME</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>OPPORTUNITY.LAST_ACTIVITY</columns>
+    <columns>Account_Phone__c</columns>
+    <columns>Account_Rule_Code__c</columns>
+    <columns>Subscription_End_Date__c</columns>
+    <columns>OPPORTUNITY.STAGE_NAME</columns>
+    <columns>Total_Amount__c</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <columns>OPPORTUNITY.CLOSE_DATE</columns>
+    <columns>Agency_Name__c</columns>
+    <columns>Opportunity_Type__c</columns>
+    <columns>netsuite_conn__Order_Type__c</columns>
+    <columns>Renewal_State__c</columns>
+    <filterScope>Mine</filterScope>
+    <filters>
+        <field>Opportunity_Type__c</field>
+        <operation>equals</operation>
+        <value>B2C - Renewal</value>
+    </filters>
+    <filters>
+        <field>Renewal_State__c</field>
+        <operation>equals</operation>
+        <value>Early Bird</value>
+    </filters>
+    <filters>
+        <field>OPPORTUNITY.STAGE_NAME</field>
+        <operation>notEqual</operation>
+        <value>Closed Won,Closed Lost,Converted</value>
+    </filters>
+    <label>My Open Renewal Oppty (EB)</label>
+</ListView>

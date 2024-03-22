@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Agent_Billing_Address_is_Required</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND( ISPICKVAL(Opportunity.Account.Country__c, &#39;Singapore&#39;), 
+Opportunity.RecordType.DeveloperName =&#39;B2C&#39;, 
+Opportunity.Account.RecordType.DeveloperName =&#39;Agent&#39;,
+OR(Opportunity.Account.BillingStreet = &#39;&#39;,Opportunity.Account.BillingPostalCode = &#39;&#39;, Opportunity.Account.BillingCity = &#39;&#39;, Opportunity.Account.BillingCountry= &#39;&#39;))</errorConditionFormula>
+    <errorMessage>Agent Billing Address is required! Please update Billing Address on your Agent record.</errorMessage>
+</ValidationRule>

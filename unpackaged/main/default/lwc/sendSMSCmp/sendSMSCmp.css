@@ -1,0 +1,17 @@
+.align-right{
+    text-align: right;
+}
+.max-height-css{
+    max-height:100% !important;
+}
+.scroll-y-css{
+    overflow-y: auto !important;
+}
+.red-error-color{
+    color:red;
+}
+.button-align-css {
+    margin-bottom:4px !important;
+    margin-right:5px !important;
+    margin-top:6px !important;
+}

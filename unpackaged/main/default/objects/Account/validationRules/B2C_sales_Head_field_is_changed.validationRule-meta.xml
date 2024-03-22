@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>B2C_sales_Head_field_is_changed</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND( IsPersonAccount,OR( $Profile.Name = &#39;B2C Sales Head&#39;, $Profile.Name = &#39;MY B2C Sales Head&#39;),OR( ISCHANGED( PersonBirthdate ),ISCHANGED(Fax ) ) )</errorConditionFormula>
+    <errorMessage>You do not have Access to update these fields.</errorMessage>
+</ValidationRule>

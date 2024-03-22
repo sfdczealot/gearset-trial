@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Events_Tier_1_Max_Discount__c</fullName>
+    <description>This is for Events products.</description>
+    <externalId>false</externalId>
+    <label>Events Tier 1 Max Discount</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackTrending>false</trackTrending>
+    <type>Percent</type>
+</CustomField>

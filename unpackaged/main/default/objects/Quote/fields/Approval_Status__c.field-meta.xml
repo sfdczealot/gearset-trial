@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Approval_Status__c</fullName>
+    <externalId>false</externalId>
+    <label>Approval Status</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Discount Approval Submitted</fullName>
+                <default>false</default>
+                <label>Discount Approval Submitted</label>
+            </value>
+            <value>
+                <fullName>Discount Approval Approved</fullName>
+                <default>false</default>
+                <label>Discount Approval Approved</label>
+            </value>
+            <value>
+                <fullName>Discount Approval Rejected</fullName>
+                <default>false</default>
+                <label>Discount Approval Rejected</label>
+            </value>
+            <value>
+                <fullName>Re-submit Discount Approval</fullName>
+                <default>false</default>
+                <label>Re-submit Discount Approval</label>
+            </value>
+            <value>
+                <fullName>Awaits OMC Approval</fullName>
+                <default>false</default>
+                <label>Awaits OMC Approval</label>
+            </value>
+            <value>
+                <fullName>OMC Approval Submitted</fullName>
+                <default>false</default>
+                <label>OMC Approval Submitted</label>
+            </value>
+            <value>
+                <fullName>OMC Approval Approved</fullName>
+                <default>false</default>
+                <label>OMC Approval Approved</label>
+            </value>
+            <value>
+                <fullName>OMC Approval Recalled</fullName>
+                <default>false</default>
+                <label>OMC Approval Recalled</label>
+            </value>
+            <value>
+                <fullName>OMC Approval Rejected</fullName>
+                <default>false</default>
+                <label>OMC Approval Rejected</label>
+            </value>
+            <value>
+                <fullName>Not Required</fullName>
+                <default>false</default>
+                <label>Not Required</label>
+            </value>
+            <value>
+                <fullName>NS Order Generated</fullName>
+                <default>false</default>
+                <label>NS Order Generated</label>
+            </value>
+            <value>
+                <fullName>Discount Approval Recalled</fullName>
+                <default>false</default>
+                <label>Discount Approval Recalled</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

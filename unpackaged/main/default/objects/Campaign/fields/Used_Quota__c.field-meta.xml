@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Used_Quota__c</fullName>
+    <description>Denotes count of campaign members who are in valid statuses, usually in B2C context</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Denotes count of campaign members who are in valid statuses, usually in B2C context</inlineHelpText>
+    <label>Used Quota</label>
+    <summaryFilterItems>
+        <field>CampaignMember.Status</field>
+        <operation>equals</operation>
+        <value>Approved, Re-eligible, Responded, Utilised</value>
+    </summaryFilterItems>
+    <summaryForeignKey>CampaignMember.CampaignId</summaryForeignKey>
+    <summaryOperation>count</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <type>Summary</type>
+</CustomField>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>All_Expired_Malaysia_agents</fullName>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>PC_EMAIL</columns>
+    <columns>Status__c</columns>
+    <columns>Account_Rule_Code__c</columns>
+    <columns>Subscription_End_Date__c</columns>
+    <columns>Agency_Name__c</columns>
+    <columns>PC_PHONE3</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>ACCOUNT.RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>PersonAccount.Agent</value>
+    </filters>
+    <filters>
+        <field>Status__c</field>
+        <operation>equals</operation>
+        <value>Expired</value>
+    </filters>
+    <label>All Expired Malaysia agents</label>
+</ListView>

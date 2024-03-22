@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>STG_Migrated_Order_Line_Id_Ok__c</fullName>
+    <description>Checks Migrated Order Line populated for DFP order lines</description>
+    <externalId>false</externalId>
+    <formula>IF( ISPICKVAL(Served_By__c,&#39;DFP&#39;), !ISNULL(Migrated_Order_Line_Id__c) , True)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>Checks Migrated Order Line populated for DFP order lines</inlineHelpText>
+    <label>STG Migrated Order Line Id Ok</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

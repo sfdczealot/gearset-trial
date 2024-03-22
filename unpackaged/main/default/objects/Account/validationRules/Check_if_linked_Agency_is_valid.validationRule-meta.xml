@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Check_if_linked_Agency_is_valid</fullName>
+    <active>true</active>
+    <description>If linked agency has expiry date/time field populated and agent is not created from adminNet then throw an error.</description>
+    <errorConditionFormula>AND(
+IsPersonAccount,
+RecordType.Name = &#39;Agent&#39;,
+NOT(ISNULL(Agency__c)),
+NOT(ISNULL(Agency__r.Expiry_Date_Time__c)),
+!Created_From_AdminNet__c,
+ISNEW()
+)</errorConditionFormula>
+    <errorDisplayField>Agency__c</errorDisplayField>
+    <errorMessage>Please select a valid Agency</errorMessage>
+</ValidationRule>

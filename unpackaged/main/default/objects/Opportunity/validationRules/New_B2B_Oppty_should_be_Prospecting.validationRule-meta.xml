@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>New_B2B_Oppty_should_be_Prospecting</fullName>
+    <active>true</active>
+    <description>On creation stage of B2B opportunities should be Prospecting</description>
+    <errorConditionFormula>ISNEW() &amp;&amp; RecordType.Name =&#39;B2B&#39;  &amp;&amp;  NOT(ISPICKVAL(StageName, &#39;Prospecting&#39;))</errorConditionFormula>
+    <errorMessage>Stage should be &#39;Prospecting&#39;</errorMessage>
+</ValidationRule>

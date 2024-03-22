@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Delivery_Quantity__c</fullName>
+    <description>Calculated as follows: 
+- If Overwrite Quantity &gt; 0 then Overwrite Quantity 
+- Otherwise it is based on the Billing Source: 
+* Contracted then Forecast Quantity 
+* DFP Actuals then DFP Actuals 
+* 3rd Party Actuals then 3rd Party Actuals
+- WORKFLOW</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Calculated as follows: 
+- If Overwrite Quantity &gt; 0 then Overwrite Quantity 
+- Otherwise it is based on the Billing Source: 
+* Contracted then Forecast Quantity 
+* DFP Actuals then DFP Actuals 
+* 3rd Party Actuals then 3rd Party Actuals</inlineHelpText>
+    <label>Delivery Quantity</label>
+    <precision>14</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>B2B_stage_from_negotiation_to_pending</fullName>
+    <active>false</active>
+    <errorConditionFormula>OR(AND( NOT(ISPICKVAL(Order_Type_Clone__c,&#39;Contract - Make Good&#39;)),OR(MAX(IF(ISNULL(PG_Product_Max_Discount__c), 0, PG_Product_Max_Discount__c), IF(ISNULL(Fintech_Product_Max_Discount__c), 0, Fintech_Product_Max_Discount__c), IF(ISNULL(EPT_Product_Max_Discount__c), 0, EPT_Product_Max_Discount__c), IF(ISNULL(Events_Product_Max_Discount__c), 0, Events_Product_Max_Discount__c)  ) &gt; 0.20, PGI_Product_Max_Discount__c &gt;0),ISCHANGED(StageName), ISPICKVAL(StageName,&quot;Pending Client Signatory&quot;),RecordType.Name =&#39;B2B&#39;,NOT(ISPICKVAL( Approval_Status__c ,&quot;Director Approved&quot;)),NOT(ISPICKVAL( Approval_Status__c ,&quot;Country Manager Approved&quot;)),NOT(ISPICKVAL( Approval_Status__c ,&quot;CBO Approved&quot;))),AND(RecordType.Name =&#39;B2B&#39;,ISPICKVAL(Order_Type_Clone__c  ,&#39;Contract - Make Good&#39;),NOT(ISPICKVAL( Approval_Status__c ,&quot;Discount Approval Approved&quot;)),ISPICKVAL(StageName,&quot;Pending Client Signatory&quot;)))</errorConditionFormula>
+    <errorMessage>Please get the approval first to change the stage to Pending Client Signatory.</errorMessage>
+</ValidationRule>

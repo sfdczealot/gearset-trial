@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Billing_Date__c</fullName>
+    <description>Billing Date based on the Billing Rule + Billing Calendar.
+-Monthly Standard  : Last day of each Standard Calendar Month from SO line item  Start to End of Campaign.
+-Monthly Broadcast: Last day of each Broadcast Calendar Month from SO line item  Start to End of Campaign</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Billing Date based on the Billing Rule + Billing Calendar</inlineHelpText>
+    <label>Billing Date</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Date</type>
+</CustomField>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>RestrictB2BOpportunityCreationForB2Bacc</fullName>
+    <active>true</active>
+    <description>Stop B2B opportunity to be able to be created via Person Account - PGAUTO-4274</description>
+    <errorConditionFormula>AND(
+    Account.RecordType.DeveloperName &lt;&gt; &quot;B2B_Account&quot;, 
+    RecordType.DeveloperName =&quot;B2B&quot;
+)</errorConditionFormula>
+    <errorMessage>B2B Opportunity can only be created under B2B Account Record Type</errorMessage>
+</ValidationRule>

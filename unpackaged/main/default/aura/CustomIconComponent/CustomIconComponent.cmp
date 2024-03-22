@@ -1,0 +1,34 @@
+<aura:component implements="flexipage:availableForAllPageTypes,force:hasRecordId" access="global" 
+                controller="CustomIconController">
+    
+    <aura:attribute name="rewardTier" type="String" default=""/>
+    <aura:attribute name="country" type="String" default=""/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    
+    <div class = "{!and(v.country == 'Singapore'? 'slds-show': 'slds-hide')}">
+        
+        <aura:if isTrue="{! !empty(v.rewardTier)}">
+            
+            <aura:if isTrue="{!v.rewardTier == 'Gold'}">
+                <img src="{!$Resource.GoldImg}"/>
+            </aura:if>
+            <aura:if isTrue="{!v.rewardTier == 'Elite'}">
+                <img src="{!$Resource.EliteImg}"/>
+            </aura:if>
+            <aura:if isTrue="{!v.rewardTier == 'Silver'}">
+                <img src="{!$Resource.SilverImg}"/>
+            </aura:if>
+            <aura:if isTrue="{!v.rewardTier == 'Platinum'}">
+                <img src="{!$Resource.PlatinumImg}"/>
+            </aura:if>
+            <aura:if isTrue="{!v.rewardTier == 'Solitaire'}">
+                <img src="{!$Resource.SolitaireImg}"/>
+            </aura:if>
+            <aura:if isTrue="{!v.rewardTier == 'Titanium'}">
+                <img src="{!$Resource.TitaniumImg}"/>
+            </aura:if>
+            
+        </aura:if>
+        
+    </div>
+</aura:component>

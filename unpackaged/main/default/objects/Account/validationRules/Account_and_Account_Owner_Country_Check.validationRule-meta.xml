@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Account_and_Account_Owner_Country_Check</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+OR(
+RecordType.DeveloperName = &#39;Agency&#39;,
+RecordType.DeveloperName = &#39;Agent&#39;
+),
+!ISBLANK(Owner.Country),
+TEXT(Country__c) &lt;&gt;  Owner.Country,
+ISNEW()
+)</errorConditionFormula>
+    <errorMessage>Agents country does not match with Acount Owner&#39;s Country</errorMessage>
+</ValidationRule>

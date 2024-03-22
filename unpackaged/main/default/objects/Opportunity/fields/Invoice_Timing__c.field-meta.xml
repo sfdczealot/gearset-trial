@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Invoice_Timing__c</fullName>
+    <description>Maps to SF_Invoice_Frequency in DSM</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Defines when the deal should be invoiced.  The DSM Billing Source options will be limited by the Invoice Frequency.  Prepayment must have a Billing Source of Contracted.</inlineHelpText>
+    <label>Invoice Timing</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Monthly</fullName>
+                <default>false</default>
+                <label>Monthly</label>
+            </value>
+            <value>
+                <fullName>End of Campaign</fullName>
+                <default>false</default>
+                <label>End of Campaign</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

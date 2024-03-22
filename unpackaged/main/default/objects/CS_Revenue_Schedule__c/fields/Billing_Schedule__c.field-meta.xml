@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Billing_Schedule__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>The sibling Billing Schedule header for the same SOLI</description>
+    <externalId>false</externalId>
+    <inlineHelpText>The sibling Billing Schedule header for the same SOLI</inlineHelpText>
+    <label>Billing Schedule</label>
+    <referenceTo>CS_Billing_Schedule__c</referenceTo>
+    <relationshipLabel>Revenue Schedule</relationshipLabel>
+    <relationshipName>Revenue_Schedule</relationshipName>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

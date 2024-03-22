@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Floor_Price_Type__c</fullName>
+    <description>Used to identify approvers for ad/ prime credit discount approval</description>
+    <externalId>false</externalId>
+    <label>Floor Price Type</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Above Floor Price</fullName>
+                <default>false</default>
+                <label>Above Floor Price</label>
+            </value>
+            <value>
+                <fullName>Below Floor Price</fullName>
+                <default>false</default>
+                <label>Below Floor Price</label>
+            </value>
+            <value>
+                <fullName>Below List Price</fullName>
+                <default>false</default>
+                <label>Below List Price</label>
+            </value>
+            <value>
+                <fullName>Below List Price with Discount</fullName>
+                <default>false</default>
+                <label>Below List Price with Discount</label>
+            </value>
+            <value>
+                <fullName>Between Floor Price</fullName>
+                <default>false</default>
+                <label>Between Floor Price</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

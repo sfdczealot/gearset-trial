@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Premium_Group__c</fullName>
+    <deleteConstraint>Restrict</deleteConstraint>
+    <description>Link to the Premium Group record</description>
+    <externalId>false</externalId>
+    <label>Premium Group</label>
+    <referenceTo>Premium_Group__c</referenceTo>
+    <relationshipLabel>Premium Group Charges</relationshipLabel>
+    <relationshipName>Premium_Group_Charges</relationshipName>
+    <required>true</required>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Homepage_Product_Max_Discount__c</fullName>
+    <externalId>false</externalId>
+    <label>Homepage Product Max Discount</label>
+    <summarizedField>OpportunityLineItem.Discounted__c</summarizedField>
+    <summaryFilterItems>
+        <field>OpportunityLineItem.Product_Type__c</field>
+        <operation>equals</operation>
+        <value>Homepage</value>
+    </summaryFilterItems>
+    <summaryForeignKey>OpportunityLineItem.OpportunityId</summaryForeignKey>
+    <summaryOperation>max</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>

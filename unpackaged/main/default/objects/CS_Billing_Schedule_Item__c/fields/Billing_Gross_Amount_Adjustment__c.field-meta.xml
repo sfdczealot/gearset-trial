@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Billing_Gross_Amount_Adjustment__c</fullName>
+    <description>If Is Last Line in Schedule then Total_billing_Amount_Remainder from header (Gross)</description>
+    <externalId>false</externalId>
+    <formula>IF( Is_Last_Line_in_Schedule__c =TRUE &amp;&amp; NOT(OR(CONTAINS(TEXT(Status__c), &quot;Closed&quot;), CONTAINS(TEXT(Status__c), &quot;Pending Closure&quot;))), IF(Insertion_Unit_Type__c = &#39;CPM&#39; || Insertion_Unit_Type__c = &#39;CPCV&#39; || Insertion_Unit_Type__c = &#39;CPCL&#39;, (Billing_Schedule__r.Total_Billed_Quantity_To_Date__c/1000) * Gross_Rate__c - 
+( Billing_Schedule__r.Total_Billed_Amount_To_Date__c ), Billing_Schedule__r.Total_Billed_Quantity_To_Date__c * Gross_Rate__c - 
+( Billing_Schedule__r.Total_Billed_Amount_To_Date__c )) 
+,0)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>If Is Last Line in Schedule then Total_billing_Amount_Remainder from header (Gross)</inlineHelpText>
+    <label>Billing Gross Amount Adjustment</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Currency</type>
+</CustomField>

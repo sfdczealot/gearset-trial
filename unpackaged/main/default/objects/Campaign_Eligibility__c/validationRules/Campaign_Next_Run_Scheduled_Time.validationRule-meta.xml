@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Campaign_Next_Run_Scheduled_Time</fullName>
+    <active>true</active>
+    <description>Campaign Next Run scheduled time should be between 6AM to 9PM</description>
+    <errorConditionFormula>AND(
+(TIMEVALUE(Next_run_scheduled__c) &lt; TIMEVALUE(&quot;22:00:00.000&quot;)) ,
+(TIMEVALUE(Next_run_scheduled__c) &gt; TIMEVALUE(&quot;13:00:00.000&quot;))
+)</errorConditionFormula>
+    <errorDisplayField>Next_run_scheduled__c</errorDisplayField>
+    <errorMessage>Please select the time from valid range i.e 6 AM to 9 PM</errorMessage>
+</ValidationRule>

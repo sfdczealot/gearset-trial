@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Sales_Discount_Empowerment__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>for a Product w Rack Price 2000, Empowerment levels could be 1800, 1500, 1000, 500 - Tier 1,2,3,4</inlineHelpText>
+    <label>Sales Discount Empowerment</label>
+    <length>100</length>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,3 @@
+<design:component>
+     <design:attribute name="isPrimeCreditTab" label="Prime Credit Tab" />
+</design:component>

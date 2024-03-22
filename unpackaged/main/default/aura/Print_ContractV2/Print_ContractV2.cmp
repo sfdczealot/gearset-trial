@@ -1,0 +1,74 @@
+<aura:component implements="force:lightningQuickActionWithoutHeader,force:hasRecordId"
+                Controller ="Print_ContractV2_cc">
+    
+    <aura:html tag="style">
+        .cuf-content {
+        padding: 0 0rem !important;
+        }
+        .slds-p-around--medium {
+        padding: 0rem !important;
+        }       
+        .slds-modal__content{
+        overflow-y:hidden !important;
+        height:unset !important;
+        max-height:unset !important;
+        }
+    </aura:html>
+    <aura:handler name = "init" value = "{!this}" action = "{!c.init}" />
+          <aura:attribute name="contractID" type="String"/>
+    <aura:attribute name="checkPass" type="Boolean"/>
+    <aura:attribute name="errorMessage" type="String"/>
+    <aura:attribute name="SoType" type="String"/>
+    <aura:attribute name="headerText" type="String"/>
+    <aura:attribute name="isFinal" type="Boolean"/>    
+    <aura:attribute name="SoFinalOption" type="List" default="[
+                                                              {'value': 'SimpleFinal', 'label': 'Simple Final S/O'},
+                                                              {'value': 'DetailedFinal', 'label': 'Detailed Final S/O'}
+                                                              ]"/>
+    <aura:attribute name="SoDraftOption" type="List" default="[
+                                                              {'value': 'SimpleDraft', 'label': 'Simple Draft S/O'},
+                                                              {'value': 'DetailedDraft', 'label': 'Detailed Draft S/O'},
+                                                              ]"/>
+    
+    
+    <div aura:id='modalHeader' class="modal-header slds-modal__header slds-size_1-of-1">
+        <h4 class="title slds-text-heading--medium" >{!v.headerText}</h4>
+    </div>
+    <aura:if isTrue="{!v.checkPass}">
+        
+        
+        <!-- MODAL BODY / INPUT FORM -->    
+        <div class="slds-modal__content slds-p-around--x-small slds-align_absolute-center slds-size_1-of-1 slds-is-relative">
+          
+            <form class="slds-form--stacked">
+                 <aura:if isTrue="{!v.isFinal}">
+                <lightning:radioGroup name="radioGroup"
+                                      label=""
+                                      options="{! v.SoFinalOption }"
+                                      value="{! v.SoType }"
+                                      type="radio" onchange="{!c.myAction}"/>
+                 <aura:set attribute="else">
+                             <lightning:radioGroup name="radioGroup"
+                                      label=""
+                                      options="{! v.SoDraftOption }"
+                                      value="{! v.SoType }"
+                                      type="radio" onchange="{!c.myAction}"/>
+               </aura:set>
+            </aura:if>
+            </form> 
+               
+        </div>   <!-- End of Modal Content -->  
+        <aura:set attribute="else">
+            <div aura:id="errorMessagePanel" class="slds-m-around_large">
+                
+                <aura:unescapedHtml value="{!v.errorMessage}" />
+            </div>
+            
+        </aura:set>
+    </aura:if>
+    <!-- MODAL FOOTER -->
+    <div class="modal-footer slds-modal__footer slds-size_1-of-1">
+        <lightning:button variant="Neutral" class="slds-button" label="Cancel" onclick="{!c.handleClose}"/>
+    </div>
+    
+</aura:component>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Promo_Mechanic__c</fullName>
+    <description>Denotes the related promo mechanic of this entitlement Promotion</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Denotes the related promo mechanic of this entitlement Promotion</inlineHelpText>
+    <label>Promo Mechanic</label>
+    <referenceTo>Promo_Mechanic__c</referenceTo>
+    <relationshipName>Entitlement_Product</relationshipName>
+    <relationshipOrder>0</relationshipOrder>
+    <reparentableMasterDetail>false</reparentableMasterDetail>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>MasterDetail</type>
+    <writeRequiresMasterRead>false</writeRequiresMasterRead>
+</CustomField>

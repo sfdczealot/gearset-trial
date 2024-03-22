@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Disable_Validation__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>This field is to override the validation rule which is in place  tp prevent the changes to billing and revenue recognition records once after set to  Closed status.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>This field is to override the validation rule which is in place  tp prevent the changes to billing and revenue recognition records once after set to  Closed status.</inlineHelpText>
+    <label>Disable Validation</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

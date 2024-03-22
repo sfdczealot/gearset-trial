@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Malaysian_Post_Code_Length_Must_Be_5</fullName>
+    <active>true</active>
+    <description>To validate Postal Code of Malaysian Account to only accept 5 character length</description>
+    <errorConditionFormula>AND(  RecordType.Name = &#39;Agent&#39;, !ISBLANK(BillingPostalCode ),  BillingPostalCode!= &#39;-&#39;, TEXT(Country__c) = $CustomMetadata.Country_Attribute__mdt.Malaysia.MasterLabel, LEN(  BillingPostalCode ) != 5 )</errorConditionFormula>
+    <errorDisplayField>BillingPostalCode</errorDisplayField>
+    <errorMessage>Malaysian Post Code may only be 5 characters length</errorMessage>
+</ValidationRule>

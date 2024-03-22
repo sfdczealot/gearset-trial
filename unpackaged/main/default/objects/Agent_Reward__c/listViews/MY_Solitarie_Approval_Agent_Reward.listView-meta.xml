@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MY_Solitarie_Approval_Agent_Reward</fullName>
+    <filterScope>Queue</filterScope>
+    <label>MY Solitarie Approval</label>
+    <queue>MY_Solitarie_Approval</queue>
+    <sharedTo>
+        <allInternalUsers></allInternalUsers>
+    </sharedTo>
+</ListView>

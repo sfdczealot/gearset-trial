@@ -1,0 +1,153 @@
+<aura:component implements="flexipage:availableForRecordHome,force:hasRecordId"
+                controller="QuoteApprovalHistoryController" access="global" >
+     <aura:attribute name="SobjectType" type="String"/>
+     <aura:attribute name="recordId" type="string" /> 
+    <aura:attribute name="processInstanceStepList" type="List" default="[]"/>
+    <aura:attribute name = "quoteId" type = "String" />
+    <aura:attribute name = "isModal" type = "boolean" default="false" />
+    <aura:attribute name = "comment" type = "string"/>
+    <aura:attribute name = "isModalApproved" type = "boolean" default = "false"/>
+    <aura:attribute name = "isModalReject" type = "boolean" default = "false"/>
+    <aura:attribute name = "approverName" type="String" />
+    <aura:attribute name = "profileName" type="String" />
+    <aura:attribute name = "delegatedApproverId" type="String" />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <div>
+        <aura:if isTrue = "{!v.processInstanceStepList.length>0}">
+            <lightning:card title="Approval History" iconName="action:submit_for_approval" class="custom-card-header">
+                <aura:set attribute="actions">
+                    <lightning:buttonGroup>
+                          <aura:if isTrue="{!v.SobjectType == 'Quote'}">
+                        <aura:if isTrue="{!(v.profileName == 'System Administrator' || v.profileName == 'Delegated System Administrator' || v.profileName == 'API User Profile' || not(empty(v.approverName)) || not(empty(v.v.delegatedApproverId)))}">
+                            <lightning:button label="Approve" title="Approve" variant="neutral" onclick="{!c.openModal}"/>
+                            <lightning:button label="Reject" title="Reject" variant="neutral" onclick="{!c.openModal}"/>
+                        </aura:if>
+                        <aura:if isTrue="{!v.profileName != 'OMC User'}">
+                            <lightning:button label="Recall" title="Recall" variant="neutral" onclick="{!c.openModal}"/>
+                        </aura:if>
+                                </aura:if>
+                    </lightning:buttonGroup>
+                </aura:set>
+                <div class="slds-table_edit_container slds-is-relative slds-scrollable">
+                    <table aria-multiselectable="true" class="slds-table slds-no-cell-focus slds-table_bordered slds-table_edit slds-table_fixed-layout slds-table_resizable-cols" role="grid">
+                        <thead>
+                            <tr class="slds-line-height_reset">
+                                <th class="custom-status-col" scope="col">
+                                    <div class="slds-truncate" title="Step Name">Step Name</div>
+                                </th>
+                                <th class="custom-date-col" scope="col">
+                                    <div class="slds-truncate" title="Date">Date</div>
+                                </th>
+                                <th class="custom-status-col" scope="col">
+                                    <div class="slds-truncate" title="Status">Status</div>
+                                </th>
+                                <th class="custom-assigned-col" scope="col">
+                                    <div class="slds-truncate" title="Assigned TO">Assigned To</div>
+                                </th>
+                                <th class="custom-aprover-col" scope="col">
+                                    <div class="slds-truncate" title="Actual Approver">Actual Approver</div>
+                                </th>
+                                <th class="custom-status-col" scope="col">
+                                    <div class="slds-truncate" title="Comments">Comments</div>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <aura:iteration items="{!v.processInstanceStepList}" var="pr">
+                                <tr class="slds-hint-parent">
+                                    <th data-label="Opportunity Name" scope="row">
+                                        <div class="slds-truncate" title="{!pr.stepName}">
+                                            <a href="javascript:void(0);" tabindex="-1">{!pr.stepName}</a>
+                                        </div>
+                                    </th>
+                                    <td data-label="Account Name">
+                                        <div class="slds-truncate" title="{!pr.createdDate}">
+                                                                                         <aura:if isTrue="{!v.SobjectType == 'csmso__Sales_Order__c'}">
+                                                <lightning:formattedDateTime value="{!pr.createdDate}" year="numeric" month="numeric" day="numeric" hour="2-digit"
+                                                minute="2-digit" timeZoneName="short" hour12="true"/>
+                                        <!--  <lightning:formattedDateTime value="{!pr.createdDate}" year="numeric" month="numeric" day="numeric" hour="2-digit" minute="2-digit"  hour12="false"/>-->
+                                            </aura:if>
+                                            <lightning:formattedDateTime value="{!pr.createdDate}" year="numeric" month="numeric" day="numeric" hour="2-digit" minute="2-digit" timeZone="UTC" timeZoneName="short" hour12="false"/>
+                                        </div>
+                                    </td>
+                                    <td data-label="Close Date">
+                                        <div class="slds-truncate" title="{!pr.stepStatus}">{!pr.stepStatus}</div>
+                                    </td>
+                                    <td data-label="Prospecting">
+                                        <div class="slds-truncate" title="{!pr.originalActor}">{!pr.originalActor}</div>
+                                    </td>
+                                    <td data-label="Confidence">
+                                        <div class="slds-truncate" title="{!pr.actor}">{!pr.actor}</div>
+                                    </td>
+                                    <td data-label="Amount">
+                                        <div class="slds-truncate slds-cell-wrap" title="{!pr.comments}">{!pr.comments}</div>
+                                    </td>
+                                </tr>
+                            </aura:iteration>
+                        </tbody>
+                    </table>      
+                </div>
+            </lightning:card> 
+        </aura:if>   
+        <aura:if isTrue="{!v.isModal}">
+            <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+                <div class="slds-modal__container">
+                    <header class="slds-modal__header">
+                        <lightning:buttonIcon iconName="utility:close" name="recallApprovel" variant="container" class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" alternativeText="Close" title="Close" onclick="{!c.closeModal}"/>
+                        <h2 id="modal-heading-01" class="slds-modal__title slds-hyphenate">Recall Approval Request</h2>
+                    </header>
+                    <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                        <div class = "submit-approval"  >
+                            <lightning:textarea  value = "{!v.comment}" label="Comments"  name = "comment"  maxlength = "4000" />
+                        </div>
+                    </div>
+                    <footer class="slds-modal__footer">
+                        <lightning:button label="Cancel" name="recallApprovel" variant="neutral" onclick="{!c.closeModal}"/>
+                        <lightning:button label="Recall" variant="brand" onclick="{!c.approvalProcessRecall}"/>
+                    </footer>
+                </div>
+            </section>
+            <div class="slds-backdrop slds-backdrop_open"></div>
+        </aura:if>
+        <aura:if isTrue="{!v.isModalApproved}">
+            <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+                <div class="slds-modal__container">
+                    <header class="slds-modal__header">
+                        <lightning:buttonIcon iconName="utility:close" name="ApproveApprovel" variant="container" class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" alternativeText="Close" title="Close" onclick="{!c.closeModal}"/>
+                        <h2 id="modal-heading-01" class="slds-modal__title slds-hyphenate">Approve Quote</h2>
+                    </header>
+                    <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                        <div class = "submit-approval"  >
+                            <lightning:textarea  value = "{!v.comment}" label="Comments"  name = "comment"  maxlength = "4000" />
+                        </div>
+                    </div>
+                    <footer class="slds-modal__footer">
+                        <lightning:button label="Cancel" name="ApproveApprovel" variant="neutral" onclick="{!c.closeModal}"/>
+                        <lightning:button label="Approve" variant="brand" onclick="{!c.approvalProcessApproved}"/>
+                    </footer>
+                </div>
+            </section>
+            <div class="slds-backdrop slds-backdrop_open"></div>
+        </aura:if>
+        <aura:if isTrue="{!v.isModalReject}">
+            <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+                <div class="slds-modal__container">
+                    <header class="slds-modal__header">
+                        <lightning:buttonIcon iconName="utility:close" name="rejectApprovel" variant="container" class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" alternativeText="Close" title="Close" onclick="{!c.closeModal}"/>
+                        <h2 id="modal-heading-01" class="slds-modal__title slds-hyphenate">Reject Quote</h2>
+                    </header>
+                    <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                        <div class = "submit-approval"  >
+                            <lightning:textarea  value = "{!v.comment}" label="Comments"  name = "comment"  maxlength = "4000" />
+                        </div>
+                    </div>
+                    <footer class="slds-modal__footer">
+                        <lightning:button label="Cancel" name="rejectApprovel" variant="neutral" onclick="{!c.closeModal}"/>
+                        <lightning:button label="Reject" variant="brand" onclick="{!c.approvalProcessReject}"/>
+                    </footer>
+                </div>
+            </section>
+            <div class="slds-backdrop slds-backdrop_open"></div>
+        </aura:if>
+    </div>
+</aura:component>

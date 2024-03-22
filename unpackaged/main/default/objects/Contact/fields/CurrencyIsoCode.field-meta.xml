@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CurrencyIsoCode</fullName>
+    <description>Denotes the currency corresponding to the country and subsidiary of the contact</description>
+    <inlineHelpText>Denotes the currency corresponding to the country and subsidiary of the contact</inlineHelpText>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+</CustomField>

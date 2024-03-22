@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Country_code_mandatory_for_all_agents</fullName>
+    <active>true</active>
+    <description>AUTOMATION-9176: Mobile Country should be mandatory for all agents</description>
+    <errorConditionFormula>AND(ISBLANK(TEXT(Mobile_Country__c)),
+IsPersonAccount)</errorConditionFormula>
+    <errorMessage>Please enter Mobile Country.</errorMessage>
+</ValidationRule>

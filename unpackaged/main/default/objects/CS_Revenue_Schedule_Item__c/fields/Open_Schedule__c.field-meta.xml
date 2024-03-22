@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Open_Schedule__c</fullName>
+    <description>Indicates if this Forecast/ Open schedule which can be removed due to InFlight changes</description>
+    <externalId>false</externalId>
+    <formula>TEXT(Status__c) = &#39;Forecast&#39; || TEXT(Status__c) = &#39;Open&#39;</formula>
+    <inlineHelpText>Indicates if this Forecast/ Open schedule which can be removed due to InFlight changes</inlineHelpText>
+    <label>Open Schedule</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

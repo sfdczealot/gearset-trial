@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Segment__c</fullName>
+    <description>Denotes the business segment</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Denotes the business segment</inlineHelpText>
+    <label>Segment</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>B2B Only</fullName>
+                <default>false</default>
+                <label>B2B Only</label>
+            </value>
+            <value>
+                <fullName>B2C Only</fullName>
+                <default>false</default>
+                <label>B2C Only</label>
+            </value>
+            <value>
+                <fullName>B2B &amp; B2C</fullName>
+                <default>false</default>
+                <label>B2B &amp; B2C</label>
+            </value>
+            <value>
+                <fullName>[object Object]</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>[object Object]</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

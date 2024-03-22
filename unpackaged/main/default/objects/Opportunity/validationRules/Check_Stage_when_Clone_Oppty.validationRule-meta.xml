@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Check_Stage_when_Clone_Oppty</fullName>
+    <active>true</active>
+    <description>Stage can&#39;t be Closed Won/Pending Client Signatory when clone Oppty.</description>
+    <errorConditionFormula>AND(
+ISCLONE(),
+ISNEW(),
+OR(
+ISPICKVAL(StageName,&quot;Closed Won&quot;),
+ISPICKVAL(StageName,&quot;Pending OMC Approval&quot;),
+ISPICKVAL(StageName,&quot;Pending Client Signatory&quot;)
+)
+)</errorConditionFormula>
+    <errorDisplayField>StageName</errorDisplayField>
+    <errorMessage>When cloning Oppty, Stage must be before Pending Client Signatory.</errorMessage>
+</ValidationRule>

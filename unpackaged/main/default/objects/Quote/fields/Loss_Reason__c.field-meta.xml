@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Loss_Reason__c</fullName>
+    <externalId>false</externalId>
+    <label>Loss Reason</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>Status</controllingField>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>No Payment</fullName>
+                <default>false</default>
+                <label>No Payment</label>
+            </value>
+            <value>
+                <fullName>Not Interested</fullName>
+                <default>false</default>
+                <label>Not Interested</label>
+            </value>
+            <value>
+                <fullName>Transacted via Self-Serve</fullName>
+                <default>false</default>
+                <label>Transacted via Self-Serve</label>
+            </value>
+            <value>
+                <fullName>Unable to reach (at least 5 attempts)</fullName>
+                <default>false</default>
+                <label>Unable to reach (at least 5 attempts)</label>
+            </value>
+            <value>
+                <fullName>Already Renewed/Purchased/Registered/Bosted</fullName>
+                <default>false</default>
+                <label>Already Renewed/Purchased/Registered/Bosted</label>
+            </value>
+            <value>
+                <fullName>Already Renewed - VIP</fullName>
+                <default>false</default>
+                <label>Already Renewed - VIP</label>
+            </value>
+            <value>
+                <fullName>Payment Expired</fullName>
+                <default>false</default>
+                <label>Payment Expired</label>
+            </value>
+            <value>
+                <fullName>Lost to Competitor</fullName>
+                <default>false</default>
+                <label>Lost to Competitor</label>
+            </value>
+            <value>
+                <fullName>Price</fullName>
+                <default>false</default>
+                <label>Price</label>
+            </value>
+            <value>
+                <fullName>Product Features</fullName>
+                <default>false</default>
+                <label>Product Features</label>
+            </value>
+            <value>
+                <fullName>Project Abandoned</fullName>
+                <default>false</default>
+                <label>Project Abandoned</label>
+            </value>
+            <value>
+                <fullName>No Budget / Lost Funding</fullName>
+                <default>false</default>
+                <label>No Budget / Lost Funding</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+            <value>
+                <fullName>Wrong Number</fullName>
+                <default>false</default>
+                <label>Wrong Number</label>
+            </value>
+            <value>
+                <fullName>DO NOT CALL list</fullName>
+                <default>false</default>
+                <label>DO NOT CALL list</label>
+            </value>
+            <value>
+                <fullName>Not Eligible</fullName>
+                <default>false</default>
+                <label>Not Eligible</label>
+            </value>
+            <value>
+                <fullName>Duplicate Record</fullName>
+                <default>false</default>
+                <label>Duplicate Record</label>
+            </value>
+            <value>
+                <fullName>Agent is suspended or cancelled</fullName>
+                <default>false</default>
+                <label>Agent is suspended or cancelled</label>
+            </value>
+            <value>
+                <fullName>Expired Proposal</fullName>
+                <default>false</default>
+                <label>Expired Proposal</label>
+            </value>
+            <value>
+                <fullName>Expired Offer</fullName>
+                <default>false</default>
+                <label>Expired Offer</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>Expired</controllingFieldValue>
+            <controllingFieldValue>Invalid</controllingFieldValue>
+            <valueName>No Payment</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Expired</controllingFieldValue>
+            <controllingFieldValue>Invalid</controllingFieldValue>
+            <valueName>Not Interested</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Expired</controllingFieldValue>
+            <controllingFieldValue>Invalid</controllingFieldValue>
+            <valueName>Unable to reach (at least 5 attempts)</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Expired</controllingFieldValue>
+            <controllingFieldValue>Invalid</controllingFieldValue>
+            <valueName>Already Renewed/Purchased/Registered/Bosted</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Expired</controllingFieldValue>
+            <controllingFieldValue>Invalid</controllingFieldValue>
+            <valueName>Already Renewed - VIP</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Expired</controllingFieldValue>
+            <controllingFieldValue>Invalid</controllingFieldValue>
+            <valueName>Payment Expired</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Expired</controllingFieldValue>
+            <controllingFieldValue>Invalid</controllingFieldValue>
+            <valueName>Lost to Competitor</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Expired</controllingFieldValue>
+            <controllingFieldValue>Invalid</controllingFieldValue>
+            <valueName>Price</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Expired</controllingFieldValue>
+            <controllingFieldValue>Invalid</controllingFieldValue>
+            <valueName>Product Features</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Expired</controllingFieldValue>
+            <controllingFieldValue>Invalid</controllingFieldValue>
+            <valueName>Project Abandoned</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Expired</controllingFieldValue>
+            <controllingFieldValue>Invalid</controllingFieldValue>
+            <valueName>No Budget / Lost Funding</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Expired</controllingFieldValue>
+            <controllingFieldValue>Invalid</controllingFieldValue>
+            <valueName>Other</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Expired</controllingFieldValue>
+            <controllingFieldValue>Invalid</controllingFieldValue>
+            <valueName>Wrong Number</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Expired</controllingFieldValue>
+            <controllingFieldValue>Invalid</controllingFieldValue>
+            <valueName>DO NOT CALL list</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Expired</controllingFieldValue>
+            <controllingFieldValue>Invalid</controllingFieldValue>
+            <valueName>Not Eligible</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Expired</controllingFieldValue>
+            <controllingFieldValue>Invalid</controllingFieldValue>
+            <valueName>Duplicate Record</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Expired</controllingFieldValue>
+            <controllingFieldValue>Invalid</controllingFieldValue>
+            <valueName>Agent is suspended or cancelled</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Expired</controllingFieldValue>
+            <controllingFieldValue>Invalid</controllingFieldValue>
+            <valueName>Expired Proposal</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Expired</controllingFieldValue>
+            <controllingFieldValue>Invalid</controllingFieldValue>
+            <valueName>Expired Offer</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Invalid</controllingFieldValue>
+            <valueName>Transacted via Self-Serve</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

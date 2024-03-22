@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Do_not_allow_CustomerType_change</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(IsPersonAccount,
+ISCHANGED(Customer_Type__c),
+!ISNEW(),
+!$Permission.System_Admin_Compliance_Access
+)</errorConditionFormula>
+    <errorMessage>You do not have Access to update Customer Type.</errorMessage>
+</ValidationRule>

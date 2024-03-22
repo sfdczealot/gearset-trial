@@ -1,0 +1,115 @@
+<aura:component controller="SalesOrderEmailActivity_cc" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    
+    <aura:attribute name="recordId" type="String"/>
+    <aura:attribute name="wrapper" type="object"/>
+     <aura:attribute name="isAuthorized" type="boolean"/>
+    <aura:attribute name="differDays" type="String"/>
+    <aura:attribute name="language" type="String" default="English"/>
+    <aura:attribute name="options" type="List"/>
+    <aura:attribute name="OCR" type="List"/>
+      <aura:attribute name="ccRec" type="List"/>
+    <aura:attribute name="toRec" type="List"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    
+ <aura:if isTrue="{!v.isAuthorized}">    
+    <div class="slds-card custom-card-header">
+        <div style="    font-size: 40px;    text-align: center;">
+        <h1>Send Mail</h1>
+        </div>
+        <div class="slds-m-around--large">
+         <table style="font-size: large; border: 1px solid black;">
+        <th style="text-align: center; border: 1px solid black;">Item No</th> 
+        <th style="text-align: center; border: 1px solid black;">Description</th>
+<!--<th style="text-align: center;border: 1px solid black;padding: 15px">Type</th>-->
+        <th style="text-align: center; border: 1px solid black;">Remaining Quantity</th>
+        <th style="text-align: center; border: 1px solid black;">Planned Start Date</th>
+        <th style="text-align: center; border: 1px solid black;">Planned End Date</th>
+        
+            
+        <aura:iteration items="{!v.wrapper.fiList}" var="fi">
+            <tr>
+                <td style="text-align: center; border: 1px solid black;">{!fi.csdf__Name__c}</td>
+                <td style="text-align: center; border: 1px solid black;">{!fi.Description__c}</td>
+               <!-- <td style="text-align: center; border: 1px solid black;">{!fi.csdf__Billing_Category__c}</td>-->
+                <td style="text-align: center; border: 1px solid black;">{!fi.Quantity_CPD__c}</td>
+                <td style="text-align: center; border: 1px solid black;">{!fi.Flight_Beginning_Date_YYYY_MM_DD__c}</td>
+                <td style="text-align: center; border: 1px solid black;">{!fi.Flight_End_Date_YYYY_MM_DD__c}</td>
+            </tr>
+        </aura:iteration>
+    </table>
+        </div>
+        
+        <div class="slds-m-top--large">
+    
+        <table style="font-size: large;" class="slds-m-around--x-large">
+            <tr>
+                <td style="width: 204px;"> SO Start Date</td>
+                <td>{!v.wrapper.soDetails.SO_Start_Date__c}</td>
+            </tr>
+            <tr>
+                <td> SO End Date </td>
+                <td>{!v.wrapper.soDetails.SO_End_Date__c}</td>
+            </tr>
+            <tr>
+                <td> Opportunity Number  </td>
+                <td>{!v.wrapper.soDetails.csmso__Opportunity__r.Opportunity_Number__c}</td>
+            </tr>
+            <tr>
+                <td> Advertiser Name   </td>
+                <td>{!v.wrapper.soDetails.csmso__Advertiser__r.Name}</td>
+            </tr>
+            <tr>
+            <td>Days to expiry</td>
+            <td>{!v.differDays}</td>
+            </tr>
+        </table>
+    </div>    <div class="slds-form slds-form_horizontal slds-size--1-of-2 slds-m-around--x-large" style="font-size: large">
+       
+        <table>
+            <tr>
+               <lightning:dualListbox name="PicklistId"
+                                       aura:id="PicklistId"
+                                           label= "Recipient"
+                                           sourceLabel="Available"
+                                           selectedLabel="Selected"
+                                           Required = "true"
+                                           fieldLevelHelp="Select recipient from OCR"
+                                       value="{!v.toRec}"
+                                           options="{!v.OCR}"/>
+                </tr>
+                <tr>
+   
+                    <lightning:dualListbox name="ccId"
+                                           aura:id="ccId"
+                label= "CC Recipient"
+                sourceLabel="Available"
+                selectedLabel="Selected"
+                                             value="{!v.ccRec}"
+               fieldLevelHelp="Select cc recipient"
+                                           options="{!v.options}"
+                                           />
+            </tr>
+            <tr>
+
+                 <lightning:select value="{!v.language}" name="Language" label="Email Language" required="true" >
+                <option value="English">English</option>
+                <option value="Thai">Thai</option>
+                <option value="Bahasa">Bahasa</option>
+            </lightning:select>
+            </tr>
+           </table>
+        
+        </div>
+        
+        <div class="slds-m-around--large slds-align--absolute-center"  style="font-size: large;">
+            <lightning:button  variant="brand" label="Send Email" title="Brand action" onclick="{! c.SendEmail }" />
+        
+        </div>
+         <div class="slds-m-around--large slds-align--absolute-center"  style="font-size: large;">
+             <lightning:helptext iconName="utility:info" content="Test Email is sent to the logged-in user." />    
+	
+            <lightning:button  variant="brand" label="Send Test Email" title="Brand action" onclick="{! c.emailTemp }" />
+        </div>
+    </div>
+    </aura:if>
+</aura:component>

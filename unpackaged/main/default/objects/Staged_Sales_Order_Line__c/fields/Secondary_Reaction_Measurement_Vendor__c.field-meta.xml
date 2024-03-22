@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Secondary_Reaction_Measurement_Vendor__c</fullName>
+    <externalId>false</externalId>
+    <label>Secondary Reaction Measurement Vendor</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>N/A</fullName>
+                <default>false</default>
+                <label>N/A</label>
+            </value>
+            <value>
+                <fullName>Placed - Spotify Commissioned</fullName>
+                <default>false</default>
+                <label>Placed - Spotify Commissioned</label>
+            </value>
+            <value>
+                <fullName>Placed - Client Commissioned</fullName>
+                <default>false</default>
+                <label>Placed - Client Commissioned</label>
+            </value>
+            <value>
+                <fullName>Foursquare - Spotify Commissioned</fullName>
+                <default>false</default>
+                <label>Foursquare - Spotify Commissioned</label>
+            </value>
+            <value>
+                <fullName>Foursquare - Client Commissioned</fullName>
+                <default>false</default>
+                <label>Foursquare - Client Commissioned</label>
+            </value>
+            <value>
+                <fullName>Nielsen Catalina Solutions - Spotify Commissioned</fullName>
+                <default>false</default>
+                <label>Nielsen Catalina Solutions - Spotify Commissioned</label>
+            </value>
+            <value>
+                <fullName>Nielsen Catalina Solutions - Client Commissioned</fullName>
+                <default>false</default>
+                <label>Nielsen Catalina Solutions - Client Commissioned</label>
+            </value>
+            <value>
+                <fullName>Nielsen MTA - Spotify Commissioned</fullName>
+                <default>false</default>
+                <label>Nielsen MTA - Spotify Commissioned</label>
+            </value>
+            <value>
+                <fullName>Nielsen MTA - Client Commissioned</fullName>
+                <default>false</default>
+                <label>Nielsen MTA - Client Commissioned</label>
+            </value>
+            <value>
+                <fullName>Nielsen Watch Effect - Spotify Commissioned</fullName>
+                <default>false</default>
+                <label>Nielsen Watch Effect - Spotify Commissioned</label>
+            </value>
+            <value>
+                <fullName>Nielsen Watch Effect - Client Commissioned</fullName>
+                <default>false</default>
+                <label>Nielsen Watch Effect - Client Commissioned</label>
+            </value>
+            <value>
+                <fullName>Nielsen Buyer Insights - Spotify Commissioned</fullName>
+                <default>false</default>
+                <label>Nielsen Buyer Insights - Spotify Commissioned</label>
+            </value>
+            <value>
+                <fullName>Nielsen Buyer Insights - Client Commissioned</fullName>
+                <default>false</default>
+                <label>Nielsen Buyer Insights - Client Commissioned</label>
+            </value>
+            <value>
+                <fullName>Streaming Conversion for Labels</fullName>
+                <default>false</default>
+                <label>Streaming Conversion for Labels</label>
+            </value>
+            <value>
+                <fullName>Oracle Auto BTR Analysis</fullName>
+                <default>false</default>
+                <label>Oracle Auto BTR Analysis</label>
+            </value>
+            <value>
+                <fullName>Oracle DLX ROI for CPG</fullName>
+                <default>false</default>
+                <label>Oracle DLX ROI for CPG</label>
+            </value>
+            <value>
+                <fullName>Oracle DLX ROI for Retail</fullName>
+                <default>false</default>
+                <label>Oracle DLX ROI for Retail</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

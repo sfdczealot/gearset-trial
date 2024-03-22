@@ -1,0 +1,48 @@
+.slds-modal__container {
+    max-width: 100% !important;
+    width: 100% !important;
+}
+
+.headerSmallFont {
+    font-size: 10px;
+}
+
+.customBackdrop {
+    width: 100vw;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(8, 7, 7, 0.4);
+}
+
+.headcol {
+    position: absolute;
+    width: 5em;
+    left: 0;
+    top: auto;
+    border-top-width: 1px;
+    /*only relevant for first row*/
+    margin-top: -1px;
+    /*compensate for top border*/
+}
+
+.forecast-details .slds-table thead th:first-child,
+.forecast-details .slds-table tbody td:first-child {
+    position: sticky;
+    left: 0;
+    z-index: 2;
+    border-right: 1px solid rgb(221, 219, 218);
+    background: rgb(250, 250, 249);
+}
+
+.forecast-details .slds-table tbody td:first-child {
+    background: #fff
+}
+
+.forecast-details .slds-table thead th:nth-child(2),
+.forecast-details .slds-table tbody td:nth-child(2) {
+    border-left: none
+}
+
+.forecast-details .slds-table {
+    border-top: none
+}

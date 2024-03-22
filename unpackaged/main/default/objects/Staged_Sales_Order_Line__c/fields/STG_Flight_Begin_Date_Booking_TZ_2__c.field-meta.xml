@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>STG_Flight_Begin_Date_Booking_TZ_2__c</fullName>
+    <externalId>false</externalId>
+    <formula>DATE(
+  YEAR(DATEVALUE(STG_Flight_Begin_Date_Booking_TZ__c)),
+  MONTH(DATEVALUE(STG_Flight_Begin_Date_Booking_TZ__c)), 
+  DAY(DATEVALUE(STG_Flight_Begin_Date_Booking_TZ__c))
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>STG Flight Begin Date Booking TZ 2</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Date</type>
+</CustomField>

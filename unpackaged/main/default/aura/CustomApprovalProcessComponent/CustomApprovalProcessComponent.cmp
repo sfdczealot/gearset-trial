@@ -1,0 +1,39 @@
+<aura:component controller = "ApprovalUtility" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction,force:hasSObjectName" access="global" >
+    
+    <aura:html tag="style">
+        
+        .uiButton--brand.uiButton--default{
+        background-color: white !important;
+        color: #1b5296 !important;
+        }
+        .save-btn{
+        position: absolute;
+        right: 1rem;
+        margin-top: 30px;
+        }
+        .slds-modal__footer .slds-button{ margin-right: 70px;}
+        .slds-modal__content{
+        height: auto!important;
+        max-height: initial!important;
+        }
+    </aura:html>
+    <aura:attribute name = "recordType" type = "string"/>
+    <aura:attribute name = "comment" type = "string"/>
+    <aura:attribute name = "VIPCampaignName" type = "string"/>
+    <aura:attribute name = "approvalProcessStatus" type = "boolean" default = "true" />
+    <aura:attribute name="camp_list" type="object"/>
+    <aura:attribute name ="oppId" type="string"/>
+    <aura:handler name = "init" value = "{!this}" action = "{!c.init}" />
+    <div class = "submit-approval"  >
+        <aura:if isTrue="{!v.sObjectName == 'Account'}">
+            <lightning:select name="campign" aura:id="campign" value="{!v.VIPCampaignName}">
+                <option value="">--None--</option>
+                <aura:iteration items="{!v.camp_list}" var="option">
+                    <option text="{!option.Name}" value="{!option.Name}" selected="{!(option.isLabel == v.VIPCampaignName)}"/>
+                </aura:iteration>
+            </lightning:select> 
+        </aura:if>
+        <lightning:textarea  value = "{!v.comment}" placeholder = "comment" variant="label-hidden"  name = "comment"  maxlength = "4000" />
+        <lightning:button variant="brand" class="save-btn" label="Save" onclick="{!c.saveApprovalProcess}" />
+    </div>
+</aura:component>

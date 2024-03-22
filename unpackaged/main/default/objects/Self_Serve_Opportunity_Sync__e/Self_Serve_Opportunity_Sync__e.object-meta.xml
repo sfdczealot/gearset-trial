@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Event used to send the info to workato for creation of campaign eligibility, update of OLI with promo Id</description>
+    <eventType>HighVolume</eventType>
+    <label>Self Serve Opportunity Sync</label>
+    <pluralLabel>Self Serve Opportunity Sync</pluralLabel>
+    <publishBehavior>PublishImmediately</publishBehavior>
+</CustomObject>

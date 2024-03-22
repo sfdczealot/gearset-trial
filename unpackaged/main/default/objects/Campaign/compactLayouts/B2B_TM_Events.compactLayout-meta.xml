@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CompactLayout xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>B2B_TM_Events</fullName>
+    <fields>Name</fields>
+    <fields>Event_Start_DateTime__c</fields>
+    <fields>Event_End_DateTime__c</fields>
+    <fields>StartDate</fields>
+    <fields>EndDate</fields>
+    <fields>Event_Type__c</fields>
+    <label>B2B TM Events</label>
+</CompactLayout>

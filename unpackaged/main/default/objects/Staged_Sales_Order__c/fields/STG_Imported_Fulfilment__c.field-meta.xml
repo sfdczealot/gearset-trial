@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>STG_Imported_Fulfilment__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <externalId>false</externalId>
+    <inlineHelpText>The Fulfilment record created as part of the import process.</inlineHelpText>
+    <label>STG Imported Fulfilment</label>
+    <referenceTo>csdf__Fulfilment__c</referenceTo>
+    <relationshipLabel>Staged Sales Orders</relationshipLabel>
+    <relationshipName>Staged_Sales_Orders</relationshipName>
+    <required>false</required>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

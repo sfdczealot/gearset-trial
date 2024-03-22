@@ -1,0 +1,95 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,force:lightningQuickAction" access="global" 
+                controller="OverlappingAgentDetailsApexController">
+    <aura:attribute name="sObjectType" type="String"/>
+    <aura:attribute name="IPPAgent" type="list"/>
+    <aura:attribute name="recordId" type="String"/>
+    <aura:attribute name="disable" type="Boolean" default ="true"/>
+    <aura:attribute name="SearchFields" type="List"/>
+    <aura:attribute name="innerFieldsAPI" type="List"/>
+    <aura:attribute name="innerFields" type="list"/>
+    <aura:attribute name="relatedFieldsAPI" type="list"/>
+    <aura:attribute name="detailsfields" type="List"/>
+    <aura:attribute name="agentOrOpp" type="String"/>
+    <aura:attribute name="EndPoint" type="String"/>
+    <aura:attribute name="AgentId" type="String"/>
+    <aura:attribute name="fmList" type="List"/>
+    <aura:attribute name="displayFmList" type="List"/>
+    <aura:attribute name="fmInnerList" type="List"/>
+    <aura:attribute name="showData" type="Boolean" default ="false"/>
+    <aura:attribute name="showSpinner" type="Boolean" default ="true"/>
+    <aura:attribute name="isAcc" type="Boolean"/>
+    <aura:attribute name="selectedAttribute" type="String"/>
+    <aura:attribute name="externalField" type="String"/>
+    <aura:attribute name="showSelect" type="Boolean"/>
+    <aura:attribute name="isOverlappingAgent" type="boolean"/>
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:if isTrue="{!v.isOverlappingAgent}">
+        
+        <aura:if isTrue="{!v.showData}">
+         
+                <div style="background-color:white">
+                    <table >
+                        <tr>
+                            <th style="padding: 10px;">
+                                <div style="font-weight: normal; font-size: 17px;"> 
+                                    
+                                    <img src="{!$Resource.IPPLogo}"/>   
+          <aura:if isTrue="{!v.isAcc}">
+                                  iPropertyPro Account Details
+                                        <aura:set attribute="else">
+                                                Cross-Selling Opportunity Details
+                                            </aura:set>
+                                   </aura:if>
+
+                                </div> 
+                                
+                            </th>
+                            <th >
+                                
+                                <lightning:button variant="neutral" label="View"  onclick="{!c.editAgent }" />                    
+                                
+                            </th>
+                            
+                        </tr>
+                        
+                    </table>
+                    <lightning:accordion allowMultipleSectionsOpen="true"  aura:id="accordion">
+                        <aura:iteration items="{!v.displayFmList}" var="object"> 
+                            <lightning:accordionSection  name="Details" label="Details">
+                                <aura:iteration items="{!v.detailsfields}" var="fieldName">
+                                    
+                                    <c:relatedListView object="{!object}" fieldName="{!fieldName.key}" endPoint="{!v.EndPoint}" innerFieldsAPI="{!v.innerFieldsAPI}" innerFields="{!v.innerFields}" relatedFieldsAPI ="{!v.relatedFieldsAPI}"/>
+                                    
+                                </aura:iteration>   
+                            </lightning:accordionSection>
+                        </aura:iteration>
+                        <aura:iteration items="{!v.fmInnerList}" var="object"> 
+                            <aura:iteration items="{!v.innerFieldsAPI}" var="fieldName">
+                                
+                                <lightning:accordionSection name="{!fieldName.value}" label="{!fieldName.value}">
+                                    <c:relatedListView object="{!object}" fieldName="{!fieldName.key}" endPoint="{!v.EndPoint}" innerFieldsAPI="{!v.innerFieldsAPI}" innerFields="{!v.innerFields}" relatedFieldsAPI ="{!v.relatedFieldsAPI}"/>
+                                    
+                                </lightning:accordionSection>
+                            </aura:iteration>
+                        </aura:iteration>
+                    </lightning:accordion>
+                </div>
+                <div> 
+                </div>       
+            </aura:if>  
+        </aura:if>  
+        
+        
+
+    <aura:if isTrue="{!v.showSpinner}">
+        <div  style="height:6rem;position:relative;background-color:white">
+            <div role="status" class="slds-spinner slds-spinner_medium">
+                <span class="slds-assistive-text">Loading</span>
+                <div class="slds-spinner__dot-a"></div>
+                <div class="slds-spinner__dot-b"></div>
+            </div>
+        </div>
+        
+    </aura:if>
+</aura:component>

@@ -1,0 +1,161 @@
+<aura:component controller = "displayAllObjectsClass" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    <aura:attribute name = "allMetaDataRecords" type = "Map" />
+    <aura:attribute name = "allObjectList" type = "Map" />
+    <aura:attribute name = "addRowStatus" type = "boolean" default = "false" />
+    <aura:attribute name = "addRowBtnStatus" type = "boolean" default = "false" />
+    <aura:attribute name = "editBtnStatus" type = "boolean" default = "true" />
+    <aura:attribute name = "delBtnStatus" type = "boolean" default = "true" />
+    <aura:attribute name = "cancelBtnStatus" type = "boolean" default = "true" />
+    <aura:attribute name = "isLoading" type = "boolean" default = "false" />
+    <aura:attribute name = "isLoadingaddRow" type = "boolean" default = "false" />
+    <aura:attribute name = "saveBtnStatus" type = "boolean" default = "false" />
+    <aura:attribute name = "editRecord" type = "object" default = "" />
+    <aura:attribute name = "disabledArr" type = "Boolean[]" />
+    <aura:handler name = "init" value = "{!this}"  action = "{!c.doInit}" />
+    <aura:attribute name = "isModal" type = "boolean" default = "false" />
+    <aura:if isTrue="{!v.isLoading}">
+        <div class="exampleHolder">
+            <lightning:spinner alternativeText="Loading" size="large" />
+        </div>
+        <aura:set attribute="else">
+            <div class="slds-p-around_large">
+                <table aria-multiselectable="true" class="slds-table slds-table_bordered slds-table_fixed-layout custom-table-class" role="grid">
+                    <thead>
+                        <tr class="slds-line-height_reset" >
+                            <th class="" scope="col" >
+                                <div class="slds-truncate" title="Count" ></div>
+                            </th>
+                            <th class="object-name-col" scope="col"  >
+                                <div class="slds-truncate" title="Object Name" ><b>Object Name</b></div>
+                            </th>
+                            <th class="" scope="col" >
+                                <div class="slds-truncate" title="Enabled" style = "text-align:center"><b>Enabled</b></div>
+                            </th>
+                            <th class="" scope="col" >
+                                <div class="slds-truncate" title="Edit"></div>
+                            </th>
+                            <th class="" scope="col" >
+                                <div class="slds-truncate" title="Delete"></div>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <aura:iteration items="{!v.allMetaDataRecords}" var="rec" indexVar="count" >
+                            <tr class="slds-hint-parent">
+                                <th data-label="Count" scope="row" >
+                                    <div class="slds-truncate" title="{!count+1}" style = "text-align:center" >{!count+1} 
+                                    </div>
+                                </th> 
+                                <th class="object-name-input" data-label="ObjectName" scope="row" >
+                                    <div class="" title="{!rec.Name}" data-row-index="{!count}" >  
+                                        <lightning:input type="text" label = "" disabled = "true" value = "{!rec.Name}" aura:id="ObjectNameEdit"/>
+                                    </div>
+                                </th>
+                                <td data-label="Active" data-row-index="{!count}">
+                                    <div class="slds-truncate" title="{!rec.Enabled__c}" data-row-index="{!count}" style = "text-align:center" >
+                                        <lightning:input aura:id = "checkboxId" type="checkbox" checked = "{!rec.Enabled__c}" disabled = "{!(!rec.edit)}" />
+                                    </div>
+                                </td> 
+                                <aura:if isTrue = "{!(!rec.edit)}" >
+                                    <td data-label="Edit" >
+                                        <div class="slds-truncate box-shadow-none" title="Edit" data-row-index="{!count}">
+                                            <aura:if isTrue = "{!v.editBtnStatus}">
+                                                <lightning:button variant = "base" label = "Edit" name="{!rec.Id}" onclick="{!c.EditRec}">
+                                                    <lightning:icon iconName="action:edit" alternativeText="Edit" size="small" />
+                                                </lightning:button>   
+                                            </aura:if>
+                                        </div>
+                                    </td> 
+                                    <td data-label="Delete" >
+                                        <div class="slds-truncate box-shadow-none" title="Delete" data-row-index="{!count}" >
+                                            <aura:if isTrue = "{!v.delBtnStatus}" >
+                                                <lightning:button variant = "base" label = "Delete" name="{!rec.Id}" onclick="{!c.DeleteRec}">
+                                                    <lightning:icon iconName="action:delete" alternativeText="Delete" size="small" />
+                                                </lightning:button>
+                                            </aura:if>
+                                        </div>
+                                    </td> 
+                                </aura:if>
+                                <aura:if isTrue = "{!rec.edit}" >
+                                    <td data-label="Edit" >
+                                        <div class="slds-truncate box-shadow-none" title="Save" data-row-index="{!count}">
+                                            <aura:if isTrue = "{!v.saveBtnStatus}">
+                                                <lightning:button variant = "base" label = "Save" onclick="{!c.saveCustomDataRec}" name="{!rec.Id}">
+                                                    <lightning:icon iconName="action:approval" alternativeText="Save" size="small" />
+                                                </lightning:button>   
+                                            </aura:if>
+                                        </div>
+                                    </td> 
+                                    <td data-label="Delete" >
+                                        <div class="slds-truncate box-shadow-none" title="Cancel" data-row-index="{!count}" >
+                                            <aura:if isTrue = "{!v.cancelBtnStatus}" >
+                                                <lightning:button variant = "base" label = "Cancel" onclick = "{!c.cancelBtnClicked}" >
+                                                    <lightning:icon iconName="action:close" alternativeText="cancel" size="small" />
+                                                </lightning:button>
+                                            </aura:if>
+                                        </div>
+                                    </td> 
+                                </aura:if>
+                            </tr>
+                        </aura:iteration>
+                        <aura:if isTrue="{!v.isLoadingaddRow}"> 
+                            <div class="exampleHolder">
+                                <lightning:spinner alternativeText="Loading" size="small" />
+                                -                            </div>
+                            <aura:set attribute="else">
+                                <aura:if isTrue = "{!v.addRowStatus}" >
+                                    <tr class="slds-hint-parent">
+                                        <th data-label="Count" scope="row" >
+                                            <div class="slds-truncate" title="" >
+                                            </div>
+                                        </th> 
+                                        
+                                        <th data-label="Object Name" scope="row">
+                                            <div class="" title="Object Name">
+                                                <lightning:select required="true" label = "" aura:id = "ObjectName"  >
+                                                    <aura:iteration items = "{!v.allObjectList}" var = "all" >
+                                                        <option value = "{!all}" >{!all}</option>
+                                                    </aura:iteration>
+                                                </lightning:select>
+                                            </div>
+                                        </th>
+                                        <td data-label="Active">
+                                            <div class="slds-truncate" title="activate" style = "text-align:center">
+                                                <lightning:input type="checkbox" label = "" aura:id="Enabled"/>
+                                            </div>
+                                        </td>
+                                        <td data-label="Save">
+                                            <aura:if isTrue = "{!(!v.saveBtnStatus)}" >
+                                                <div class="slds-truncate box-shadow-none" title="Save">
+                                                    <lightning:button variant = "base" label = "Save" onclick="{!c.saveCustomDataRec}" >
+                                                        <span class = "save-icon-color" >
+                                                            <lightning:icon iconName="action:approval" alternativeText="Save" size="small" />
+                                                        </span>
+                                                    </lightning:button>
+                                                </div>
+                                            </aura:if>
+                                        </td> 
+                                        <td data-label="Cancel" >
+                                            <div class="slds-truncate box-shadow-none" title="Cancel" data-row-index="{!count}"  >
+                                                <aura:if isTrue = "{!v.cancelBtnStatus}" >
+                                                    <lightning:button variant = "base" label = "Cancel" onclick = "{!c.cancelBtnClicked}" >
+                                                        <lightning:icon iconName="action:close" alternativeText="cancel" size="small" />
+                                                    </lightning:button>
+                                                </aura:if>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </aura:if>
+                            </aura:set>
+                        </aura:if>
+                    </tbody>
+                </table>
+                <div class="slds-p-vertical_medium">
+                    <lightning:button variant="brand" label="Add Row" title="Add Row" onclick="{!c.addRow}" />
+                </div>
+            </div>
+        </aura:set>
+    </aura:if>
+    <div>
+    </div>
+</aura:component>

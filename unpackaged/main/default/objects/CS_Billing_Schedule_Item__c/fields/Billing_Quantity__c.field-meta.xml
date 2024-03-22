@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Billing_Quantity__c</fullName>
+    <description>Billing Quantity is calculated as follows : 
+- If Billing Source = Contracted -&gt; Billing Quantity = Overwrite Quantity if not 0 otherwise Forecast Quantity up to Capped Quantity 
+- Updated by Workflow
+- If Billing Source = DFP Actuals -&gt;Billing Quantity = Overwrite Quantity if not 0 otherwise DFP Actuals up to Capped Quantity 
+- If Billing Source = 3rd Party Actuals -&gt; Billing Quantity = Overwrite Quantity if not 0 otherwise 3rd Party Actuals up to Capped Quantity</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Billing Quantity calculated from Forecast, Overwrite, Contracted and Capped fields.</inlineHelpText>
+    <label>Billing Quantity</label>
+    <precision>16</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

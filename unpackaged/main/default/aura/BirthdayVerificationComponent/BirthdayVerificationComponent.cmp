@@ -1,0 +1,44 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction,force:hasSObjectName" access="global"
+                Controller="BirthdayVerificationController" >
+    
+    
+    <aura:html tag="style">
+        
+        .uiButton--brand.uiButton--default{
+        background-color: white !important;
+        color: #1b5296 !important;
+        }
+        .save-btn{
+        position: absolute;
+        right: 1rem;
+        margin-top: 30px;
+        }
+        .slds-modal__footer .slds-button{ margin-right: 70px;}
+        .slds-modal__content{
+        height: auto!important;
+        max-height: initial!important;
+        }
+    </aura:html>
+    
+    <aura:attribute name="isdisabled" type="boolean" default="true"/>
+    <aura:attribute name="isLoading" type="boolean" default="true"/>
+    <aura:attribute name="accountData" type="Account"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <lightning:navigation aura:id="navigate"/>
+    <div >
+        <aura:if isTrue="{!v.isLoading}">
+            <div class="exampleHolder">
+                <lightning:spinner alternativeText="Loading" size="small" />
+            </div>
+            <aura:set attribute="else">
+                <div style="height: 148px;">
+                    <lightning:input type="checkbox" label="" onclick="{!c.handleCheckbox}"/>
+                    <div style="margin-left: 26px; margin-top: -21px;font-weight: bold; }">
+                        I have verified that the birth date of {!v.accountData.Name} is {!v.accountData.PersonBirthdate} and have found that to be accurate. 
+                    </div>
+                </div>
+            </aura:set>
+        </aura:if>
+        <lightning:button variant="brand" class="save-btn" label="Save" disabled="{!v.isdisabled}" onclick="{!c.doSave}" />
+    </div>
+</aura:component>

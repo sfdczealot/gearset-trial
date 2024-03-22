@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Cannot_update_resolution_as_resolved</fullName>
+    <active>true</active>
+    <description>Restrict users to update resolution as resolved if campaign on case is inactive.</description>
+    <errorConditionFormula>AND(
+RecordType.DeveloperName = &quot;Sales_Enablement&quot;,
+TEXT(Type)= &quot;Campaign Support&quot;,
+TEXT(Case_Sub_Category__c) != &quot;Others&quot;,
+ISCHANGED(Resolution__c),
+TEXT(Resolution__c) = &quot;Resolved&quot;,
+!ISBLANK(Campaign_Name__c),
+!Campaign_Name__r.IsActive
+)</errorConditionFormula>
+    <errorMessage>You can not update resolution as resolved because campaign is inactive.</errorMessage>
+</ValidationRule>

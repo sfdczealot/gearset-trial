@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Pending_Online_Payment_Already_Paid</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND( 
+RecordType.Name = &quot;B2C&quot;, 
+ISPICKVAL(Stage__c,&#39;Pending Online Payment&#39;), 
+text(Payment_Amount__c) &lt;&gt; null,
+NOT(ISPICKVAL(PRIORVALUE(Stage__c ),&quot;Pending Online Payment&quot;)),
+isBlank(Invoice_Id__c))</errorConditionFormula>
+    <errorMessage>Your Quote already paid!</errorMessage>
+</ValidationRule>

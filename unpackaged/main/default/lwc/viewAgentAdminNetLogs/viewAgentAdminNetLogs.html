@@ -1,0 +1,67 @@
+<template>
+    <div class="slds-is-relative">
+        <lightning-modal-header label={title}></lightning-modal-header>
+        <lightning-modal-body>
+            <template if:true={validationMessage}>
+                {validationMessage}
+            </template>
+            <template if:false={validationMessage}>
+                <template if:true={sectionList}>
+                    <div class="slds-grid">
+                        <lightning-input class="slds-col" type="date"  data-name="fromDate" name="fromDate"  value={fromDate}    label="From"    variant="label-inline" onchange={handleChange}></lightning-input>
+                        <lightning-input class="slds-col" type="date"  data-name="toDate"  name="toDate"    value={toDate}      label="To"      variant="label-inline" onchange={handleChange} ></lightning-input>
+                    </div>
+                    <div class="slds-grid">
+                        <lightning-combobox name="section" class="slds-col"
+                            label="Section"
+                            value={section}
+                            variant="label-stacked" 
+                            options={sectionList}
+                            onchange={handleChange} ></lightning-combobox>
+                        <lightning-combobox name="action" class="slds-col slds-m-left_small"
+                            label="Action"
+                            value={action}
+                            variant="label-stacked" 
+                            options={actionOptions}
+                            onchange={handleChange}>
+                        </lightning-combobox>
+                    </div>
+                    <template if:true={showListingId}>
+                        <div class="slds-grid">
+                            <lightning-input class="slds-col slds-size_1-of-2" label="Listing ID:" name="listingID" value={listingId} onchange={handleChange}></lightning-input>
+                        </div>    
+                    </template>
+                    <div class="slds-align_absolute-center slds-m-vertical_medium">
+                        <lightning-radio-group class="slds-align_absolute-center"  name="logType" options={options} onchange={handleChange} value={logType} type="radio"></lightning-radio-group>
+                    </div>
+                    <div class="slds-align_absolute-center">
+                        <lightning-button label="Search" variant="brand" name="searchLog" class="slds-m-top_large slds-m-bottom_large " onclick={getLogs}></lightning-button>
+                    </div>
+                    <template if:true={data}>
+                        <div class=" slds-m-bottom_small slds-text-heading_medium">
+                            <span >Page : {pageNumber}</span>
+                            <span class="slds-float_right">Total Records: {totalRecords}</span>
+                        </div>
+                        <div class="viewAuditLog">
+                            <lightning-datatable class="slds-max-medium-table_stacked slds-table_fixed-layout slds-m-top_x-small" column-widths-mode="auto"	 hide-checkbox-column="true" key-field="key" min-column-width="100" onrowaction={handleRowActions} columns={columns}  data={data}>
+                            </lightning-datatable>
+                        </div>
+                        
+                        <div class="slds-align_absolute-center slds-m-vertical_small">
+                            <lightning-button label="Previous" name="previous" onclick={handlePrevious} disabled={disablePrevious}></lightning-button>
+                            <lightning-button label="Next" class="slds-m-left_x-small" name="next" variant="brand" onclick={handleNext} disabled={disableNext}></lightning-button>
+                        </div>
+                    </template>
+                    <template if:true={errorMessage}>
+                        <div class="slds-align_absolute-center">
+                                <h1>{errorMessage}</h1>
+                        </div>
+                    </template>
+                </template>
+            </template>
+            <template if:true={isLoading}>
+                <lightning-spinner alternative-text="Loading" size="medium" variant="brand"></lightning-spinner>
+            </template>
+        </lightning-modal-body>
+    </div>
+</template>

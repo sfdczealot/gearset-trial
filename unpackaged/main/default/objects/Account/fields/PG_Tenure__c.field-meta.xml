@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>PG_Tenure__c</fullName>
+    <description>Denotes tenure of an agent with PG</description>
+    <externalId>false</externalId>
+    <formula>IF(OR(ISPICKVAL(Country__c, &#39;Malaysia&#39;),ISPICKVAL(Country__c, &#39;Thailand&#39;)),
+FLOOR(
+(((Year(Subscription_End_Date__c)-Year(Loyalty_Start_Date__c))*12 + (IF(IF(MONTH(Subscription_End_Date__c)+1&gt;12,MONTH(Subscription_End_Date__c)+1-12,
+MONTH(Subscription_End_Date__c)+1)=MONTH(Loyalty_Start_Date__c),MONTH(Subscription_End_Date__c)+1-MONTH(Loyalty_Start_Date__c),
+MONTH(Subscription_End_Date__c)-MONTH(Loyalty_Start_Date__c))))/12)),
+IF(ISPICKVAL(Country__c, &#39;Singapore&#39;),
+FLOOR((((Year(Subscription_End_Date__c)-Year(Loyalty_Start_Date__c))*12 + (IF(IF(MONTH(Subscription_End_Date__c)+1&gt;12,MONTH(Subscription_End_Date__c)+1-12,
+MONTH(Subscription_End_Date__c)+1)=MONTH(Loyalty_Start_Date__c),MONTH(Subscription_End_Date__c)+1-MONTH(Loyalty_Start_Date__c),
+MONTH(Subscription_End_Date__c)-MONTH(Loyalty_Start_Date__c))))/12)),1)
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>PG Tenure is calculated as Subscription End Date minus Loyalty Start Date</inlineHelpText>
+    <label>PG Tenure</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

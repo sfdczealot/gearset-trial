@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Opportunity_Record__c</fullName>
+    <description>Denotes the opportunity record that payment is created for</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Denotes the opportunity record that payment is created for</inlineHelpText>
+    <label>Opportunity Record</label>
+    <referenceTo>Opportunity</referenceTo>
+    <relationshipLabel>Payments</relationshipLabel>
+    <relationshipName>Payments</relationshipName>
+    <relationshipOrder>0</relationshipOrder>
+    <reparentableMasterDetail>true</reparentableMasterDetail>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>MasterDetail</type>
+    <writeRequiresMasterRead>false</writeRequiresMasterRead>
+</CustomField>

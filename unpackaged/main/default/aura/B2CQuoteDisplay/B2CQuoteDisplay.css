@@ -1,0 +1,60 @@
+.THIS .slds-region_medium .slds-path__stage-name {
+    display:none;
+}
+.THIS .custom-slds-breadcrum .slds-card__body_inner{
+    margin: 0;
+}
+.THIS .custom-btn-group .slds-button-group{
+    flex-wrap: wrap;
+}
+.THIS .custom-align-self-center{
+    align-self: center;
+}
+.THIS .custom-col-width{
+    width: 80%;
+}
+.THIS .custom-legend{
+    width:100%;
+}
+.THIS .custom-legend lightning-formatted-url{
+    display:block;
+    overflow: hidden;    
+}
+.THIS .slds-box{
+    background: #fff;
+}
+.THIS .info-box .slds-form-element{
+    padding: 0;
+}
+.THIS .info-box .inner-grid .slds-form-element__row{
+    align-items: flex-end;
+}
+.THIS .link-col .slds-form-element__legend{
+    float: none!important;
+}
+.THIS .link-col a{
+    word-break: break-all;
+}
+.THIS .link-col lightning-formatted-url{
+    display: block;
+    width: 100%;
+}
+@media (max-width: 767px){
+    .THIS .custom-date-time-field .slds-form-element__group .slds-form-element__row{
+        flex-direction: column;
+    }
+    .THIS .custom-date-time-field .slds-form-element__group .slds-form-element__row .slds-form-element{
+        padding: 0;
+    }
+    .THIS .custom-date-time-field .slds-form-element__group .slds-form-element__row .slds-form-element .slds-input{
+        padding: 0 29px 0 3px;
+    }
+    .THIS .custom-btn-group .slds-button-group{
+        justify-content: center;
+    }
+    .THIS .custom-btn-group .slds-button {
+        min-width: 200px!important;
+        border-radius: 0;
+        margin: 0;
+    }
+}

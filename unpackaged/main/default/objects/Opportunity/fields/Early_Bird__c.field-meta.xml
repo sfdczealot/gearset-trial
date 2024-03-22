@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Early_Bird__c</fullName>
+    <externalId>false</externalId>
+    <formula>AND(
+TEXT(Account.Status__c) = &quot;Active&quot;, 
+MONTH(Account.Subscription_End_Date__c) = MONTH(ADDMONTHS(TODAY(),1)), YEAR(Account.Subscription_End_Date__c) =  YEAR(ADDMONTHS(TODAY(),1))
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Early Bird</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

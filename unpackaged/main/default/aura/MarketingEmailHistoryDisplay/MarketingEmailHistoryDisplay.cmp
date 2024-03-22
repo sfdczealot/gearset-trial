@@ -1,0 +1,22 @@
+<aura:component implements="flexipage:availableForRecordHome,force:hasRecordId" access="global" controller="MarketingEmailHistoryDisplayClass">
+    <aura:attribute name="MarketingEmailList" type="List" default="[]"/>
+    <aura:attribute name="eachrecordId" type="String" />
+    <aura:attribute name="indx" type="Integer"/>
+    <aura:attribute name="mapOfHtmlContent" type="String" />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <div> 
+        <aura:if isTrue="{!not(empty(v.MarketingEmailList))}">
+            <aura:iteration items="{!v.MarketingEmailList}" var="each" >
+                <lightning:accordion  allowMultipleSectionsOpen="true" onsectiontoggle="{!c.selectedEmailContent}" title="{!each.Id}">
+                    <lightning:accordionSection name="A" label="{!each.EmailName__c+' ('+each.CampaignName__c+')'}">
+                        <!--<lightning:helptext content="{!'Campaing Name: '+each.CampaignName__c+' DateTimeSent: '+each.DateTimeSent__c+' Email Name: '+each.EmailName__c}"/>-->
+                        <aura:unescapedHtml value="{!v.mapOfHtmlContent}" />
+                    </lightning:accordionSection>
+                </lightning:accordion>
+            </aura:iteration>
+            <aura:set attribute="else">
+                <p>No record found.</p>
+            </aura:set>
+        </aura:if>
+    </div>
+</aura:component>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Restrict_when_opp_stage_closed_lost</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+NOT(ISNEW()),
+NOT(ISCLONE()),
+ISPICKVAL(Opportunity.StageName, &#39;Closed Lost&#39;),
+!$Permission.System_Admin_Compliance_Access,
+NOT(ISPICKVAL(Quote_Type__c , &#39;&#39;)),
+NOT(ISPICKVAL( Opportunity.Opportunity_Type__c , &#39;&#39;))
+)</errorConditionFormula>
+    <errorMessage>Can&#39;t update Quote when Opportunity stage is Closed Lost</errorMessage>
+</ValidationRule>

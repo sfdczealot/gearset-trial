@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>DFP_Playlist_Folder__c</fullName>
+    <description>Comma-delimited list of DFP keys that hold playlist values.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Comma-delimited list of DFP keys that hold playlist values.</inlineHelpText>
+    <label>DFP Playlist Folder</label>
+    <length>255</length>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

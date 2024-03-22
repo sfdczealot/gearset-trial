@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Total_Mgr_Disc_of_Subscription_Percent__c</fullName>
+    <defaultValue>0</defaultValue>
+    <description>Total percentage of managerial discount on subscription product</description>
+    <externalId>false</externalId>
+    <label>Total Mgr Disc of Subscription Percent</label>
+    <precision>5</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Percent</type>
+</CustomField>

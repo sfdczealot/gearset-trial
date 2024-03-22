@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Requester__c</fullName>
+    <description>This is the name of the person filing the request</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Enter the name of the requester if not the person who is actually entering the request.</inlineHelpText>
+    <label>Requester</label>
+    <length>255</length>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

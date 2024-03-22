@@ -1,0 +1,32 @@
+<aura:component implements="flexipage:availableForAllPageTypes" controller="OpportunityProductRegistration_cc" access="GLOBAL">
+    <aura:dependency resource="markup://force:navigateToSObject" type="EVENT"/>
+    <aura:attribute name="recordId" type="string" />
+    <aura:attribute name="oppObj" type="Opportunity" default="{sobjectType : 'Opportunity'}" />
+    <aura:attribute name="listDiscountDetail" type="list" />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    
+    <article class="slds-card slds-card_boundary forceBaseCard flexipageCard" data-aura-class="forceBaseCard flexipageCard">
+        <div class="slds-card__header slds-grid">
+            <header class="slds-media slds-media--center slds-has-flexi-truncate">
+                <div class="slds-media__body">
+                    <h2 class="header-title-container">
+                        <span class="slds-text-heading--small slds-truncate" title="Eligible Discount &amp; Promos" >Eligible Discount &amp; Promos</span>
+                    </h2>
+                </div>
+            </header>
+        </div>
+        <aura:if isTrue="{!v.listDiscountDetail.length>0}">
+            <div class="slds-form slds-form_compound slds-form_stacked slds-m-top_small slds-m-bottom_medium slds-m-left_medium slds-m-right_medium">
+                <div class="slds-text-longform">
+                    <ul>
+                        <aura:iteration items="{!v.listDiscountDetail}" var="row">
+                            <li>
+                                <div class="slds-text-body_regular">{!row.Name} : <aura:unescapedHtml value="{!row.Description}" /></div>
+                            </li>
+                        </aura:iteration>
+                    </ul>
+                </div>
+            </div>
+        </aura:if>
+    </article>
+</aura:component>

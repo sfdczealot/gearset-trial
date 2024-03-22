@@ -1,0 +1,67 @@
+<template>
+    <div class="slds-is-relative">
+        <lightning-modal-header label={title}></lightning-modal-header>
+        <lightning-modal-body>
+            <template if:true={errorMessage}>
+                <div class="slds-align_absolute-center slds-m-top_small">
+                     <h1>{errorMessage}</h1>
+                </div>
+            </template>
+            <template if:false={errorMessage}>
+                <template if:false={selectAgents}>
+                    <lightning-input label="Country" name="country" value={agentCountry} variant="label-inline" disabled></lightning-input>
+                    <lightning-textarea label="Mobile"  name="mobile" data-name="mobile" type="tel" value={selectedMobileNumbers} variant="label-inline" onchange={handleChange} disabled></lightning-textarea>
+                    <template if:true={hasPermissionToSendMultipleSMS}>
+                        <div class="slds-clearfix">
+                            <lightning-helptext class="slds-float_right" content="This will override the previous selected agent mobile numbers"></lightning-helptext>
+                            <lightning-button class="slds-float_right button-align-css" label="Select Multiple Agents" name="addAgents" brand="base" onclick={addAgents} ></lightning-button>
+                        </div>
+                    </template>
+                    <lightning-textarea label="Message" data-name="message" max-length={smsCharacterLimit} name="message" value={message} onchange={handleChange} variant="label-inline"></lightning-textarea>
+                    <p class="slds-text-color_error align-right">Max {smsCharacterLimit} characters allowed,{remainingCharacterLimit} remaining</p>
+                    <template if:false={errorMessage}>
+                        <div>
+                            <lightning-button label="Send" class="slds-align_absolute-center slds-grid" name="sendSms" onclick={sendSms} variant="brand"></lightning-button>
+                        </div>
+                    </template>
+                    
+                    <template if:true={validationMessage}>
+                        <div class="red-error-color slds-align_absolute-center slds-m-top_small">
+                            <h1>{validationMessage}</h1>
+                    </div>
+                    </template>
+                </template>
+                <tempalte if:true={selectAgents}>
+                    <div class="slds-clearfix">
+                        <lightning-button class="slds-float_right" variant="base" label="Back" onclick={backToMainScreen}></lightning-button>
+                    </div>
+                    
+                    <lightning-textarea label="Please enter the agent registered mobile numbers without country code (separated by comma or new line)" variant="label-stacked"  name="agentMobileNumbers" data-name="agentMobileNumbers" type="tel" value={agentMobileNumbers}  onchange={handleChange} ></lightning-textarea>
+                    <div class="slds-align_absolute-center">
+                        <lightning-button  class="slds-m-top_large slds-m-bottom_large" label="Find Agents" name="findAgentButton" onclick={findAgents}></lightning-button>
+                    </div>
+                    <template if:true={findAgentValidationMessage}>
+                        <div class="red-error-color slds-align_absolute-center slds-m-top_small">
+                            <h1>{findAgentValidationMessage}</h1>
+                    </div>
+                    </template>
+                    <template if:true={showAgentsDetails}>
+                        <div class="slds-clearfix">
+                            <lightning-button class="slds-float_right" label="Add Selected Agents" brand="base" onclick={addSelectedAgents}></lightning-button>
+                        </div>
+                        <div style="height: 300px;" class="slds-m-top_small">
+                            <lightning-datatable lwc:ref="agentsDataTable" class="slds-max-medium-table_stacked slds-table_fixed-layout slds-m-top_x-small"   column-widths-mode="auto"	onrowselection={getSelectedRecords} key-field="key" min-column-width="100"  columns={columns}  data={data}>
+                            </lightning-datatable>
+                        </div>
+                        
+                    </template>
+                </tempalte>
+            </template>
+            
+            <template if:true={isLoading}>
+                <lightning-spinner alternative-text="Loading" size="medium" variant="brand"></lightning-spinner>
+            </template>
+           
+        </lightning-modal-body>
+    </div>
+</template>

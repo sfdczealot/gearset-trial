@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Is_Promo_Start_Date_Editable__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>This Check Box is used for make the start date of promo product editable</description>
+    <externalId>false</externalId>
+    <label>Untag Promo Start Date to Eligible pdt</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

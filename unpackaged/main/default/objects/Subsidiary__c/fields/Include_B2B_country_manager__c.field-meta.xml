@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Include_B2B_country_manager__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Denotes whether country manager name is required on a contract</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Denotes whether country manager name is required on a contract</inlineHelpText>
+    <label>Include B2B country manager</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Thread_ID__c</fullName>
+    <description>Temporary Thread ID as Salesforce&#39;s thread ID is currently not exposed as a standard field yet</description>
+    <externalId>false</externalId>
+    <formula>&quot;ref:_&quot; &amp;
+LEFT($Organization.Id,5) &amp; RIGHT($Organization.Id,4) &amp;
+&quot;._&quot; &amp;
+LEFT(Id,5) &amp; RIGHT(Id,6) &amp;
+&quot;:ref&quot;</formula>
+    <inlineHelpText>Insert this Reference ID into your email if you wish to save a brand new email externally to this case record.</inlineHelpText>
+    <label>Reference ID</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

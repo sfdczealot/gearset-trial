@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Permissions_for_Quote_fields</fullName>
+    <active>false</active>
+    <errorConditionFormula>IF(( NOT(ISPICKVAL( Stage__c , &#39;Proposal&#39;)) &amp;&amp; ($User.ProfileId = &#39;00e7F000000ZxaK&#39; || $User.ProfileId = &#39;00e7F000002ca1o&#39; || $User.ProfileId = &#39;00e7F000002ca1j&#39; || $User.ProfileId = &#39;00e7F000002ca28&#39; || $User.ProfileId = &#39;00e7F000002ca1t&#39; || $User.ProfileId = &#39;00e7F000002ca23&#39; || $User.ProfileId = &#39;00e7F000002ca1y&#39; ||$User.ProfileId = &#39;00e7F000002ca2D&#39; || $User.ProfileId = &#39;00e7F000002ca2I&#39; || $User.ProfileId = &#39;00e7F000002ca1K&#39;) &amp;&amp; (ISCHANGED( Allowed_Payment_Type__c) || ISCHANGED(Offline_Payment_Only__c))), true, false)</errorConditionFormula>
+    <errorMessage>Insufficient access. Cannot change value of Allowed payment type and offline payment only when stage is proposal.</errorMessage>
+</ValidationRule>

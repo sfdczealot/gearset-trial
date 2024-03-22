@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Hoover_box_disable_profiles__c</fullName>
+    <description>List of CSV of User Profiles for which Hoover box on contending lines will not be shown.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>List of CSV of User Profiles for which Hoover box on contending lines will not be shown.</inlineHelpText>
+    <label>Hoover box disable profiles</label>
+    <length>255</length>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

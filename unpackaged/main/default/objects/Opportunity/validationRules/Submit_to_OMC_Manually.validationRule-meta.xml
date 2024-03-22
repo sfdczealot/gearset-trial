@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Submit_to_OMC_Manually</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND( 
+RecordType.Name = &quot;B2C&quot;, 
+ISPICKVAL(StageName,&#39;Pending OMC Approval&#39;),Submit_to_OMC_Manually__c = true, 
+NOT(ISPICKVAL(PRIORVALUE(StageName ),&quot;Pending OMC Approval&quot;)))</errorConditionFormula>
+    <errorMessage>Cannot change stage to &quot;Pending OMC Approval&quot; manually, Please click button Submit to OMC&quot; to send this opportunity to OMC</errorMessage>
+</ValidationRule>

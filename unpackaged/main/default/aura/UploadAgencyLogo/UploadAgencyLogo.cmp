@@ -1,0 +1,25 @@
+<aura:component implements="flexipage:availableForAllPageTypes,force:lightningQuickAction,force:hasRecordId" controller="UploadAgencyLogoCont" access="global" >
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" /> 
+    <aura:attribute name="agencyLogoId" type="Id"/>
+    <aura:attribute name="accept" type="List" default="['.jpg', '.jpeg', '.png']"/>
+    <aura:attribute name="recordId" type="Id"/>
+    <aura:attribute name="disabled" type="Boolean" default="false"/>
+    <lightning:card>
+        <lightning:layout multipleRows="true" title="Agency Logo Upload" >
+            <lightning:layoutItem padding="around-small" size="4" >
+                <lightning:fileUpload  name="fileUploader1"
+                                      label= "Agency Logo Upload"
+                                      multiple="false"    
+                                      accept="{!v.accept}"
+                                      disabled="{!v.disabled}"
+                                      recordId="{!v.agencyLogoId}"
+                                      onuploadfinished="{!c.handleUploadFinished }"/>
+            </lightning:layoutItem>
+            <lightning:layoutItem padding="around-small" size="8" >
+            </lightning:layoutItem>
+            <lightning:layoutItem padding="around-small" size="4" >
+                <lightning:button aura:id="toggleButton" label="Cancel" class="slds-float_right" variant="brand" onclick="{!c.onCancel}" />
+            </lightning:layoutItem>
+        </lightning:layout>
+    </lightning:card>
+</aura:component>

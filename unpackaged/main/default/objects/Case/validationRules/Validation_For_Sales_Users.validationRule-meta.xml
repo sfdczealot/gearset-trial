@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Validation_For_Sales_Users</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+NOT(ISNEW()),
+OR($Profile.Id == &#39;00e7F000002ca1K&#39;,
+$Profile.Id == &#39;00e7F000002ca1j&#39;,
+$Profile.Id == &#39;00e7F000002ca1o&#39;,
+$Profile.Id == &#39;00e7F000002ca1t&#39;,
+$Profile.Id == &#39;00e7F000002ca1y&#39;,
+$Profile.Id == &#39;00e7F000002ca23&#39;,
+$Profile.Id == &#39;00e7F000002ca28&#39;,
+$Profile.Id == &#39;00e7F000002ca2D&#39;,
+$Profile.Id == &#39;00e7F000002ca2I&#39;),
+ OR(ISCHANGED(Description),
+    ISCHANGED(Subject),
+    ISCHANGED(Type)
+    )
+)</errorConditionFormula>
+    <errorMessage>Updation of Subject, Description and Category is not allowed</errorMessage>
+</ValidationRule>

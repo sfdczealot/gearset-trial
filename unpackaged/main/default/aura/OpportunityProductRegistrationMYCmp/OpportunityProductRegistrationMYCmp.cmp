@@ -1,0 +1,330 @@
+<aura:component implements="flexipage:availableForAllPageTypes" controller="OpportunityProductRegistration_cc" access="GLOBAL">
+    <aura:dependency resource="markup://force:navigateToSObject" type="EVENT"/>
+    <aura:attribute name="recordId" type="string" />
+    <aura:attribute name="searchKey" type="string" />
+    <aura:attribute name="oppObj" type="Opportunity" default="{sobjectType : 'Opportunity'}" />
+    <aura:attribute name="productObj" type="Product2" default="{sobjectType : 'Product2'}" />
+    <aura:attribute name="campaignObj" type="Campaign" default="{sobjectType : 'Campaign'}" />
+    <aura:attribute name="listEmpty" type="list"/>
+    <aura:attribute name="listProdAvailable" type="list"/>
+    <aura:attribute name="listOppLine" type="list"/>
+    <aura:attribute name="listOppLineDisplay" type="list"/>
+    <aura:attribute name="listOppLineDelete" type="list"/>
+    <aura:attribute name="mapDownGradeOutside" type="map" />
+    <aura:attribute name="mapUpGradeOutside" type="map" />
+    <aura:attribute name="currentSubscriptionOutside" type="string" />
+    <aura:attribute name="oppLineObj" type="OpportunityLineItem" default="{sobjectType : 'OpportunityLineItem'}" />
+    <aura:attribute name="loyaltyUpgrade" type="OpportunityProductRegistration_cc.DiscountInfo" />
+    <aura:attribute name="listPricebook" type="list"/>
+    <aura:attribute name="listTaxCode" type="list"/>
+    <aura:attribute name="listDiscountReason" type="list"/>
+    <aura:attribute name="listRenewalDiscount" type="list" />
+    <aura:attribute name="listDiscountDetail" type="list" />
+    <aura:attribute name="EligibleVip" type="String" default=""/>
+    <aura:attribute name="sizeOppLineItem" type="Integer" default="0"/>
+    <aura:attribute name="error" type="String"/>
+    <aura:attribute name="noRecalculate" type="boolean" default="false"/>
+    <aura:attribute name="resetAllRelatedBonus" type="boolean" default="false"/>
+    <aura:attribute name="Spinner" type="boolean" default="false"/>
+    <aura:attribute name="checkProfile" type="boolean" default="false"/>
+    <aura:attribute name="RenewDisValue" type="Integer" default="0"/>
+    <aura:handler event="aura:waiting" action="{!c.showSpinner}"/>
+    <aura:handler event="aura:doneWaiting" action="{!c.hideSpinner}"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <div class="slds container" style="width: 100%">
+        <!--TEMPORARY FOR DEMO: oppObj.Total_Spending__c>20000-->
+        <div aura:id="errorMessageTab2" class="slds-m-around_large slds-hide">
+            <aura:unescapedHtml value="{!v.errorMessage}"></aura:unescapedHtml>
+        </div>
+        <aura:if isTrue="{!v.Spinner}">
+            <div aura:id="spinnerId" class="slds-spinner_container">
+                <div class="slds-spinner--brand  slds-spinner slds-spinner--large slds-is-relative" role="alert">
+                    <span class="slds-assistive-text">Loading</span>
+                    <div class="slds-spinner__dot-a"></div>
+                    <div class="slds-spinner__dot-b"></div>
+                </div>
+            </div>
+        </aura:if>
+        <aura:if isTrue="{!(v.oppObj.StageName=='New' || v.oppObj.StageName=='Proposal') &amp;&amp; (v.oppObj.Approval_Status__c == '' || v.oppObj.Approval_Status__c == null || v.oppObj.Approval_Status__c == 'Discount Approval Rejected')}">
+            <aura:if isTrue="{! !empty(v.oppObj.Account.Account_Rule_Code__c) &amp;&amp; v.oppObj.Order_Type_Clone__c == 'Contract - Renewal' }">
+                <br />
+                <div class="slds-size_6-of-12">
+                    <button class="slds-button slds-button_outline-brand" onclick="{!c.addRenewalPackage}">
+                        Add Renewal Package
+                        <span class="slds-assistive-text">Add Renewal Package</span>
+                    </button>
+                </div>
+                <br />
+            </aura:if>
+            <b title="Available Products">Available Products</b>
+            <div class="slds-grid slds-wrap">
+                <div class="slds-size_1-of-3">
+                    <ui:inputText aura:id="form-element-01" value="{!v.searchKey}" keyup="{!c.searchEvents}" label="Search" class="slds-size_4-of-12" placeholder="Search Criteria" />
+                </div>
+                <div class="slds-size_1-of-12">
+                    <br />
+                    <button class="slds-button slds-button_outline-brand" onclick="{!c.search}">
+                        <lightning:icon iconName="utility:search" size="small" alternativeText="Search"/>
+                        <span class="slds-assistive-text">Search Particular Product</span>
+                    </button>
+                </div>
+            </div>
+            <!-- Table list of Available Product -->
+            <ui:scrollerWrapper class="scrollerSize">
+                <div class="slds-table--header-fixed_container" style="height:150px; width:100%;">
+                    <div class="slds-scrollable" style="height: 100%; width:100%;">
+                        <table class="slds-table slds-table_bordered slds-table--header-fixed slds-table_striped">
+                            <thead>
+                                <tr class="slds-text-title_caps">
+                                    <th scope="col">
+                                        <div class="slds-truncate slds-cell-fixed slds-align_absolute-center slds-text-align_center" title=" ">
+                                            
+                                        </div>
+                                    </th>
+                                    <th scope="col">
+                                        <div class="slds-truncate slds-cell-fixed slds-align_absolute-center slds-text-align_center" title="DISPLAY NAME (NS)">DISPLAY NAME (NS)</div>
+                                    </th>
+                                    <th scope="col">
+                                        <div class="slds-truncate slds-cell-fixed slds-align_absolute-center slds-text-align_center" title="LIST PRICE">LIST PRICE</div>
+                                    </th>
+                                    <th scope="col">
+                                        <div class="slds-truncate slds-cell-fixed slds-align_absolute-center slds-text-align_center" title="SKU CODE">SKU CODE</div>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <aura:iteration items="{!v.listProdAvailable}" var="oppRow" indexVar="idx">
+                                    <tr>
+                                        <td style="width: 5%;">
+                                            <button class="slds-button" onclick="{!c.addProduct}" data-row-index="{!idx}">
+                                                <lightning:icon iconName="utility:add" size="small" alternativeText="Add"/>
+                                                <span class="slds-assistive-text">Add Product</span>
+                                            </button>
+                                        </td>
+                                        <td style="width: 45%;">{!oppRow.Product2.Name}</td>
+                                        <td style="width: 25%;"><ui:outputCurrency value="{!oppRow.UnitPrice}" /></td>
+                                        <td style="width: 25%;">{!oppRow.Product2.SKU_Code__c}</td>
+                                    </tr>
+                                </aura:iteration>
+                            </tbody>
+                        </table>                    
+                    </div>
+                </div>
+            </ui:scrollerWrapper>
+            <hr />
+        </aura:if>
+        <b title="Selected Products">Selected Products</b>
+        <ui:message aura:id="errorAlert" title="Error" class="slds-hide" severity="error" closable="true">
+            <aura:unescapedHtml value="{!v.error}" />
+        </ui:message>
+        <div class="slds-grid">
+            <div class="slds-col_bump-left">
+                Total {!v.sizeOppLineItem} records.
+            </div>
+        </div>
+        <ui:scrollerWrapper class="scrollerSize">
+            <div class="slds-table--header-fixed_container" style="height:230px; width:2500px;">
+                <div class="slds-scrollable" style="height: 100%; width:100%;">
+                    <table class="slds-table slds-table_bordered slds-table--header-fixed slds-table_striped">
+                        <thead>
+                            <tr class="slds-text-title_caps">
+                                <th scope="col">
+                                    <div class="slds-truncate slds-cell-fixed slds-align_absolute-center slds-text-align_center" title=" "> </div>
+                                </th>
+                                <th scope="col">
+                                    <div class="slds-truncate slds-cell-fixed slds-align_absolute-center slds-text-align_center" title="PRODUCT"><span class="slds-text-color_error">*</span>PRODUCT</div>
+                                </th>
+                                <th scope="col">
+                                    <div class="slds-truncate slds-cell-fixed slds-align_absolute-center slds-text-align_center" title="LINE DESCRIPTION">LINE DESCRIPTION</div>
+                                </th>
+                                <th scope="col">
+                                    <div class="slds-truncate slds-cell-fixed slds-align_absolute-center slds-text-align_center" title="START DATE"><span class="slds-text-color_error">*</span>START DATE</div>
+                                </th>
+                                <th scope="col">
+                                    <div class="slds-truncate slds-cell-fixed slds-align_absolute-center slds-text-align_center" title="END DATE"><span class="slds-text-color_error">*</span>END DATE</div>
+                                </th>
+                                <th scope="col">
+                                    <div class="slds-truncate slds-cell-fixed slds-align_absolute-center slds-text-align_center" title="QUANTITY"><span class="slds-text-color_error">*</span>QUANTITY</div>
+                                </th>
+                                <th scope="col">
+                                    <div class="slds-truncate slds-cell-fixed slds-align_absolute-center slds-text-align_center" title="SALES PRICE"><span class="slds-text-color_error">*</span>SALES PRICE</div>
+                                </th>
+                                <th scope="col">
+                                    <div class="slds-truncate slds-cell-fixed slds-align_absolute-center slds-text-align_center" title="DISCOUNT %">DISCOUNT %</div>
+                                </th>
+                                <th scope="col">
+                                    <div class="slds-truncate slds-cell-fixed slds-align_absolute-center slds-text-align_center" title="DISCOUNT AMT">DISCOUNT AMT</div>
+                                </th>
+                                <th scope="col">
+                                    <div class="slds-truncate slds-cell-fixed slds-align_absolute-center slds-text-align_center" title="PRICE AFTER DISCOUNT">PRICE<br /> AFTER DISCOUNT</div>
+                                </th>
+                                <th scope="col">
+                                    <div class="slds-truncate slds-cell-fixed slds-align_absolute-center slds-text-align_center" title="PRICE AFTER TAX">PRICE AFTER TAX</div>
+                                </th>
+                                <th scope="col">
+                                    <div class="slds-truncate slds-cell-fixed slds-align_absolute-center slds-text-align_center" title="DISCOUNT REASON">DISCOUNT REASON</div>
+                                </th>
+                                <th scope="col">
+                                    <div class="slds-truncate slds-cell-fixed slds-align_absolute-center slds-text-align_center" title="DISCOUNT REMARKS">DISCOUNT REMARKS</div>
+                                </th>
+                                <th scope="col">
+                                    <div class="slds-truncate slds-cell-fixed slds-align_absolute-center slds-text-align_center" title="MARKETING PROMO">MARKETING<br/> PROMO</div>
+                                </th>
+                                <th scope="col">
+                                    <div class="slds-truncate slds-cell-fixed slds-align_absolute-center slds-text-align_center" title="Auto Activation">Auto <br/>Activation</div>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <aura:iteration items="{!v.listOppLine}" var="oppRow" indexVar="idx">
+                                
+                                <aura:if isTrue="{!empty(oppRow.Parent__c) &amp;&amp; (v.oppObj.StageName=='New' || v.oppObj.StageName=='Proposal') &amp;&amp; (v.oppObj.Approval_Status__c == '' || v.oppObj.Approval_Status__c == null || v.oppObj.Approval_Status__c == 'Discount Approval Rejected') }">
+                                    <aura:if isTrue="{!((v.oppObj.StageName=='New' || v.oppObj.StageName=='Proposal')) &amp;&amp; (v.oppObj.Approval_Status__c == '' || v.oppObj.Approval_Status__c == null || v.oppObj.Approval_Status__c == 'Discount Approval Rejected')}">
+                                        <tr>
+                                            <td style="width: 3%;">
+                                                <button class="slds-button" onclick="{!c.removeOppLineItem}" data-row-index="{!idx}">
+                                                    <lightning:icon iconName="utility:close" size="small" alternativeText="Search"/>
+                                                    <span class="slds-assistive-text">Remove Product</span>
+                                                </button>
+                                            </td>
+                                            <td style="width: 10%;">{!oppRow.Product2.Name}</td>
+                                            <td style="width: 10%;">{!oppRow.Description}</td>
+                                            <td style="width: 5%;"><ui:inputDate aura:id="oppStartDate" class="slds-input" label="{!idx}" required="true" displayDatePicker="{!empty(oppRow.Parent__c)}" value="{!oppRow.Start_Date__c}" change="{!c.changeChildDate}" /></td>
+                                            <td style="width: 5%;"><ui:inputDate aura:id="oppEndDate" class="slds-input" label="{!idx}" required="true" displayDatePicker="{!empty(oppRow.Parent__c)}" value="{!oppRow.End_Date__c}" change="{!c.changeChildDate}"/></td>
+                                            <td style="width: 7%;"><ui:inputNumber class="slds-input" label="{!idx}" required="true" aura:id="oppQuantity" value="{!oppRow.Quantity}" change="{!c.handleBlur}" /></td>
+                                            <td style="width: 7%;"><ui:outputNumber class="slds-input" aura:id="oppUnitPrice" format="#,##0.##" value="{!oppRow.UnitPrice}" /></td>
+                                            <td style="width: 5%;">
+                                                <ui:inputNumber class="slds-input slds-size_x-small" label="{!idx}" aura:id="oppDiscount" value="{!oppRow.Discount__c}" change="{!c.changeDiscount}" />
+                                            </td>
+                                            <td style="width: 7%;">
+                                                <ui:inputNumber class="slds-input" label="{!idx}" aura:id="oppDiscountAmt" value="{!oppRow.Discount_Amount__c}" format="#,##0.##" change="{!c.changeDiscountAmount}" />
+                                                <ui:inputSelect class="slds-hide" value="{!oppRow.GST_VAT_Code__c}" disabled="true" aura:id="taxCode" label=" " >
+                                                    <aura:iteration items="{!v.listTaxCode}" var="row">
+                                                        <ui:inputSelectOption text="{!row.Id}" label="{!row.Name}" value="{!oppRow.GST_VAT_Code__c==row.Id}" />
+                                                    </aura:iteration>
+                                                </ui:inputSelect>
+                                            </td>
+                                            <td style="width: 7%;"><ui:outputNumber class="slds-input" aura:id="oppTotalAmt" format="#,##0.##" value="{!oppRow.Amount__c}" /></td>
+                                            <td style="width: 7%;"><ui:outputNumber class="slds-input" aura:id="oppTotalAfterTax" format="#,##0.##" value="{!oppRow.Gross_Amount__c}" /></td>
+                                            <td style="width: 9%;">
+                                                <ui:inputSelect class="slds-select" label=" " value="{!oppRow.Discount_Reason__c}" aura:id="discountReason">
+                                                    <aura:iteration items="{!v.listDiscountReason}" var="row">
+                                                        <ui:inputSelectOption value="{!equals(row.value, oppRow.Discount_Reason__c)}" class="{!row.class}" text="{!row.value}" label="{!row.label}"/>
+                                                    </aura:iteration>
+                                                </ui:inputSelect>
+                                            </td>
+                                            <td style="width: 9%;"><ui:inputText class="slds-input" label="{!idx}" required="true" aura:id="oppDiscountRemarks" value="{!oppRow.Discount_Remarks__c}" /></td>
+                                            <td style="width: 5%;"><ui:outputText class="slds-input" value="{!oppRow.Campaign__r.Name}" /></td>
+                                            <aura:if isTrue = "{!v.oppObj.StageName=='Closed Won' || v.oppObj.StageName=='Closed Lost' || (v.oppObj.StageName=='Pending OMC Approval' &amp;&amp; v.oppObj.Approval_Status__c == 'OMC Approval Submitted')}">
+                                                <td style="width: 4%;"><ui:inputCheckbox class="slds-input" disabled = "true" label="{!idx}" value="{!oppRow.PO__c}" change="{!c.changeChildPO}" /></td>
+                                                <aura:set attribute="else">
+                                                    <aura:if isTrue="{!(v.oppObj.StageName=='Proposal' || (v.oppObj.StageName=='Pending OMC Approval' &amp;&amp; ((v.oppObj.Approval_Status__c == null || v.oppObj.Approval_Status__c == 'OMC Approval Rejected' || v.oppObj.Approval_Status__c == 'OMC Approval Recalled'))) &amp;&amp; v.checkProfile)}">
+                                                        <td style="width: 4%;"><ui:inputCheckbox class="slds-input" disabled = "false" label="{!idx}" value="{!oppRow.PO__c}" change="{!c.changeChildPO}" /></td>
+                                                    </aura:if>
+                                                </aura:set>
+                                            </aura:if>
+                                        </tr>
+                                        <aura:set attribute="else">
+                                            <tr>
+                                                <td style="width: 3%;">
+                                                    
+                                                </td>
+                                                <td style="width: 10%;">{!oppRow.Product2.Name}</td>
+                                                <td style="width: 10%;">{!oppRow.Description}</td>
+                                                <td style="width: 5%;"><ui:inputDate aura:id="oppStartDate" class="slds-input" label=" " disabled="true" displayDatePicker="{!empty(oppRow.Parent__c)}" value="{!oppRow.Start_Date__c}"/></td>
+                                                <td style="width: 5%;"><ui:inputDate aura:id="oppEndDate" class="slds-input" label=" " disabled="true" displayDatePicker="{!empty(oppRow.Parent__c)}" value="{!oppRow.End_Date__c}"/></td>
+                                                <td style="width: 7%;"><ui:inputNumber class="slds-input" label="{!idx}" disabled="true" aura:id="oppQuantity" value="{!oppRow.Quantity}" change="{!c.handleBlur}" /></td>
+                                                <td style="width: 7%;"><ui:outputNumber class="slds-input" aura:id="oppUnitPrice" value="{!oppRow.UnitPrice}" /></td>
+                                                <td style="width: 5%;">
+                                                    <ui:inputNumber class="slds-input slds-size_x-small" label="{!idx}" disabled="true" aura:id="oppDiscount" value="{!oppRow.Discount__c}" change="{!c.changeDiscount}" />
+                                                </td>
+                                                <td style="width: 7%;">
+                                                    <ui:inputNumber class="slds-input" label="{!idx}" disabled="true" aura:id="oppDiscountAmt" value="{!oppRow.Discount_Amount__c}" change="{!c.changeDiscountAmount}" />
+                                                    <ui:inputSelect class="slds-hide" value="{!oppRow.GST_VAT_Code__c}" aura:id="taxCode" label=" " disabled="true" >
+                                                        <aura:iteration items="{!v.listTaxCode}" var="row">
+                                                            <ui:inputSelectOption text="{!row.Id}" label="{!row.Name}" value="{!oppRow.GST_VAT_Code__c==row.Id}" />
+                                                        </aura:iteration>
+                                                    </ui:inputSelect>
+                                                </td>
+                                                <td style="width: 7%;"><ui:outputNumber class="slds-input" aura:id="oppTotalAmt" value="{!oppRow.Amount__c}" /></td>
+                                                <td style="width: 7%;"><ui:outputNumber class="slds-input" aura:id="oppTotalAfterTax" value="{!oppRow.Gross_Amount__c}" /></td>
+                                                <td style="width: 9%;">
+                                                    <ui:inputSelect class="slds-select" label=" " value="{!oppRow.Discount_Reason__c}" disabled="true" aura:id="discountReason">
+                                                        <aura:iteration items="{!v.listDiscountReason}" var="row">
+                                                            <ui:inputSelectOption value="{!equals(row.value, oppRow.Discount_Reason__c)}" class="{!row.class}" text="{!row.value}" label="{!row.label}"/>
+                                                        </aura:iteration>
+                                                    </ui:inputSelect>
+                                                </td>
+                                                <td style="width: 9%;"><ui:outputText class="slds-input" value="{!oppRow.Discount_Remarks__c}" /></td>
+                                                <td style="width: 5%;"><ui:outputText class="slds-input" value="{!oppRow.Campaign__r.Name}" /></td>
+                                                <td style="width: 4%;"><ui:inputCheckbox disabled="true" class="slds-input" value="{!oppRow.PO__c}" /></td>
+                                            </tr>
+                                        </aura:set>
+                                    </aura:if>
+                                    <aura:set attribute="else">
+                                        <tr>
+                                            <td style="width: 3%;">
+                                                <aura:if isTrue="{!!empty(oppRow.Parent__c) &amp;&amp; (oppRow.Discount_Reason__c=='Marketing Promo' || oppRow.Discount_Reason__c=='Renewal Bonus') &amp;&amp; (v.oppObj.StageName=='New' || v.oppObj.StageName=='Proposal') &amp;&amp; (v.oppObj.Approval_Status__c == '' || v.oppObj.Approval_Status__c == null || v.oppObj.Approval_Status__c == 'Discount Approval Rejected')}">
+                                                    <button class="slds-button" onclick="{!c.removeOppLineItem}" data-row-index="{!idx}">
+                                                        <lightning:icon iconName="utility:close" size="small" alternativeText="Search"/>
+                                                        <span class="slds-assistive-text">Remove Product</span>
+                                                    </button>
+                                                </aura:if>
+                                            </td>
+                                            <td style="width: 10%;"><span style="{!'color: '+if(!empty(oppRow.Parent__c) &amp;&amp; (oppRow.Discount_Reason__c=='Marketing Promo' || oppRow.Discount_Reason__c=='Renewal Bonus'), 'grey', 'black')}">{!oppRow.Product2.Name}</span></td>
+                                            <td style="width: 10%;"><span style="{!'color: '+if(!empty(oppRow.Parent__c) &amp;&amp; (oppRow.Discount_Reason__c=='Marketing Promo' || oppRow.Discount_Reason__c=='Renewal Bonus'), 'grey', 'black')}">{!oppRow.Description}</span></td>
+                                            <td style="width: 5%;"><ui:inputDate aura:id="oppStartDate" class="slds-input" label="{!idx}" disabled="{!empty(oppRow.Parent__c) || !empty(oppRow.Parent__c) &amp;&amp; ((oppRow.Discount_Reason__c!='Marketing Promo' &amp;&amp; oppRow.Discount_Reason__c!='Renewal Bonus') || (oppRow.Discount_Reason__c=='Marketing Promo' || oppRow.Discount_Reason__c=='Renewal Bonus') &amp;&amp; ((v.oppObj.StageName!='New' &amp;&amp; v.oppObj.StageName!='Proposal') || (v.oppObj.Approval_Status__c != '' &amp;&amp; v.oppObj.Approval_Status__c != null &amp;&amp; v.oppObj.Approval_Status__c != 'Discount Approval Rejected')))}" displayDatePicker="{!empty(oppRow.Parent__c) || !empty(oppRow.Parent__c) &amp;&amp; oppRow.Discount_Reason__c=='Marketing Promo' &amp;&amp; (v.oppObj.StageName=='New' || v.oppObj.StageName=='Proposal') &amp;&amp; (v.oppObj.Approval_Status__c == '' || v.oppObj.Approval_Status__c == null || v.oppObj.Approval_Status__c == 'Discount Approval Rejected')}" change="{!c.changeChildDate}" value="{!oppRow.Start_Date__c}"/></td>
+                                            <td style="width: 5%;"><ui:inputDate aura:id="oppEndDate" class="slds-input" label="{!idx}" disabled="{!empty(oppRow.Parent__c) || !empty(oppRow.Parent__c) &amp;&amp; ((oppRow.Discount_Reason__c!='Marketing Promo' &amp;&amp; oppRow.Discount_Reason__c!='Renewal Bonus') || (oppRow.Discount_Reason__c=='Marketing Promo' || oppRow.Discount_Reason__c=='Renewal Bonus') &amp;&amp; ((v.oppObj.StageName!='New' &amp;&amp; v.oppObj.StageName!='Proposal') || (v.oppObj.Approval_Status__c != '' &amp;&amp; v.oppObj.Approval_Status__c != null &amp;&amp; v.oppObj.Approval_Status__c != 'Discount Approval Rejected')))}" displayDatePicker="{!empty(oppRow.Parent__c) || !empty(oppRow.Parent__c) &amp;&amp; oppRow.Discount_Reason__c=='Marketing Promo' &amp;&amp; (v.oppObj.StageName=='New' || v.oppObj.StageName=='Proposal') &amp;&amp; (v.oppObj.Approval_Status__c == '' || v.oppObj.Approval_Status__c == null || v.oppObj.Approval_Status__c == 'Discount Approval Rejected')}" change="{!c.changeChildDate}" value="{!oppRow.End_Date__c}"/></td>
+                                            <td style="width: 7%;"><ui:inputNumber class="slds-input" label="{!idx}" disabled="true" aura:id="oppQuantity" value="{!oppRow.Quantity}" change="{!c.handleBlur}" /></td>
+                                            <td style="width: 7%;"><ui:outputNumber class="slds-input" aura:id="oppUnitPrice" value="{!oppRow.UnitPrice}" /></td>
+                                            <td style="width: 5%;">
+                                                <ui:inputNumber class="slds-input slds-size_x-small" label="{!idx}" disabled="true" aura:id="oppDiscount" value="{!oppRow.Discount__c}" change="{!c.changeDiscount}" />
+                                            </td>
+                                            <td style="width: 7%;">
+                                                <ui:inputNumber class="slds-input" label="{!idx}" disabled="true" aura:id="oppDiscountAmt" value="{!oppRow.Discount_Amount__c}" change="{!c.changeDiscountAmount}" />
+                                                <ui:inputSelect class="slds-hide" value="{!oppRow.GST_VAT_Code__c}" aura:id="taxCode" label=" " disabled="true" >
+                                                    <aura:iteration items="{!v.listTaxCode}" var="row">
+                                                        <ui:inputSelectOption text="{!row.Id}" label="{!row.Name}" value="{!oppRow.GST_VAT_Code__c==row.Id}" />
+                                                    </aura:iteration>
+                                                </ui:inputSelect>
+                                            </td>
+                                            <td style="width: 7%;"><ui:outputNumber class="slds-input" aura:id="oppTotalAmt" value="{!oppRow.Amount__c}" /></td>
+                                            <td style="width: 7%;"><ui:outputNumber class="slds-input" aura:id="oppTotalAfterTax" value="{!oppRow.Gross_Amount__c}" /></td>
+                                            <td style="width: 9%;">
+                                                <ui:inputSelect class="slds-select" label=" " value="{!oppRow.Discount_Reason__c}" disabled="true" aura:id="discountReason">
+                                                    <aura:iteration items="{!v.listDiscountReason}" var="row">
+                                                        <ui:inputSelectOption value="{!equals(row.value, oppRow.Discount_Reason__c)}" class="{!row.class}" text="{!row.value}" label="{!row.label}"/>
+                                                    </aura:iteration>
+                                                </ui:inputSelect>
+                                            </td>
+                                            <td style="width: 9%;"><ui:outputText class="slds-input" value="{!oppRow.Discount_Remarks__c}" /></td>
+                                            <td style="width: 5%;"><ui:outputText class="slds-input" value="{!oppRow.Campaign__r.Name}" /></td>
+                                            <aura:if isTrue="{!(v.oppObj.StageName=='Proposal' || (v.oppObj.StageName=='Pending OMC Approval' &amp;&amp; ((v.oppObj.Approval_Status__c == null || v.oppObj.Approval_Status__c == 'OMC Approval Rejected' || v.oppObj.Approval_Status__c == 'OMC Approval Recalled'))) &amp;&amp; oppRow.toCheckWholeNo == True )}">
+                                                <td style="width: 4%;"><ui:inputCheckbox disabled="true" class="slds-input" label="{!idx}" value="{!oppRow.PO__c}" change="{!c.changeChildPO}" /></td>
+                                                <aura:set attribute="else">
+                                                    <aura:if isTrue="{!(v.oppObj.StageName=='Proposal' || (v.oppObj.StageName=='Pending OMC Approval' &amp;&amp; ((v.oppObj.Approval_Status__c == null || v.oppObj.Approval_Status__c == 'OMC Approval Rejected' || v.oppObj.Approval_Status__c == 'OMC Approval Recalled'))) &amp;&amp; v.checkProfile)}">
+                                                        <td style="width: 4%;"><ui:inputCheckbox disabled="false" class="slds-input" label="{!idx}" value="{!oppRow.PO__c}" change="{!c.changeChildPO}" /></td>
+                                                        <aura:set attribute="else">
+                                                            <aura:if isTrue="{!v.oppObj.StageName=='Closed Won' || v.oppObj.StageName=='Closed Lost' || (v.oppObj.StageName=='Pending OMC Approval' &amp;&amp; v.oppObj.Approval_Status__c == 'OMC Approval Submitted')}">
+                                                                <td style="width: 4%;"><ui:inputCheckbox disabled="true" class="slds-input" value="{!oppRow.PO__c}" /></td>
+                                                            </aura:if>
+                                                        </aura:set>
+                                                    </aura:if>
+                                                </aura:set>
+                                            </aura:if>
+                                        </tr>
+                                    </aura:set>
+                                </aura:if>
+                            </aura:iteration>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </ui:scrollerWrapper>
+        <aura:if isTrue="{!((v.oppObj.StageName=='New' || v.oppObj.StageName=='Proposal') &amp;&amp; (v.oppObj.Approval_Status__c == '' || v.oppObj.Approval_Status__c == null || v.oppObj.Approval_Status__c == 'Discount Approval Rejected')) || (v.oppObj.StageName=='Proposal' || (v.oppObj.StageName=='Pending OMC Approval' &amp;&amp; (v.oppObj.Approval_Status__c == 'OMC Approval Recalled' ||v.oppObj.Approval_Status__c == null ||v.oppObj.Approval_Status__c == 'OMC Approval Rejected' )))}">
+            <div class="slds-align_absolute-center" style="height: 5rem;">
+                <lightning:button aura:id="saveBtn" class="slds-button slds-button_neutral slds-m-top_xsmall" type="submit" onclick="{!c.submit}" value="Save" label="Save"/>
+            </div>
+        </aura:if>
+    </div>
+</aura:component>

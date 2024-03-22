@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Opportunity_Type__c</fullName>
+    <defaultValue>IF( $RecordType.DeveloperName = &#39;B2C&#39; , &#39;B2C - Standard&#39;, null)</defaultValue>
+    <externalId>false</externalId>
+    <label>Opportunity Type</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>B2C - Standard</fullName>
+                <default>false</default>
+                <label>B2C - Standard</label>
+            </value>
+            <value>
+                <fullName>B2C - Upgrade</fullName>
+                <default>false</default>
+                <label>B2C - Upgrade</label>
+            </value>
+            <value>
+                <fullName>B2C - Renewal</fullName>
+                <default>false</default>
+                <label>B2C - Renewal</label>
+            </value>
+            <value>
+                <fullName>Self-Serve Standard</fullName>
+                <default>false</default>
+                <label>Self-Serve Standard</label>
+            </value>
+            <value>
+                <fullName>Self-Serve Renewal</fullName>
+                <default>false</default>
+                <label>Self-Serve Renewal</label>
+            </value>
+            <value>
+                <fullName>Self-Serve Abandoned</fullName>
+                <default>false</default>
+                <label>Self-Serve Abandoned</label>
+            </value>
+            <value>
+                <fullName>Marketing Automation</fullName>
+                <default>false</default>
+                <label>Marketing Automation</label>
+            </value>
+            <value>
+                <fullName>B2C - Conversion</fullName>
+                <default>false</default>
+                <label>B2C - Conversion</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,65 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,force:lightningQuickAction" access="global" >
+    <aura:attribute name="object" type="Object" />
+    <aura:attribute name="fieldName" type="String" />
+    <aura:attribute name="endPoint" type="String" />
+    <aura:attribute name="detailsfields" type="List"/>
+    <aura:attribute name="innerFieldsAPI" type="List"/>
+    <aura:attribute name="innerFields" type="list"/>
+    <aura:attribute name="SearchFields" type="List"/>
+    <aura:attribute name="DataToDisplay" type="List" />
+    <aura:attribute name="objList" type="List" />
+    <aura:attribute name="isId" type="Boolean" default="false"/>
+    <aura:attribute name="isRelatedList" type="Boolean" default="false" />
+    <aura:attribute name="val" type="String" />
+    <aura:attribute name="referenceURL" type="String" />
+    <aura:attribute name="fields" type="List"/>
+   <aura:attribute name="relatedFieldsAPI" type="list"/>
+   
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:if isTrue="{!v.isRelatedList}">
+        <table>
+                <tr> 
+                <aura:unescapedHtml aura:Id="outputTextId" />
+            </tr>
+            
+            
+        </table>
+        <aura:set attribute="else">
+            <table>
+                <aura:iteration items="{!v.DataToDisplay}" var="fieldName">
+                    <div class="slds-grid slds-gutters slds-border--bottom slds-m-around--x-small">
+                        <div class="slds-col slds-size_1-of-2">
+                            <span>
+                                <thead>   
+                                    <tr>
+                                        
+                                        <th >
+                                            <ui:outputText value="{!fieldName.key}" />
+                                        </th>
+                                        
+                                        
+                                    </tr>
+                                </thead>
+                            </span>
+                        </div>
+                        <div class="slds-col slds-size_1-of-2">
+                            <span> 
+                                <tbody>
+                                    <tr>
+                                        <td >  
+                                            <ui:outputText value="{!fieldName.value}" />
+                                            
+                                        </td>
+                                    </tr>
+                                    
+                                </tbody>
+                            </span>
+                        </div>
+                    </div>
+                </aura:iteration>
+            </table>
+            
+            
+        </aura:set>
+    </aura:if>  
+</aura:component>

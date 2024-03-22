@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CEA_Number_should_be_in_correct_format</fullName>
+    <active>true</active>
+    <description>If Agent Identification Number is not in format AN6A || AN7A , then throw an error.</description>
+    <errorConditionFormula>AND(
+    IsPersonAccount,
+    RecordType.Name = &#39;Agent&#39;,
+    TEXT(Country__c) = &#39;Singapore&#39;,
+    !Test_Account__c,
+    !ISBLANK(CEA_Salesperson_Number__c),
+    NOT(REGEX(CEA_Salesperson_Number__c, &quot;[A-Z]{1}[0-9]{6}[A-Z]{1}&quot;)),
+    NOT(REGEX(CEA_Salesperson_Number__c, &quot;[A-Z]{1}[0-9]{7}[A-Z]{1}&quot;)),
+				ISNEW()
+)</errorConditionFormula>
+    <errorDisplayField>CEA_Salesperson_Number__c</errorDisplayField>
+    <errorMessage>Please fill Agent Identification Number in format  : AN6A || AN7A</errorMessage>
+</ValidationRule>

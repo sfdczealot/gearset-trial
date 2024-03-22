@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Parent_Aggregated_Amount__c</fullName>
+    <description>This field is updated during print contract. To store at the Parent Bundled line item. This is roll up of all the child items in this parent bundle.</description>
+    <externalId>false</externalId>
+    <label>Parent Aggregated Amount</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackHistory>false</trackHistory>
+    <type>Currency</type>
+</CustomField>

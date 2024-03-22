@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Stage_changes_bacK_to_pending_payment</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND( NOT(ISPICKVAL( Quote_Type__c , &#39;&#39;)), ISPICKVAL(PRIORVALUE(Status), &#39;Pending OMC Approval&#39;),ISPICKVAL(Status, &#39;Pending Online Payment&#39;), $User.Id =&#39;0057F000004F8mxQAC&#39; )</errorConditionFormula>
+    <errorMessage>Stauts field can not change back to pending onlline payment.</errorMessage>
+</ValidationRule>

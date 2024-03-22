@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Is_Auto_Reconciliation_Date__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(ISNULL(Reference_Date__c), Auto_Reconciliation_Date__c &lt;= TODAY(), Auto_Reconciliation_Date__c &lt;= Reference_Date__c)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Is Auto-Reconciliation Date</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

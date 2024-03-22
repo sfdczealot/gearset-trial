@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Billing_Cont_is_Required_when_Signatory</fullName>
+    <active>false</active>
+    <description>Billing Contact is required when Pending Client Signatory or Pending OMC Approval.</description>
+    <errorConditionFormula>AND(
+$RecordType.Name == &quot;B2B&quot;, 
+AND(
+NOT(ISCLONE()),
+OR (
+ISPICKVAL(StageName, &quot;Pending Client Signatory&quot;),
+ISPICKVAL(StageName, &quot;Pending OMC Approval&quot;) 
+),
+ISBLANK( Billing_Contact__c )
+)
+)</errorConditionFormula>
+    <errorDisplayField>Billing_Contact__c</errorDisplayField>
+    <errorMessage>Billing Contact is required.</errorMessage>
+</ValidationRule>

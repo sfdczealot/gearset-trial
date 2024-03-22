@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Third_Party_Lock_Editing</fullName>
+    <active>true</active>
+    <description>On integrated records edit is not allowed</description>
+    <errorConditionFormula>NOT(ISNEW()) &amp;&amp; 
+(Source__c == &#39;Integrated&#39; &amp;&amp;
+PRIORVALUE(Source__c) == &#39;Integrated&#39;)</errorConditionFormula>
+    <errorMessage>Changes cannot be performed on Integrated records.</errorMessage>
+</ValidationRule>

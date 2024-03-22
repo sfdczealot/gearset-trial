@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Billing_Date__c</fullName>
+    <description>Set the Billing Date or the Revenue Period End Date of Bill Run.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Set the Billing Date or the Revenue Period End Date of Bill Run.</inlineHelpText>
+    <label>Billing / Revenue Date</label>
+    <required>true</required>
+    <trackTrending>false</trackTrending>
+    <type>Date</type>
+</CustomField>

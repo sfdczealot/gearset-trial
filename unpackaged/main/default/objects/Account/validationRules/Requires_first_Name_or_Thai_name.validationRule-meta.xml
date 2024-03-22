@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Requires_first_Name_or_Thai_name</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(IsPersonAccount, ISPICKVAL( Country__c , &#39;Thailand&#39;),ISBLANK(FirstName),ISBLANK( LocalLanguage_First_Name__c ),ISBLANK(Tax_Reg_Number__c))</errorConditionFormula>
+    <errorMessage>First Name or First Name (Local Language) should be filled</errorMessage>
+</ValidationRule>

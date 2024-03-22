@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Classificaiton_del__c</fullName>
+    <externalId>false</externalId>
+    <label>Classification</label>
+    <required>false</required>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>Global_Customer_Segment__c</controllingField>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Big 6 Agency Holding Companies</fullName>
+                <default>false</default>
+                <label>Big 6 Agency Holding Companies</label>
+            </value>
+            <value>
+                <fullName>Independent Agency</fullName>
+                <default>false</default>
+                <label>Independent Agency</label>
+            </value>
+            <value>
+                <fullName>Verified Advertiser</fullName>
+                <default>false</default>
+                <label>Verified Advertiser</label>
+            </value>
+            <value>
+                <fullName>Unverified Advertiser</fullName>
+                <default>true</default>
+                <label>Unverified Advertiser</label>
+            </value>
+            <value>
+                <fullName>Reseller</fullName>
+                <default>false</default>
+                <label>Reseller</label>
+            </value>
+            <value>
+                <fullName>Major Label</fullName>
+                <default>false</default>
+                <label>Major Label</label>
+            </value>
+            <value>
+                <fullName>Independent Label</fullName>
+                <default>false</default>
+                <label>Independent Label</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>Advertiser</controllingFieldValue>
+            <valueName>Verified Advertiser</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Advertiser</controllingFieldValue>
+            <valueName>Unverified Advertiser</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Agency</controllingFieldValue>
+            <valueName>Big 6 Agency Holding Companies</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Agency</controllingFieldValue>
+            <valueName>Independent Agency</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Reseller</controllingFieldValue>
+            <valueName>Reseller</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Label</controllingFieldValue>
+            <valueName>Major Label</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Label</controllingFieldValue>
+            <valueName>Independent Label</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Print_Billing_Rule</fullName>
+    <active>true</active>
+    <description>Used for Print Products</description>
+    <label>Print Billing Rule</label>
+</RecordType>

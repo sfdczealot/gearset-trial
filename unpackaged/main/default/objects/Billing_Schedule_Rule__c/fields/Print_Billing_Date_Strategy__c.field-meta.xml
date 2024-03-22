@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Print_Billing_Date_Strategy__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>The rule used for calculating the payments for Print orders.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>The rule used for calculating the payments for Print orders.</inlineHelpText>
+    <label>Print Billing Date Strategy</label>
+    <lookupFilter>
+        <active>true</active>
+        <filterItems>
+            <field>Billing_Rule_Class__c.Rule_Type__c</field>
+            <operation>equals</operation>
+            <value>Print Date Strategy</value>
+        </filterItems>
+        <isOptional>false</isOptional>
+    </lookupFilter>
+    <referenceTo>Billing_Rule_Class__c</referenceTo>
+    <relationshipLabel>Billing Schedule Rules (Print Billing Date Strategy)</relationshipLabel>
+    <relationshipName>Billing_Schedule_Rules3</relationshipName>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

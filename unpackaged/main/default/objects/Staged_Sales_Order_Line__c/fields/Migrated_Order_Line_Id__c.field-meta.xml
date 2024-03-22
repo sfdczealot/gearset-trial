@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Migrated_Order_Line_Id__c</fullName>
+    <caseSensitive>false</caseSensitive>
+    <description>DFP Order Line Id</description>
+    <externalId>true</externalId>
+    <inlineHelpText>DFP Order Line Id. This will not be populated for non -adserved products.</inlineHelpText>
+    <label>Migrated Order Line Id</label>
+    <length>50</length>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>true</unique>
+</CustomField>

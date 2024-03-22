@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SOLI_Billing_Rev_Schedule_Property_Map__c</fullName>
+    <defaultValue>&quot;SOLIToBillingSchedule&quot;</defaultValue>
+    <description>The unique key for the property map used to map Sales Order Line values to Billing and Revenue Schedules</description>
+    <externalId>false</externalId>
+    <inlineHelpText>The unique key for the property map used to map Sales Order Line (Product Configuration)  values to Billing and Revenue Schedules</inlineHelpText>
+    <label>SOLI Billing Rev Schedule Property Map</label>
+    <length>80</length>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

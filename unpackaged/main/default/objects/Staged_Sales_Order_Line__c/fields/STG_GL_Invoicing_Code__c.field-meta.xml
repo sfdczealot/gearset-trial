@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>STG_GL_Invoicing_Code__c</fullName>
+    <description>Invoicing GL Code</description>
+    <externalId>false</externalId>
+    <formula>Product__r.Invoice_GL_Code__c</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>Invoicing GL Code</inlineHelpText>
+    <label>STG GL Invoicing Code</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

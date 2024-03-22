@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>VR39_OPP_ProgrammaticGauranteedBuyer</fullName>
+    <active>true</active>
+    <description>Programmatic_Guaranteed_Buyer [VR39]</description>
+    <errorConditionFormula>AND( 
+TEXT(Order_Type__c) = &#39;Programmatic Guaranteed&#39;, 
+ISBLANK(Buyer__c))</errorConditionFormula>
+    <errorDisplayField>Buyer__c</errorDisplayField>
+    <errorMessage>Buyer must be populated for Programmatic Guaranteed Opportunities. [VR39]</errorMessage>
+</ValidationRule>

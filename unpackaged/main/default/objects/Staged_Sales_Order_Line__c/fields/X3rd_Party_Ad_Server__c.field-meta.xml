@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>X3rd_Party_Ad_Server__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>Look Up to Third Party Ad Server Object</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Look Up to Third Party Ad Server Object</inlineHelpText>
+    <label>3rd Party Ad Server</label>
+    <referenceTo>X3rd_Party_Ad_Server__c</referenceTo>
+    <relationshipLabel>Staged Sales Order Lines</relationshipLabel>
+    <relationshipName>Staged_Sales_Order_Lines</relationshipName>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>X3rd_Party_Research_Paid_By__c</fullName>
+    <externalId>false</externalId>
+    <label>3rd Party Research Paid By</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Spotify</fullName>
+                <default>false</default>
+                <label>Spotify</label>
+            </value>
+            <value>
+                <fullName>Advertiser</fullName>
+                <default>false</default>
+                <label>Advertiser</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

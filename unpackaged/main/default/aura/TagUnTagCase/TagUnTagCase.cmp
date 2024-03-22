@@ -1,0 +1,39 @@
+<aura:component implements="force:lightningQuickAction,force:hasRecordId" access="global" controller="TagUnTagCase_cc" >
+        <aura:attribute name="recordId" type="String"/>
+        <aura:attribute name="isToast" type="Boolean"/>
+        <aura:attribute name="ShowSpinner" type="Boolean" default = "true"/>
+        <aura:attribute name="endResult" type="String"/>
+        <aura:attribute name="message" type="String"/>
+        <aura:attribute name="toastButton" type="String"/>
+        
+         <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+         <aura:if isTrue="{!v.ShowSpinner}">
+            <lightning:spinner alternativeText="Loading" size="large"/>
+           
+        </aura:if>
+        <aura:if isTrue="{!v.isToast}">
+      
+        <div class="slds-notify_container slds-is-relative">
+            <div aura:id="toastDiv" role="status">
+                <div class="slds-notify__content">
+            <span class="slds-assistive-text">"{!v.endResult}"</span>
+                </div>
+            <span class="slds-icon_container slds-icon-utility-success slds-m-right_small slds-no-flex slds-align-top" title="Description of icon when needed">
+                <lightning:icon iconName="{!v.toastButton}" alternativetext="close" variant="inverse"
+                size="small"></lightning:icon>
+            </span>
+            <div class="slds-notify__content">
+              <h2 class="slds-text-heading_small ">"{!v.message}"</h2>
+            </div>
+            <div class="slds-notify__close">
+                <button class="slds-button slds-button_icon
+                slds-modal__close slds-button_icon-inverse" title="Close" onclick="{!c.closePopUp}">
+                <lightning:icon iconName="utility:close" alternativetext="close" variant="inverse"
+                    size="small"></lightning:icon>
+                <span class="slds-assistive-text">Close</span>
+            </button>
+            </div>
+            </div>
+            </div>
+    </aura:if>
+    </aura:component>

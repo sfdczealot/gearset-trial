@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>STG_Flight_End_YMD__c</fullName>
+    <externalId>false</externalId>
+    <formula>TEXT(YEAR(Flight_End__c)) 
++ &#39;-&#39; + 
+ IF(  LEN(TEXT(MONTH(Flight_End__c))) = 1, &#39;0&#39; + TEXT(MONTH(Flight_End__c)) , TEXT(MONTH(Flight_End__c))) 
++ &#39;-&#39; +
+ IF( LEN(TEXT(DAY(Flight_End__c))) = 1, &#39;0&#39; + TEXT(DAY(Flight_End__c)) , TEXT(DAY(Flight_End__c)))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>STG Flight End YMD</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

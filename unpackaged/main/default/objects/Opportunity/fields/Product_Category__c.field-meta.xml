@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Product_Category__c</fullName>
+    <externalId>false</externalId>
+    <label>Product Category</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Awards</fullName>
+                <default>false</default>
+                <label>Awards</label>
+            </value>
+            <value>
+                <fullName>China Solutions</fullName>
+                <default>false</default>
+                <label>China Solutions</label>
+            </value>
+            <value>
+                <fullName>Events</fullName>
+                <default>false</default>
+                <label>Events</label>
+            </value>
+            <value>
+                <fullName>Agent Discretionary</fullName>
+                <default>false</default>
+                <label>Agent Discretionary</label>
+            </value>
+            <value>
+                <fullName>Agent Subscriptions</fullName>
+                <default>false</default>
+                <label>Agent Subscriptions</label>
+            </value>
+            <value>
+                <fullName>Developer Listings</fullName>
+                <default>false</default>
+                <label>Developer Listings</label>
+            </value>
+            <value>
+                <fullName>Online Advertising</fullName>
+                <default>false</default>
+                <label>Online Advertising</label>
+            </value>
+            <value>
+                <fullName>Marketing Services</fullName>
+                <default>false</default>
+                <label>Marketing Services</label>
+            </value>
+            <value>
+                <fullName>Database Marketing</fullName>
+                <default>false</default>
+                <label>Database Marketing</label>
+            </value>
+            <value>
+                <fullName>Content</fullName>
+                <default>false</default>
+                <label>Content</label>
+            </value>
+            <value>
+                <fullName>FinTech</fullName>
+                <default>false</default>
+                <label>FinTech</label>
+            </value>
+            <value>
+                <fullName>FastKey</fullName>
+                <default>false</default>
+                <label>FastKey</label>
+            </value>
+            <value>
+                <fullName>Data MPD</fullName>
+                <default>false</default>
+                <label>Data MPD</label>
+            </value>
+            <value>
+                <fullName>Discretionary</fullName>
+                <default>false</default>
+                <label>Discretionary</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>4</visibleLines>
+</CustomField>

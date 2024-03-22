@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>PG_Payment_Validation_OnlinePayment</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(NOT( Opportunity_Record__r.RecordType.Name=&#39;B2C Self-Serve&#39;), ISPICKVAL(Opportunity_Record__r.Opportunity_Type__c, &#39;&#39;) ,NOT(ISPICKVAL(Opportunity_Record__r.Payment_Type__c ,&#39;Offline&#39;)))</errorConditionFormula>
+    <errorMessage>Payment Creation Failed!
+Cannot Create offline payment for Opportunity with Online Payment.</errorMessage>
+</ValidationRule>

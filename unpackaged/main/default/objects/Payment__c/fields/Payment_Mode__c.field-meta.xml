@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Payment_Mode__c</fullName>
+    <description>Denotes the payment mode</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Denotes the payment mode</inlineHelpText>
+    <label>Payment Mode</label>
+    <required>false</required>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>bank-transfer</fullName>
+                <default>false</default>
+                <label>bank-transfer</label>
+            </value>
+            <value>
+                <fullName>credit-card</fullName>
+                <default>false</default>
+                <label>credit-card</label>
+            </value>
+            <value>
+                <fullName>installment-plan</fullName>
+                <default>false</default>
+                <label>installment-plan</label>
+            </value>
+            <value>
+                <fullName>Offline</fullName>
+                <default>false</default>
+                <label>Offline</label>
+            </value>
+            <value>
+                <fullName>Paypal</fullName>
+                <default>false</default>
+                <label>Paypal</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

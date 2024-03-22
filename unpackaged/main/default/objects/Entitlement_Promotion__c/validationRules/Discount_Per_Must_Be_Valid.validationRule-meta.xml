@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Discount_Per_Must_Be_Valid</fullName>
+    <active>true</active>
+    <description>Discount % must be positive 0 &lt; x &lt;= 100%.</description>
+    <errorConditionFormula>AND(
+!ISBLANK( Discount__c),
+OR( 
+Discount__c &lt;= 0, 
+Discount__c &gt; 1 
+)
+)</errorConditionFormula>
+    <errorDisplayField>Discount__c</errorDisplayField>
+    <errorMessage>Discount % must lie between 0 and 100.</errorMessage>
+</ValidationRule>

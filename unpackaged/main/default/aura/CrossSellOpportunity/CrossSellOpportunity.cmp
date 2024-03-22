@@ -1,0 +1,28 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global"
+                controller ="CrossSellOpportunity_cc">
+    
+    <aura:attribute name="recordId" type="String"/>    
+    <aura:attribute name="Amount" type="String"/>    
+    <aura:attribute name="redirectURL" type="String"/>    
+    <aura:attribute name="Currency" type="String"/>    
+     <aura:attribute name="showLink" type="Boolean"/>    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <div style="background: white;height: 100px;">
+        
+        <div class="slds-card__header-title slds-page-header" >
+            <lightning:icon iconName="utility:money" 
+                            alternativeText="Money" variant="success" title="small size"/>
+            &nbsp; Total Cross-sell Value
+            <aura:if isTrue="{!v.showLink}">
+            <div style="right: 0px;position: absolute; right: 21px;"> 
+                <ui:outputURL value="{!v.redirectURL}" label="View Opportunity" />
+            </div>
+                </aura:if>
+        </div>
+        
+        
+        <div class="slds-m-around--small" style="font-size: x-large;">
+            {!v.Currency} &nbsp; {!v.Amount}
+        </div>
+    </div>
+</aura:component>

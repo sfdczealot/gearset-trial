@@ -1,0 +1,608 @@
+<aura:component controller = "ProductSelectionLightningPageController" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    <aura:attribute name = "Malaysia_MCO_Promos" type = "String" />
+    <aura:attribute name = "quoteId" type = "String" />
+    <aura:attribute name = "oppId" type = "String" />
+    <aura:attribute name = "productList" type = "List" />
+    <aura:attribute name = "promoMap" type = "Map" />
+    <aura:attribute name = "productId" type = "List" />
+    <aura:attribute name = "promoMapDisplay" type = "Map" />
+    <aura:attribute name = "productMap" type = "Map" />
+    <aura:attribute name = "oliItems" type = "QuoteLineItem[]" />
+    <aura:attribute name = "subtotal" type = "Integer" />
+    <aura:attribute name = "oliSelectedIndex" type = "Integer" />
+    <aura:attribute name = "defaultPromoMap" type = "Map" />
+    <aura:attribute name ="activeSections" type="List" default="['prodSection','oliSection']" />
+    <aura:attribute name = "saveBtnStatus" type = "boolean" default = "false" />
+    <aura:attribute name = "pickList" type = "List" default = "[]" />
+    <!-- Added to hide VIP Relationship from Product Selection Wizard -->  
+    <aura:attribute name = "optimizedPickList" type = "List" default = "[]" />
+    
+    <aura:attribute name = "exclusionProductMap" type = "Map"/>
+    <aura:attribute name ="listDiscountDetail" type="list" />
+    <aura:attribute name ="EligibleVip" type="String" default=""/>
+    <aura:attribute name="listTaxCode" type="List"/>
+    <aura:handler name = "init" value = "{!this}" action = "{!c.init}" />
+    <aura:attribute name="oppLineObj" type="QuoteLineItem" default="{sobjectType : 'QuoteLineItem'}" />
+    <aura:attribute name="oppObj" type="Opportunity" default="{sobjectType : 'Opportunity'}" />
+    <aura:attribute name="resetAllRelatedBonus" type="boolean" default="false"/>
+    <aura:attribute name="listOppLineDelete" type="list"/>
+    <aura:attribute name="loyaltyUpgrade" type="ProductSelectionLightningPageController.DiscountInfo" />
+    <aura:attribute name="campaignObj" type="Campaign" default="{sobjectType : 'Campaign'}" />
+    <aura:attribute name="noRecalculate" type="boolean" default="false"/>
+    <aura:attribute name="productObj" type="Product2" default="{sobjectType : 'Product2'}" />
+    <aura:attribute name = "quoteObj" type = "Quote" />
+    <aura:attribute name="isMsg" type="boolean" default="false"/>
+    <!--tax related fields PGAUTO-2537-->
+    <aura:attribute name = "taxTotal" type = "Integer" />
+    <aura:attribute name = "WHTTotal" type = "Integer" />
+    <aura:attribute name = "totalGrossAmount" type = "Integer" />
+    <aura:attribute name = "totalAmountBeforeDiscount" type = "Integer" />
+    <aura:attribute name = "totalDiscountAmount" type = "Integer" />
+    <!-- Renew Buttons PGAUTO-2375-->
+    <aura:attribute name = "renewBtn" type = "Map"/>
+    <aura:attribute name = "renewPromoFilterMap" type = "Map"/>
+    <aura:attribute name="isProRate" type="boolean" default="false"/>
+    <!--PGAUtO-2879 show final payment amounts-->
+    <aura:attribute name="balanceAmt" type="Integer"/>
+    <!--PGAUtO-6001 Validate startDtae-->
+    <aura:attribute name="endOfTheWeek" type="Map" />
+    <aura:attribute name="endDayForExisting" type="Map" />
+    <aura:attribute name="listOfChildProduct" type="List"/>
+    <!-- AUTOMATION-8897 Total Quantity in Cart-->
+    <aura:attribute name="sumOfQLIQuantity" type="Integer"/>
+    <aura:attribute name="originalStartDate" type="Date"/>
+    <aura:attribute name="adCreditIndex" type="Integer"/>
+    <aura:attribute name="onChangeACIndex" type="Integer"/>
+    <aura:attribute name = "IsDiscNotApplicable" type = "Boolean" default = "false"/>
+    <section role="dialog" tabindex="-1" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+        <div class="slds-modal__container" style = "max-width:100%; min-width:50%; width:94%" >
+            
+            <header class="slds-modal__header slds-modal__header_empty">
+                <button class="slds-button slds-button--icon-inverse slds-modal__close" onclick="{!c.closeModal}">
+                    <lightning:icon iconName="utility:close" size="medium" variant="bare"/>
+                </button>
+                
+            </header>
+            <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                <lightning:accordion
+                                     allowMultipleSectionsOpen="true"
+                                     activeSectionName="{!v.activeSections}"
+                                     >
+                    <aura:if isTrue="{! !(v.isMsg)}">
+                        <!-- dynamic buttons -->
+                        
+                        <div class="slds-grid slds-gutters product-btn">
+                            <aura:iteration items = "{!v.renewBtn}" var  = "btn" indexVar = "index" >
+                                
+                                <div class="slds-col" data-row-index = "{!index}"> 
+                                    <lightning:button  onclick="{!c.addProdClickedRenew}" label="{!btn.key}"  disabled = "{! v.quoteObj.Status != 'Proposal'}"/>
+                                </div>
+                                
+                            </aura:iteration>
+                        </div>
+                        <div class="slds-grid slds-gutters">
+                            <div class="slds-col slds-size_7-of-12">
+                                
+                                
+                                
+                                <!-- dynamic buttons end -->
+                                <lightning:accordionSection name="prodSection" label="Product Catalogue">
+                                    <div class="slds-grid slds-gutters">
+                                        <div style= "padding-left: 2%" class="slds-size_11-of-12">
+                                            <lightning:input aura:id = "searchProd" onchange="{!c.searchBtnClicked }" name="Search" label="Search Product" placeholder="Type Min 3 char"/>
+                                        </div>
+                                        <div style= "padding-left: 1%;padding-top: 4%;padding-bottom: 3%;">
+                                            <lightning:buttonIcon iconName="utility:search" variant="bare" onclick="{!c.searchBtnClicked }" alternativeText="Search" aura:id = "search" />
+                                        </div>
+                                    </div>
+                                    <div class="slds-scrollable">
+                                        <table class="slds-table slds-table_header-hidden slds-table_striped">
+                                            <thead>
+                                                <th class="" scope="col">
+                                                    <div class="slds-truncate" title="DISPLAY NAME (NS)">DISPLAY NAME (NS)</div>
+                                                </th>
+                                                <th class="" scope="col">
+                                                    <div class="slds-truncate" title="LIST PRICE">LIST PRICE ({!v.quoteObj.CurrencyIsoCode})</div>
+                                                </th>
+                                                <th class="" scope="col">
+                                                    <div class="slds-truncate" title="SKU CODE">SKU CODE</div>
+                                                </th>
+                                            </thead>
+                                            <tbody>
+                                                <!--<center> <b>Product Catalogue Result </b> </center>-->
+                                                <tr>
+                                                    <td>
+                                                        <div class="slds-scrollable_y" style="min-height: fit-content;max-height: fit-content;min-width: fit-content;max-width: fit-content;text-align: -webkit-center">
+                                                            <lightning:spinner aura:id = "spinnerProd" class = "slds-hide" />
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <aura:iteration items = "{!v.productList}" var  = "prod" indexVar = "index" >
+                                                    <tr>
+                                                        <td>
+                                                            {!prod.Product2.Name}
+                                                        </td>
+                                                        <td>
+                                                            {!prod.UnitPrice}
+                                                        </td>
+                                                        <td>
+                                                            {!prod.Product2.SKU_Code__c}
+                                                        </td>
+                                                        <td data-row-index = "{!index}"> 
+                                                            <lightning:buttonIcon iconName="utility:add" variant="bare" value = "{!prod}" onclick="{!c.addProdClicked}" alternativeText="add"  disabled = "{! v.quoteObj.Status != 'Proposal'}"/>
+                                                        </td>
+                                                    </tr>
+                                                </aura:iteration>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </lightning:accordionSection>
+                            </div>
+                            <div class="slds-col slds-size_5-of-12">
+                                <div style= "text-align: -webkit-center;padding-left: 6%;padding-top: 2rem;padding-bottom: 2%;" id = "promos" >
+                                    <div class="slds-scrollable custom-table-cont">
+                                        <table class="slds-table slds-table_header-hidden slds-table_striped slds-table_resizable-cols">
+                                            <tbody>
+                                                <center> <b>Eligible Promo / Promo Result </b> </center>
+                                                <aura:iteration items="{!v.promoMapDisplay}"  var="prodId" > 
+                                                    <aura:iteration items="{!prodId.value}" var="promo" indexVar = "count" >
+                                                        <tr>
+                                                            <td>
+                                                                {!promo.Name}
+                                                            </td>
+                                                            <td data-row-index = "{!count}">
+                                                                <aura:if isTrue = "{!prodId.key != 'noPromo'}" >
+                                                                    <lightning:buttonIcon iconName="utility:add" class="filterPromo" variant="brand" value = "{!promo.Id}" onclick="{!c.addPromoButton}" alternativeText="Filter promo"  />
+                                                                </aura:if>
+                                                            </td>
+                                                        </tr>
+                                                    </aura:iteration>
+                                                </aura:iteration>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </aura:if>
+                    
+                    <lightning:accordionSection name="oliSection" label="Selected Products">
+                        <aura:if isTrue="{!v.isMsg}">
+                            <div class="slds-page-header" style="border-color: #f2a199;background-color: #fdedea;border: 1px solid #de9494;border-radius: 10px;">
+                                <div class="slds-page-header__row">
+                                    <div class="slds-page-header__col-title">
+                                        <div class="slds-media">
+                                            <div class="slds-media__figure">
+                                            </div>
+                                            <div class="slds-media__body">
+                                                <div class="slds-page-header__name">
+                                                    <div class="slds-page-header__name-title">
+                                                        <h1>
+                                                            <span class="slds-page-header__title slds-truncate">Information</span>
+                                                        </h1>
+                                                    </div>
+                                                </div>
+                                                <p class="slds-page-header__name-meta">Quote is Locked.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </aura:if>
+                        <div style= "text-align: -webkit-center;padding-left: 1%;padding-top: 3%;padding-bottom: 2%;" >
+                            <center> <b> Selected Products </b> </center>
+                            <br/>
+                            <div class="slds-scrollable" style="min-height: fit-content;max-height: fit-content;width:100%" >
+                                <table class="custom-table-prop slds-table slds-table_header-hidden">
+                                    <thead>
+                                        <th>
+                                            
+                                        </th>
+                                        <th style= "min-width: 200px;width: 200px;text-align: -webkit-center;" >
+                                            Product
+                                        </th>
+                                        <th style="min-width: 100px;width: 100px;text-align: -webkit-center;">
+                                            Price ({!v.quoteObj.CurrencyIsoCode})
+                                        </th>
+                                        <th style="min-width: 80px;width: 80px;text-align: -webkit-center;" >
+                                            Quantity
+                                        </th>
+                                        <th style="min-width: 100px;width: 100px;text-align: -webkit-center;">
+                                            Discount
+                                        </th>
+                                        <th style="min-width: 100px;width: 100px;text-align: -webkit-center;">
+                                            Discount %
+                                        </th>
+                                        <th style= "min-width: 142px;text-align: -webkit-center;">
+                                            Campaign
+                                        </th>
+                                        <th style= "min-width: 142px;text-align: -webkit-center;">
+                                            Discount Reason
+                                        </th>
+                                        
+                                        <th style= "min-width: 22px;text-align: -webkit-center;">
+                                            AA
+                                        </th>
+                                        <th style= "min-width: 130px;width: 130px;text-align: -webkit-center;">
+                                            Start Date
+                                        </th>
+                                        <th style= "min-width: 130px;text-align: -webkit-center;">
+                                            End Date
+                                        </th>
+                                        <aura:if isTrue = "{! and(v.quoteObj.Country__c == 'Thailand',v.oppObj.Account.Tax_Reg_Number__c != undefined,v.oppObj.Account.Tax_Reg_Number__c != '')}" >
+                                            <th style= "min-width: 142px;text-align: -webkit-center;">
+                                                WHT Rate 
+                                            </th>
+                                        </aura:if>
+                                        
+                                        <aura:if isTrue = "{!v.isProRate}" >
+                                            
+                                            <th style="min-width: 110px;width: 110px;text-align: -webkit-center;">
+                                                Pro Rate Amount ({!v.quoteObj.CurrencyIsoCode})
+                                            </th>
+                                        </aura:if>
+                                        <th style= "min-width: 190px;text-align: -webkit-center;">
+                                            Price Before Discount ({!v.quoteObj.CurrencyIsoCode})
+                                        </th>
+                                        <th style="min-width: 110px;width: 110px;text-align: -webkit-center;">
+                                            Price After Discount ({!v.quoteObj.CurrencyIsoCode})
+                                        </th>
+                                        <th style="min-width: 110px;width: 110px;text-align: -webkit-center;">
+                                            Price After Tax ({!v.quoteObj.CurrencyIsoCode})
+                                        </th>                                        
+                                        <th style= "max-width: fit-content; min-width: fit-content;"><!-- style= "max-width: fit-content; min-width: fit-content;"-->
+                                            
+                                        </th>
+                                    </thead>
+                                    <tbody>
+                                        <lightning:spinner aura:id = "spinnerOli" class = "slds-hide" />       
+                                        <aura:iteration items = "{!v.oliItems}" var = "oli" indexVar = "oliIndex" >
+                                            <tr>
+                                                <td data-row-index = "{!oliIndex}" style = "">
+                                                    <aura:if isTrue="{! !((v.quoteObj.Quote_Type__c == 'B2C - Upgrade' &amp;&amp; oli.Product2.Product_Category__c == 'Subscription') || (oli.Product2.Product_Category__c == null || oli.Parent__c != null || oli.IsDiscretionaryAC__c == true) || v.isMsg )}">
+                                                        <lightning:buttonIcon  class = "deleteOli" iconName="utility:close" variant="bare" value = "{!oli.Id}" onclick="{!c.removeOliBtn}" alternativeText="remove"  disabled = "{! v.quoteObj.Status != 'Proposal' || and(oli.Parent_Id__c != '',oli.Parent_Id__c != undefined)||and(oli.Parent != '', oli.Parent != undefined)||and(oli.Parent__c != '',oli.Parent__c != undefined)}"/>
+                                                    </aura:if>    
+                                                    <!--<aura:if isTrue="{!oli.Parent__c}">
+                                                       <lightning:buttonIcon  class = "deleteOli" iconName="utility:close" variant="bare" value = "{!oli.Id}" onclick="{!c.removeOliBtn}" alternativeText="remove"  disabled = "true"/>
+                                                </aura:if>-->
+                                                </td>
+                                                <td style= "">
+                                                    <lightning:input type="text" value="{!oli.Product2.Name}" disabled = "true" title = "{!oli.Product2.Name}"/>
+                                                </td>
+                                                <td style= "">
+                                                    <lightning:input class = "setInputSize slds-text-align_right" type="number"  value="{!oli.UnitPrice}" title = "{!oli.UnitPrice}" onchange = "{!c.getSubtotal}" disabled = "true" aura:id="oppUnitPrice" />
+                                                </td>
+                                                <td data-row-index = "{!oliIndex}" style= "">
+                                                    <aura:if isTrue = "{!v.quoteObj.Status != 'Proposal'}" >
+                                                        <lightning:input class = "setInputSize slds-resizable__input slds-text-align_right" type="number" value="{!oli.Quantity}" disabled = "true" aura:id="oppQuantity" />
+                                                        <aura:set attribute = "else" >
+                                                            <aura:if isTrue = "{! and(oli.Parent_Id__c != '',oli.Parent_Id__c != undefined)||and(oli.Parent != '', oli.Parent != undefined)||and(oli.Parent__c != '',oli.Parent__c != undefined) ||oli.Product2.Product_Category__c == 'Subscription' || oli.IsDiscretionaryAC__c == true}" >
+                                                                <lightning:input class = "setInputSize slds-resizable__input slds-text-align_right" type="number" value="{!oli.Quantity}" title = "{!oli.Quantity}" disabled = "true" aura:id="oppQuantity"/>
+                                                                <aura:set attribute = "else" >
+                                                                    <lightning:input class = "setInputSize slds-resizable__input slds-text-align_right" type="number" value="{!oli.Quantity}" onchange = "{!c.onchangeQuantity}" title = "{!oli.Quantity}" disabled="{!v.isMsg}" aura:id="oppQuantity" />
+                                                                </aura:set>
+                                                            </aura:if>
+                                                        </aura:set>
+                                                    </aura:if>
+                                                    
+                                                </td>
+                                                <td style= "" data-row-index = "{!oliIndex}">
+                                                    <aura:if isTrue = "{!v.quoteObj.Status != 'Proposal'}" >
+                                                        <lightning:input step="0.000001" class = "setInputSize slds-text-align_right" type="number"  value="{!oli.Discount_Amount__c}" title = "{!oli.Discount_Amount__c}" disabled = "true" aura:id="discountAmt"/>
+                                                        <aura:set attribute = "else" >
+                                                            <aura:if isTrue = "{!v.IsDiscNotApplicable}">
+                                                                <lightning:input step="0.000001" class = "setInputSize slds-text-align_right" type="number"  value="{!oli.Discount_Amount__c}" title = "{!oli.Discount_Amount__c}" disabled = "true" aura:id="discountAmt"/>
+                                                                <aura:set attribute = "else">
+                                                                    <aura:if isTrue = "{! and(oli.Parent_Id__c != '',oli.Parent_Id__c != undefined)||and(oli.Parent != '', oli.Parent != undefined)||and(oli.Parent__c != '',oli.Parent__c != undefined) || oli.IsDiscretionaryAC__c== true}" >
+                                                                        <lightning:input step="0.000001" class = "setInputSize slds-text-align_right" type="number"  value="{!oli.Discount_Amount__c}" title = "{!oli.Discount_Amount__c}" disabled = "true" aura:id="discountAmt"/>
+                                                                        <aura:set attribute = "else" >
+                                                                            <lightning:input step="0.000001" class = "setInputSize slds-text-align_right" type="number"  value="{!oli.Discount_Amount__c}" title = "{!oli.Discount_Amount__c}" onchange = "{!c.applyManualDiscountAmount}" disabled="{!v.isMsg}" aura:id="discountAmt"/>
+                                                                        </aura:set>
+                                                                    </aura:if>
+                                                                </aura:set>
+                                                            </aura:if>
+                                                        </aura:set>
+                                                    </aura:if>
+                                                    
+                                                </td>
+                                                <td style= "" data-row-index = "{!oliIndex}">
+                                                    <aura:if isTrue = "{!v.quoteObj.Status != 'Proposal'}" >
+                                                        <lightning:input class = "setInputSize slds-text-align_right" step="0.000001" type="number" value="{!oli.Discount__c}" title = "{!oli.Discount__c}" disabled = "true" aura:id="discountPer" />
+                                                        <aura:set attribute = "else" >
+                                                            <aura:if isTrue = "{!v.IsDiscNotApplicable}">
+                                                                <lightning:input class = "setInputSize slds-text-align_right" step="0.000001" type="number" value="{!oli.Discount__c}" title = "{!oli.Discount__c}" disabled = "true" aura:id="discountPer" />
+                                                                <aura:set attribute = "else">
+                                                                    <aura:if isTrue = "{! and(oli.Parent_Id__c != '',oli.Parent_Id__c != undefined)||and(oli.Parent != '', oli.Parent != undefined)||and(oli.Parent__c != '',oli.Parent__c != undefined) || oli.IsDiscretionaryAC__c== true}" >
+                                                                        <lightning:input step="0.000001" class = "setInputSize slds-text-align_right" type="number" value="{!oli.Discount__c}" title = "{!oli.Discount__c}" disabled = "true" aura:id="discountPer"/>
+                                                                        <aura:set attribute = "else" >
+                                                                            <lightning:input step="0.000001" class = "setInputSize slds-text-align_right" type="number" value="{!oli.Discount__c}" title = "{!oli.Discount__c}" onchange = "{!c.applyManualDiscountPercentage}" disabled="{!v.isMsg}" aura:id="discountPer" />
+                                                                        </aura:set>
+                                                                    </aura:if>
+                                                                </aura:set>
+                                                            </aura:if>
+                                                        </aura:set>
+                                                    </aura:if>
+                                                </td>
+                                                <td style= "" >
+                                                    <lightning:input type="text" value="{!oli.CampaignId__c}" disabled = "true" title="{!oli.CampaignId__c}"/>
+                                                </td>
+                                                <td style= "" data-row-index = "{!oliIndex}">
+                                                    <aura:if isTrue = "{!oli.Promo_Mechanic_Id__c}">
+                                                        <lightning:input type="text" value="{!oli.Discount_Reason__c}" disabled = "true" title="{!oli.Discount_Reason__c}" aura:id="discountReason"/>
+                                                        <!-- (start) -Added to hide some Discount Reasons from Product Selection Wizard (Without Promo) -->
+                                                        <aura:set attribute = "else" >
+                                                            <aura:if isTrue = "{!v.IsDiscNotApplicable}">
+                                                                <lightning:input type="text" value="{!oli.Discount_Reason__c}" disabled = "true" title="{!oli.Discount_Reason__c}" aura:id="discountReason"/>
+                                                                <aura:set attribute = "else">
+                                                                    <aura:if isTrue = "{!v.quoteObj.Status != 'Proposal'}">
+                                                                        <lightning:select name="select1" label="" value="{!oli.Discount_Reason__c}" title="{!oli.Discount_Reason__c}" disabled = "true" aura:id="discountReason">
+                                                                            <option value=''></option>
+                                                                            <aura:iteration items="{!v.optimizedPickList}" var = "pk">
+                                                                                <option value="{!pk}" selected = "{!pk == oli.Discount_Reason__c}">{!pk}</option>
+                                                                            </aura:iteration>
+                                                                        </lightning:select>
+                                                                        <aura:set attribute = "else" >
+                                                                            <aura:if isTrue = "{! and(oli.Parent_Id__c != '',oli.Parent_Id__c != undefined)||and(oli.Parent != '', oli.Parent != undefined)||and(oli.Parent__c != '',oli.Parent__c != undefined) || oli.IsDiscretionaryAC__c== true}" >
+                                                                                <lightning:select name="select1" label="" value="{!oli.Discount_Reason__c}" title="{!oli.Discount_Reason__c}" disabled = "true" aura:id="discountReason">
+                                                                                    <option value=''></option>
+                                                                                    <aura:iteration items="{!v.optimizedPickList}" var = "pk">
+                                                                                        <option value="{!pk}" selected = "{!pk == oli.Discount_Reason__c}">{!pk}</option>
+                                                                                    </aura:iteration>
+                                                                                </lightning:select>
+                                                                                <aura:set attribute = "else" >
+                                                                                    <lightning:select name="select1" label="" onchange = "{!c.applyManagerialDiscount}" value="{!oli.Discount_Reason__c}" title="{!oli.Discount_Reason__c}" disabled="{!v.isMsg}" aura:id="discountReason">
+                                                                                        <option value=''></option>
+                                                                                        <aura:iteration items="{!v.optimizedPickList}" var = "pk">
+                                                                                            <option value="{!pk}" selected = "{!pk == oli.Discount_Reason__c}">{!pk}</option>
+                                                                                        </aura:iteration>
+                                                                                    </lightning:select>
+                                                                                </aura:set>
+                                                                            </aura:if>
+                                                                        </aura:set>
+                                                                    </aura:if>
+                                                                </aura:set>
+                                                            </aura:if>
+                                                        </aura:set>
+                                                    </aura:if>
+                                                    <!--</aura:iteration>-->
+                                                    <!-- (end) -Added to hide some Discount Reasons from Product Selection Wizard (Without Promo) -->
+                                                </td>
+                                                
+                                                <td style= "" class="custom-checkbox-center slds-text-align_center" data-row-index = "{!oliIndex}">
+                                                    <aura:if isTrue = "{!and(v.quoteObj.Status != 'Proposal' , v.quoteObj.Status != 'Pending OMC Approval')}" >
+                                                        <lightning:input type="checkbox" checked="{!oli.PO__c}" title="{!oli.PO__c}" disabled = "true"/>
+                                                        <aura:set attribute = "else" >
+                                                            <aura:if isTrue = "{! and(oli.Parent_Id__c != '',oli.Parent_Id__c != undefined)||and(oli.Parent != '', oli.Parent != undefined)||and(oli.Parent__c != '',oli.Parent__c != undefined) || oli.IsDiscretionaryAC__c == true}" >
+                                                                <lightning:input type="checkbox" checked="{!oli.PO__c}" title="{!oli.PO__c}" disabled = "true"/>
+                                                                <aura:set attribute = "else" >
+                                                                    <lightning:input type="checkbox" checked="{!oli.PO__c}" title="{!oli.PO__c}" disabled="{! !( v.quoteObj.Status == 'Proposal' || (v.quoteObj.Quote_Type__c != 'B2C - Upgrade' &amp;&amp; v.quoteObj.Status == 'Pending OMC Approval' &amp;&amp; (v.quoteObj.Approval_Status__c == 'OMC Approval Recalled' || v.quoteObj.Approval_Status__c == 'OMC Approval Rejected')) || (v.quoteObj.Quote_Type__c != 'B2C - Upgrade' &amp;&amp; v.quoteObj.Status == 'Proposal' &amp;&amp; v.quoteObj.Approval_Status__c == 'Discount Approval Approved'))}" onchange="{!c.changeChildPO}"/>
+                                                                </aura:set>
+                                                            </aura:if>
+                                                        </aura:set>
+                                                    </aura:if>
+                                                    <!--<lightning:input type="checkbox" checked="{!oli.PO__c}" title="{!oli.PO__c}"/>-->
+                                                </td>
+                                                <td style= "" data-row-index = "{!oliIndex}">
+                                                    <aura:if isTrue="{!(oli.isPromoApplied == true) || (oli.isPackagePromoApplied)}">
+                                                        <lightning:input type="date" style="width: 131px;" aura:id="oppStartDate" value="{!oli.Start_Date__c}" title="{!oli.Start_Date__c}" onchange="{!c.changeChildDate}" disabled="false"/>
+                                                        <aura:set attribute="else"> 
+                                                            <aura:if isTrue="{!oli.Product2.Start_Date_Non_Editable__c}">
+                                                                <lightning:input type="date" style="width: 131px;" aura:id="oppStartDate" value="{!oli.Start_Date__c}" title="{!oli.Start_Date__c}" onchange="{!c.changeChildDate}" disabled="true"/>
+                                                                <aura:set attribute="else">
+                                                                    <aura:if isTrue = "{!and(v.quoteObj.Status != 'Proposal' , v.quoteObj.Status != 'Pending OMC Approval')}" >
+                                                                        <lightning:input type="date" aura:id="oppStartDate" style="width: 131px;" value="{!oli.Start_Date__c}" title="{!oli.Start_Date__c}" disabled = "true"/>
+                                                                        <aura:set attribute = "else" >
+                                                                            <aura:if isTrue = "{! and(oli.Parent_Id__c != '',oli.Parent_Id__c != undefined)||and(oli.Parent != '', oli.Parent != undefined)||and(oli.Parent__c != '',oli.Parent__c != undefined)}" >
+                                                                                <lightning:input type="date" style="width: 131px;" aura:id="oppStartDate" value="{!oli.Start_Date__c}" title="{!oli.Start_Date__c}" disabled = "true"/>
+                                                                                <aura:set attribute = "else" >
+                                                                                    <aura:if isTrue="{!v.quoteObj.Quote_Type__c == 'B2C - Upgrade'}">
+                                                                                        <lightning:input type="date" style="width: 131px;" aura:id="oppStartDate" value="{!oli.Start_Date__c}" title="{!oli.Start_Date__c}" onchange="{!c.changeChildDate}" disabled="{! (!(v.quoteObj.Status == 'Proposal') || oli.IsDiscretionaryAC__c == true)}"/>
+                                                                                        <aura:set attribute="else">
+                                                                                            <lightning:input type="date" style="width: 131px;" aura:id="oppStartDate" value="{!oli.Start_Date__c}" title="{!oli.Start_Date__c}" onchange="{!c.changeChildDate}" disabled="{! !(v.quoteObj.Status == 'Proposal' || (v.quoteObj.Quote_Type__c != 'B2C - Upgrade' &amp;&amp; v.quoteObj.Status == 'Pending OMC Approval' &amp;&amp; (v.quoteObj.Approval_Status__c == 'OMC Approval Recalled' || v.quoteObj.Approval_Status__c == 'OMC Approval Rejected')) || (v.quoteObj.Quote_Type__c != 'B2C - Upgrade' &amp;&amp; v.quoteObj.Status == 'Proposal' &amp;&amp; v.quoteObj.Approval_Status__c == 'Discount Approval Approved'))}"/>                                                                            
+                                                                                        </aura:set>
+                                                                                    </aura:if>
+                                                                                </aura:set>
+                                                                            </aura:if>
+                                                                        </aura:set>
+                                                                    </aura:if>
+                                                                </aura:set>
+                                                            </aura:if>  
+                                                        </aura:set>
+                                                    </aura:if> 
+                                                    <!--<lightning:input type="date" value="{!oli.Start_Date__c}" title="{!oli.Start_Date__c}"/>-->
+                                                </td>
+                                                
+                                                <td style = "" data-row-index = "{!oliIndex}">
+                                                    <aura:if isTrue="{!oli.Product2.End_Date_Non_Editable__c}">
+                                                        <lightning:input type="date" style="width: 131px;" aura:id="oppEndDate" value="{!oli.End_Date__c}" title="{!oli.End_Date__c}" onchange="{!c.changeChildDate}" disabled="true"/>
+                                                        <aura:set attribute = "else" >
+                                                            <aura:if isTrue = "{!and(v.quoteObj.Status != 'Proposal' , v.quoteObj.Status != 'Pending OMC Approval')}" >
+                                                                <lightning:input type="date" style="width: 131px;" aura:id="oppEndDate" value="{!oli.End_Date__c}" title="{!oli.End_Date__c}" disabled = "true"/>
+                                                                <aura:set attribute = "else" >
+                                                                    <aura:if isTrue = "{! and(oli.Parent_Id__c != '',oli.Parent_Id__c != undefined)||and(oli.Parent != '', oli.Parent != undefined)||and(oli.Parent__c != '',oli.Parent__c != undefined)}" >
+                                                                        <lightning:input type="date" style="width: 131px;" aura:id="oppEndDate" value="{!oli.End_Date__c}" title="{!oli.End_Date__c}" disabled = "true"/>
+                                                                        <aura:set attribute = "else" >
+                                                                            <aura:if isTrue="{!v.quoteObj.Quote_Type__c == 'B2C - Upgrade'}">
+                                                                                <lightning:input type="date" style="width: 131px;" aura:id="oppEndDate" value="{!oli.End_Date__c}" title="{!oli.End_Date__c}" onchange="{!c.changeChildDate}" disabled="{! (!(v.quoteObj.Status == 'Proposal')) || oli.IsDiscretionaryAC__c == true}"/>
+                                                                                <aura:set attribute="else">
+                                                                                    <lightning:input type="date" style="width: 131px;" aura:id="oppEndDate" value="{!oli.End_Date__c}" title="{!oli.End_Date__c}" onchange="{!c.changeChildDate}" disabled="{! !( v.quoteObj.Status == 'Proposal' || (v.quoteObj.Quote_Type__c != 'B2C - Upgrade' &amp;&amp; v.quoteObj.Status == 'Pending OMC Approval' &amp;&amp; (v.quoteObj.Approval_Status__c == 'OMC Approval Recalled' || v.quoteObj.Approval_Status__c == 'OMC Approval Rejected')) || (v.quoteObj.Quote_Type__c != 'B2C - Upgrade' &amp;&amp; v.quoteObj.Status == 'Proposal' &amp;&amp; v.quoteObj.Approval_Status__c == 'Discount Approval Approved'))}"/>
+                                                                                </aura:set>
+                                                                            </aura:if>
+                                                                        </aura:set>
+                                                                    </aura:if>
+                                                                </aura:set>
+                                                            </aura:if>
+                                                        </aura:set>
+                                                    </aura:if>
+                                                    <!--<lightning:input type="date" value="{!oli.End_Date__c}" title="{!oli.End_Date__c}"/>-->
+                                                </td>
+                                                <aura:if isTrue = "{! and(v.quoteObj.Country__c == 'Thailand',v.oppObj.Account.Tax_Reg_Number__c != undefined,v.oppObj.Account.Tax_Reg_Number__c != '')}" >
+                                                    
+                                                    
+                                                    <td style= "" data-row-index = "{!oliIndex}">
+                                                        <aura:if isTrue = "{!v.quoteObj.Status != 'Proposal'}" >
+                                                            <lightning:input class = "setInputSize slds-text-align_right" type="number" value="{!oli.WHT_Rate__c}" title = "{!oli.WHT_Rate__c}" disabled = "true" aura:id="WHTRateAmt"/>
+                                                            <aura:set attribute = "else" >
+                                                                <aura:if isTrue = "{! and(oli.Parent_Id__c != '',oli.Parent_Id__c != undefined)||and(oli.Parent != '', oli.Parent != undefined)||and(oli.Parent__c != '',oli.Parent__c != undefined)||or(v.oppObj.Account.Tax_Reg_Number__c == undefined,v.oppObj.Account.Tax_Reg_Number__c == '')}" >
+                                                                    <lightning:input class = "setInputSize slds-text-align_right" type="number" value="{!oli.WHT_Rate__c}" title = "{!oli.WHT_Rate__c}" disabled = "true"  aura:id="WHTRateAmt"/>
+                                                                    <aura:set attribute = "else" >
+                                                                        <lightning:input class = "setInputSize slds-text-align_right" type="number" value="{!oli.WHT_Rate__c}" title = "{!oli.WHT_Rate__c}" disabled="{!v.isMsg}" onchange = "{!c.getSubtotal}" aura:id="WHTRateAmt"/>
+                                                                    </aura:set>
+                                                                </aura:if>
+                                                            </aura:set>
+                                                        </aura:if>
+                                                    </td>
+                                                </aura:if>
+                                                
+                                                
+                                                <aura:if isTrue="{!v.isProRate}">
+                                                    <td>
+                                                        <lightning:input class = "setInputSize slds-text-align_right" type="number" value="{!oli.Pro_Rate_Amount__c}" title = "{!oli.Pro_Rate_Amount__c}" disabled = "true" />
+                                                    </td>
+                                                </aura:if>
+                                                <td style= "">
+                                                    <aura:if isTrue = "{!and(oli.Quantity,oli.UnitPrice)}" >
+                                                        
+                                                        <lightning:input class = "setInputSize slds-text-align_right" type="number" value="{!(oli.Quantity*oli.UnitPrice)}" title = "{!(oli.Quantity*oli.UnitPrice)}" disabled = "true" />
+                                                        
+                                                        <aura:set attribute = "else" >
+                                                            <aura:if isTrue = "{!or(oli.Quantity == 0,oli.UnitPrice == 0)}" >
+                                                                <lightning:input class = "setInputSize slds-text-align_right" type="number"  value="0" title = "0" disabled = "true"  />
+                                                                <aura:set attribute = "else" >
+                                                                    <lightning:input class = "setInputSize slds-text-align_right" type="number" value=""  disabled = "true"  />
+                                                                </aura:set>
+                                                            </aura:if>
+                                                        </aura:set>
+                                                    </aura:if>
+                                                </td>
+                                                <!--<td style= "">
+                                                    <aura:if isTrue = "{!and(oli.Quantity,oli.UnitPrice)}" >
+                                                        <aura:if isTrue="{!oli.Pro_Rate_Amount__c!=undefined}">
+                                                            <aura:if isTrue = "{!or(oli.Discount__c,oli.Discount_Amount__c)}">
+                                                                <aura:if isTrue = "{!and(oli.Discount__c,oli.Discount_Amount__c)}">
+                                                                    <lightning:input class = "setInputSize" type="number" formatter = "currency" value="{!((oli.Quantity*oli.UnitPrice)-((oli.Discount__c/100)*oli.Quantity*oli.UnitPrice) -(oli.Discount_Amount__c)-oli.Pro_Rate_Amount__c)}" title = "{!((oli.Quantity*oli.UnitPrice)-((oli.Discount__c/100)*oli.Quantity*oli.UnitPrice)-oli.Pro_Rate_Amount__c)}"  disabled = "true"  />
+                                                                    <aura:set attribute="else">
+                                                                        <aura:if isTrue = "{!oli.Discount__c}"> 
+                                                                            <lightning:input class = "setInputSize" type="number" formatter = "currency" value="{!((oli.Quantity*oli.UnitPrice)-((oli.Discount__c/100)*oli.Quantity*oli.UnitPrice)-oli.Pro_Rate_Amount__c)}" title = "{!((oli.Quantity*oli.UnitPrice)-((oli.Discount__c/100)*oli.Quantity*oli.UnitPrice)-oli.Pro_Rate_Amount__c)}"  disabled = "true"  />
+                                                                        </aura:if>
+                                                                        <aura:if isTrue = "{!oli.Discount_Amount__c}">
+                                                                            <lightning:input class = "setInputSize" type="number" formatter = "currency" value="{!((oli.Quantity*oli.UnitPrice)-(oli.Discount_Amount__c)-oli.Pro_Rate_Amount__c)}" title = "{!((oli.Quantity*oli.UnitPrice)-((oli.Discount__c/100)*oli.Quantity*oli.UnitPrice)-oli.Pro_Rate_Amount__c)}" disabled = "true"  />
+                                                                        </aura:if>
+                                                                    </aura:set>
+                                                                </aura:if>
+                                                                <aura:set attribute= "else" >
+                                                                    <lightning:input class = "setInputSize" type="number" formatter = "currency" value="{!(oli.Quantity*oli.UnitPrice)-oli.Pro_Rate_Amount__c}" title = "{!((oli.Quantity*oli.UnitPrice)-((oli.Discount__c/100)*oli.Quantity*oli.UnitPrice)-oli.Pro_Rate_Amount__c)}"  disabled = "true"  />
+                                                                </aura:set>
+                                                            </aura:if>
+                                                            
+                                                            <aura:set attribute="else">
+                                                                <aura:if isTrue = "{!or(oli.Discount__c,oli.Discount_Amount__c)}">
+                                                                    <aura:if isTrue = "{!and(oli.Discount__c,oli.Discount_Amount__c)}">
+                                                                        <lightning:input class = "setInputSize" type="number" formatter = "currency" value="{!((oli.Quantity*oli.UnitPrice)-((oli.Discount__c/100)*oli.Quantity*oli.UnitPrice) -(oli.Discount_Amount__c))}" title = "{!((oli.Quantity*oli.UnitPrice)-((oli.Discount__c/100)*oli.Quantity*oli.UnitPrice))}"  disabled = "true"  />
+                                                                        <aura:set attribute="else">
+                                                                            <aura:if isTrue = "{!oli.Discount__c}"> 
+                                                                                <lightning:input class = "setInputSize" type="number" formatter = "currency" value="{!((oli.Quantity*oli.UnitPrice)-((oli.Discount__c/100)*oli.Quantity*oli.UnitPrice))}" title = "{!((oli.Quantity*oli.UnitPrice)-((oli.Discount__c/100)*oli.Quantity*oli.UnitPrice))}"  disabled = "true"  />
+                                                                            </aura:if>
+                                                                            <aura:if isTrue = "{!oli.Discount_Amount__c}">
+                                                                                <lightning:input class = "setInputSize" type="number" formatter = "currency" value="{!((oli.Quantity*oli.UnitPrice)-(oli.Discount_Amount__c))}" title = "{!((oli.Quantity*oli.UnitPrice)-((oli.Discount__c/100)*oli.Quantity*oli.UnitPrice))}" disabled = "true"  />
+                                                                            </aura:if>
+                                                                        </aura:set>
+                                                                    </aura:if>
+                                                                    <aura:set attribute= "else" >
+                                                                        <lightning:input class = "setInputSize" type="number" formatter = "currency" value="{!(oli.Quantity*oli.UnitPrice)}" title = "{!((oli.Quantity*oli.UnitPrice)-((oli.Discount__c/100)*oli.Quantity*oli.UnitPrice))}"  disabled = "true"  />
+                                                                    </aura:set>
+                                                                </aura:if>
+                                                            </aura:set>
+                                                        </aura:if>
+                                                        <aura:set attribute = "else" >
+                                                            <aura:if isTrue = "{!or(oli.Quantity == 0,oli.UnitPrice == 0)}" >
+                                                                <lightning:input class = "setInputSize" type="number" formatter = "currency" value="0"  disabled = "true"  />
+                                                                <aura:set attribute = "else" >
+                                                                    <lightning:input class = "setInputSize" type="number" formatter = "currency" value=""  disabled = "true"  />
+                                                                </aura:set>
+                                                            </aura:if>
+                                                        </aura:set>
+                                                    </aura:if>
+                                                </td>-->
+                                                <td>
+                                                    <lightning:input class = "setInputSize slds-text-align_right" type="number"  value="{!oli.Amount__c}" title="{!oli.Amount__c}"  disabled = "true"  />
+                                                </td>
+                                                <td>
+                                                    <lightning:input class = "setInputSize slds-text-align_right" type="number"  value="{!oli.Gross_Amount__c}" title="{!oli.Gross_Amount__c}"  disabled = "true"  />
+                                                </td>
+                                                <td data-row-index = "{!oliIndex}" style = "">
+                                                    <aura:if isTrue="{! !(v.isMsg)}">
+                                                        <lightning:buttonIcon class = "showPromo" iconName="utility:filterList" variant="success" value = "{!oli.Product2Id}" onclick="{!c.showPromoButton}" alternativeText="Show Promo" disabled = "{! v.quoteObj.Status != 'Proposal' || and(oli.Parent_Id__c != '',oli.Parent_Id__c != undefined)||and(oli.Parent != '', oli.Parent != undefined)||and(oli.Parent__c != '',oli.Parent__c != undefined)}"/>
+                                                    </aura:if>
+                                                    <!--<aura:if isTrue = "{!(!oli.Promo_Mechanic_Id__c)}" >
+                                                            <aura:if isTrue="{! !(v.isMsg)}">
+                                                              <lightning:buttonIcon class = "showPromo" iconName="utility:filterList" variant="success" value = "{!oli.Product2Id}" onclick="{!c.showPromoButton}" alternativeText="Show Promo" disabled = "{! v.quoteObj.Status != 'Proposal' || and(oli.Parent_Id__c != '',oli.Parent_Id__c != undefined)||and(oli.Parent != '', oli.Parent != undefined)||and(oli.Parent__c != '',oli.Parent__c != undefined)}"/>
+                                                            </aura:if>
+                                                        </aura:if>-->
+                                                    <aura:if isTrue = "{!oli.Promo_Mechanic_Id__c}" >
+                                                        <aura:if isTrue="{! !(v.isMsg)}">
+                                                            <lightning:buttonIcon class = "removePromo" iconName="utility:ban" variant="bare" value = "{!oli.Product2Id}" onclick="{!c.removePromoButton}" alternativeText="Remove Promo" disabled = "{! v.quoteObj.Status != 'Proposal' || and(oli.Parent_Id__c != '',oli.Parent_Id__c != undefined)||and(oli.Parent != '', oli.Parent != undefined)||and(oli.Parent__c != '',oli.Parent__c != undefined)}"/>
+                                                        </aura:if>
+                                                    </aura:if>
+                                                </td>
+                                            </tr>
+                                        </aura:iteration>
+                                    </tbody> 
+                                </table>
+                            </div>
+                        </div>
+                        
+                        <div class="slds-grid" style="margin-left: 57%;">
+                            <aura:if isTrue = "{! and(v.quoteObj.Country__c == 'Thailand',v.oppObj.Account.Tax_Reg_Number__c != undefined,v.oppObj.Account.Tax_Reg_Number__c != '')}" >
+                                
+                                <div class="slds-m-right--large" >
+                                    <label lightning-input_input="" for="input-97" class="slds-form-element__label slds-no-flex" style="color: black; font-weight: bold; width: 100px;">Total WHT ({!v.quoteObj.CurrencyIsoCode})</label>
+                                    <lightning:input class = "subtotal-class" type="number" label = "Total WHT" variant="label-hidden" value="{!v.WHTTotal}" disabled = "true" />
+                                </div>
+                            </aura:if>
+                            <div class="slds-m-right--large" >
+                                <label lightning-input_input="" for="input-97" class="slds-form-element__label slds-no-flex" style="color: black; font-weight: bold; width: 130px;">Total Tax Amount ({!v.quoteObj.CurrencyIsoCode})</label>
+                                <lightning:input class = "subtotal-class" type="number" label = "Total Tax Amount " variant="label-hidden" value="{!v.taxTotal}" disabled = "true" />
+                            </div>
+                            <div id = "olis" >
+                                <label lightning-input_input="" for="input-97" class="slds-form-element__label slds-no-flex" style="color: black; font-weight: bold; width: 130px;">Total Amount After Discount ({!v.quoteObj.CurrencyIsoCode})</label>
+                                <lightning:input class = "subtotal-class" type="number" label = "Total Amount After Discount:" variant="label-hidden" value="{!v.subtotal}" disabled = "true" />
+                            </div>
+                        </div><br/>
+                        <div class="slds-grid" style="margin-left: 57%;">
+                            <div class="slds-m-right--large">
+                                <label lightning-input_input="" for="input-97" class="slds-form-element__label slds-no-flex" style="color: black; font-weight: bold; width: 130px;">Total Amount Before Discount ({!v.quoteObj.CurrencyIsoCode})</label>
+                                <lightning:input class = "subtotal-class" type="number" label = "Total Amount Before Discount:" variant="label-hidden" value="{!v.totalAmountBeforeDiscount}" disabled = "true" />
+                            </div>
+                            <div class="slds-m-right--large" >
+                                <label lightning-input_input="" for="input-97" class="slds-form-element__label slds-no-flex" style="color: black; font-weight: bold; width: 130px;">Total Discount Amount ({!v.quoteObj.CurrencyIsoCode})</label>
+                                <lightning:input class = "subtotal-class" type="number" label = "Total Discount Amount:" variant="label-hidden" value="{!v.totalDiscountAmount}" disabled = "true" />
+                            </div>
+                            <div id = "olis" >
+                                <label lightning-input_input="" for="input-97" class="slds-form-element__label slds-no-flex" style="color: black; font-weight: bold; width: 130px;">Total Gross Amount ({!v.quoteObj.CurrencyIsoCode})</label>
+                                <lightning:input class = "subtotal-class" type="number" label = "Total Gross Amount:" variant="label-hidden" value="{!v.totalGrossAmount}" disabled = "true" step="0.01"/>
+                            </div>
+                        </div><br/>
+                        <div class="slds-grid" style="margin-left: 57%;">
+                            <div class="slds-m-right--large" style="width: 160px;">
+                                <label lightning-input_input="" for="input-97" class="slds-form-element__label slds-no-flex" style="color: black; font-weight: bold; width: 130px;">Total Payable Amount ({!v.quoteObj.CurrencyIsoCode})</label>
+                                <lightning:input class = "subtotal-class" type="number" label = "Total Payable Amount:" variant="label-hidden" value="{!v.totalGrossAmount - v.WHTTotal}" disabled = "true" step="0.01"/>
+                            </div>
+                            
+                            <div id = "olis" style="width: 155px;">
+                                <label lightning-input_input="" for="input-97" class="slds-form-element__label slds-no-flex" style="color: black; font-weight: bold; width: 130px;">Balance Payable Amount ({!v.quoteObj.CurrencyIsoCode})</label>
+                                <lightning:input class = "subtotal-class" type="number" label = "Balance Payable Amount:" variant="label-hidden" value="{!v.totalGrossAmount - v.WHTTotal - v.balanceAmt}" disabled = "true" step="0.01"/>
+                            </div>
+                        </div>
+                    </lightning:accordionSection>
+                    <aura:if isTrue="{!((v.quoteObj.Status =='Proposal') &amp;&amp; (v.quoteObj.Approval_Status__c == '' || v.quoteObj.Approval_Status__c == null || v.quoteObj.Approval_Status__c == 'Discount Approval Rejected')) || (v.quoteObj.Status=='Proposal' || (v.quoteObj.Status=='Pending OMC Approval' &amp;&amp; (v.quoteObj.Approval_Status__c == 'OMC Approval Recalled' ||v.quoteObj.Approval_Status__c == null ||v.quoteObj.Approval_Status__c == 'OMC Approval Rejected' )))}">
+                        <div style = "margin-left: 50%;" >
+                            <lightning:button name = "Save" variant = "brand" onclick = "{!c.saveBtnClicked}" label = "Save" />
+                        </div>
+                    </aura:if>
+                </lightning:accordion>
+            </div>
+        </div>
+    </section>
+    <div class="slds-backdrop slds-backdrop_open"></div>
+</aura:component>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Media_Agency2__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <externalId>false</externalId>
+    <inlineHelpText>Please add the Media Agency, Creative Agency or Reseller account that will be billed or CCed on the invoice here (if one is connected to this opportunity). Use the &quot;Bill Agency&quot;-button to use this account as the customer.</inlineHelpText>
+    <label>Billing Agency</label>
+    <lookupFilter>
+        <active>true</active>
+        <booleanFilter>1 OR 2</booleanFilter>
+        <errorMessage>Please select a Media Agency, Creative Agency, or Reseller for this value.</errorMessage>
+        <filterItems>
+            <field>Account.Type</field>
+            <operation>equals</operation>
+            <value>Creative Agency, Media Agency, Reseller</value>
+        </filterItems>
+        <filterItems>
+            <field>$UserRole.DeveloperName</field>
+            <operation>equals</operation>
+            <value>x1Integration</value>
+        </filterItems>
+        <isOptional>false</isOptional>
+    </lookupFilter>
+    <referenceTo>Account</referenceTo>
+    <relationshipLabel>Opportunities (Non-Advertiser Billing Account)</relationshipLabel>
+    <relationshipName>Opportunities1</relationshipName>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

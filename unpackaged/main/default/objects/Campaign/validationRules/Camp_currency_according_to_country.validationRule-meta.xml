@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Camp_currency_according_to_country</fullName>
+    <active>false</active>
+    <errorConditionFormula>IF(TEXT(Country__c) == &#39;Singapore&#39;,TEXT(CurrencyIsoCode)!=&#39;SGD&#39;, IF( TEXT(Country__c) == &#39;Malaysia&#39;,TEXT(CurrencyIsoCode)!=&#39;MYR&#39;,IF( TEXT(Country__c) == &#39;Thailand&#39;,TEXT(CurrencyIsoCode)!=&#39;THB&#39;,false)))</errorConditionFormula>
+    <errorDisplayField>IsActive</errorDisplayField>
+    <errorMessage>Campaign Currency should default to Country.</errorMessage>
+</ValidationRule>

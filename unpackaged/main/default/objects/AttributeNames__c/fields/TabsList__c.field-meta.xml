@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>TabsList__c</fullName>
+    <defaultValue>&#39;searchTab&#39;</defaultValue>
+    <description>CSV list of tab IDs to be displayed. Available values are &quot;searchTab&quot;, &quot;enterTextTab&quot;, &quot;pasteValuesTab&quot; (all without quotes)</description>
+    <externalId>false</externalId>
+    <inlineHelpText>CSV list of tab IDs to be displayed. Available values are &quot;searchTab&quot;, &quot;enterTextTab&quot;, &quot;pasteValuesTab&quot; (all without quotes)</inlineHelpText>
+    <label>TabsList</label>
+    <length>255</length>
+    <required>true</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

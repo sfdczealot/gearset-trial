@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>PG_Tenure_Upgrade__c</fullName>
+    <description>Denotes PG Tenure used for calculating package price for an upgrades</description>
+    <externalId>false</externalId>
+    <formula>If( ISNULL(Loyalty_Start_Date__c), 0, FLOOR(((YEAR(TODAY() + 1 ) - YEAR(Loyalty_Start_Date__c))*12 + MONTH(Today()+1) -  MONTH(Loyalty_Start_Date__c))/12))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>PG Tenure Upgrade is calculated as Today&#39;s Date () minus Loyalty Start Date</inlineHelpText>
+    <label>PG Tenure Upgrade</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

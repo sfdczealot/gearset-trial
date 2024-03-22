@@ -1,0 +1,567 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" controller="B2CQuoteDisplayController" access="global" >
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:handler event="force:refreshView" action="{! c.doInit}" />
+    <aura:attribute name = "AllQuotes" type = "List" default="[]"/>
+    <aura:attribute name = "isDisableSave" type = "Boolean" default="false"/>
+    <aura:attribute name = "dropdownValue" type = "List" default="['Proceed','Clone quote and proceed','Create new quote and proceed']"/>
+    <lightning:notificationsLibrary aura:id="notifLib"/>
+    <aura:attribute name="isModal" type="boolean" default="false"/>
+    <aura:attribute name="isPaymentModal" type="boolean" default="false"/>
+    <aura:attribute name="btnStatus" type="boolean" default="true"/>
+    <aura:attribute name="stepName" type="String" default=""/>
+    <aura:attribute name="quoteId" type="String" />
+    <aura:attribute name="resultStatus" type="boolean" default="false"/>
+    <aura:attribute name="pilkListValueName" type="String" />
+    <aura:attribute name="displayMessage" type="String" />
+    <aura:attribute name="lossReasonFieldApiName" type="String" default="Loss_Reason__c"/>
+    <aura:attribute name="lostSubReasonFieldApiName" type="String" default="Lost_Sub_Reason__c"/>
+    <aura:attribute name="lossReasonList" type="List" />
+    <aura:attribute name="lostSubReasonList" type="List"/>
+    <aura:attribute name="checkPayment" type="boolean" default="false"/>
+    <aura:attribute name="displayLossAndLossSubReason" type="boolean" default="false"/>
+    <aura:attribute name="lossReasonSelectedValue" type="String" default=""/>
+    <aura:attribute name="lostSubReasonSelectedValue" type="String" default=""/>
+    <aura:attribute name="depnedentFieldMap" type="map" />
+    <aura:attribute name="isDisabledDependentField" type="boolean" default="true"/>
+    <aura:attribute name="profileName" type="String" />
+    <aura:attribute name="oppObj" type="Opportunity" default="{sobjectType : 'Opportunity'}" />
+    <aura:attribute name="quoteObj" type="Quote" />
+    
+    
+    
+    <!--PGAUTO-2805-->
+    <aura:attribute name="showEmail" type="Boolean" default="false"/>
+    <aura:attribute name="emailID" type="String"/>
+    <aura:attribute name="currentQuoteID" type="String" />
+    <aura:attribute name="currentEmailId" type="String" />
+    <!--PGAUTO-2805-->
+    <aura:if isTrue="{!v.profileName == 'OMC User'}">
+        <div>
+            <aura:iteration items="{!v.AllQuotes}" var="content" indexVar="index">
+                
+                <div style="margin-top: 10px;">
+                    <div class="slds-box slds-p-around_none">
+                        <lightning:layout multipleRows="true"  >
+                            <lightning:layoutItem padding="around-small" class="custom-align-self-center" size="8">
+                                <div class="form-group">
+                                    <h4 class="slds-text-heading_small ">{!content.Quote_Number__c+' '}</h4><ui:outputDateTime aura:id="oDateTime" value="{!content.CreatedDate}"  />
+                                </div>
+                            </lightning:layoutItem>
+                            <lightning:layoutItem padding="around-small" class="slds-grid slds-grid_align-end slds-text-align_center" size="4">
+                                <lightning:input type="toggle" aura:id="inputToggle" name="{!index}" checked="{!content.IsSyncing}"  messageToggleActive="Synced" messageToggleInactive="Not Synced" onchange="{!c.handleIsSynced}"/>
+                            </lightning:layoutItem>
+                            <lightning:layoutItem padding="around-small" size="12">
+                                <div class="custom-slds-breadcrum">
+                                    <!--<lightning:picklistPath aura:id="picklistPath" recordId="{!content.Id}" variant="non-linear" picklistFieldApiName="Status" onselect="{!c.handleSelect}"/>  -->
+                                    <lightning:path aura:id="path" recordId="{!content.Id}" variant="non-linear" hideUpdateButton="true" onselect="{!c.handleSelect}"/>
+                                </div>
+                            </lightning:layoutItem>
+                            <lightning:layoutItem padding="horizontal-small" size="12">
+                                <div class="custom-btn-group">
+                                    <lightning:buttonGroup>
+                                        <lightning:button label="Add/View Products" value="{!content}" onclick="{! c.goToAddProduct }"/>
+                                        <lightning:button label="Add Payment" value="{!content}" onclick="{! c.goToAddPayment}"/>
+                                    </lightning:buttonGroup>
+                                </div>
+                            </lightning:layoutItem>
+                            <lightning:layoutItem size="12" class="slds-m-top_small">
+                                <lightning:accordion  allowMultipleSectionsOpen="true" activeSectionName="{!index == 0 ? 'Quote_Details' : '' }">
+                                    <lightning:accordionSection label="Quote Details" name="Quote_Details">
+                                        
+                                        <lightning:recordEditForm recordId="{!content.Id}" objectApiName="Quote" onsuccess="{!c.handleSuccess}" onerror="{!c.handleError}">
+                                            <div class="slds-p-bottom_medium">
+                                                <!--<center>
+                                                        <lightning:button aura:id="submit"  type="submit" label="Save Record" class="slds-m-top_medium " disabled="{!v.isDisableSave}" />
+                                                    </center>-->
+                                            </div>
+                                            <div class="slds-box info-box">
+                                                <div class="slds-grid slds-wrap slds-gutters">
+                                                    <div class="slds-col slds-medium-size_1-of-2 slds-size_1-of-1" >
+                                                        <lightning:outputField class="" fieldName="Name" />
+                                                    </div>
+                                                    <div class="slds-col slds-medium-size_1-of-2 slds-size_1-of-1" >
+                                                        <lightning:outputField class="" fieldName="Quote_Type__c" />
+                                                    </div>
+                                                    <div class="slds-col slds-medium-size_1-of-2 slds-size_1-of-1" >
+                                                        <lightning:outputField class="" fieldName="Memo__c" />
+                                                    </div>
+                                                    <div class="slds-col slds-medium-size_1-of-2 slds-size_1-of-1" >
+                                                        <lightning:outputField class="" fieldName="Sales_Period__c" />
+                                                    </div>
+                                                    <div class="slds-col slds-medium-size_1-of-2 slds-size_1-of-1" >
+                                                        <lightning:outputField class="" fieldName="Discount_Remarks__c" />
+                                                    </div>
+                                                    <div class="slds-col slds-medium-size_1-of-2 slds-size_1-of-1" >
+                                                        <lightning:outputField class="" fieldName="OMC_Urgent__c" />
+                                                    </div>
+                                                    
+                                                    <div class="slds-col slds-medium-size_1-of-2 slds-size_1-of-1" >
+                                                        <lightning:inputField  fieldName="Tax_Reg_Number__c" disabled="true" class = "{!and(content.Country__c == 'Thailand'? 'slds-show': 'slds-hide')}" />
+                                                    </div>
+                                                    <div class="slds-col slds-medium-size_1-of-2 slds-size_1-of-1" >
+                                                        <lightning:inputField  fieldName="Branch_ID__c" disabled="true" class = "{!and(content.Country__c == 'Thailand'? 'slds-show': 'slds-hide')}"/>
+                                                    </div>
+                                                    
+                                                    <div class="slds-col slds-medium-size_1-of-2 slds-size_1-of-1" >
+                                                        <lightning:inputField fieldName="AdditionalAddress" disabled="true" class ="{!and(content.Country__c == 'Thailand'? 'slds-show': 'slds-hide')}"/>
+                                                    </div>
+                                                    
+                                                    <div class="slds-col slds-medium-size_1-of-2 slds-size_1-of-1" >
+                                                        <lightning:inputField fieldName="AdditionalName" disabled="true" class = "{!and(content.Country__c == 'Thailand'? 'slds-show': 'slds-hide')}"/>
+                                                    </div>
+                                                    
+                                                    
+                                                </div>
+                                            </div>
+                                            <!--<div>
+                                                    <center>
+                                                        <lightning:button aura:id="submit" type="submit" label="Save Record" class="slds-m-top_medium" disabled="{!v.isDisableSave}" />
+                                                    </center>
+                                                </div>-->
+                                        </lightning:recordEditForm> 
+                                        
+                                    </lightning:accordionSection>
+                                </lightning:accordion>
+                                <lightning:accordion  allowMultipleSectionsOpen="true" activeSectionName="{!index == 0 ? 'Payment' : '' }">
+                                    <lightning:accordionSection label="Payment" name="Payment">
+                                        <div class="slds-box">
+                                            <div class="slds-grid slds-wrap slds-gutters">
+                                                <div class="slds-col slds-medium-size_1-of-2 slds-size_1-of-1" >
+                                                    <lightning:input type="datetime" name="input4" label="Agent Accepted Time" disabled="true" value="{!content.Agent_Accepted_Time__c}" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </lightning:accordionSection>
+                                </lightning:accordion>
+                            </lightning:layoutItem>
+                        </lightning:layout>
+                        <div class="form-group slds-p-around_small">
+                            <!--<h3>For Approval history. Please click <lightning:button variant="base" value="{!content.Id}" onclick="{!c.gotoRelatedList}">here</lightning:button></h3>-->
+                            <aura:if isTrue="{!content.Auto_Approved_Quote__c}">
+                                <lightning:card title="Approval History" iconName="action:submit_for_approval" class="custom-card-header">
+                                    <div class="slds-box slds-theme_shade slds-theme_alert-texture">
+                                        <p>
+                                            <lightning:icon iconName="utility:success" alternativeText="Approved!" variant="Success" size="small"/>  
+                                            This quote was <strong>Auto Approved</strong> on 
+                                            <strong>
+                                                <lightning:formattedDateTime value="{!content.OMC_Approved_Date__c}" 
+                                                                             year="numeric" 
+                                                                             month="numeric" 
+                                                                             day="numeric" 
+                                                                             hour="2-digit"
+                                                                             minute="2-digit" 
+                                                                             timeZoneName="short" 
+                                                                             hour12="true"/>
+                                            </strong>.
+                                        </p>
+                                    </div>
+                                </lightning:card>
+                            </aura:if>
+                            <c:QuoteApprovalHistoryComponent quoteId="{!content.Id}"/>
+                        </div>
+                    </div>
+                </div>
+                
+            </aura:iteration>
+            <div>
+                <aura:if isTrue="{!v.isModal}">
+                    <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+                        <div class="slds-modal__container">
+                            <header class="slds-modal__header">
+                                <lightning:buttonIcon iconName="utility:close" variant="container" class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" alternativeText="Close" title="Close" onclick="{!c.closeModal}"/>
+                                <h1 id="modal-heading-01" class="slds-modal__title slds-hyphenate">Invalidate Quote</h1>
+                            </header>
+                            <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                                <p>{!v.displayMessage}</p>
+                                <lightning:select label="" onchange="{!c.handleChangeEvent}">
+                                    <option value="">Choose an option</option>
+                                    <aura:iteration items="{!v.dropdownValue}" var="dr">
+                                        <option value="{!dr}">{!dr}</option>
+                                    </aura:iteration>
+                                </lightning:select>
+                                <aura:if isTrue="{!v.displayLossAndLossSubReason}">
+                                    <lightning:select name="controllerFld"
+                                                      value="{!v.lossReasonSelectedValue}"
+                                                      label="Loss Reason"
+                                                      onchange="{!c.changeControlField}">
+                                        <aura:iteration items="{!v.lossReasonList}" var="val">
+                                            <option value="{!val}">{!val}</option>
+                                        </aura:iteration>
+                                    </lightning:select>
+                                    <lightning:select name="dependentFld"
+                                                      value="{!v.lostSubReasonSelectedValue}"
+                                                      label="Lost Sub-Reason"
+                                                      disabled="{!v.isDisabledDependentField}">
+                                        <aura:iteration items="{!v.lostSubReasonList}" var="val">
+                                            <option value="{!val}">{!val}</option>
+                                        </aura:iteration>
+                                    </lightning:select>
+                                </aura:if>
+                            </div>
+                            <footer class="slds-modal__footer">
+                                <lightning:button variant="neutral"  label="Cancel" onclick="{!c.closeModal}"/>
+                                <lightning:button variant="brand"  label="Save" disabled="{!v.btnStatus}" onclick="{!c.handleSaveResult}"/>
+                            </footer>
+                        </div>
+                    </section>
+                    <div class="slds-backdrop slds-backdrop_open"></div>
+                </aura:if>
+            </div>
+        </div>
+        <aura:set attribute="else">
+            <div>
+                <aura:iteration items="{!v.AllQuotes}" var="content" indexVar="index">
+                    <div style="margin-top: 10px;">
+                        <div class="slds-box slds-p-around_none">
+                            <lightning:layout multipleRows="true"  >
+                                <lightning:layoutItem padding="around-small" class="custom-align-self-center" size="8">
+                                    <div class="form-group">
+                                        <h4 class="slds-text-heading_small ">{!content.Quote_Number__c+' '}</h4><ui:outputDateTime aura:id="oDateTime" value="{!content.CreatedDate}"  />
+                                    </div>
+                                </lightning:layoutItem>
+                                <lightning:layoutItem padding="around-small" class="slds-grid slds-grid_align-end slds-text-align_center" size="4">
+                                    <lightning:input type="toggle" aura:id="inputToggle" name="{!index}" checked="{!content.IsSyncing}"  messageToggleActive="Synced" messageToggleInactive="Not Synced" onchange="{!c.handleIsSynced}"/>
+                                </lightning:layoutItem>
+                                <lightning:layoutItem padding="around-small" size="12">
+                                    <div class="custom-slds-breadcrum">
+                                        <!--<lightning:picklistPath aura:id="picklistPath" recordId="{!content.Id}" variant="non-linear" picklistFieldApiName="Status" onselect="{!c.handleSelect}"/>  -->
+                                        <lightning:path aura:id="path" recordId="{!content.Id}" variant="non-linear" hideUpdateButton="true" onselect="{!c.handleSelect}"/>
+                                    </div>
+                                </lightning:layoutItem>
+                                <lightning:layoutItem padding="horizontal-small" size="12">
+                                    <div class="custom-btn-group">
+                                        <lightning:buttonGroup>
+                                            <lightning:button label="Add/View Products" value="{!content}" onclick="{! c.goToAddProduct }"/>
+                                            <lightning:button label="Submit For Approval" value="{!content}" onclick="{!c.goToSubmitForApproval}" />
+                                            <lightning:button label="Ready For Payment" value="{!content}" onclick="{! c.goToReadyForPayment }"/>
+                                            <lightning:button label="Submit to OMC" value="{!content}" onclick="{!c.goToApprovalProcess}" />
+                                            <aura:if isTrue="{!(v.profileName == 'System Administrator' || v.profileName == 'Sales Enablement User' || v.profileName == 'Delegated System Administrator' || v.profileName == 'API User Profile')}">
+                                                <lightning:button label="Add Payment" value="{!content}" onclick="{! c.goToAddPayment}"/>
+                                            </aura:if>
+                                            <aura:if isTrue="{!((v.profileName == 'System Administrator' || v.profileName == 'Sales Enablement User' || v.profileName == 'Delegated System Administrator' || v.profileName == 'API User Profile') &amp;&amp; content.Status == 'Pending Online Payment' &amp;&amp; (content.Quote_Type__c == 'B2C - Renewal' || content.Quote_Type__c == 'B2C - Upgrade' || content.Quote_Type__c == 'B2C - Standard' || content.Quote_Type__c == 'B2C - Conversion') )}">
+                                                <lightning:button label="Resend Payment Email" value="{!content}" onclick="{! c.showEmailPopup}"/>
+                                            </aura:if>
+                                            
+                                            <lightning:button label="Clone" value="{!content.Id}" onclick="{!c.handleClone}"/>
+                                            
+                                        </lightning:buttonGroup>
+                                        
+                                    </div>
+                                </lightning:layoutItem>
+                                <lightning:layoutItem size="12" class="slds-m-top_small">
+                                    <lightning:accordion  allowMultipleSectionsOpen="true" activeSectionName="{!index == 0 ? 'Quote_Details' : '' }">
+                                        <lightning:accordionSection label="Quote Details" name="Quote_Details">
+                                            <!--<lightning:recordForm
+                                                      recordId="{!content.Id}"
+                                                      objectApiName="Quote"
+                                                      layoutType="Compact"
+                                                      columns="2"
+                                                      mode="view" />-->
+                                            
+                                            <lightning:recordEditForm recordId="{!content.Id}" objectApiName="Quote" onsuccess="{!c.handleSuccess}" onerror="{!c.handleError}">
+                                                <div class="slds-p-bottom_medium">
+                                                    <center>
+                                                        <lightning:button aura:id="submit"  type="submit" label="Save Record" class="slds-m-top_xx-small " disabled="{!v.isDisableSave}" />
+                                                    </center>
+                                                </div>
+                                                <div class="slds-box info-box">
+                                                    <div class="slds-grid slds-wrap slds-gutters">
+                                                        <div class="slds-col slds-medium-size_1-of-2 slds-size_1-of-1" >
+                                                            <lightning:inputField class=""  fieldName="Name" />
+                                                        </div>
+                                                        <div class="slds-col slds-medium-size_1-of-2 slds-size_1-of-1" >
+                                                            <lightning:outputField  fieldName="Opp_Quote_Ref_num__c" />
+                                                        </div>
+                                                        <div class="slds-col slds-medium-size_1-of-2 slds-size_1-of-1" >
+                                                            <span class="slds-form-element__label">Account Name</span>
+                                                            <lightning:outputField  fieldName="AccountId" variant="label-hidden"/>
+                                                        </div>
+                                                        <div class="slds-col slds-size_1-of-2 slds-hide" >
+                                                            <lightning:outputField  fieldName="Status" style="display: none;"/>
+                                                        </div>
+                                                        <div class="slds-col slds-medium-size_1-of-2 slds-size_1-of-1" >
+                                                            <lightning:outputField  fieldName="Quote_Type__c" />
+                                                        </div>
+                                                        <div class="slds-col slds-medium-size_1-of-2 slds-size_1-of-1" >
+                                                            <lightning:inputField class="" fieldName="Allowed_Payment_Type__c" disabled="{!content.Status != 'Proposal'}"/>
+                                                        </div>
+                                                        <div class="slds-col slds-medium-size_1-of-2 slds-size_1-of-1" >
+                                                            <lightning:inputField  fieldName="OMC_Urgent__c"/>
+                                                        </div>
+                                                        <div class="slds-col slds-medium-size_1-of-2 slds-size_1-of-1" >
+                                                            <lightning:outputField  fieldName="Approval_Status__c" />
+                                                        </div>
+                                                        <div class="slds-col slds-medium-size_1-of-2 slds-size_1-of-1" >
+                                                            <lightning:outputField  fieldName="Approval_Requester_Comment__c" />
+                                                        </div>
+                                                        <div class="slds-col slds-medium-size_1-of-2 slds-size_1-of-1" >
+                                                            <lightning:inputField class=""  fieldName="Discount_Remarks__c" />
+                                                        </div>
+                                                        <div class="slds-col slds-medium-size_1-of-2 slds-size_1-of-1" >
+                                                            <lightning:inputField class="" fieldName="Memo__c" />
+                                                        </div>
+                                                        <div class="slds-col slds-medium-size_1-of-2 slds-size_1-of-1" >
+                                                            <lightning:inputField class="" fieldName="Loss_Reason__c" />
+                                                        </div>
+                                                        <div class="slds-col slds-medium-size_1-of-2 slds-size_1-of-1" >
+                                                            <lightning:outputField  fieldName="Total_Amount_Before_Discount__c" />
+                                                        </div>
+                                                        <div class="slds-col slds-medium-size_1-of-2 slds-size_1-of-1" >
+                                                            <lightning:outputField  fieldName="Total_Mgr_Disc_of_Discretionary_Amount__c" />
+                                                        </div>
+                                                        <div class="slds-col slds-medium-size_1-of-2 slds-size_1-of-1" >
+                                                            <lightning:outputField  fieldName="Total_Discounted_Amount__c" />
+                                                        </div>
+                                                        <div class="slds-col slds-medium-size_1-of-2 slds-size_1-of-1" >
+                                                            <lightning:outputField  fieldName="Total_Mgr_Disc_of_Discretionary_Percen__c" />
+                                                        </div>
+                                                        <div class="slds-col slds-medium-size_1-of-2 slds-size_1-of-1" >
+                                                            <lightning:outputField  fieldName="Total_Tax_Amount__c" />
+                                                        </div>
+                                                        <div class="slds-col slds-medium-size_1-of-2 slds-size_1-of-1" >
+                                                            <lightning:outputField  fieldName="Total_Mgr_Disc_of_Subscription_Amount__c" />
+                                                        </div>
+                                                        <div class="slds-col slds-medium-size_1-of-2 slds-size_1-of-1" >
+                                                            <lightning:outputField  fieldName="Total_Gross_Amount__c" />  
+                                                        </div>
+                                                        <div class="slds-col slds-medium-size_1-of-2 slds-size_1-of-1" >
+                                                            <lightning:outputField  fieldName="Total_Mgr_Disc_of_Subscription_Percent__c" />
+                                                        </div>
+                                                        <div class="slds-col slds-medium-size_1-of-2 slds-size_1-of-1" >
+                                                            <lightning:outputField  fieldName="to_FOC_Approval__c" />
+                                                        </div>
+                                                        <div class="slds-col slds-medium-size_1-of-2 slds-size_1-of-1" >
+                                                            <lightning:outputField  fieldName="Total_Amount_of_FOC_Product__c" />
+                                                        </div>
+                                                        <div class="slds-col slds-medium-size_1-of-2 slds-size_1-of-1" >
+                                                            <lightning:outputField  fieldName="to_Managerial_Approval__c" />
+                                                        </div>
+                                                        <div class="slds-col slds-medium-size_1-of-2 slds-size_1-of-1" >
+                                                            <lightning:inputField class="" fieldName="PG_Tenure__c" disabled="{! !(v.profileName == 'Integration Profile' || v.profileName == 'System Administrator' || v.profileName == 'Sales Enablement User' || v.profileName == 'Delegated System Administrator' || v.profileName == 'API User Profile')}"/>
+                                                        </div>
+                                                        <div class="slds-col slds-medium-size_1-of-2 slds-size_1-of-1" >
+                                                            <lightning:inputField  fieldName="Tax_Reg_Number__c" class = "{!and(content.Country__c == 'Thailand'? 'slds-show': 'slds-hide')}" />
+                                                        </div>
+                                                        <div class="slds-col slds-medium-size_1-of-2 slds-size_1-of-1" >
+                                                            <lightning:inputField  fieldName="Branch_ID__c" class = "{!and(content.Country__c == 'Thailand'? 'slds-show': 'slds-hide')}"/>
+                                                        </div>
+                                                        
+                                                        <div class="slds-col slds-medium-size_1-of-2 slds-size_1-of-1" >
+                                                            <lightning:inputField fieldName="AdditionalName" class = "{!and(content.Country__c == 'Thailand'? 'slds-show': 'slds-hide')}"  disabled="{! !or(and(content.Status=='Proposal',or(v.profileName == 'B2C Sales User',v.profileName == 'TH B2C Sales User',v.profileName == 'MY B2C Sales User')),or(v.profileName == 'System Administrator' , v.profileName == 'Sales Enablement User' , v.profileName == 'Delegated System Administrator' , v.profileName == 'API User Profile'))}"/>
+                                                        </div>
+                                                        
+                                                        <div class="slds-col slds-medium-size_1-of-2 slds-size_1-of-1" >
+                                                            <lightning:inputField class="" fieldName="BillingName" disabled="{! !or(and(content.Status=='Proposal',or(v.profileName == 'B2C Sales User',v.profileName == 'TH B2C Sales User',v.profileName == 'MY B2C Sales User')),or(v.profileName == 'System Administrator' , v.profileName == 'Sales Enablement User' , v.profileName == 'Delegated System Administrator' , v.profileName == 'API User Profile'))}"/>
+                                                        </div>
+                                                        
+                                                        
+                                                        
+                                                    </div>
+                                                    
+                                                    <div class="slds-grid slds-wrap slds-gutters inner-grid">
+                                                        <div class="slds-col slds-medium-size_1-of-2 slds-size_1-of-1" >
+                                                            <lightning:inputField class="" fieldName="BillingAddress" disabled="{! !or(and(content.Status=='Proposal',or(v.profileName == 'B2C Sales User',v.profileName == 'TH B2C Sales User',v.profileName == 'MY B2C Sales User')),or(v.profileName == 'System Administrator' , v.profileName == 'Sales Enablement User'  , v.profileName == 'Delegated System Administrator' , v.profileName == 'API User Profile'))}"/>
+                                                        </div>
+                                                        <div class="slds-col slds-medium-size_1-of-2 slds-size_1-of-1" >
+                                                            <lightning:inputField fieldName="AdditionalAddress" class ="{!and(content.Country__c == 'Thailand'? 'slds-show': 'slds-hide')}"  disabled="{! !or(and(content.Status=='Proposal',or(v.profileName == 'B2C Sales User',v.profileName == 'TH B2C Sales User',v.profileName == 'MY B2C Sales User')),or(v.profileName == 'System Administrator' , v.profileName == 'Sales Enablement User'  , v.profileName == 'Delegated System Administrator' , v.profileName == 'API User Profile'))}"/>
+                                                        </div>
+                                                        
+                                                        
+                                                        <div class="slds-col slds-size_1-of-2 slds-hide" >
+                                                            
+                                                            <span class="slds-form-element__label slds-hide">RecordType Name</span>
+                                                            <lightning:inputField fieldName="RecordTypeId" class="slds-hide" disabled="true" variant="label-hidden"/>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div>
+                                                    <center>
+                                                        <lightning:button aura:id="submit" type="submit" label="Save Record" class="slds-m-top_medium" disabled="{!v.isDisableSave}" />
+                                                    </center>
+                                                </div>
+                                            </lightning:recordEditForm> 
+                                            
+                                        </lightning:accordionSection>
+                                    </lightning:accordion>
+                                    <lightning:accordion  allowMultipleSectionsOpen="true" activeSectionName="{!index == 0 ? 'Payment' : '' }">
+                                        <lightning:accordionSection label="Payment" name="Payment">
+                                            <div class="slds-box">
+                                                <div class="slds-grid slds-wrap slds-gutters">
+                                                    <div class="slds-col slds-medium-size_1-of-2 slds-size_1-of-1" >
+                                                        <!--<lightning:input type="datetime" name="input4" label="Payment Time" disabled="true" value="{!content.Payment_Time__c}" />-->
+                                                        <lightning:input type="datetime" name="input4" label="Payment Link Created Date" disabled="true" value="{!content.Guruland_Link_Created_Date__c}" />
+                                                    </div>
+                                                    <div class="slds-col slds-medium-size_1-of-2 slds-size_1-of-1 link-col" >
+                                                        <aura:if isTrue="{!(v.profileName == 'System Administrator' || v.profileName == 'Sales Enablement User' || v.profileName == 'Delegated System Administrator' || v.profileName == 'API User Profile')}">
+                                                            <legend class="slds-form-element__legend slds-form-element__label">
+                                                                <div>Payment Link</div>
+                                                            </legend>
+                                                            <lightning:formattedUrl value="{!content.Payment_Link__c}" target="_blank" />
+                                                        </aura:if>
+                                                    </div>
+                                                    
+                                                    <div class="slds-col slds-medium-size_1-of-2 slds-size_1-of-1" >
+                                                        <lightning:input type="datetime" name="input4" label="Agent Accepted Time" disabled="true" value="{!content.Agent_Accepted_Time__c}" />
+                                                    </div>
+                                                    <div class="slds-col slds-medium-size_1-of-2 slds-size_1-of-1" >
+                                                        <lightning:input type="datetime" name="input4" label="Payment Link Expiry Date" disabled="true" value="{!content.Guruland_Link_Expiry_Date__c}" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </lightning:accordionSection>
+                                    </lightning:accordion>
+                                </lightning:layoutItem>
+                            </lightning:layout>
+                            <div class="form-group slds-p-around_small">
+                                <!--<h3>For Approval history. Please click <lightning:button variant="base" value="{!content.Id}" onclick="{!c.gotoRelatedList}">here</lightning:button></h3>-->
+                                <aura:if isTrue="{!content.Auto_Approved_Quote__c}">
+                                    <lightning:card title="Approval History" iconName="action:submit_for_approval" class="custom-card-header">
+                                        <div class="slds-box slds-theme_shade slds-theme_alert-texture">
+                                            <p>
+                                                <lightning:icon iconName="utility:success" alternativeText="Approved!" variant="Success" size="small"/>  
+                                                This quote was <strong>Auto Approved</strong> on 
+                                                <strong>
+                                                    <lightning:formattedDateTime value="{!content.OMC_Approved_Date__c}" 
+                                                                                 year="numeric" 
+                                                                                 month="numeric" 
+                                                                                 day="numeric" 
+                                                                                 hour="2-digit"
+                                                                                 minute="2-digit" 
+                                                                                 timeZoneName="short" 
+                                                                                 hour12="true"/>
+                                                </strong>.
+                                            </p>
+                                        </div>
+                                    </lightning:card>
+                                </aura:if>
+                                <c:QuoteApprovalHistoryComponent quoteId="{!content.Id}"/>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </aura:iteration>
+                <div>
+                    <aura:if isTrue="{!v.isModal}">
+                        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+                            <div class="slds-modal__container">
+                                <header class="slds-modal__header">
+                                    <lightning:buttonIcon iconName="utility:close" variant="container" class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" alternativeText="Close" title="Close" onclick="{!c.closeModal}"/>
+                                    <h1 id="modal-heading-01" class="slds-modal__title slds-hyphenate">Invalidate Quote</h1>
+                                </header>
+                                <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                                    <p>{!v.displayMessage}</p>
+                                    <lightning:select label="" onchange="{!c.handleChangeEvent}">
+                                        <option value="">Choose an option</option>
+                                        <aura:iteration items="{!v.dropdownValue}" var="dr">
+                                            <option value="{!dr}">{!dr}</option>
+                                        </aura:iteration>
+                                    </lightning:select>
+                                    <aura:if isTrue="{!v.displayLossAndLossSubReason}">
+                                        <lightning:select name="controllerFld"
+                                                          value="{!v.lossReasonSelectedValue}"
+                                                          label="Loss Reason"
+                                                          onchange="{!c.changeControlField}">
+                                            <aura:iteration items="{!v.lossReasonList}" var="val">
+                                                <option value="{!val}">{!val}</option>
+                                            </aura:iteration>
+                                        </lightning:select>
+                                        <lightning:select name="dependentFld"
+                                                          value="{!v.lostSubReasonSelectedValue}"
+                                                          label="Lost Sub-Reason"
+                                                          disabled="{!v.isDisabledDependentField}">
+                                            <aura:iteration items="{!v.lostSubReasonList}" var="val">
+                                                <option value="{!val}">{!val}</option>
+                                            </aura:iteration>
+                                        </lightning:select>
+                                    </aura:if>
+                                </div>
+                                <footer class="slds-modal__footer">
+                                    <lightning:button variant="neutral"  label="Cancel" onclick="{!c.closeModal}"/>
+                                    <lightning:button variant="brand"  label="Save" disabled="{!v.btnStatus}" onclick="{!c.handleSaveResult}"/>
+                                </footer>
+                            </div>
+                        </section>
+                        <div class="slds-backdrop slds-backdrop_open"></div>
+                    </aura:if>
+                    <aura:if isTrue="{!v.isPaymentModal}">
+                        <!--###### MODAL BOX Start######--> 
+                        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+                            <div class="slds-modal__container">
+                                <!-- ###### MODAL BOX HEADER Start ######-->
+                                <header class="slds-modal__header">
+                                    <lightning:buttonIcon iconName="utility:close"
+                                                          onclick="{! c.closeModel }"
+                                                          alternativeText="close"
+                                                          variant="bare-inverse"
+                                                          class="slds-modal__close"/>
+                                    <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate"><b>Customer Details Verification</b></h2>
+                                </header>
+                                <!--###### MODAL BOX BODY Part Start######-->
+                                <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1" >
+                                    <b><lightning:input checked="{!v.checkPayment}" type="checkbox" label="I have verified that the following customer address / tax registration / branch id details are correct for this quote." name="input1" onchange="{!c.onCheckboxChange}"/>
+                                    </b>
+                                    <br/>
+                                    <b>Bill To: </b><ui:outputText value="{!v.quoteObj.AdditionalName}"/><br></br>
+                                    <ui:outputText value="{!v.quoteObj.AdditionalStreet}"/>,
+                                    <ui:outputText value="{!v.quoteObj.AdditionalCity}"/>,&nbsp;
+                                    <ui:outputText value="{!v.quoteObj.AdditionalState}"/>,<br></br>
+                                    <ui:outputText value="{!v.quoteObj.AdditionalPostalCode}"/>,
+                                    <ui:outputText value="{!v.quoteObj.AdditionalCountry }"/><br></br>
+                                    <aura:if isTrue="{!v.quoteObj.Tax_Reg_Number__c}">
+                                        <b>Tax Id:</b><ui:outputText value="{!v.quoteObj.Tax_Reg_Number__c}"/>&nbsp;
+                                    </aura:if>
+                                    <aura:if isTrue="{!v.quoteObj.Branch_ID__c}">
+                                        <b>Branch Id:</b><ui:outputText value="{!v.quoteObj.Branch_ID__c}"/>
+                                    </aura:if>
+                                    
+                                </div>
+                                <!--###### MODAL BOX FOOTER Part Start ######-->
+                                <footer class="slds-modal__footer">
+                                    <lightning:button variant="neutral" 
+                                                      label="Cancel"
+                                                      title="Cancel"
+                                                      onclick="{! c.closeModel }"/>
+                                    <lightning:button variant="brand" 
+                                                      label="Proceed"
+                                                      title="Proceed"
+                                                      value="{!v.quoteObj}"
+                                                      disabled="{!!(v.checkPayment)}"
+                                                      onclick="{!c.onProceedClick }"/>
+                                </footer>
+                            </div>
+                        </section>
+                        <div class="slds-backdrop slds-backdrop_open"></div>
+                        <!--###### MODAL BOX Part END Here ######-->
+                    </aura:if>
+                </div>
+            </div>
+        </aura:set>
+    </aura:if>
+    
+    <!--Payment email address PGAUTO-2732 START-->
+    <aura:if isTrue="{!v.showEmail}">
+        <section role="dialog" tabindex="-1" aria-labelledby="modal-send-to-guruland" aria-modal="true" aria-describedby="modal-send-to-guruland" class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container sendToGuruLandModal">
+                <header class="slds-modal__header" aura:id="modalHeaderEmail">
+                    
+                    <h2 id="modalHeaderTitleEmail" class="slds-text-heading_medium slds-hyphenate">Resend Payment Email</h2>
+                </header>
+                <div class="slds-modal__content slds-p-around_medium">
+                    <div class="slds-align--absolute-center">
+                        <ui:inputText aura:id = "NewEmail"  label="Please update alternate email address if required" value="{!v.emailID}"/>
+                    </div>
+                </div>
+                <footer class="slds-modal__footer" aura:id="modalFooterEmail">
+                    <button class="slds-button slds-button_neutral" onclick="{!c.resendPaymentEmail}">Send</button>
+                    
+                    <button class="slds-button slds-button_neutral" onclick="{!c.closeEmailModal}">Cancel</button>
+                </footer>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </aura:if>
+    
+    <!--Payment email address PGAUTO-2732 END-->
+    
+    
+</aura:component>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Mob_and_Country_code_mandatory_for_ThAgt</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND( 
+				IsPersonAccount,
+				ISPICKVAL(Country__c, &#39;Thailand&#39;),
+			 ISPICKVAL(Customer_Type__c,&#39;Agent&#39;),
+				 OR(
+									ISBLANK(TEXT(Mobile_Country__c)),
+									ISBLANK(PersonMobilePhone)
+								)
+)</errorConditionFormula>
+    <errorMessage>Mobile Country and Mobile are Mandatory</errorMessage>
+</ValidationRule>

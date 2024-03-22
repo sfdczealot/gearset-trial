@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Is_Qualify_Agent_Referral_Program__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Denotes whether agent is qualify for referral program</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Denotes whether agent is qualify for referral program</inlineHelpText>
+    <label>Is Qualify Agent Referral Program</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

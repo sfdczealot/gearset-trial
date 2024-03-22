@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Total_Un_Billed_Quantity_To_Date__c</fullName>
+    <description>The sum of Actuals that have not yet been billed</description>
+    <externalId>false</externalId>
+    <inlineHelpText>The sum ofActuals that have not yet been billed</inlineHelpText>
+    <label>Total Un-Billed Quantity To Date</label>
+    <summarizedField>CS_Billing_Schedule_Item__c.DFP_Actuals__c</summarizedField>
+    <summaryFilterItems>
+        <field>CS_Billing_Schedule_Item__c.Status__c</field>
+        <operation>equals</operation>
+        <value>Open, Locked, Pending, Ready</value>
+    </summaryFilterItems>
+    <summaryForeignKey>CS_Billing_Schedule_Item__c.Billing_Schedule__c</summaryForeignKey>
+    <summaryOperation>sum</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>

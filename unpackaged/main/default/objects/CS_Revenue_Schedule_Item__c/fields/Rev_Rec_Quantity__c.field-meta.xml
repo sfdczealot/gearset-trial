@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Rev_Rec_Quantity__c</fullName>
+    <description>Rev Rec Quantity is always calculated based on DFP Actuals as follows: 
+Rev Rec Quantity = Overwrite Quantity if not 0 otherwise DFP Actuals up to Capped Quantity</description>
+    <externalId>false</externalId>
+    <label>Rev Rec Quantity</label>
+    <precision>12</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

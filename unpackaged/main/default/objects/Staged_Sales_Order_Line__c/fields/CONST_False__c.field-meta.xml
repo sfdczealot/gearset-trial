@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CONST_False__c</fullName>
+    <description>Constant Fales used for Property mapping</description>
+    <externalId>false</externalId>
+    <formula>False</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>Constant Fales used for Property mapping</inlineHelpText>
+    <label>CONST False</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

@@ -1,0 +1,32 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickActionWithoutHeader" access="global"
+                controller ="CustomRetriggerSMSNotification_cc">
+    <aura:attribute name="recordId" type="String"/>
+      <aura:attribute name="checkOMC" type="Boolean"/>
+    <aura:attribute name="message" type="String"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+ 
+    <aura:if isTrue="{!v.checkOMC}">
+         <header class="slds-modal__header">
+            <div class="slds-text-heading_medium slds-hyphenate slds-align_absolute-center">
+                Are you Sure?
+               
+            </div> 
+        </header>
+        <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate slds-align_absolute-center slds-modal__content slds-p-around_medium">
+Are you sure to proceed as Opportunity is in Pending Online Payment/ Pending OMC Approval stage?    </h2>
+    
+        <footer class="slds-align_absolute-center slds-m-around--small">
+     <lightning:button variant="neutral"
+                          label="No"
+                          title="No"
+                          onclick="{! c.closeModel }"/>
+        <lightning:button variant="brand"
+                          label="Yes"
+                          title="Yes"
+                          disabled="publishOk"
+                          onclick="{!c.publishOk}"/>
+        </footer>
+
+        </aura:if>
+    
+</aura:component>

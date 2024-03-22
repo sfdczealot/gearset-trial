@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Guruland_Link_Expiry_Date__c</fullName>
+    <externalId>false</externalId>
+    <formula>Guruland_Link_Created_Date__c +
+ IF(Country__c=&quot;Singapore&quot;, $CustomMetadata.Country_Attribute__mdt.Singapore.Expired_Hours__c/24,
+  IF(Country__c=&quot;Malaysia&quot;, $CustomMetadata.Country_Attribute__mdt.Malaysia.Expired_Hours__c/24,
+   IF(Country__c=&quot;Thailand&quot;, $CustomMetadata.Country_Attribute__mdt.Thailand.Expired_Hours__c/24,
+    IF(Country__c=&quot;Indonesia&quot;, $CustomMetadata.Country_Attribute__mdt.Indonesia.Expired_Hours__c/24, 0))))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Guruland Link Expiry Date</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>DateTime</type>
+</CustomField>

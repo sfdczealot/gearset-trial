@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Events_Product_Max_Discount__c</fullName>
+    <externalId>false</externalId>
+    <label>Events Product Max Discount</label>
+    <summarizedField>QuoteLineItem.Discount__c</summarizedField>
+    <summaryFilterItems>
+        <field>QuoteLineItem.Product_Type__c</field>
+        <operation>equals</operation>
+        <value>Events</value>
+    </summaryFilterItems>
+    <summaryForeignKey>QuoteLineItem.QuoteId</summaryForeignKey>
+    <summaryOperation>max</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <type>Summary</type>
+</CustomField>

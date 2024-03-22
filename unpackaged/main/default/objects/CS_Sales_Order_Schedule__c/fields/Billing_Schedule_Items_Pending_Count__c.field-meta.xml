@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Billing_Schedule_Items_Pending_Count__c</fullName>
+    <description>Rollup Count of BSIs with Status = Pending</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Rollup Count of BSIs with Status = Pending</inlineHelpText>
+    <label>Billing Schedule Items Pending Count</label>
+    <summarizedField>CS_Billing_Schedule__c.Billing_Schedule_Items_Pending_Count__c</summarizedField>
+    <summaryForeignKey>CS_Billing_Schedule__c.CS_Sales_Order_Schedule__c</summaryForeignKey>
+    <summaryOperation>sum</summaryOperation>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>

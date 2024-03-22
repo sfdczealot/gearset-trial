@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Self_Serve_Opportunity</fullName>
+    <columns>OPPORTUNITY.NAME</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>Account_Phone__c</columns>
+    <columns>OPPORTUNITY.STAGE_NAME</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <columns>OPPORTUNITY.CLOSE_DATE</columns>
+    <columns>Account_Rule_Code__c</columns>
+    <columns>Subscription_End_Date__c</columns>
+    <columns>Renewal_State__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>OPPORTUNITY.RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Opportunity.B2C_Self_Serve</value>
+    </filters>
+    <filters>
+        <field>OPPORTUNITY.STAGE_NAME</field>
+        <operation>equals</operation>
+        <value>Closed Won,Converted</value>
+    </filters>
+    <filters>
+        <field>Subscription_End_Date__c</field>
+        <operation>notEqual</operation>
+    </filters>
+    <label>Self-Serve Opportunity</label>
+</ListView>

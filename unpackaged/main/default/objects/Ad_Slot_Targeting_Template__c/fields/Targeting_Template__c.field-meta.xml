@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Targeting_Template__c</fullName>
+    <externalId>false</externalId>
+    <label>Targeting Template</label>
+    <referenceTo>csdf__Targeting_Template__c</referenceTo>
+    <relationshipLabel>Ad Slot Targeting Templates</relationshipLabel>
+    <relationshipName>Ad_Slot_Targeting_Templates</relationshipName>
+    <relationshipOrder>1</relationshipOrder>
+    <reparentableMasterDetail>false</reparentableMasterDetail>
+    <trackTrending>false</trackTrending>
+    <type>MasterDetail</type>
+    <writeRequiresMasterRead>false</writeRequiresMasterRead>
+</CustomField>

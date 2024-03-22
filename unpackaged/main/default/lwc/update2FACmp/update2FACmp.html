@@ -1,0 +1,26 @@
+<template>
+    <div class="slds-is-relative">
+        <lightning-modal-header label={title}></lightning-modal-header>
+            <lightning-modal-body> 
+                <template if:false={errorMessage}>
+                    {bodyMessage} <b>{agentName}</b> ?
+                    </template>
+                <template if:true={errorMessage}>
+                    <div class="slds-align_absolute-center slds-m-top_small">
+                            <h1>{errorMessage}</h1>
+                    </div>
+                    </template>
+            </lightning-modal-body>
+            <template if:false={errorMessage}>
+                <lightning-modal-footer >
+                    <div class="slds-align_absolute-center">
+                        <lightning-button label="Yes" variant="brand" onclick={submit}></lightning-button>&nbsp;&nbsp;
+                        <lightning-button label="No" onclick={handleClose}></lightning-button>
+                    </div>
+                </lightning-modal-footer>
+            </template>
+        <template if:true={isLoading}>
+            <lightning-spinner alternative-text="Loading" size="medium" variant="brand"></lightning-spinner>
+        </template>
+    </div>
+</template>

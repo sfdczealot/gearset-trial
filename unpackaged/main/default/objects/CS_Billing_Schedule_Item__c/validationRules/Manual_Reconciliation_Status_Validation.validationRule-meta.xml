@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Manual_Reconciliation_Status_Validation</fullName>
+    <active>true</active>
+    <description>When a Billing Schedule is in Pending, it can only be progressed to status Ready, not to other status values.</description>
+    <errorConditionFormula>AND(TEXT(PRIORVALUE(Status__c)) = &#39;Pending&#39;,
+    ISCHANGED(Status__c),
+    !ISPICKVAL( Status__c, &#39;Ready&#39;)
+    )</errorConditionFormula>
+    <errorDisplayField>Status__c</errorDisplayField>
+    <errorMessage>When a Billing Schedule is in Pending, it can only be progressed to status Ready, not to other status values.</errorMessage>
+</ValidationRule>

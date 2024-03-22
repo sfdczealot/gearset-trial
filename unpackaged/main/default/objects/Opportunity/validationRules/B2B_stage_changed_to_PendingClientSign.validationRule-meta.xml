@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>B2B_stage_changed_to_PendingClientSign</fullName>
+    <active>false</active>
+    <description>B2B should be Negotiation if previous stage was Pending Client Signatory</description>
+    <errorConditionFormula>NOT( ISNEW() ) &amp;&amp; ISCHANGED(StageName) &amp;&amp;RecordType.Name =&#39;B2B&#39;  &amp;&amp; NOT(ISPICKVAL(PRIORVALUE(StageName),&#39;Negotiation&#39;)) &amp;&amp;  ISPICKVAL(StageName, &#39;Pending Client Signatory&#39;)</errorConditionFormula>
+    <errorMessage>Current stage should be &quot;Negotiation&quot;</errorMessage>
+</ValidationRule>

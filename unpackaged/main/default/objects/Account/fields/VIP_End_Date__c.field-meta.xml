@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>VIP_End_Date__c</fullName>
+    <description>Denotes the end date of VIP agent&#39;s current subscription</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Denotes the end date of VIP agent&#39;s current subscription</inlineHelpText>
+    <label>VIP End Date</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Date</type>
+</CustomField>

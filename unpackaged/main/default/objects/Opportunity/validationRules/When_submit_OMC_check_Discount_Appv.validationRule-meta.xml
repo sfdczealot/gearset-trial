@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>When_submit_OMC_check_Discount_Appv</fullName>
+    <active>true</active>
+    <description>When user change to Pending OMC Approval(for OMC submission), the Discount Approval status can&#39;t be Rejected or Re-submit.</description>
+    <errorConditionFormula>AND(OR(RecordType.Name=&#39;B2B&#39;,RecordType.Name=&#39;B2C&#39;),
+NOT(ISCLONE()), 
+NOT(ISNEW()),   
+ISPICKVAL(StageName,&quot;Pending OMC Approval&quot;),  
+OR( 
+ISPICKVAL(Approval_Status__c, &quot;Re-submit Discount Approval&quot;), 
+ISPICKVAL(Approval_Status__c, &quot;Discount Approval Rejected&quot;)
+)
+)</errorConditionFormula>
+    <errorMessage>Discount Approval required. Submit to OMC for approval, only after discount is approved.</errorMessage>
+</ValidationRule>

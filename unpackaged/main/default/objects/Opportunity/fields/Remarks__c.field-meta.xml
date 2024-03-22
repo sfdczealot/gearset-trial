@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Remarks__c</fullName>
+    <description>This field is for Salesperson to input any specific details that need to be reflected on the Sales Order Contract document, this is as per NetSuite.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Input any specific details that need to be reflected on the Sales Order Contract document (max 1000 characters allowed)</inlineHelpText>
+    <label>Remarks</label>
+    <length>1000</length>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>LongTextArea</type>
+    <visibleLines>5</visibleLines>
+</CustomField>

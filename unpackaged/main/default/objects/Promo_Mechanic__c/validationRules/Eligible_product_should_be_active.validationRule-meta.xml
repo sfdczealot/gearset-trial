@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Eligible_product_should_be_active</fullName>
+    <active>true</active>
+    <description>Rule used to select only the active product for marketing promo campaigns</description>
+    <errorConditionFormula>AND(
+ !ISNULL(Eligible_Product__c),
+ !Eligible_Product__r.IsActive,
+ Campaign_Eligibility__r.Campaign__r.RecordType.DeveloperName = &quot;Marketing_Promo&quot;
+)</errorConditionFormula>
+    <errorDisplayField>Eligible_Product__c</errorDisplayField>
+    <errorMessage>Eligible product should be active.</errorMessage>
+</ValidationRule>

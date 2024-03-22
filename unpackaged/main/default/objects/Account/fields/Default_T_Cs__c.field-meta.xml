@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Default_T_Cs__c</fullName>
+    <description>Indicates what type of terms &amp; conditions for this client</description>
+    <externalId>false</externalId>
+    <inlineHelpText>What type of Terms &amp; Conditions for this account&#39;s deals?
+
+Spotify - unamended Spotify T&amp;C&#39;s 
+Client - amended Spotify T&amp;C&#39;s or Client T&amp;C&#39;s</inlineHelpText>
+    <label>Default T&amp;C&#39;s</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Spotify</fullName>
+                <default>true</default>
+                <label>Spotify</label>
+            </value>
+            <value>
+                <fullName>Client</fullName>
+                <default>false</default>
+                <label>Client</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

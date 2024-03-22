@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Stores the Tiers for the point range as per country</description>
+    <label>Reward Calculation Tier</label>
+    <pluralLabel>Reward Calculation Tiers</pluralLabel>
+    <visibility>Public</visibility>
+</CustomObject>

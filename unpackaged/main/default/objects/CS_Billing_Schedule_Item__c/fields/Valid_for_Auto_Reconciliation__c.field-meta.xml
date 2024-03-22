@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Valid_for_Auto_Reconciliation__c</fullName>
+    <description>Indicates if this line is valid to be auto-reconciled or not</description>
+    <externalId>false</externalId>
+    <formula>/*
+* 3/7/19 CS 
+*********************************************************************
+: Changed DFP comparison to compare Last DFP actuals date with 
+* Billing_Period_End_Date__c rather than Billing_Date__c. This fixes issues with
+* with the last BSI in the Schedule where the Flight End date is before the Billing Date,
+* all the actuals are in, but this flag thinks there are more to come because DFP
+* DFP_Actuals_as_of__c has last updated mid month, when the flight ends.
+**********************************************************************
+*/
+
+((!ISPICKVAL(Cost_Adjustment__c, &#39;No Cost Adjustment&#39;) || ISPICKVAL(Order_Type__c, &#39;House Guaranteed&#39;) || ISPICKVAL(Order_Type__c, &#39;House Non-Guaranteed&#39;) || ISPICKVAL(Billing_Source__c, &#39;Contracted&#39;) || ISPICKVAL( Order_Type__c , &#39;Labels AdCredit&#39;)) ||  
+((Actuals_Discrepancy__c &gt;= -0.10 &amp;&amp; Actuals_Discrepancy__c &lt;= 0.10) &amp;&amp; 
+(Viewability_Metric_Applied__c = false) &amp;&amp; 
+(X3rd_Party_Tracking__c = false) &amp;&amp; 
+(X3rd_Party_Verification__c = false ) &amp;&amp; 
+(DATEVALUE(X3rd_Party_Actuals_as_of__c) &gt; Billing_Period_End_Date__c || ISBLANK(X3rd_Party_Actuals_as_of__c) || !ISPICKVAL(Billing_Source__c, &#39;3rd Party Actuals&#39;)) &amp;&amp; 
+((DATEVALUE(DFP_Actuals_as_of__c) &gt; Billing_Period_End_Date__c &amp;&amp; DFP_Actuals__c &gt; 0) || ISBLANK(DFP_Actuals_as_of__c)) &amp;&amp; NOT(Requires_Manual_Reconciliation__c))) &amp;&amp; (Manual_Hold__c = false)</formula>
+    <inlineHelpText>Indicates if this line is valid to be auto-reconciled or not</inlineHelpText>
+    <label>Valid for Auto-Reconciliation</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

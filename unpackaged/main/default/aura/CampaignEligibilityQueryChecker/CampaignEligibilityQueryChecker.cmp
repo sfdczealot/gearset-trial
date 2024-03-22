@@ -1,0 +1,6 @@
+<aura:component implements="force:lightningQuickActionWithoutHeader,force:hasRecordId"
+                							Controller="VerifyEligibilityController" >
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    
+</aura:component>

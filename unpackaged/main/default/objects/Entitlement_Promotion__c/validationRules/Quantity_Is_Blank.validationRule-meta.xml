@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Quantity_Is_Blank</fullName>
+    <active>true</active>
+    <description>If Entitlement Product is populated, Quantity must be populated.</description>
+    <errorConditionFormula>AND(
+NOT(ISBLANK(Entitlement_Product__c)),
+ISBLANK( Quantity__c),
+Promo_Mechanic__r.Campaign_Eligibility__r.Campaign__r.RecordType.DeveloperName = &quot;Marketing_Promo&quot;
+)</errorConditionFormula>
+    <errorDisplayField>Quantity__c</errorDisplayField>
+    <errorMessage>If Entitlement Product is populated, Quantity must be populated.</errorMessage>
+</ValidationRule>

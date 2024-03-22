@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>BE_BA_BC_cannot_be_updated</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+				NOT( $User.Email =&#39;shauntan@propertyguru.com.sg&#39;),
+								NOT( $User.Email =&#39;changlongyeo@propertyguru.com.sg&#39;),
+								NOT( $User.Email =&#39;carla@propertyguru.com.sg&#39;),
+OR(ISCHANGED(Billing_Address__c),
+ISCHANGED(b2b_Billing_Contact__c),
+ISCHANGED(Billing_Entity__c) ),
+OR(TEXT(Primary_Sales_Order__r.csmso__Status__c)=&#39;Pending Customer Approval&#39;,
+TEXT(Primary_Sales_Order__r.csmso__Status__c)=&#39;Pending OMC Approval&#39;,
+TEXT(Primary_Sales_Order__r.Customer_Approval__c)=&#39;Approved&#39;)
+)</errorConditionFormula>
+    <errorDisplayField>Account_Email__c</errorDisplayField>
+    <errorMessage>you are not allowed to change Billing Entity, Billing Address and Billing Contact</errorMessage>
+</ValidationRule>

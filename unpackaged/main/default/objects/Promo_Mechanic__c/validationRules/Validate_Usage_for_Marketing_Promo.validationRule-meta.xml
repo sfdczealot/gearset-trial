@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Validate_Usage_for_Marketing_Promo</fullName>
+    <active>true</active>
+    <description>Rule used to put only 1 or -1 on the usage field, for marketing promo</description>
+    <errorConditionFormula>AND(
+ Campaign_Eligibility__r.Campaign__r.RecordType.DeveloperName = &quot;Marketing_Promo&quot;,
+ !ISNULL(Usage__c),
+ Usage__c &lt;&gt; 1,
+ Usage__c &lt;&gt; -1
+)</errorConditionFormula>
+    <errorDisplayField>Usage__c</errorDisplayField>
+    <errorMessage>Usage must be 1 or -1</errorMessage>
+</ValidationRule>

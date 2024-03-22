@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Used to send the event to workato on the finish of the campaign member creation,</description>
+    <eventType>HighVolume</eventType>
+    <label>Self Serve Campaign Notification</label>
+    <pluralLabel>Self Serve Campaign Notification</pluralLabel>
+    <publishBehavior>PublishImmediately</publishBehavior>
+</CustomObject>

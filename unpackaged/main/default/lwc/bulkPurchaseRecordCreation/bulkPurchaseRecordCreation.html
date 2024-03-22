@@ -1,0 +1,30 @@
+<template>
+    <div class="spinner">
+        <template if:true={isLoading}>
+             <lightning-spinner alternative-text="Loading....." variant="brand" size="medium">
+             </lightning-spinner>
+        </template>
+    </div>
+    <lightning-card icon-name="custom:custom19" title='Bulk Purchase of Products'>
+        <div class="slds-col slds-size_2-of-3 slds-container_large container_right_align" style="margin-left: 1%">
+            <h2>Guidelines to successfully upload documents</h2>
+        
+            <ul   class="slds-list_dotted slds-m-top_medium">
+                <li>  Drag/Drop Files or Browse by clicking on the image below.</li>
+                <li>  Click on Upload files to  upload them </li>
+                <li>  Click the Upload Selected Files button to successfully upload the File</li>
+            </ul>
+        </div>
+        <br/>
+        <br/>
+        <div style="margin-left: 40%" class="slds-list_dotted slds-m-top_medium">
+            <lightning-input style="font-weight: bold" accept={acceptedCSVFormats}
+                label="Select CSV file" name="file uploader" 
+                onchange={handleFilesChange} type="file" >
+            </lightning-input>
+            <br/>
+            <lightning-button class="slds-m-horizontal_x-small" variant="brand" label="Upload Selected File" title="Upload File" style="margin-left: 4%" onclick={saveFile}></lightning-button>
+        </div>
+
+    </lightning-card>
+</template>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Send_Approval_Manual</fullName>
+    <availability>online</availability>
+    <displayType>button</displayType>
+    <encodingKey>UTF-8</encodingKey>
+    <height>600</height>
+    <linkType>url</linkType>
+    <masterLabel>Send Approval - Manual</masterLabel>
+    <openType>sidebar</openType>
+    <protected>false</protected>
+    <url>{!$Site.BaseSecureUrl}/apex/{!URLFOR(&#39;c__CS_OppCustomerApproval&#39;, null, [oppId=Opportunity.Id, buttonClicked=&#39;Send_Approval_Manual&#39;])}</url>
+</WebLink>

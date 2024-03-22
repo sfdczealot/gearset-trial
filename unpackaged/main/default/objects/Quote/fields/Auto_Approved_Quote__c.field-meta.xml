@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Auto_Approved_Quote__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Checkbox indicates either it is applicable for auto approval or not, PGAUTO-5149</description>
+    <externalId>false</externalId>
+    <label>Auto Approved Quote</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

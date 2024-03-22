@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Approval_Status__c</fullName>
+    <description>Denotes the approval status for an agent in the VIP approval process</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Denotes the approval status for an agent in the VIP approval process</inlineHelpText>
+    <label>Approval Status</label>
+    <length>255</length>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

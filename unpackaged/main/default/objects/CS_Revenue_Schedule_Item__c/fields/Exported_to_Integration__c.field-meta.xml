@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Exported_to_Integration__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Checkbox set by Mulesoft. This will trigger the Forecast Recalculation</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Checkbox set by Mulesoft. This will trigger the Forecast Recalculation</inlineHelpText>
+    <label>Exported to Integration</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

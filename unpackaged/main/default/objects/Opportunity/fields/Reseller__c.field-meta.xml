@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Reseller__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <externalId>false</externalId>
+    <label>Reseller</label>
+    <lookupFilter>
+        <active>true</active>
+        <filterItems>
+            <field>Account.Channel_Tier__c</field>
+            <operation>equals</operation>
+            <value>Reseller</value>
+        </filterItems>
+        <infoMessage>Value does not exist or does not match filter criteria.</infoMessage>
+        <isOptional>true</isOptional>
+    </lookupFilter>
+    <referenceTo>Account</referenceTo>
+    <relationshipLabel>Opportunities (Reseller)</relationshipLabel>
+    <relationshipName>Opportunities7</relationshipName>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

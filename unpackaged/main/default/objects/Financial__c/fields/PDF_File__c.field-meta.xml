@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>PDF_File__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(Document_Id__c == null , &#39;&#39;, HYPERLINK(&#39;/servlet/servlet.FileDownload?file=&#39; + Document_Id__c , Name + &#39;.pdf&#39;))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>PDF File</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

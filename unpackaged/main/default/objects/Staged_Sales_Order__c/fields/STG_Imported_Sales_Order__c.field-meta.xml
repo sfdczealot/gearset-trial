@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>STG_Imported_Sales_Order__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <externalId>false</externalId>
+    <inlineHelpText>The Sales Order Created from the import / migration process</inlineHelpText>
+    <label>STG Imported Sales Order</label>
+    <referenceTo>csmso__Sales_Order__c</referenceTo>
+    <relationshipLabel>Staged Sales Orders</relationshipLabel>
+    <relationshipName>Staged_Sales_Orders</relationshipName>
+    <required>false</required>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

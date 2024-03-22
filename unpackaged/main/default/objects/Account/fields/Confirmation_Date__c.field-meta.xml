@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Confirmation_Date__c</fullName>
+    <description>Denotes the date when an agent has confirmed his/her identity using email and SMS verification with PG</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Denotes the date when an agent has confirmed his/her identity using email and SMS verification with PG</inlineHelpText>
+    <label>Confirmation Date</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>DateTime</type>
+</CustomField>

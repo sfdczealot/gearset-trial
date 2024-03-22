@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Cannot_Modify_SS_active_campaign</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+Campaign_Eligibility__r.Campaign__r.IsActive == true,
+Campaign_Eligibility__r.Campaign__r.RecordType.Name=&#39;Self Serve Marketing Promotion&#39;,
+!$Permission.System_Admin_Compliance_Access
+)</errorConditionFormula>
+    <errorMessage>You don&#39;t have Access to update these fields.</errorMessage>
+</ValidationRule>

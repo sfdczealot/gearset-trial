@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Summary_Of_Subscription_Item__c</fullName>
+    <externalId>false</externalId>
+    <label>Summary Of Subscription Item</label>
+    <summarizedField>OpportunityLineItem.Amount_Despite_VIP__c</summarizedField>
+    <summaryFilterItems>
+        <field>OpportunityLineItem.Product_Category__c</field>
+        <operation>equals</operation>
+        <value>Subscription</value>
+    </summaryFilterItems>
+    <summaryForeignKey>OpportunityLineItem.OpportunityId</summaryForeignKey>
+    <summaryOperation>sum</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>

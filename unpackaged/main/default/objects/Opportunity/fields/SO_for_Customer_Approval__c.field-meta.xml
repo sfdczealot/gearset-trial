@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SO_for_Customer_Approval__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <externalId>false</externalId>
+    <label>SO for Customer Approval</label>
+    <lookupFilter>
+        <active>true</active>
+        <filterItems>
+            <field>csmso__Sales_Order__c.csmso__Opportunity__r.Id</field>
+            <operation>equals</operation>
+            <valueField>$Source.Id</valueField>
+        </filterItems>
+        <infoMessage>Select a Sales Order that is attached to this Opportunity.</infoMessage>
+        <isOptional>true</isOptional>
+    </lookupFilter>
+    <referenceTo>csmso__Sales_Order__c</referenceTo>
+    <relationshipLabel>Opportunities (SO for Customer Approval)</relationshipLabel>
+    <relationshipName>Opportunities1</relationshipName>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

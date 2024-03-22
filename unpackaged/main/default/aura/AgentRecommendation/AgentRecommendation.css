@@ -1,0 +1,17 @@
+.THIS td {     text-align: center;
+border-right :1px solid lightgrey;
+      padding: 15px;
+    font-size:14px;
+        /*font-size: large;*/
+
+}
+
+
+.THIS th {    
+    text-align: center;
+    color: white;
+    padding: 10px;
+   
+     border-radius: 15px 15px 0px 0px;
+
+}

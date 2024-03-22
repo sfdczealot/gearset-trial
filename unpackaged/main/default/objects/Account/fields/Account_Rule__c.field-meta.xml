@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Account_Rule__c</fullName>
+    <description>Denotes the account rule of agents which corresponds to the subscription</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Denotes the account rule of agents which corresponds to the subscription</inlineHelpText>
+    <label>Account Rule</label>
+    <length>40</length>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

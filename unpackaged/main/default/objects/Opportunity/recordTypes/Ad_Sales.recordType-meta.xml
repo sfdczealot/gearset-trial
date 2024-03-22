@@ -1,0 +1,1029 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Ad_Sales</fullName>
+    <active>true</active>
+    <businessProcess>Ad Sales Process</businessProcess>
+    <description>Use for Direct opportunities and Cloudsense Sales Orders</description>
+    <label>Ad Sales</label>
+    <picklistValues>
+        <picklist>Agreement_Status__c</picklist>
+        <values>
+            <fullName>Cancelled %2F Declined</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Out for Signature</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Signed</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Signed via Client IO Link</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Allowed_Payment_Type__c</picklist>
+        <values>
+            <fullName>All</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>Offline only</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Online only</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Approval_Selector__c</picklist>
+        <values>
+            <fullName>Deputy</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Primary</fullName>
+            <default>true</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Approval_Status__c</picklist>
+        <values>
+            <fullName>Awaits OMC Approval</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CBO Approved</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Country Manager Approved</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Director Approved</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Discount Approval Approved</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Discount Approval Rejected</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Discount Approval Submitted</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>NS Order Generated</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Not Required</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>OMC Approval Approved</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>OMC Approval Recalled</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>OMC Approval Rejected</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>OMC Approval Submitted</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Product Owner Approved</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Re-submit Discount Approval</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Bill_To_Tier__c</picklist>
+        <values>
+            <fullName>Distributor</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>End User</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reseller</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>ForecastCategoryName</picklist>
+        <values>
+            <fullName>Best Case</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Closed</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Commit</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Omitted</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pipeline</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>In_House_Sales__c</picklist>
+        <values>
+            <fullName>Charitable</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Commercial</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>In House Sales</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Network</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Invoice_From_Office__c</picklist>
+        <values>
+            <fullName>ARGENTINA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>AUSTRALIA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>AUSTRIA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Albania</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>BELGIUM</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>BRAZIL</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Bolivia</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Bosnia Herzegovina</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Bulgaria</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CANADA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Chile</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Colombia</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Costa Rica</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Croatia</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Cyprus</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Czech Republic</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>DENMARK</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Dominican Republic</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ESTONIA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Ecuador</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>El Salvador</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FINLAND</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FRANCE</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>GERMANY</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>GREECE</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Guatemala</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>HONG KONG</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Honduras</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Hungary</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ICELAND</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ITALY</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>India</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Indonesia</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Ireland</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Japan</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Kosovo</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LATVIA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LITHUANIA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>MALAYSIA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>MEXICO OLD</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Macedonia</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Malta</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Mexico</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Moldova</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Montenegro</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>NETHERLANDS</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>NORWAY</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Nicaragua</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>POLAND</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>PORTUGAL OLD</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Panama</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Paraguay</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Peru</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Philippines</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Portugal</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Romania</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SINGAPORE</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SPAIN</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SWITZERLAND</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Serbia</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Slovakia</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Slovenia</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>South Africa</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Sweden</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TAIWAN</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>THAILAND</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TURKEY</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>UK</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>UNITED STATES</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Uruguay</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Vietnam</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Invoice_Timing__c</picklist>
+        <values>
+            <fullName>End of Campaign</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Monthly</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>LeadSource</picklist>
+        <values>
+            <fullName>Advertising</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Direct Mail</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Email</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Inbound Call</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Others</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Paid Online Advertising%28AdWords%2C other paid search sources%2C display Ads%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Referral</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Social</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Sponsored Content</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Telemarketing</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Tradeshows %2F Events</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Webinars</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Website</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Loss_Reason__c</picklist>
+        <values>
+            <fullName>Agent is suspended or cancelled</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Already Renewed - VIP</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Already Renewed%2FPurchased%2FRegistered%2FBosted</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Current System Sufficient</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>DO NOT CALL list</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Decision Maker Uncontactable</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Duplicate Record</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Lost to Competitor</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>No Budget %2F Lost Funding</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>No Payment</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Not Eligible</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Not Interested</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Payment Expired</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Price</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Product Features</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Project Abandoned</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Project Completed %2F Completing</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Project Delayed</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Unable to reach %28at least 5 attempts%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Wrong Number</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Lost_Sub_Reason__c</picklist>
+        <values>
+            <fullName>Agent will call back if keen on product</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Bad experience with our workshop %2F event</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Content is irrelevant</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Credits are not useful</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Don%27t need a subscription %2F product</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Don%27t need so many concurrent listings</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Features are not attractive</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Inactive</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Location is inaccessible</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>No budget</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Not available at the time slot</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Not enough credits to boost</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Not receiving leads</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Past Bad Customer Experience</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pricing%2F Too Expensive</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Too many credits left</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Unhappy with change of features</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Using 99%2Eco product</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Using STProp%2FSRX product</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Using The Edge product</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Using iProp product</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>With other competitors</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>NetSuite_Payment_Status__c</picklist>
+        <values>
+            <fullName>1</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>2</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>3</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>4</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>5</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Opportunity_Type__c</picklist>
+        <values>
+            <fullName>B2C - Renewal</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>B2C - Standard</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>B2C - Upgrade</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Marketing Automation</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Self-Serve Abandoned</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Self-Serve Renewal</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Self-Serve Standard</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Order_Type_Clone__c</picklist>
+        <values>
+            <fullName>Contract - Make Good</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Contract - New</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Contract - Renewal</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Contract - Upsell</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Order_Type__c</picklist>
+        <values>
+            <fullName>Direct Commercial</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>House Guaranteed</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>House Non-Guaranteed</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Labels AdCredit</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Labels Commercial</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Programmatic Guaranteed</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reseller</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Payment_Gateway__c</picklist>
+        <values>
+            <fullName>Adyen</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Braintree</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>PayPal</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Payment_Type__c</picklist>
+        <values>
+            <fullName>Offline</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Online</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>bank-transfer</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>credit-card</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>paypal</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Product_Category__c</picklist>
+        <values>
+            <fullName>Agent Discretionary</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Agent Subscriptions</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Awards</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>China Solutions</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Content</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Data MPD</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Database Marketing</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Developer Listings</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Discretionary</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Events</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FastKey</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FinTech</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Marketing Services</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Online Advertising</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Renewal_State__c</picklist>
+        <values>
+            <fullName>Actual Month</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Actual Month %2B1</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Early Bird</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>SO_Credit_Status__c</picklist>
+        <values>
+            <fullName>Active</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Blocked</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Credit Stop</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Inactive</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>On Hold</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Ship_To_Tier__c</picklist>
+        <values>
+            <fullName>Distributor</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>End User</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reseller</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Subsidiary_Type__c</picklist>
+        <values>
+            <fullName>Property Guru</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>iPP</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Type</picklist>
+        <values>
+            <fullName>Existing Business</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>New Business</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>netsuite_conn__Bill_To_Tier__c</picklist>
+        <values>
+            <fullName>Distributor</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>End User</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>Reseller</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>netsuite_conn__Order_Type__c</picklist>
+        <values>
+            <fullName>Contract - Make Good</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Contract - New</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Contract - Renewal</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Contract - Upsell</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>netsuite_conn__Ship_To_Tier__c</picklist>
+        <values>
+            <fullName>Distributor</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>End User</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>Reseller</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+</RecordType>

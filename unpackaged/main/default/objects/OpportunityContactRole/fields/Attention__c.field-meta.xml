@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Attention__c</fullName>
+    <description>For Customer’s Department or other C/O details required</description>
+    <externalId>false</externalId>
+    <inlineHelpText>For Customer’s Department or other C/O details required</inlineHelpText>
+    <label>Attention</label>
+    <required>false</required>
+    <type>TextArea</type>
+</CustomField>

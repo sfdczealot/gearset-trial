@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>All_Closed_Customer_Care_MY_Queue</fullName>
+    <columns>CASES.CASE_NUMBER</columns>
+    <columns>CASES.SUBJECT</columns>
+    <columns>CASES.STATUS</columns>
+    <columns>NAME</columns>
+    <columns>Agent_Mobile__c</columns>
+    <columns>CASES.TYPE</columns>
+    <columns>CREATEDBY_USER.ALIAS</columns>
+    <columns>CASES.CREATED_DATE</columns>
+    <columns>OWNER_NAME</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>CASES.CLOSED</field>
+        <operation>equals</operation>
+        <value>1</value>
+    </filters>
+    <filters>
+        <field>OWNER_NAME</field>
+        <operation>contains</operation>
+        <value>Customer Care MY,Jesse Lee,Lishalini,Ramesh,Darshini</value>
+    </filters>
+    <label>Cust Care - All Closed  - MY Queue</label>
+    <sharedTo>
+        <role>MY_Cust_Care_Rep</role>
+        <role>MY_Cust_Care_Team_Lead</role>
+        <role>SG_Customer_Care_Rep</role>
+    </sharedTo>
+</ListView>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Buffer_number_validation</fullName>
+    <active>true</active>
+    <description>Buffer number must not be &gt;100</description>
+    <errorConditionFormula>Buffer__c &gt; 100</errorConditionFormula>
+    <errorMessage>Buffer number must not be greater than 100</errorMessage>
+</ValidationRule>

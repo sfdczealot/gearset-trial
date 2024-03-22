@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>All_Agent_Accounts</fullName>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>PC_PHONE3</columns>
+    <columns>PC_EMAIL</columns>
+    <columns>Account_Rule_Code__c</columns>
+    <columns>Agency__c</columns>
+    <columns>AgentNet_ID__c</columns>
+    <columns>Reward_Points__c</columns>
+    <columns>Reward_Tier__c</columns>
+    <columns>NetSuite_Id__c</columns>
+    <columns>ACCOUNT.CREATED_DATE</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Country__c</field>
+        <operation>equals</operation>
+        <value>Singapore</value>
+    </filters>
+    <filters>
+        <field>ACCOUNT.RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>PersonAccount.Agent</value>
+    </filters>
+    <filters>
+        <field>Status__c</field>
+        <operation>equals</operation>
+        <value>Active</value>
+    </filters>
+    <filters>
+        <field>Account_Rule_Code__c</field>
+        <operation>equals</operation>
+        <value>Advance</value>
+    </filters>
+    <filters>
+        <field>Subscription_Start_Date__c</field>
+        <operation>equals</operation>
+        <value>2/3/2023</value>
+    </filters>
+    <label>All Active Agent Accounts (SG)</label>
+</ListView>

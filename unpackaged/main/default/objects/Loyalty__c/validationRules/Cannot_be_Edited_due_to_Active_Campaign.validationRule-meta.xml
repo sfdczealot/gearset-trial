@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Cannot_be_Edited_due_to_Active_Campaign</fullName>
+    <active>true</active>
+    <description>Cannot edit Loyalty when Campaign is Active</description>
+    <errorConditionFormula>AND(Campaign__r.IsActive, OR(ISCHANGED(Discount_Percentage__c), ISCHANGED(PG_Tenure__c)))</errorConditionFormula>
+    <errorMessage>Loyalty Cannot be Edited because Campaign is Active.</errorMessage>
+</ValidationRule>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>LocalLanguage_Last_Name__c</fullName>
+    <description>Denotes Last Name in local language</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Denotes Last Name in local language</inlineHelpText>
+    <label>Last Name (Local Language)</label>
+    <length>255</length>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

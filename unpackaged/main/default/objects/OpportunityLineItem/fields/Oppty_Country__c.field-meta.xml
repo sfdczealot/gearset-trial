@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Oppty_Country__c</fullName>
+    <description>Capture Oppty Country and use to field to lookup Tax Code when user change the Tax Code</description>
+    <externalId>false</externalId>
+    <formula>Opportunity.Country__c</formula>
+    <label>Oppty Country</label>
+    <required>false</required>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

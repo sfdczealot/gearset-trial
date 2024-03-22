@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Billing_contact_account_should_have_NSID</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(TEXT(Role) = &#39;Billing Contact&#39;,
+ OR(ISBLANK(Contact.Account_s_NetSuite_Id__c) , ISBLANK( Contact.NetSuite_Id__c) ))</errorConditionFormula>
+    <errorMessage>Billing Contact and Billing Contact&#39;s Account must be created in NetSuite first</errorMessage>
+</ValidationRule>

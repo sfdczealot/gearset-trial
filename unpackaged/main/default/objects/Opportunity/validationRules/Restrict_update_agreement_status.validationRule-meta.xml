@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Restrict_update_agreement_status</fullName>
+    <active>true</active>
+    <description>Restrict update agreement status if signature type is not manual signature</description>
+    <errorConditionFormula>ISCHANGED(Agreement_Status__c)
+&amp;&amp; signature_type__c != &#39;Manual Signature&#39;
+&amp;&amp; $Profile.Name = &#39;B2B Sales User&#39;</errorConditionFormula>
+    <errorMessage>You are not allowed to update the Agreement Status</errorMessage>
+</ValidationRule>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SuppliedPhone</fullName>
+    <description>Denotes the phone number that was entered when the case was created</description>
+    <inlineHelpText>Denotes the phone number that was entered when the case was created</inlineHelpText>
+    <trackTrending>false</trackTrending>
+</CustomField>

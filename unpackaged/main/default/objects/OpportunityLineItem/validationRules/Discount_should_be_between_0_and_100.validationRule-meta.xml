@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Discount_should_be_between_0_and_100</fullName>
+    <active>false</active>
+    <description>Ensure that users don&#39;t key in negative number or greater than 100%.</description>
+    <errorConditionFormula>OR(
+Discount__c &lt; 0,
+Discount__c &gt; 1
+)</errorConditionFormula>
+    <errorDisplayField>Discount__c</errorDisplayField>
+    <errorMessage>Discount should be between 0% and 100%</errorMessage>
+</ValidationRule>

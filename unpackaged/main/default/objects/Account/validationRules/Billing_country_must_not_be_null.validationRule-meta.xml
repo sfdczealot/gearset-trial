@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Billing_country_must_not_be_null</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(NOT(ISBLANK(BillingAddress)),ISBLANK(BillingCountry),RecordType.DeveloperName = &#39;B2B_Account&#39;)</errorConditionFormula>
+    <errorMessage>Billing country is mandatory</errorMessage>
+</ValidationRule>

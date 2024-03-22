@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Final_Price__c</fullName>
+    <description>Final price (Net Unit Price * Qty)</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Final price (Net Unit Price * Qty)</inlineHelpText>
+    <label>Final Price</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>4</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Total_Spending_Amount_last_12_months__c</fullName>
+    <description>This is total spending on Discretionary Products</description>
+    <externalId>false</externalId>
+    <inlineHelpText>This is total spending on Discretionary Products</inlineHelpText>
+    <label>Total Spending Amount (last 12 months)</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Currency</type>
+</CustomField>

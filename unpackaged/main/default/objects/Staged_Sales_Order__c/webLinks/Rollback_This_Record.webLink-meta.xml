@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Rollback_This_Record</fullName>
+    <availability>online</availability>
+    <displayType>button</displayType>
+    <linkType>javascript</linkType>
+    <masterLabel>Rollback This Record</masterLabel>
+    <openType>onClickJavaScript</openType>
+    <protected>false</protected>
+    <url>{!REQUIRESCRIPT(&quot;/soap/ajax/43.0/connection.js&quot;)} 
+{!REQUIRESCRIPT(&quot;/soap/ajax/43.0/apex.js&quot;)} 
+
+
+
+var scr=&quot;set&lt;id&gt; Ids = new set&lt;id&gt;(); ids.add(&#39;{!Staged_Sales_Order__c.Id}&#39;);  CSDM_BatchClearOrders batch = new CSDM_BatchClearOrders(Ids); batch.execute();&quot;; 
+var result = sforce.apex.executeAnonymous(scr); 
+alert(&#39;Processing Started...&#39;);
+window.location.reload();</url>
+</WebLink>

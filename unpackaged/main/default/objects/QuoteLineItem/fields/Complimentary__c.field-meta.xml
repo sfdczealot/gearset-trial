@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Complimentary__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Copy from Oppty Product Complimentary__c</description>
+    <externalId>false</externalId>
+    <label>Complimentary</label>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

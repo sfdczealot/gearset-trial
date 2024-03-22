@@ -1,0 +1,77 @@
+<aura:component implements="flexipage:availableForAllPageTypes,force:hasRecordId" controller="AgentFulfilmentFromJSON_cc" access="GLOBAL">
+    <aura:dependency resource="markup://force:navigateToSObject" type="EVENT"/>
+    <aura:attribute name="recordId" type="string" />
+    <aura:attribute name="agentObj" type="Account" default="{sobjectType : 'Account'}" />
+    <aura:attribute name="listResult" type="list"/>
+    <aura:attribute name="totalRemaining" type="decimal" />
+    <aura:attribute name="sizeResult" type="integer"/>
+    <aura:attribute name="isLoading" type="Boolean" default="true"/>
+    <aura:attribute name="isPrimeCreditTab" type="Boolean" default="false"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    
+    <div class="slds container" style="width: 100%">
+        <div class="slds-grid">
+            <div class="slds-col_bump-right">
+                Total Remaining =  <ui:outputNumber value="{!v.totalRemaining}" /> units
+            </div>
+            <div class="slds-col_bump-left">
+                Total <ui:outputNumber value="{!v.sizeResult}" /> records
+            </div>
+        </div>
+        <ui:scrollerWrapper class="scrollerSize">
+            <div class="slds-table--header-fixed_container" style="width:1024px;">
+                <div class="slds-scrollable" style="height: 100%; width:100%;">
+                    <table class="slds-table slds-table_bordered slds-table--header-fixed slds-table_striped">
+                        <thead>
+                            <tr class="slds-text-title_caps">
+                                <th scope="col">
+                                    <div class="slds-truncate slds-cell-fixed slds-align_absolute-center slds-text-align_center" title="No">No</div>
+                                </th>
+                                <th scope="col">
+                                    <div class="slds-truncate slds-cell-fixed slds-align_absolute-center slds-text-align_center" title="Name">Name</div>
+                                </th>
+                                <th scope="col">
+                                    <div class="slds-truncate slds-cell-fixed slds-align_absolute-center slds-text-align_center" title="Status">Status</div>
+                                </th>
+                                <th scope="col">
+                                    <div class="slds-truncate slds-cell-fixed slds-align_absolute-center slds-text-align_center" title="Ordered">Ordered</div>
+                                </th>
+                                <th scope="col">
+                                    <div class="slds-truncate slds-cell-fixed slds-align_absolute-center slds-text-align_center" title="Remaining">Remaining</div>
+                                </th>
+                                <th scope="col">
+                                    <div class="slds-truncate slds-cell-fixed slds-align_absolute-center slds-text-align_center" title="Start Date">Start Date</div>
+                                </th>
+                                <th scope="col">
+                                    <div class="slds-truncate slds-cell-fixed slds-align_absolute-center slds-text-align_center" title="End Date">End Date</div>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <aura:iteration items="{!v.listResult}" var="row" indexVar="idx">
+                                <tr>
+                                    <td style="width: 5%;">{!row.SequenceNumber}</td>
+                                    <td style="width: 20%;">
+                                        <aura:if isTrue="{!row.IsGrouping}">
+                                            <b>{!row.Name}</b>
+                                            <aura:set attribute="else">
+                                                {!row.Name}
+                                            </aura:set>
+                                        </aura:if></td>
+                                    <td style="width: 15%;">{!row.Status}</td>
+                                    <td style="width: 15%;"><ui:outputNumber value="{!row.PurchasedQuantity}" /></td>
+                                    <td style="width: 15%;"><ui:outputNumber value="{!row.BalanceQuantity}" /></td>
+                                    <td style="width: 15%;"><ui:outputDate format="dd/MM/yyyy" value="{!row.StartDate}" /></td>
+                                    <td style="width: 15%;"><ui:outputDate format="dd/MM/yyyy" value="{!row.EndDate}" /></td>
+                                </tr>
+                            </aura:iteration>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </ui:scrollerWrapper>
+        <aura:if isTrue="{!v.isLoading}">
+            <lightning:spinner alternativeText="Loading" size="large" />
+        </aura:if>
+    </div>
+</aura:component>

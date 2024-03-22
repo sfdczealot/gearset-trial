@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Digital_Billing_Calculation_Rule__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>The rule used to perform the calculation of the values for each record in the Billing Schedule</description>
+    <externalId>false</externalId>
+    <inlineHelpText>The rule used to perform the calculation of the values for each record in the Billing Schedule</inlineHelpText>
+    <label>Digital Billing Calculation Rule</label>
+    <lookupFilter>
+        <active>true</active>
+        <filterItems>
+            <field>Billing_Rule_Class__c.Rule_Type__c</field>
+            <operation>equals</operation>
+            <value>Digital Calculation Rule</value>
+        </filterItems>
+        <isOptional>false</isOptional>
+    </lookupFilter>
+    <referenceTo>Billing_Rule_Class__c</referenceTo>
+    <relationshipLabel>Billing Schedule Rules (Digital Billing Calculation Rule)</relationshipLabel>
+    <relationshipName>Billing_Schedule_Rules2</relationshipName>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Max_and_Min_Qty_cannot_be_negative</fullName>
+    <active>true</active>
+    <description>Max and Min Quantity cannot be negative for Marketing Promo Campaigns.</description>
+    <errorConditionFormula>AND(
+ Campaign_Eligibility__r.Campaign__r.RecordType.DeveloperName = &quot;Marketing_Promo&quot;,
+ OR(
+ AND(
+  !ISNULL(Max_Qty__c),
+  Max_Qty__c &lt; 0
+ ),
+ AND(
+ !ISNULL(Min_Qty__c),
+  Min_Qty__c &lt; 0
+ )
+)
+)</errorConditionFormula>
+    <errorMessage>Max and Min Quantity cannot be negative.</errorMessage>
+</ValidationRule>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>IsForecast__c</fullName>
+    <description>This field is to determine the billing Schedules are forecast billing schedules or not.</description>
+    <externalId>false</externalId>
+    <formula>If(TEXT(Status__c)  = &#39;Forecast&#39;,true,false)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>This field is to determine the billing Schedules are forecast billing schedules or not.</inlineHelpText>
+    <label>IsForecast</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

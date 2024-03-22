@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SG_Payment_Link_Expiry__c</fullName>
+    <description>Stores the expiray date for SG renewal quotes as per PGAUTO- 5138</description>
+    <externalId>false</externalId>
+    <label>SG Payment Link Expiry</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>DateTime</type>
+</CustomField>

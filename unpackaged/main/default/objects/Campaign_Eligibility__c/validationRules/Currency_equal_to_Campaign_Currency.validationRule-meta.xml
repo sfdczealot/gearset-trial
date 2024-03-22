@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Currency_equal_to_Campaign_Currency</fullName>
+    <active>true</active>
+    <description>Campaign Eligibility Currency should be equal to Campaign Currency.</description>
+    <errorConditionFormula>!(TEXT(CurrencyIsoCode) = TEXT(Campaign__r.CurrencyIsoCode))</errorConditionFormula>
+    <errorDisplayField>CurrencyIsoCode</errorDisplayField>
+    <errorMessage>Currency should be equal to Campaign Currency.</errorMessage>
+</ValidationRule>

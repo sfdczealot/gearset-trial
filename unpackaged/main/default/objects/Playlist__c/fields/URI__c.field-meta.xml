@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>URI__c</fullName>
+    <description>Playlist uri to be pushed to Ad Server</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Playlist uri to be pushed to Ad Server</inlineHelpText>
+    <label>URI</label>
+    <length>255</length>
+    <required>true</required>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

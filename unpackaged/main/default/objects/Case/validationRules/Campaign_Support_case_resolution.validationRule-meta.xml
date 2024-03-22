@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Campaign_Support_case_resolution</fullName>
+    <active>true</active>
+    <description>Only Sys admin, TM users and Sales Enablement user can mark the Campaign Support case resolution as Resolved.</description>
+    <errorConditionFormula>AND(
+TEXT(Type) =&#39;Campaign Support&#39;,
+TEXT(Resolution__c) = &#39;Resolved&#39;,
+AND(
+$Profile.Name &lt;&gt; &#39;Trade Marketing&#39;,
+$Profile.Name &lt;&gt; &#39;Sales Enablement User&#39;,
+!$Permission.System_Admin_Compliance_Access
+),
+RecordType.DeveloperName = &#39;Sales_Enablement&#39;
+)</errorConditionFormula>
+    <errorDisplayField>Resolution__c</errorDisplayField>
+    <errorMessage>You don&#39;t have access to mark the resolution as resolved.</errorMessage>
+</ValidationRule>

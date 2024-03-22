@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>IsAdvance_Plus_Downgrade__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>field will set to true only for the first time agent downgraded from advance plus</description>
+    <externalId>false</externalId>
+    <label>IsAdvance Plus Downgrade</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

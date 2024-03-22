@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Rev_Rec_Amount__c</fullName>
+    <description>Rev Rec Amount is typically calculated as Rev Rec Quantity * Unit Price
+Rev Rec Amount is rounded up to 2 decimals and adjustments to match the Sales Order Total are applied on the last period</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Rev Rec Amount is typically calculated as Rev Rec Quantity * Unit Price
+Rev Rec Amount is rounded up to 2 decimals and adjustments to match the Sales Order Total are applied on the last period</inlineHelpText>
+    <label>Rev Rec Amount</label>
+    <precision>14</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Export_to_ERP_Started_Date__c</fullName>
+    <description>DateTime in which Mulesoft processed this record. This will trigger the Forecast Recalculation - SET BY WORKFLOW</description>
+    <externalId>false</externalId>
+    <inlineHelpText>DateTime in which Mulesoft processed this record. This will trigger the Forecast Recalculation - SET BY WORKFLOW</inlineHelpText>
+    <label>Export to ERP Started Date</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>DateTime</type>
+</CustomField>

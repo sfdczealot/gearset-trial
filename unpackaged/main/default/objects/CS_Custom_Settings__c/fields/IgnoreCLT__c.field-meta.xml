@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>IgnoreCLT__c</fullName>
+    <defaultValue>true</defaultValue>
+    <description>If checked DFP Creative Level Targetings will be ignored.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>If checked DFP Creative Level Targetings will be ignored.</inlineHelpText>
+    <label>Ignore Creative Level Targeting</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

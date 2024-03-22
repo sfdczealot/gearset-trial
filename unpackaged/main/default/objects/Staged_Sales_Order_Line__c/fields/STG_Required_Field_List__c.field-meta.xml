@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>STG_Required_Field_List__c</fullName>
+    <description>Required fields (based on Served By field&#39;</description>
+    <externalId>false</externalId>
+    <formula>IF (TEXT(Served_By__c) !=&#39;DFP&#39;,&#39;&#39;,
+&#39;Account, Ad Location Description, Agency Commission, Agency Commission Amount, Bill To Account Id, Line Item Description, Calculation Type, Flight Begin, Flight Begin Time, Flight End, Flight End Time, Display Price, Gross Unit Price, Insertion Quantity, Insertion Unit Type, Market, Net Unit Price, Final Price, Migrated Order Line Id, Agency, Billing Calendar, Billing Source, Booking Time Zone, Product, Scheduled Quantity, X3rd Party Ad Server (IF Billing Source = 3rd Party Actuals )&#39;)</formula>
+    <inlineHelpText>Required fields (based on Served By field&#39;</inlineHelpText>
+    <label>STG Required Field List</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

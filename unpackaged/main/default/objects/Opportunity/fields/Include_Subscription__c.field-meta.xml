@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Include_Subscription__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF ( Is_Current_Subscription__c = TRUE, IF( AND ( !ISNULL(Subscription_Activation_Date__c), OR( (DATEVALUE(OMC_Approved_Date__c) &lt; Subscription_Activation_Date__c), (DATEVALUE(OMC_Approved_Date__c) &gt; Subscription_Activation_Date__c), (DATEVALUE(OMC_Approved_Date__c) = Subscription_Activation_Date__c) ) ), IF( AND ( OR( (Subscription_Activation_Date__c) &gt; ADDMONTHS(TODAY(), -12), DATEVALUE(OMC_Approved_Date__c) &gt; ADDMONTHS(TODAY(), -12) ), OR( (Subscription_Activation_Date__c) &lt;= TODAY(), DATEVALUE(OMC_Approved_Date__c) &lt;= TODAY() ) ), TRUE, FALSE ), FALSE ), FALSE )</formula>
+    <label>Include Subscription</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

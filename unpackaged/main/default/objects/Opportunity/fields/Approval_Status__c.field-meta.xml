@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Approval_Status__c</fullName>
+    <externalId>false</externalId>
+    <label>Approval Status</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Discount Approval Submitted</fullName>
+                <default>false</default>
+                <label>Discount Approval Submitted</label>
+            </value>
+            <value>
+                <fullName>Discount Approval Approved</fullName>
+                <default>false</default>
+                <label>Discount Approval Approved</label>
+            </value>
+            <value>
+                <fullName>Discount Approval Rejected</fullName>
+                <default>false</default>
+                <label>Discount Approval Rejected</label>
+            </value>
+            <value>
+                <fullName>Re-submit Discount Approval</fullName>
+                <default>false</default>
+                <label>Re-submit Discount Approval</label>
+            </value>
+            <value>
+                <fullName>Awaits OMC Approval</fullName>
+                <default>false</default>
+                <label>Awaits OMC Approval</label>
+            </value>
+            <value>
+                <fullName>OMC Approval Submitted</fullName>
+                <default>false</default>
+                <label>OMC Approval Submitted</label>
+            </value>
+            <value>
+                <fullName>OMC Approval Approved</fullName>
+                <default>false</default>
+                <label>OMC Approval Approved</label>
+            </value>
+            <value>
+                <fullName>OMC Approval Recalled</fullName>
+                <default>false</default>
+                <label>OMC Approval Recalled</label>
+            </value>
+            <value>
+                <fullName>OMC Approval Rejected</fullName>
+                <default>false</default>
+                <label>OMC Approval Rejected</label>
+            </value>
+            <value>
+                <fullName>Not Required</fullName>
+                <default>false</default>
+                <label>Not Required</label>
+            </value>
+            <value>
+                <fullName>NS Order Generated</fullName>
+                <default>false</default>
+                <label>NS Order Generated</label>
+            </value>
+            <value>
+                <fullName>Product Owner Approved</fullName>
+                <default>false</default>
+                <label>Product Owner Approved</label>
+            </value>
+            <value>
+                <fullName>Director Approved</fullName>
+                <default>false</default>
+                <label>Director Approved</label>
+            </value>
+            <value>
+                <fullName>Country Manager Approved</fullName>
+                <default>false</default>
+                <label>Country Manager Approved</label>
+            </value>
+            <value>
+                <fullName>CBO Approved</fullName>
+                <default>false</default>
+                <label>CBO Approved</label>
+            </value>
+            <value>
+                <fullName>Discount Approval Required</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Discount Approval Required</label>
+            </value>
+            <value>
+                <fullName>Manager Approved</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Manager Approved</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>All_Active_SG_Campaign</fullName>
+    <columns>PARENT_NAME</columns>
+    <columns>CAMPAIGN.NAME</columns>
+    <columns>CAMPAIGN.ACTIVE</columns>
+    <columns>CAMPAIGN.START_DATE</columns>
+    <columns>CAMPAIGN.END_DATE</columns>
+    <columns>CAMPAIGN.LAST_UPDATE</columns>
+    <columns>CAMPAIGN.CREATED_DATE</columns>
+    <columns>CAMPAIGN.RECORDTYPE</columns>
+    <columns>CAMPAIGN.NUM_LEADS</columns>
+    <columns>Country__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>CAMPAIGN.ACTIVE</field>
+        <operation>equals</operation>
+        <value>1</value>
+    </filters>
+    <filters>
+        <field>Country__c</field>
+        <operation>equals</operation>
+        <value>Singapore</value>
+    </filters>
+    <filters>
+        <field>CAMPAIGN.RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Campaign.Marketing_Promo,Campaign.Self_Serve_Marketing_Promotion</value>
+    </filters>
+    <label>All Active SG Campaign</label>
+</ListView>

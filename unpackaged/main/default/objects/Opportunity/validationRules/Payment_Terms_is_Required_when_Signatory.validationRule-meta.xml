@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Payment_Terms_is_Required_when_Signatory</fullName>
+    <active>true</active>
+    <description>Payment terms is required when Pending Client Signatory or Pending OMC Approval</description>
+    <errorConditionFormula>AND(
+$RecordType.Name == &quot;B2B&quot;, 
+AND (
+NOT(ISCLONE()),
+OR (
+ISPICKVAL(StageName, &quot;Pending Client Signatory&quot;), 
+ISPICKVAL(StageName, &quot;Pending OMC Approval&quot;)
+),
+ISBLANK(Payment_Term__c)
+)
+)</errorConditionFormula>
+    <errorDisplayField>Payment_Term__c</errorDisplayField>
+    <errorMessage>Payment Term is required.</errorMessage>
+</ValidationRule>

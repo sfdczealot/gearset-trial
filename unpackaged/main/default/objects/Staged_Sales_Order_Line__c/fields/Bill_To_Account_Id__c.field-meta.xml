@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Bill_To_Account_Id__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>Bill To Account ID from Opportunity (e.g. 0016E00000YN9V0QAL)</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Bill To Account ID From Opportunity (e.g. 0016E00000YN9V0QAL)</inlineHelpText>
+    <label>Bill To Account Id</label>
+    <referenceTo>Account</referenceTo>
+    <relationshipLabel>Staged Sales Order Lines (Bill To Account Id)</relationshipLabel>
+    <relationshipName>Staged_Sales_Order_Lines1</relationshipName>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

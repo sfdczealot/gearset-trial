@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Task_Date_should_not_be_more_than_today</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(IsClosed = false,BEGINS(WhatId, &#39;006&#39;),ActivityDate &lt; today(),TEXT(Type)= &#39;LCM Comms&#39;)</errorConditionFormula>
+    <errorMessage>Due date must be greater than today</errorMessage>
+</ValidationRule>

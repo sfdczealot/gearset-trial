@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Requires_Salutation</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+ISBLANK( TEXT(Salutation)),
+OR(
+AND(IsPersonAccount,
+ISPICKVAL(Country__c, &#39;Singapore&#39;)
+),
+AND(
+RecordType.DeveloperName = &#39;Agent&#39;,
+ISNEW(),
+OR(
+AND(ISPICKVAL(Country__c, &#39;Thailand&#39;),
+$Profile.Name = &#39;TH B2C Sales User&#39;),
+AND(ISPICKVAL(Country__c, &#39;Malaysia&#39;),
+$Profile.Name = &#39;MY B2C Sales User&#39;))
+)
+)
+)</errorConditionFormula>
+    <errorDisplayField>Salutation</errorDisplayField>
+    <errorMessage>Salutation is mandatory</errorMessage>
+</ValidationRule>

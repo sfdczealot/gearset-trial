@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>All_Active_Agent_Accounts</fullName>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>Agency__c</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <columns>PC_PHONE3</columns>
+    <columns>Account_Rule_Code__c</columns>
+    <columns>Current_Subscription_Spending__c</columns>
+    <columns>Total_Spending_12_Months__c</columns>
+    <columns>Subscription_End_Date__c</columns>
+    <columns>AgentNet_ID__c</columns>
+    <columns>netsuite_conn__NetSuite_Id__c</columns>
+    <columns>Status__c</columns>
+    <columns>CEA_Salesperson_Number__c</columns>
+    <columns>PC_EMAIL</columns>
+    <columns>ACCOUNT.LAST_ACTIVITY</columns>
+    <filterScope>Mine</filterScope>
+    <filters>
+        <field>CORE.USERS.ALIAS</field>
+        <operation>equals</operation>
+    </filters>
+    <label>All Active Agent Accounts</label>
+</ListView>

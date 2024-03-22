@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Check_sales_period_subsidiary</fullName>
+    <active>true</active>
+    <description>Validate if subsidiary matches with next sales period&#39;s subsidiary</description>
+    <errorConditionFormula>IF( !ISBLANK(Next_Sales_Period__r.Subsidiary__c), Subsidiary__c !=  Next_Sales_Period__r.Subsidiary__c, FALSE)</errorConditionFormula>
+    <errorMessage>Subsidiary of next sales period doesn&#39;t match with current subsidiary</errorMessage>
+</ValidationRule>

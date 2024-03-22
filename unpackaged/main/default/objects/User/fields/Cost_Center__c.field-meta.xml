@@ -1,0 +1,384 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Cost_Center__c</fullName>
+    <externalId>false</externalId>
+    <label>Cost Center</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Sales:Developer (B2B)</fullName>
+                <default>false</default>
+                <label>Sales:Developer (B2B)</label>
+            </value>
+            <value>
+                <fullName>Sales:Renewal (B2C)</fullName>
+                <default>false</default>
+                <label>Sales:Renewal (B2C)</label>
+            </value>
+            <value>
+                <fullName>Sales:NBT (B2C)</fullName>
+                <default>false</default>
+                <label>Sales:NBT (B2C)</label>
+            </value>
+            <value>
+                <fullName>Sales:Agency Business (B2C)</fullName>
+                <default>false</default>
+                <label>Sales:Agency Business (B2C)</label>
+            </value>
+            <value>
+                <fullName>Technology:Platform COE</fullName>
+                <default>false</default>
+                <label>Technology:Platform COE</label>
+            </value>
+            <value>
+                <fullName>Sales:Customer Service</fullName>
+                <default>false</default>
+                <label>Sales:Customer Service</label>
+            </value>
+            <value>
+                <fullName>Marketing:Trade - Developer</fullName>
+                <default>false</default>
+                <label>Marketing:Trade - Developer</label>
+            </value>
+            <value>
+                <fullName>Operations:Client Servicing Team</fullName>
+                <default>false</default>
+                <label>Operations:Client Servicing Team</label>
+            </value>
+            <value>
+                <fullName>Sales</fullName>
+                <default>false</default>
+                <label>Sales</label>
+            </value>
+            <value>
+                <fullName>Awards</fullName>
+                <default>false</default>
+                <label>Awards</label>
+            </value>
+            <value>
+                <fullName>Sales Operations &amp; Enablement</fullName>
+                <default>false</default>
+                <label>Sales Operations &amp; Enablement</label>
+            </value>
+            <value>
+                <fullName>OMC</fullName>
+                <default>false</default>
+                <label>OMC</label>
+            </value>
+            <value>
+                <fullName>Events</fullName>
+                <default>false</default>
+                <label>Events</label>
+            </value>
+            <value>
+                <fullName>Sales:Special Projects</fullName>
+                <default>false</default>
+                <label>Sales:Special Projects</label>
+            </value>
+            <value>
+                <fullName>MaaS</fullName>
+                <default>false</default>
+                <label>MaaS</label>
+            </value>
+            <value>
+                <fullName>Management</fullName>
+                <default>false</default>
+                <label>Management</label>
+            </value>
+            <value>
+                <fullName>FastKey</fullName>
+                <default>false</default>
+                <label>FastKey</label>
+            </value>
+            <value>
+                <fullName>Finance:Accounting</fullName>
+                <default>false</default>
+                <label>Finance:Accounting</label>
+            </value>
+            <value>
+                <fullName>Marketing:Trade - Agency &amp; Agents</fullName>
+                <default>false</default>
+                <label>Marketing:Trade - Agency &amp; Agents</label>
+            </value>
+            <value>
+                <fullName>Operations</fullName>
+                <default>false</default>
+                <label>Operations</label>
+            </value>
+            <value>
+                <fullName>Sales:PGDS</fullName>
+                <default>false</default>
+                <label>Sales:PGDS</label>
+            </value>
+            <value>
+                <fullName>Finance:FP &amp; A</fullName>
+                <default>false</default>
+                <label>Finance:FP &amp; A</label>
+            </value>
+            <value>
+                <fullName>Operations:Ad Operations</fullName>
+                <default>false</default>
+                <label>Operations:Ad Operations</label>
+            </value>
+            <value>
+                <fullName>Operations:PGDS</fullName>
+                <default>false</default>
+                <label>Operations:PGDS</label>
+            </value>
+            <value>
+                <fullName>Technology:Marketplace Engineering</fullName>
+                <default>false</default>
+                <label>Technology:Marketplace Engineering</label>
+            </value>
+            <value>
+                <fullName>Product:Life Cycle Demand Gen &amp; Growth</fullName>
+                <default>false</default>
+                <label>Product:Life Cycle Demand Gen &amp; Growth</label>
+            </value>
+            <value>
+                <fullName>Technology:Data COE</fullName>
+                <default>false</default>
+                <label>Technology:Data COE</label>
+            </value>
+            <value>
+                <fullName>CBO: Agt TM</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>CBO: Agt TM</label>
+            </value>
+            <value>
+                <fullName>CBO: BI</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>CBO: BI</label>
+            </value>
+            <value>
+                <fullName>CBO: BPO</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>CBO: BPO</label>
+            </value>
+            <value>
+                <fullName>CBO: CBO</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>CBO: CBO</label>
+            </value>
+            <value>
+                <fullName>CBO: Cust Care</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>CBO: Cust Care</label>
+            </value>
+            <value>
+                <fullName>CBO: Dev TM</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>CBO: Dev TM</label>
+            </value>
+            <value>
+                <fullName>CBO: SENB</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>CBO: SENB</label>
+            </value>
+            <value>
+                <fullName>CBO: Sales Excellence</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>CBO: Sales Excellence</label>
+            </value>
+            <value>
+                <fullName>CBO: Sales Incentive</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>CBO: Sales Incentive</label>
+            </value>
+            <value>
+                <fullName>FIN: FP&amp;A</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>FIN: FP&amp;A</label>
+            </value>
+            <value>
+                <fullName>FIN: Pricing</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>FIN: Pricing</label>
+            </value>
+            <value>
+                <fullName>MKT: LCM</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>MKT: LCM</label>
+            </value>
+            <value>
+                <fullName>OPS: Ad-Ops</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>OPS: Ad-Ops</label>
+            </value>
+            <value>
+                <fullName>OPS: CST</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>OPS: CST</label>
+            </value>
+            <value>
+                <fullName>OPS: OMC</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>OPS: OMC</label>
+            </value>
+            <value>
+                <fullName>PDT: Awards</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>PDT: Awards</label>
+            </value>
+            <value>
+                <fullName>PDT: China Sol</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>PDT: China Sol</label>
+            </value>
+            <value>
+                <fullName>PDT: Events</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>PDT: Events</label>
+            </value>
+            <value>
+                <fullName>PDT: Fastkey</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>PDT: Fastkey</label>
+            </value>
+            <value>
+                <fullName>PDT: FinTech</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>PDT: FinTech</label>
+            </value>
+            <value>
+                <fullName>PDT: MaaS</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>PDT: MaaS</label>
+            </value>
+            <value>
+                <fullName>Sales: ID B2B</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Sales: ID B2B</label>
+            </value>
+            <value>
+                <fullName>Sales: ID B2C</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Sales: ID B2C</label>
+            </value>
+            <value>
+                <fullName>Sales: ID CM</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Sales: ID CM</label>
+            </value>
+            <value>
+                <fullName>Sales: MPD</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Sales: MPD</label>
+            </value>
+            <value>
+                <fullName>Sales: MY B2B</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Sales: MY B2B</label>
+            </value>
+            <value>
+                <fullName>Sales: MY B2C</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Sales: MY B2C</label>
+            </value>
+            <value>
+                <fullName>Sales: MY CM</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Sales: MY CM</label>
+            </value>
+            <value>
+                <fullName>Sales: SG B2B</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Sales: SG B2B</label>
+            </value>
+            <value>
+                <fullName>Sales: SG B2C: Comm</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Sales: SG B2C: Comm</label>
+            </value>
+            <value>
+                <fullName>Sales: SG B2C: Renew</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Sales: SG B2C: Renew</label>
+            </value>
+            <value>
+                <fullName>Sales: SG CM</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Sales: SG CM</label>
+            </value>
+            <value>
+                <fullName>Sales: TH B2B</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Sales: TH B2B</label>
+            </value>
+            <value>
+                <fullName>Sales: TH B2C</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Sales: TH B2C</label>
+            </value>
+            <value>
+                <fullName>Sales: TH CM</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Sales: TH CM</label>
+            </value>
+            <value>
+                <fullName>Tech: DSA</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Tech: DSA</label>
+            </value>
+            <value>
+                <fullName>Tech: Tech</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Tech: Tech</label>
+            </value>
+            <value>
+                <fullName>Tech: Tech: Self Serve</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Tech: Tech: Self Serve</label>
+            </value>
+            <value>
+                <fullName>Tech: Vendor</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Tech: Vendor</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

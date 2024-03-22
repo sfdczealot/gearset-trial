@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Discount_Amt_cannot_exceed_Total_Price</fullName>
+    <active>false</active>
+    <errorConditionFormula>ROUND(Discount_Amount__c,2) &gt;  ROUND(TotalPrice,2)</errorConditionFormula>
+    <errorDisplayField>Discount_Amount__c</errorDisplayField>
+    <errorMessage>Discount Amount shouldn&#39;t exceed Total Price</errorMessage>
+</ValidationRule>

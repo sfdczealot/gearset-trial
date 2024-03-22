@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Restrict_update_when_Opp_is_closed_won</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+ISPICKVAL(Opportunity.StageName, &#39;Closed Won&#39;),
+!$Permission.System_Admin_Compliance_Access,
+NOT(ISPICKVAL(Quote_Type__c , &#39;&#39;)),
+NOT((ISPICKVAL(PRIORVALUE(Status),&quot;Pending OMC Approval&quot;)))
+)</errorConditionFormula>
+    <errorMessage>Can&#39;t update Quote if Opportunity stage is Closed Won</errorMessage>
+</ValidationRule>

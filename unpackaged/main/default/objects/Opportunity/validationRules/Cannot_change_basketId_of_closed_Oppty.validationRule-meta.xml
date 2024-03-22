@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Cannot_change_basketId_of_closed_Oppty</fullName>
+    <active>true</active>
+    <description>BasketID should not be changed for closed opportunities</description>
+    <errorConditionFormula>AND(ISCHANGED(BasketId__c),
+				NOT(ISCHANGED(StageName)),
+					OR ( ISPICKVAL( StageName, &quot;Converted&quot;),
+										ISPICKVAL( StageName, &quot;Not-Converted&quot;)))</errorConditionFormula>
+    <errorMessage>Cannot change BasketId for closed opportunity</errorMessage>
+</ValidationRule>

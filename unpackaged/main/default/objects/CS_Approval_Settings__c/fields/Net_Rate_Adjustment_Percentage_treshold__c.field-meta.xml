@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Net_Rate_Adjustment_Percentage_treshold__c</fullName>
+    <description>Holds value used in Approval process to determine if line should go to Pricing approval. Value is used to check if &#39;Net Rate Adjustment Percentage&#39; is under the threshold and should go to Pricing approval queue.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Holds value used in Approval process to determine if line should go to Pricing approval. Value is used to check if &#39;Net Rate Adjustment Percentage&#39; is under the threshold and should go to Pricing approval queue.</inlineHelpText>
+    <label>Net Rate Adjustment Percentage treshold</label>
+    <precision>7</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

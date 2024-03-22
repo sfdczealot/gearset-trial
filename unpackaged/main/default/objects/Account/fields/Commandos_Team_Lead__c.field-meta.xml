@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Commandos_Team_Lead__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>Denotes the team lead in commandos sales team whose responsible for agency relationship</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Denotes the team lead in commandos sales team whose responsible for agency relationship</inlineHelpText>
+    <label>Commandos Team Lead</label>
+    <referenceTo>User</referenceTo>
+    <relationshipName>Accounts</relationshipName>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Lookup</type>
+</CustomField>

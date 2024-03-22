@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Close_Won_Before_OMC_Approved</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(ISPICKVAL( Opportunity_Type__c ,&#39;&#39; ),IsChanged(IsWon),IsWon == true,  text(Approval_Status__c)&lt;&gt; &#39;OMC Approval Approved&#39;, RecordType.DeveloperName = &#39;B2C&#39;)</errorConditionFormula>
+    <errorMessage>This record is not approved yet by OMC ! Please press button &#39;Submit to OMC&#39; to send this record to an Approver</errorMessage>
+</ValidationRule>

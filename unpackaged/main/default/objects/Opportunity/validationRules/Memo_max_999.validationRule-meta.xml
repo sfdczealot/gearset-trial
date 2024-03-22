@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Memo_max_999</fullName>
+    <active>true</active>
+    <description>Limit Memo input to max 999 characters</description>
+    <errorConditionFormula>LEN( Memo__c ) &gt; 999</errorConditionFormula>
+    <errorMessage>Memo input should not exceed 999 characters.</errorMessage>
+</ValidationRule>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SS_MarketingPromo_cannot_have_CE_active</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND( Campaign__r.RecordType.Name =&#39;Self Serve Marketing Promotion&#39;, 
+				Campaign__r.All_Agents__c ,
+				TEXT(Status__c)=&#39;Active&#39;)</errorConditionFormula>
+    <errorMessage>Campaign Eligibility cannot be active if All Agents is set to true</errorMessage>
+</ValidationRule>

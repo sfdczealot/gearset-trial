@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>B2B_stage_change_to_Close_Won</fullName>
+    <active>true</active>
+    <errorConditionFormula>And(RecordType.Name =&#39;B2B&#39;,NOT(ISPICKVAL(Approval_Status__c,&quot;OMC Approval Approved&quot;)),ISPICKVAL(StageName,&quot;Closed Won&quot;))</errorConditionFormula>
+    <errorMessage>You can not change Stage to Closed Won without  OMC approval.</errorMessage>
+</ValidationRule>

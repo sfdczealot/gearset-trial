@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Qty__c</fullName>
+    <description>The qty of the child products that are part of the parent. Eg. Parent A includes 5qty x Child A1, 10qty x Child A2.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>The qty of the child products that are part of the parent. Eg. Parent A includes 5qty x Child A1, 10qty x Child A2</inlineHelpText>
+    <label>Qty</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

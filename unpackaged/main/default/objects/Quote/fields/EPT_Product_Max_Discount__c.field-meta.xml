@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>EPT_Product_Max_Discount__c</fullName>
+    <externalId>false</externalId>
+    <label>EPT Product Max Discount</label>
+    <summaryFilterItems>
+        <field>QuoteLineItem.Product_Type__c</field>
+        <operation>equals</operation>
+        <value>EPT</value>
+    </summaryFilterItems>
+    <summaryForeignKey>QuoteLineItem.QuoteId</summaryForeignKey>
+    <summaryOperation>count</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <type>Summary</type>
+</CustomField>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Reward_Tiers</fullName>
+    <columns>Country__c</columns>
+    <columns>Lower_Limit__c</columns>
+    <columns>Upper_Limit__c</columns>
+    <columns>Tier__c</columns>
+    <columns>Upload_To_AdminNet__c</columns>
+    <filterScope>Everything</filterScope>
+    <label>Reward Tiers</label>
+</ListView>

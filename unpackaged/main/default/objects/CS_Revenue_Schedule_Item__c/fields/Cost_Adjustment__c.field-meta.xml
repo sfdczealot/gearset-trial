@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Cost_Adjustment__c</fullName>
+    <description>Picklist for user to select reason for Line Item having no costs. Selection made in Line Item. Options are; No Cost Adjustment; Added Value; Brand Study; Make Good; Pro Bono.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Picklist for user to select reason for Line Item having no costs. Selection made in Line Item. Options are; No Cost Adjustment; Added Value; Brand Study; Make Good; Pro Bono.</inlineHelpText>
+    <label>Cost Adjustment</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>No Cost Adjustment</fullName>
+                <default>false</default>
+                <label>No Cost Adjustment</label>
+            </value>
+            <value>
+                <fullName>Added Value</fullName>
+                <default>false</default>
+                <label>Added Value</label>
+            </value>
+            <value>
+                <fullName>Brand Study</fullName>
+                <default>false</default>
+                <label>Brand Study</label>
+            </value>
+            <value>
+                <fullName>Make Good</fullName>
+                <default>false</default>
+                <label>Make Good</label>
+            </value>
+            <value>
+                <fullName>Pro Bono</fullName>
+                <default>false</default>
+                <label>Pro Bono</label>
+            </value>
+            <value>
+                <fullName>Production fee paid by Client</fullName>
+                <default>false</default>
+                <label>Production fee paid by Client</label>
+            </value>
+            <value>
+                <fullName>Production fee paid by Spotify</fullName>
+                <default>false</default>
+                <label>Production fee paid by Spotify</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

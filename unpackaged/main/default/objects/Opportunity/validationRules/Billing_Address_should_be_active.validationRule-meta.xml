@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Billing_Address_should_be_active</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND( RecordType.Name=&#39;B2B&#39;, NOT(ISBLANK(Billing_Address__c)), IF(IsClosed,FALSE,IF( Billing_Address__r.isActive__c,FALSE ,TRUE)))</errorConditionFormula>
+    <errorMessage>Billing Address is inActive</errorMessage>
+</ValidationRule>

@@ -1,0 +1,509 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Industry_Tier_2__c</fullName>
+    <description>Tier 2 (Lower) Industry Catagories</description>
+    <externalId>false</externalId>
+    <label>Industry (Tier 2)</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>Industry</controllingField>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Adult Beverages</fullName>
+                <default>false</default>
+                <label>Adult Beverages</label>
+            </value>
+            <value>
+                <fullName>Alcoholic Beverages</fullName>
+                <default>false</default>
+                <label>Alcoholic Beverages</label>
+            </value>
+            <value>
+                <fullName>Appliances</fullName>
+                <default>false</default>
+                <label>Appliances</label>
+            </value>
+            <value>
+                <fullName>Artist/Band</fullName>
+                <default>false</default>
+                <label>Artist/Band</label>
+            </value>
+            <value>
+                <fullName>Automotive</fullName>
+                <default>false</default>
+                <label>Automotive</label>
+            </value>
+            <value>
+                <fullName>Auto Parts Retailers</fullName>
+                <default>false</default>
+                <label>Auto Parts Retailers</label>
+            </value>
+            <value>
+                <fullName>Banking</fullName>
+                <default>false</default>
+                <label>Banking</label>
+            </value>
+            <value>
+                <fullName>Banks</fullName>
+                <default>false</default>
+                <label>Banks</label>
+            </value>
+            <value>
+                <fullName>Big Box Retail</fullName>
+                <default>false</default>
+                <label>Big Box Retail</label>
+            </value>
+            <value>
+                <fullName>Big-Box Retail</fullName>
+                <default>false</default>
+                <label>Big-Box Retail</label>
+            </value>
+            <value>
+                <fullName>Brands/OEM</fullName>
+                <default>false</default>
+                <label>Brands/OEM</label>
+            </value>
+            <value>
+                <fullName>Chemicals</fullName>
+                <default>false</default>
+                <label>Chemicals</label>
+            </value>
+            <value>
+                <fullName>Commercial Vechicles</fullName>
+                <default>false</default>
+                <label>Commercial Vechicles</label>
+            </value>
+            <value>
+                <fullName>Commercial Vehicles</fullName>
+                <default>false</default>
+                <label>Commercial Vehicles</label>
+            </value>
+            <value>
+                <fullName>Concert</fullName>
+                <default>false</default>
+                <label>Concert</label>
+            </value>
+            <value>
+                <fullName>Consumer Electronics</fullName>
+                <default>false</default>
+                <label>Consumer Electronics</label>
+            </value>
+            <value>
+                <fullName>Consumer Electronics/Computing Products</fullName>
+                <default>false</default>
+                <label>Consumer Electronics/Computing Products</label>
+            </value>
+            <value>
+                <fullName>Creative Agency</fullName>
+                <default>false</default>
+                <label>Creative Agency</label>
+            </value>
+            <value>
+                <fullName>Credit Cards</fullName>
+                <default>false</default>
+                <label>Credit Cards</label>
+            </value>
+            <value>
+                <fullName>Dealerships</fullName>
+                <default>false</default>
+                <label>Dealerships</label>
+            </value>
+            <value>
+                <fullName>Dealerships/LMAs</fullName>
+                <default>false</default>
+                <label>Dealerships/LMAs</label>
+            </value>
+            <value>
+                <fullName>Digital Media</fullName>
+                <default>false</default>
+                <label>Digital Media</label>
+            </value>
+            <value>
+                <fullName>eCommerce</fullName>
+                <default>false</default>
+                <label>eCommerce</label>
+            </value>
+            <value>
+                <fullName>E-Commerce</fullName>
+                <default>false</default>
+                <label>E-Commerce</label>
+            </value>
+            <value>
+                <fullName>Education</fullName>
+                <default>false</default>
+                <label>Education</label>
+            </value>
+            <value>
+                <fullName>Fashion/Apparel</fullName>
+                <default>false</default>
+                <label>Fashion/Apparel</label>
+            </value>
+            <value>
+                <fullName>Fashon/Apparel</fullName>
+                <default>false</default>
+                <label>Fashon/Apparel</label>
+            </value>
+            <value>
+                <fullName>Festival</fullName>
+                <default>false</default>
+                <label>Festival</label>
+            </value>
+            <value>
+                <fullName>Festivals</fullName>
+                <default>false</default>
+                <label>Festivals/Concerts</label>
+            </value>
+            <value>
+                <fullName>Film</fullName>
+                <default>false</default>
+                <label>Film</label>
+            </value>
+            <value>
+                <fullName>Food and Beverage</fullName>
+                <default>false</default>
+                <label>Food and Beverage</label>
+            </value>
+            <value>
+                <fullName>Food and Beverage (non-alc)</fullName>
+                <default>false</default>
+                <label>Food and Beverage (non-alc)</label>
+            </value>
+            <value>
+                <fullName>Gaming</fullName>
+                <default>false</default>
+                <label>Gaming</label>
+            </value>
+            <value>
+                <fullName>Government</fullName>
+                <default>false</default>
+                <label>Government</label>
+            </value>
+            <value>
+                <fullName>Grocery</fullName>
+                <default>false</default>
+                <label>Grocery</label>
+            </value>
+            <value>
+                <fullName>Health and Beauty</fullName>
+                <default>false</default>
+                <label>Health and Beauty</label>
+            </value>
+            <value>
+                <fullName>Health Services</fullName>
+                <default>false</default>
+                <label>Health Services</label>
+            </value>
+            <value>
+                <fullName>Health Services Provider</fullName>
+                <default>false</default>
+                <label>Health Services Provider</label>
+            </value>
+            <value>
+                <fullName>Home Care</fullName>
+                <default>false</default>
+                <label>Home Care</label>
+            </value>
+            <value>
+                <fullName>Home Goods</fullName>
+                <default>false</default>
+                <label>Home Goods</label>
+            </value>
+            <value>
+                <fullName>Hotels &amp; Hospitality</fullName>
+                <default>false</default>
+                <label>Hotels &amp; Hospitality</label>
+            </value>
+            <value>
+                <fullName>Insurance</fullName>
+                <default>false</default>
+                <label>Insurance</label>
+            </value>
+            <value>
+                <fullName>Label</fullName>
+                <default>false</default>
+                <label>Label</label>
+            </value>
+            <value>
+                <fullName>Luxury</fullName>
+                <default>false</default>
+                <label>Luxury</label>
+            </value>
+            <value>
+                <fullName>Media Agency</fullName>
+                <default>false</default>
+                <label>Media Agency</label>
+            </value>
+            <value>
+                <fullName>Medical Devices</fullName>
+                <default>false</default>
+                <label>Medical Devices</label>
+            </value>
+            <value>
+                <fullName>Motorcycle/ATV/Powersports</fullName>
+                <default>false</default>
+                <label>Motorcycle/ATV/Powersports</label>
+            </value>
+            <value>
+                <fullName>Networks &amp; Studios</fullName>
+                <default>false</default>
+                <label>Networks &amp; Studios</label>
+            </value>
+            <value>
+                <fullName>Non-Profit</fullName>
+                <default>false</default>
+                <label>Non-Profit</label>
+            </value>
+            <value>
+                <fullName>Oil &amp; Gas</fullName>
+                <default>false</default>
+                <label>Oil &amp; Gas</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+            <value>
+                <fullName>Other Financial Services</fullName>
+                <default>false</default>
+                <label>Other Financial Services</label>
+            </value>
+            <value>
+                <fullName>Parts &amp; Service</fullName>
+                <default>false</default>
+                <label>Parts &amp; Service</label>
+            </value>
+            <value>
+                <fullName>Pharma</fullName>
+                <default>false</default>
+                <label>Pharma</label>
+            </value>
+            <value>
+                <fullName>Pharmaceutical Manufacturer</fullName>
+                <default>false</default>
+                <label>Pharmaceutical Manufacturer</label>
+            </value>
+            <value>
+                <fullName>Political</fullName>
+                <default>false</default>
+                <label>Political</label>
+            </value>
+            <value>
+                <fullName>Print &amp; Digital Media</fullName>
+                <default>false</default>
+                <label>Print &amp; Digital Media</label>
+            </value>
+            <value>
+                <fullName>Print Media</fullName>
+                <default>false</default>
+                <label>Print Media</label>
+            </value>
+            <value>
+                <fullName>Quick Service Restaurants</fullName>
+                <default>false</default>
+                <label>Quick Service Restaurants</label>
+            </value>
+            <value>
+                <fullName>Real Estate</fullName>
+                <default>false</default>
+                <label>Real Estate</label>
+            </value>
+            <value>
+                <fullName>Recreation &amp; Amusement</fullName>
+                <default>false</default>
+                <label>Recreation &amp; Amusement</label>
+            </value>
+            <value>
+                <fullName>Recreational Vehicles (RV)</fullName>
+                <default>false</default>
+                <label>Recreational Vehicles (RV)</label>
+            </value>
+            <value>
+                <fullName>Reseller</fullName>
+                <default>false</default>
+                <label>Reseller</label>
+            </value>
+            <value>
+                <fullName>Restaurants</fullName>
+                <default>false</default>
+                <label>Restaurants</label>
+            </value>
+            <value>
+                <fullName>Services</fullName>
+                <default>false</default>
+                <label>Services</label>
+            </value>
+            <value>
+                <fullName>Social Media</fullName>
+                <default>false</default>
+                <label>Social Media</label>
+            </value>
+            <value>
+                <fullName>Software</fullName>
+                <default>false</default>
+                <label>Software</label>
+            </value>
+            <value>
+                <fullName>Sporting</fullName>
+                <default>false</default>
+                <label>Sporting</label>
+            </value>
+            <value>
+                <fullName>Streaming</fullName>
+                <default>false</default>
+                <label>Streaming</label>
+            </value>
+            <value>
+                <fullName>Tech</fullName>
+                <default>false</default>
+                <label>Tech</label>
+            </value>
+            <value>
+                <fullName>Technology Services</fullName>
+                <default>false</default>
+                <label>Technology Services</label>
+            </value>
+            <value>
+                <fullName>Telco</fullName>
+                <default>false</default>
+                <label>Telco</label>
+            </value>
+            <value>
+                <fullName>Ticketing</fullName>
+                <default>false</default>
+                <label>Ticketing</label>
+            </value>
+            <value>
+                <fullName>Tourism</fullName>
+                <default>false</default>
+                <label>Tourism</label>
+            </value>
+            <value>
+                <fullName>Transportation</fullName>
+                <default>false</default>
+                <label>Transportation</label>
+            </value>
+            <value>
+                <fullName>Travel Bookers</fullName>
+                <default>false</default>
+                <label>Travel Bookers</label>
+            </value>
+            <value>
+                <fullName>TV/OTT</fullName>
+                <default>false</default>
+                <label>TV/OTT</label>
+            </value>
+            <value>
+                <fullName>Utilities</fullName>
+                <default>false</default>
+                <label>Utilities</label>
+            </value>
+            <value>
+                <fullName>Video Gaming</fullName>
+                <default>false</default>
+                <label>Video Gaming</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>CPG &amp; Consumer Products</controllingFieldValue>
+            <valueName>Alcoholic Beverages</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>CPG &amp; Consumer Products</controllingFieldValue>
+            <valueName>Food and Beverage</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>CPG &amp; Consumer Products</controllingFieldValue>
+            <valueName>Health and Beauty</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>CPG &amp; Consumer Products</controllingFieldValue>
+            <valueName>Home Care</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>CPG &amp; Consumer Products</controllingFieldValue>
+            <valueName>Home Goods</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Financial Services</controllingFieldValue>
+            <valueName>Banks</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Financial Services</controllingFieldValue>
+            <valueName>Credit Cards</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Financial Services</controllingFieldValue>
+            <valueName>Insurance</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Financial Services</controllingFieldValue>
+            <valueName>Real Estate</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Technology</controllingFieldValue>
+            <valueName>Consumer Electronics</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Technology</controllingFieldValue>
+            <controllingFieldValue>Retail</controllingFieldValue>
+            <valueName>eCommerce</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Technology</controllingFieldValue>
+            <valueName>Social Media</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Technology</controllingFieldValue>
+            <valueName>Software</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Technology</controllingFieldValue>
+            <valueName>Technology Services</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Technology</controllingFieldValue>
+            <valueName>Video Gaming</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Automotive</controllingFieldValue>
+            <valueName>Auto Parts Retailers</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Automotive</controllingFieldValue>
+            <valueName>Brands/OEM</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Automotive</controllingFieldValue>
+            <valueName>Dealerships/LMAs</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Automotive</controllingFieldValue>
+            <valueName>Parts &amp; Service</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Retail</controllingFieldValue>
+            <valueName>Big Box Retail</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Retail</controllingFieldValue>
+            <valueName>Fashion/Apparel</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Retail</controllingFieldValue>
+            <valueName>Grocery</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Retail</controllingFieldValue>
+            <valueName>Luxury</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Retail</controllingFieldValue>
+            <valueName>Quick Service Restaurants</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

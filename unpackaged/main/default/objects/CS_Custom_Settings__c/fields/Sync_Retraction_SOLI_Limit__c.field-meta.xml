@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Sync_Retraction_SOLI_Limit__c</fullName>
+    <description>If number of SOLIs below limit then they will be executed synchronously, otherwise they will be executed through batch.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>If number of SOLIs below limit then they will be executed synchronously, otherwise they will be executed through batch.</inlineHelpText>
+    <label>Sync Retraction SOLI Limit</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

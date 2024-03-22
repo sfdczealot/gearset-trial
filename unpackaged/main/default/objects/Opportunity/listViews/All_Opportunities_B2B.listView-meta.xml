@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>All_Opportunities_B2B</fullName>
+    <columns>OPPORTUNITY.NAME</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>CORE.USERS.FIRST_NAME</columns>
+    <columns>OPPORTUNITY.CLOSE_DATE</columns>
+    <columns>OPPORTUNITY.AMOUNT</columns>
+    <columns>Subsidiary__c</columns>
+    <columns>OPPORTUNITY.STAGE_NAME</columns>
+    <columns>OPPORTUNITY.CREATED_DATE</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>OPPORTUNITY.RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Opportunity.B2B</value>
+    </filters>
+    <label>All Opportunities (B2B)</label>
+    <sharedTo>
+        <role>ID_B2B_Sales</role>
+        <role>ID_Country_Manager</role>
+        <role>MY_B2B_Sales</role>
+        <role>MY_Country_Manager</role>
+        <role>SG_B2B_Sales</role>
+        <role>SG_Country_Manager</role>
+        <role>TH_B2B_Sales</role>
+        <role>TH_Country_Manager</role>
+    </sharedTo>
+</ListView>

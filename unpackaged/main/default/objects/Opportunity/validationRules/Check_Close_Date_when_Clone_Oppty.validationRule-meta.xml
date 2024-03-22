@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Check_Close_Date_when_Clone_Oppty</fullName>
+    <active>true</active>
+    <description>Closed date must be Today or future date when clone Oppty</description>
+    <errorConditionFormula>AND(
+ISCLONE(),
+ISNEW(),
+CloseDate &lt; TODAY()
+)</errorConditionFormula>
+    <errorDisplayField>CloseDate</errorDisplayField>
+    <errorMessage>Close Date must be today or future date.</errorMessage>
+</ValidationRule>

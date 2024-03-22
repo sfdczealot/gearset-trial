@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Chipper_Cases</fullName>
+    <columns>CASES.CLOSED_DATE</columns>
+    <columns>CASES.CREATED_DATE_DATE_ONLY</columns>
+    <columns>CASES.CASE_NUMBER</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>Opportunity__c</columns>
+    <columns>CASES.SUBJECT</columns>
+    <columns>CASES.STATUS</columns>
+    <columns>CASES.PRIORITY</columns>
+    <columns>Case_Age_Days__c</columns>
+    <columns>OWNER_NAME</columns>
+    <columns>Requester__c</columns>
+    <columns>Requester_Subsidiary__c</columns>
+    <columns>CASES.TYPE</columns>
+    <columns>Case_Sub_Category__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>CASES.RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Case.Sales_Enablement</value>
+    </filters>
+    <filters>
+        <field>CASES.CLOSED</field>
+        <operation>equals</operation>
+        <value>1</value>
+    </filters>
+    <filters>
+        <field>Topics</field>
+        <operation>includes</operation>
+        <value>ChipperGoLive</value>
+    </filters>
+    <label>Chipper Cases</label>
+</ListView>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Sub_Class_of__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>Denotes the sub class of product class</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Denotes the sub class of product class</inlineHelpText>
+    <label>Sub Class of</label>
+    <referenceTo>Product_Class__c</referenceTo>
+    <relationshipLabel>Product Classes</relationshipLabel>
+    <relationshipName>Product_Classes</relationshipName>
+    <required>false</required>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

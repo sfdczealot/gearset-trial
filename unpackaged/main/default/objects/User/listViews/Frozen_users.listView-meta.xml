@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Frozen_users</fullName>
+    <columns>FULL_NAME</columns>
+    <columns>CORE.USERS.USERNAME</columns>
+    <columns>CORE.USERS.LAST_LOGIN</columns>
+    <columns>SU_ACCESS_EXPIRATION</columns>
+    <columns>CORE.USER_ROLE.NAME</columns>
+    <columns>CORE.USERS.ACTIVE</columns>
+    <columns>CORE.PROFILE.NAME</columns>
+    <columns>MANAGER</columns>
+    <columns>Team_Lead__c</columns>
+    <columns>Sales_Head__c</columns>
+    <columns>NS_Internal_ID__c</columns>
+    <columns>Webuser_ID__c</columns>
+    <columns>LAST_UPDATE</columns>
+    <columns>LAST_UPDATE_BY_ALIAS</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>IS_FROZEN</field>
+        <operation>equals</operation>
+        <value>1</value>
+    </filters>
+    <label>Frozen users</label>
+</ListView>

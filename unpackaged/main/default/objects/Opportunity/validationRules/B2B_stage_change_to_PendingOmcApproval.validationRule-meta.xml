@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>B2B_stage_change_to_PendingOmcApproval</fullName>
+    <active>true</active>
+    <errorConditionFormula>And(RecordType.Name =&#39;B2B&#39;,NOT(ISPICKVAL(PRIORVALUE(StageName) ,&quot;Pending Client Signatory&quot;)),NOT(ISPICKVAL(PRIORVALUE(StageName) ,&quot;Pending OMC Approval&quot;)) ,NOT( ISPICKVAL(Primary_Sales_Order__r.Customer_Approval__c,&#39;Approved&#39;)),ISPICKVAL(StageName,&quot;Pending OMC Approval&quot;))</errorConditionFormula>
+    <errorDisplayField>StageName</errorDisplayField>
+    <errorMessage>Please change to Pending Client Signatory before OMC Approval</errorMessage>
+</ValidationRule>

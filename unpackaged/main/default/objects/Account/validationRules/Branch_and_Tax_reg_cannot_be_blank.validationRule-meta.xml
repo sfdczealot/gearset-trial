@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Branch_and_Tax_reg_cannot_be_blank</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(RecordType.Name=&#39;B2B - Account&#39;,
+		OR(Subsidiary__r.Name=&#39;AllProperty Media Co., Ltd. (Head Office)&#39;,
+		   Subsidiary__r.Name=&#39;PropertyGuru International (Thailand) Co Ltd&#39;),
+		OR(ISBLANK(Branch_ID__c),
+		ISBLANK( Tax_Reg_Number__c ))
+		)</errorConditionFormula>
+    <errorMessage>Branch ID and GST REG. / VAT REG. / NPWP is Mandatory</errorMessage>
+</ValidationRule>

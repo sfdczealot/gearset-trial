@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Product_Segment_should_contains_B2C</fullName>
+    <active>true</active>
+    <description>Validation rule used on marketing promo for selecting B2c segment only for TM users</description>
+    <errorConditionFormula>AND(
+ !ISNULL(Eligible_Product__c),
+ !CONTAINS(TEXT(Eligible_Product__r.Segment__c), &#39;B2C&#39;),
+ Campaign_Eligibility__r.Campaign__r.RecordType.DeveloperName = &quot;Marketing_Promo&quot;
+)</errorConditionFormula>
+    <errorDisplayField>Eligible_Product__c</errorDisplayField>
+    <errorMessage>Eligible Product’s Segment should contains &#39;B2C&#39;.</errorMessage>
+</ValidationRule>

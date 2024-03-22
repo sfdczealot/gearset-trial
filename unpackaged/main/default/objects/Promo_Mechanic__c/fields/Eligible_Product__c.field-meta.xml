@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Eligible_Product__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>Denotes the product that is selected at the point of sale which is eligible for entitlement promotion</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Denotes the product that is selected at the point of sale which is eligible for entitlement promotion</inlineHelpText>
+    <label>Eligible Product</label>
+    <referenceTo>Product2</referenceTo>
+    <relationshipLabel>Promo Mechanic</relationshipLabel>
+    <relationshipName>Promo_Mechanic</relationshipName>
+    <required>false</required>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

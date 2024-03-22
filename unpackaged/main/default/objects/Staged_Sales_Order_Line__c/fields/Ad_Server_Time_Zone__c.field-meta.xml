@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Ad_Server_Time_Zone__c</fullName>
+    <defaultValue>&quot;GMT&quot;</defaultValue>
+    <description>Time zone Must be converted to GMT from America/New_York etc.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Time zone Must be converted to GMT from America/New_York etc.</inlineHelpText>
+    <label>Ad Server Time Zone</label>
+    <length>100</length>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

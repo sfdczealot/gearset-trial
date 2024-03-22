@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Total_Amount__c</fullName>
+    <description>Sum up product line amount after discount before tax</description>
+    <externalId>false</externalId>
+    <inlineHelpText>(Sales Price * Qty) - Discount - Complimentary</inlineHelpText>
+    <label>Total Amount (after Discount)</label>
+    <summarizedField>OpportunityLineItem.Amount__c</summarizedField>
+    <summaryForeignKey>OpportunityLineItem.OpportunityId</summaryForeignKey>
+    <summaryOperation>sum</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>

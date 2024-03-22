@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Valid_for_Auto_Reconciliation__c</fullName>
+    <externalId>false</externalId>
+    <formula>/*
+* 3/7/19 CS 
+*********************************************************************
+* Changed DFP comparison to compare Last DFP actuals date with 
+* Rev_Rec_Period_End_Date__c rather than Rev_Rec_Date__c. This fixes issues with
+* with the last BSI in the Schedule where the Flight End date is before the Rev Date,
+* all the actuals are in, but this flag thinks there are more to come because DFP
+* DFP_Actuals_as_of__c has last updated mid month, when the flight ends.
+**********************************************************************
+*/
+
+
+( TEXT(Cost_Adjustment__c) &lt;&gt; &#39;No Cost Adjustment&#39; || TEXT(Order_Type__c) = &#39;House Guaranteed&#39; || TEXT(Order_Type__c) = &#39;House Non-Guaranteed&#39; || TEXT(Billing_Source__c) = &#39;Contracted&#39; || TEXT(Order_Type__c) = &#39;Labels AdCredit&#39;) || TEXT(Order_Type__c) = &#39;Programmatic Guaranteed&#39; || 
+((DATEVALUE(DFP_Actuals_as_of__c) &gt; Rev_Rec_Period_End_Date__c || ISBLANK(DFP_Actuals_as_of__c)) &amp;&amp; NOT(Requires_Manual_Reconciliation__c))</formula>
+    <label>Valid for Auto-Reconciliation</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

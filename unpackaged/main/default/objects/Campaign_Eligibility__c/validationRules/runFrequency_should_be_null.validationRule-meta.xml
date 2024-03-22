@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>runFrequency_should_be_null</fullName>
+    <active>true</active>
+    <errorConditionFormula>NOT(OR(ISBLANK(TEXT(Run_Frequency__c)) ,TEXT(Run_Frequency__c)=&#39;Not Applicable&#39; ) ) &amp;&amp;  TEXT(Status__c) =&#39;Inactive&#39;</errorConditionFormula>
+    <errorMessage>you cannot set run frequency if Campaign eligibility status is inactive.</errorMessage>
+</ValidationRule>

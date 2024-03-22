@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>X3rd_Party_Research_Vendor__c</fullName>
+    <description>3rd Party Research Vendor for this Line Item</description>
+    <externalId>false</externalId>
+    <inlineHelpText>3rd Party Research Vendor for this Line Item</inlineHelpText>
+    <label>3rd Party Research Vendor</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Milward Brown</fullName>
+                <default>false</default>
+                <label>Milward Brown</label>
+            </value>
+            <value>
+                <fullName>Nielsen Brand Effect</fullName>
+                <default>false</default>
+                <label>Nielsen Brand Effect</label>
+            </value>
+            <value>
+                <fullName>Nielsen Catalina Solutions</fullName>
+                <default>false</default>
+                <label>Nielsen Catalina Solutions</label>
+            </value>
+            <value>
+                <fullName>LeanLab</fullName>
+                <default>false</default>
+                <label>LeanLab</label>
+            </value>
+            <value>
+                <fullName>Placed</fullName>
+                <default>false</default>
+                <label>Placed</label>
+            </value>
+            <value>
+                <fullName>Foursquare</fullName>
+                <default>false</default>
+                <label>Foursquare</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

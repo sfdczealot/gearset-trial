@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Name__c</fullName>
+    <caseSensitive>false</caseSensitive>
+    <description>To Store the Name of Custom Metadata. Standard Name has 40 CharacterLimit</description>
+    <externalId>false</externalId>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <inlineHelpText>To Store the Name of Custom Metadata. Standard Name has 40 CharacterLimit</inlineHelpText>
+    <label>Name</label>
+    <length>255</length>
+    <required>true</required>
+    <type>Text</type>
+    <unique>true</unique>
+</CustomField>

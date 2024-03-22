@@ -1,0 +1,40 @@
+<aura:component controller = "CloneCampaignsController" implements="lightning:isUrlAddressable,force:hasRecordId,force:lightningQuickActionWithoutHeader"  >
+    
+    <header class="slds-modal__header">
+            <div class="slds-text-heading_medium slds-hyphenate slds-align_absolute-center">
+                Clone Structure
+            </div>
+        </header>
+    
+   <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate slds-align_absolute-center slds-modal__content slds-p-around_medium">
+       Are you sure to clone the campaign?
+    </h2>
+    
+    <footer class="slds-modal__footer">
+        <lightning:button variant="neutral"
+                          label="No"
+                          title="No"
+                          onclick="{! c.closeModel }"/>
+        <lightning:button variant="brand"
+                          label="Yes"
+                          title="Yes"
+                          disabled="false"
+                          onclick="{!c.cloneConfirm}"/>
+    </footer>
+    
+    <aura:html tag="style">
+        .cuf-content {
+        padding: 0 0rem !important;
+        
+        }
+        .slds-p-around--medium {
+        padding: 0rem !important;
+        }       
+        .slds-modal__content{
+        overflow-y:hidden !important;
+        height:unset !important;
+        max-height:unset !important;
+        }
+    </aura:html>
+    
+</aura:component>

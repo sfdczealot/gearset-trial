@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>All_MY_Pioneer_Accounts</fullName>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>PC_EMAIL</columns>
+    <columns>Status__c</columns>
+    <columns>Loyalty_Start_Date__c</columns>
+    <columns>AgentNet_ID__c</columns>
+    <columns>netsuite_conn__NetSuite_Id__c</columns>
+    <columns>Pioneer__c</columns>
+    <columns>Account_Rule_Code__c</columns>
+    <columns>Subscription_End_Date__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>ACCOUNT.RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>PersonAccount.Agent</value>
+    </filters>
+    <filters>
+        <field>Country__c</field>
+        <operation>equals</operation>
+        <value>Malaysia</value>
+    </filters>
+    <filters>
+        <field>Pioneer__c</field>
+        <operation>equals</operation>
+        <value>1</value>
+    </filters>
+    <label>All Pioneer Accounts (MY)</label>
+</ListView>

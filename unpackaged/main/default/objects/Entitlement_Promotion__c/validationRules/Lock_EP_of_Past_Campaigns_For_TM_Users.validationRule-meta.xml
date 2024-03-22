@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Lock_EP_of_Past_Campaigns_For_TM_Users</fullName>
+    <active>true</active>
+    <description>Restrict Trade Marketing users to update Entitlement Promotion of past campaign.</description>
+    <errorConditionFormula>AND(
+!ISBLANK(Promo_Mechanic__c),
+!ISBLANK(Promo_Mechanic__r.Campaign_Eligibility__c),
+!ISBLANK(Promo_Mechanic__r.Campaign_Eligibility__r.Campaign__c),
+Promo_Mechanic__r.Campaign_Eligibility__r.Campaign__r.Campaign_End_DateTime__c &lt; NOW(),
+$Profile.Name = &quot;Trade Marketing&quot; , 
+!ISNEW()
+)</errorConditionFormula>
+    <errorMessage>You cannot perform the operation as campaign of related Promo Mechanic has passed its end date time.</errorMessage>
+</ValidationRule>

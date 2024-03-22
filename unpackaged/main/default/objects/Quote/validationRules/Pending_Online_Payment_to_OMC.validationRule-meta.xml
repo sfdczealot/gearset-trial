@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Pending_Online_Payment_to_OMC</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(OR(AND( RecordType.Name = &quot;B2C&quot;,ISPICKVAL(Stage__c ,&#39;Proposal&#39;) ,
+     ISPICKVAL(PRIORVALUE(Stage__c ),&quot;Pending Online Payment&quot;)), AND( RecordType.Name = &quot;B2C&quot;,ISPICKVAL(Stage__c ,&#39;New&#39;) ,
+     ISPICKVAL(PRIORVALUE(Stage__c ),&quot;Pending Online Payment&quot;))),ISNULL(Invoice_Id__c))</errorConditionFormula>
+    <errorMessage>Can&#39;t changed Stage to Proposal / New from Pending Online Payment</errorMessage>
+</ValidationRule>

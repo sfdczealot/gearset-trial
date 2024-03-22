@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Birthdate_Verified__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Denotes whether the birthdate of an agent is verified by PG</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Denotes whether the birthdate of an agent is verified by PG</inlineHelpText>
+    <label>Birthdate Verified</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

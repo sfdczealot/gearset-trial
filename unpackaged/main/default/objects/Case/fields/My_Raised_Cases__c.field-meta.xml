@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>My_Raised_Cases__c</fullName>
+    <description>If TRUE, the requester will be equal to the logged in user. For the user to review all the cases raised by them.</description>
+    <externalId>false</externalId>
+    <formula>IF( Requester__r.Id = $User.Id , TRUE, FALSE)</formula>
+    <inlineHelpText>If TRUE, the requester will be equal to the logged in user. For the user to review all the cases raised by them.</inlineHelpText>
+    <label>My Raised Cases</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

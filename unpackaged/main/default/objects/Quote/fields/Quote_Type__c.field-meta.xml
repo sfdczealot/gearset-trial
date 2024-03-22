@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Quote_Type__c</fullName>
+    <externalId>false</externalId>
+    <label>Quote Type</label>
+    <required>false</required>
+    <trackFeedHistory>true</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>B2C - Standard</fullName>
+                <default>false</default>
+                <label>B2C - Standard</label>
+            </value>
+            <value>
+                <fullName>B2C - Upgrade</fullName>
+                <default>false</default>
+                <label>B2C - Upgrade</label>
+            </value>
+            <value>
+                <fullName>B2C - Renewal</fullName>
+                <default>false</default>
+                <label>B2C - Renewal</label>
+            </value>
+            <value>
+                <fullName>B2C - Conversion</fullName>
+                <default>false</default>
+                <label>B2C - Conversion</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

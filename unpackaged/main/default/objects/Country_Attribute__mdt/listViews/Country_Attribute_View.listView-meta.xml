@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Country_Attribute_View</fullName>
+    <columns>MasterLabel</columns>
+    <columns>Expired_Hours_Before_Ready_for_Payment__c</columns>
+    <columns>Expired_Hours__c</columns>
+    <columns>Payment_Link__c</columns>
+    <filterScope>Everything</filterScope>
+    <label>Country Attribute View</label>
+</ListView>

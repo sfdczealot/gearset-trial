@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>when_B2B_Opp_is_sumbitted_for_approval</fullName>
+    <active>false</active>
+    <errorConditionFormula>OR(AND( ISNEW(),Opportunity.RecordType.Name =&#39;B2B&#39;,ISPICKVAL( Opportunity.Approval_Status__c ,&quot;Discount Approval Submitted&quot;)),AND(OR( ISCHANGED( Amount__c ) ,ISCHANGED(Quantity)),Opportunity.RecordType.Name =&#39;B2B&#39;,ISPICKVAL( Opportunity.Approval_Status__c ,&quot;Discount Approval Submitted&quot;)
+))</errorConditionFormula>
+    <errorMessage>You can&#39;t add or update Oli when its Opportunity is submitted for Approval.</errorMessage>
+</ValidationRule>

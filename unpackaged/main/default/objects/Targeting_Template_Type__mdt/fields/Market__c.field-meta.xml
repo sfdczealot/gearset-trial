@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Market__c</fullName>
+    <defaultValue>&quot;Independent&quot;</defaultValue>
+    <description>Indicates Template Type dependency of Market</description>
+    <externalId>false</externalId>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <inlineHelpText>Indicates Template Type dependency of Market</inlineHelpText>
+    <label>Market</label>
+    <required>false</required>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Independent</fullName>
+                <default>true</default>
+                <label>Independent</label>
+            </value>
+            <value>
+                <fullName>Optional</fullName>
+                <default>false</default>
+                <label>Optional</label>
+            </value>
+            <value>
+                <fullName>Required</fullName>
+                <default>false</default>
+                <label>Required</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

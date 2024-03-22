@@ -1,0 +1,166 @@
+<template>
+  <template if:true={eligibleAgent}>
+  <div class="slds-p-around_none">
+
+        <lightning-input type="date"
+                         name="loyaltyDate" 
+                         label="Loyalty Start Date"
+                         value={loyaltyDate}
+                         onchange ={updateValue} >
+        </lightning-input> 
+        
+        <lightning-input type="date"
+                         name="calculateED" 
+                         label="Calculation End Date" 
+                         value={calculateED}
+                         onchange ={updateValue} >
+        </lightning-input>
+
+        <lightning-input type="number"
+                         name="xFactor"
+                         label="X-Factor"
+                         step=".01"
+                         value={xFactor}
+                         onchange ={updateValue}>
+    </lightning-input>
+    
+    <lightning-input type="number"
+                     name="yFactor"
+                     label="Y-Factor"
+                     step=".01"
+                     value={yFactor}
+                     onchange ={updateValue}>
+    </lightning-input>
+  
+  <div class="slds-var-p-around_small slds-align_absolute-center">
+      <lightning-button variant="neutral" label="Get Total Spending" onclick ={getTotalSpending} ></lightning-button>
+      <lightning-button variant="brand" label="Run Reward Calculator" class="slds-var-m-left_small" onclick ={runRewardCalculator}></lightning-button>
+    </div>
+    </div>
+    </template>
+      <template if:true={showCountryError}>
+      <div class="slds-scoped-notification slds-media slds-media_center slds-theme_error slds-var-m-right_x-large slds-var-m-bottom_x-small" role="status">                                    
+        <div class="slds-media__body">
+        <p>
+           Reward Calculator is not valid for {agentcountry} agents.
+        </p>
+        </div>
+    </div>
+    </template>
+   <template if:true={showSpinner}>
+      <div class="spins">
+        <lightning-spinner alternative-text="Loading" size="large" variant ="brand">
+        </lightning-spinner>
+    </div>
+  </template>
+      <template if:true={showPopup}>
+        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true"
+            aria-describedby="modal-content-id-1" class="slds-modal
+            slds-fade-in-open">
+            <div class="slds-modal__container">
+                <!-- modal header start -->
+                <header class="slds-modal__header">
+                    <button class="slds-button slds-button_icon
+                        slds-modal__close slds-button_icon-inverse" title="Close" onclick={closePopup}>
+                        <lightning-icon icon-name="utility:close" alternative-text="close" variant="inverse"
+                            size="small"></lightning-icon>
+                        <span class="slds-assistive-text">Close</span>
+                    </button>
+                    <h1 id="modal-heading-01" class="slds-text-heading_medium
+                        slds-hyphenate">Total Spending</h1>
+                </header>
+                <!-- modal body start -->
+                <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                    <div class="reward-details slds-scrollable_y slds-box
+                        slds-p-around_none slds-m-vertical_large">
+                        <table class="slds-table slds-table_bordered
+                            slds-no-row-hover slds-table_col-bordered
+                            slds-table_fixed-layout">
+                            <thead>
+                                <tr>
+                                    <th scope="col" style="width: 3rem;">
+                                        <div class="slds-truncate
+                                            slds-hyphenate" title="Name">
+                                            Name
+                                        </div>
+                                    
+                                      </th>
+                            <th scope="col" style="width: 3rem;">
+                              <div class="slds-truncate
+                                  slds-hyphenate" title="Value">
+                                  Value
+                              </div>
+                          </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                  <td scope="col" class="slds-cell-wrap">
+                                    <b>PG Subscription Spending</b>
+                                  </td>
+                                <td scope="col" class="slds-cell-wrap">
+                                {calculatedData.subsSpending}
+                              </td>
+                            </tr>
+                            <tr>
+                              <td scope="col" class="slds-cell-wrap">
+                                <b>PG Discretionary Spending</b>
+                              </td>
+                              <td scope="col" class="slds-cell-wrap">
+                                {calculatedData.discSpending}
+                              </td>
+                            </tr>
+                            <tr>
+                              <td scope="col" class="slds-cell-wrap">
+                                <b>PG Total Spending</b>
+                              </td>
+                              <td scope="col" class="slds-cell-wrap">
+                                {calculatedData.totalSpending}
+                              </td>
+                            </tr>
+                            <tr>
+                              <td scope="col" class="slds-cell-wrap">
+                                <b>PG Reward Points</b>
+                              </td>
+                              <td scope="col" class="slds-cell-wrap">
+                                {calculatedData.PGRewardPoint}
+                              </td>
+                            </tr>
+                            <tr>
+                              <td scope="col" class="slds-cell-wrap">
+                                <b>PGF Reward Points</b>
+                              </td>
+                              <td scope="col" class="slds-cell-wrap">
+                                {calculatedData.PGFRewardPoint}
+                              </td>
+                            </tr>
+                            <tr>
+                              <td scope="col" class="slds-cell-wrap">
+                                <b>Total Reward Points</b>
+                              </td>
+                              <td scope="col" class="slds-cell-wrap">
+                                {calculatedData.rewardPoints}
+                              </td>
+                            </tr>
+                            <tr>
+                              <td scope="col" class="slds-cell-wrap">
+                                <b>Reward Tier</b>
+                              </td>
+                              <td scope="col" class="slds-cell-wrap">
+                                {calculatedData.rewardTier}
+                              </td>
+                              </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <!-- modal footer start-->
+                <footer class="slds-modal__footer">
+                    <button class="slds-button slds-button_neutral" onclick={closePopup}>Cancel</button>
+                </footer>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open customBackdrop"></div>
+    </template>
+  
+</template>

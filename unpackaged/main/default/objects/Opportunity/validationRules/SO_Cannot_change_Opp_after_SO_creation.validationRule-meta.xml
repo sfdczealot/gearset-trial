@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SO_Cannot_change_Opp_after_SO_creation</fullName>
+    <active>false</active>
+    <description>Doesn&#39;t allow User to change some Opp fields after first SO is created</description>
+    <errorConditionFormula>AND(SO_First_SO_created__c,
+    OR (ISCHANGED(AccountId),
+        ISCHANGED(SO_Media_Agency__c),
+        ISCHANGED(SO_Booking_Contact__c),
+        ISCHANGED(SO_Credit_Status__c),
+        ISCHANGED(SO_Media_Agency_Discount__c)
+       )
+   )</errorConditionFormula>
+    <errorMessage>No changes are allowed on Account, Media Agency, Media Agency Discount, Booking Contact and/or Credit Status after SO creation</errorMessage>
+</ValidationRule>

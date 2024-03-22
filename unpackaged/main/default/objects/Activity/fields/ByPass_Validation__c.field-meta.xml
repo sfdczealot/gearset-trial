@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ByPass_Validation__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>ByPass Validation rule when Task&#39;s Status is updated from Process Builder</description>
+    <externalId>false</externalId>
+    <label>ByPass Validation</label>
+    <type>Checkbox</type>
+</CustomField>

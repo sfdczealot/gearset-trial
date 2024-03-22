@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>AgreementStatusDateUpdate</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(ISCHANGED(Agreement_Status__c),
+	$Profile.Name !=&#39;clickapprove Profile&#39;,
+		TEXT(Agreement_Status__c)=&#39;Signed&#39;,
+	NOT(ISCHANGED(Agreement_Status_Date__c)))</errorConditionFormula>
+    <errorMessage>Please update the Date/Time Field to timestamp the change of this status</errorMessage>
+</ValidationRule>

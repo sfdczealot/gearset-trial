@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Is_Last_Line_in_Schedule__c</fullName>
+    <description>is If Billing Beriod End Date &gt;= CS_Revenue_Schedule__r.Last_Revenue_period_end_Date</description>
+    <externalId>false</externalId>
+    <formula>IF( Rev_Rec_Period_End_Date__c&gt;= Revenue_Schedule__r.Last_Revenue_Period_End__c,TRUE,FALSE )</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>is If Billing Beriod End Date &gt;= CS_Revenue_Schedule__r.Last_Revenue_period_end_Date</inlineHelpText>
+    <label>Is Last Line in Schedule</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

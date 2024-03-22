@@ -1,0 +1,5 @@
+<aura:component controller= "CurrentUserDetails" implements="lightning:isUrlAddressable,force:appHostable,flexipage:availableForAllPageTypes,lightning:actionOverride,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+	<aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:attribute name="pageReference" type="Object"/>
+    <aura:attribute name="recordId" type="String" />
+</aura:component>

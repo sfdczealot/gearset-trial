@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Billing_Quantity_Adjustment__c</fullName>
+    <description>If Is Last Line in Schedule then Total_billing_Qty_Remainder from header</description>
+    <externalId>false</externalId>
+    <formula>IF( Is_Last_Line_in_Schedule__c = TRUE &amp;&amp; NOT(OR(CONTAINS(TEXT(Status__c), &quot;Closed&quot;), CONTAINS(TEXT(Status__c), &quot;Pending Closure&quot;))),Contracted_Quantity__c -( Billing_Schedule__r.Total_Billed_Quantity_To_Date__c +  Billing_Schedule__r.Total_Remaining_Forecast_Quantity__c ),0)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>If Is Last Line in Schedule then Total_billing_Qty_Remainder from header</inlineHelpText>
+    <label>Billing Quantity Adjustment</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

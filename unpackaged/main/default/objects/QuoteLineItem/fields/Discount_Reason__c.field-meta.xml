@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Discount_Reason__c</fullName>
+    <externalId>false</externalId>
+    <label>Discount Reason</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Child Orders from Bulk</fullName>
+                <default>false</default>
+                <label>Child Orders from Bulk</label>
+            </value>
+            <value>
+                <fullName>Goodwill/ Relationship Building</fullName>
+                <default>false</default>
+                <label>Goodwill/ Relationship Building</label>
+            </value>
+            <value>
+                <fullName>Non-Expiry SO (Legacy)</fullName>
+                <default>false</default>
+                <label>Non-Expiry SO (Legacy)</label>
+            </value>
+            <value>
+                <fullName>Order Conv (Legacy)</fullName>
+                <default>false</default>
+                <label>Order Conv (Legacy)</label>
+            </value>
+            <value>
+                <fullName>Order Ext. (Legacy)</fullName>
+                <default>false</default>
+                <label>Order Ext. (Legacy)</label>
+            </value>
+            <value>
+                <fullName>Technical issues</fullName>
+                <default>false</default>
+                <label>Technical issues</label>
+            </value>
+            <value>
+                <fullName>Unknown / Undefined Prd Balance (Legacy)</fullName>
+                <default>false</default>
+                <label>Unknown / Undefined Prd Balance (Legacy)</label>
+            </value>
+            <value>
+                <fullName>VIP (Lifetime FOC)</fullName>
+                <default>false</default>
+                <label>VIP (Lifetime FOC)</label>
+            </value>
+            <value>
+                <fullName>VIP (Relationship)</fullName>
+                <default>false</default>
+                <label>VIP (Relationship)</label>
+            </value>
+            <value>
+                <fullName>VIP (Spending)</fullName>
+                <default>false</default>
+                <label>VIP (Spending)</label>
+            </value>
+            <value>
+                <fullName>Others</fullName>
+                <default>false</default>
+                <label>Others</label>
+            </value>
+            <value>
+                <fullName>Loyalty Discount</fullName>
+                <default>false</default>
+                <label>Loyalty Discount</label>
+            </value>
+            <value>
+                <fullName>Managerial Discount</fullName>
+                <default>false</default>
+                <label>Managerial Discount</label>
+            </value>
+            <value>
+                <fullName>Marketing Promo</fullName>
+                <default>false</default>
+                <label>Marketing Promo</label>
+            </value>
+            <value>
+                <fullName>VIP (migration)</fullName>
+                <default>false</default>
+                <label>VIP (migration)</label>
+            </value>
+            <value>
+                <fullName>First-Timer Discount</fullName>
+                <default>false</default>
+                <label>First-Timer Discount</label>
+            </value>
+            <value>
+                <fullName>Agent Referral: Referee</fullName>
+                <default>false</default>
+                <label>Agent Referral: Referee</label>
+            </value>
+            <value>
+                <fullName>Renewal EB Offer</fullName>
+                <default>false</default>
+                <label>Renewal EB Offer</label>
+            </value>
+            <value>
+                <fullName>Renewal EB Bonus</fullName>
+                <default>false</default>
+                <label>Renewal EB Bonus</label>
+            </value>
+            <value>
+                <fullName>Pioneer</fullName>
+                <default>false</default>
+                <label>Pioneer</label>
+            </value>
+            <value>
+                <fullName>Agent Referral: Referrer</fullName>
+                <default>false</default>
+                <label>Agent Referral: Referrer</label>
+            </value>
+            <value>
+                <fullName>Cash Voucher</fullName>
+                <default>false</default>
+                <label>Cash Voucher</label>
+            </value>
+            <value>
+                <fullName>Renewal Promotion</fullName>
+                <default>false</default>
+                <label>Renewal Promotion</label>
+            </value>
+            <value>
+                <fullName>Renewal Bonus</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Renewal Bonus</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Requester_is_required_while_closing_case</fullName>
+    <active>true</active>
+    <description>Case can&#39;t be closed when requester is bot populated</description>
+    <errorConditionFormula>ISPICKVAL(Status, &#39;Closed&#39;) &amp;&amp; ISBLANK(Requester__c) &amp;&amp; RecordType.Name =&#39;Sales Enablement&#39;</errorConditionFormula>
+    <errorDisplayField>Requester__c</errorDisplayField>
+    <errorMessage>Case can&#39;t be closed without entering requester information</errorMessage>
+</ValidationRule>

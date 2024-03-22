@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Source_Campaign_Reference__c</fullName>
+    <description>Reference of campaign in external system eg: CMS</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Reference of campaign in external system eg: CMS</inlineHelpText>
+    <label>Source Campaign Reference</label>
+    <length>255</length>
+    <required>false</required>
+    <trackHistory>true</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

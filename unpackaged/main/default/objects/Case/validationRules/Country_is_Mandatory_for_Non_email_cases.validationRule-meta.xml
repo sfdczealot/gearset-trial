@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Country_is_Mandatory_for_Non_email_cases</fullName>
+    <active>true</active>
+    <errorConditionFormula>OR (AND(NOT(ISNEW()),NOT(ISPICKVAL( Origin ,&quot;Email&quot; )) &amp;&amp; ISBLANK(AccountId) &amp;&amp; ISBLANK(ContactId)
+&amp;&amp; ISBLANK(Opportunity__c) &amp;&amp;
+( CreatedBy.UserRole.DeveloperName = &#39;Regional_Cust_Care_Team_Manager&#39; ||
+CreatedBy.UserRole.DeveloperName = &#39;B2C_Regional_Trade_Marketing_and_Customer_Experience_Team_Manager&#39;),ISBLANK(TEXT(Country__c )) ) ,
+
+
+AND(ISNEW(),NOT(ISPICKVAL( Origin ,&quot;Email&quot; )) &amp;&amp; ISBLANK(AccountId) &amp;&amp; ISBLANK(ContactId)
+&amp;&amp; ISBLANK(Opportunity__c) &amp;&amp;
+(  Owner:User.UserRole.DeveloperName  = &#39;Regional_Cust_Care_Team_Manager&#39; ||
+ Owner:User.UserRole.DeveloperName  = &#39;B2C_Regional_Trade_Marketing_and_Customer_Experience_Team_Manager&#39;),ISBLANK(TEXT(Country__c )) ))</errorConditionFormula>
+    <errorMessage>Country cannot be blank</errorMessage>
+</ValidationRule>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>AccountId__c</fullName>
+    <deleteConstraint>Restrict</deleteConstraint>
+    <description>Advertiser from Opportunity</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Advertiser from Opportunity</inlineHelpText>
+    <label>AccountId</label>
+    <referenceTo>Account</referenceTo>
+    <relationshipLabel>Staged Sales Order Lines</relationshipLabel>
+    <relationshipName>Staged_Sales_Order_Lines</relationshipName>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

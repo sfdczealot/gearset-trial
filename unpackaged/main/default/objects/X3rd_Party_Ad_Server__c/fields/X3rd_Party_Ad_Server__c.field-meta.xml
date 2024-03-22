@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>X3rd_Party_Ad_Server__c</fullName>
+    <description>Values for 3rd Party Ad Server from DFP Spotify Prod definition</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Values for 3rd Party Ad Server from DFP Spotify Prod definition</inlineHelpText>
+    <label>3rd Party Ad Server</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>MediaMind</fullName>
+                <default>false</default>
+                <label>MediaMind</label>
+            </value>
+            <value>
+                <fullName>DFA by Google</fullName>
+                <default>false</default>
+                <label>DFA by Google</label>
+            </value>
+            <value>
+                <fullName>FlashTalking</fullName>
+                <default>false</default>
+                <label>FlashTalking</label>
+            </value>
+            <value>
+                <fullName>Innovid3P</fullName>
+                <default>false</default>
+                <label>Innovid3P</label>
+            </value>
+            <value>
+                <fullName>Dart Report Reader</fullName>
+                <default>false</default>
+                <label>Dart Report Reader</label>
+            </value>
+            <value>
+                <fullName>Mediaplex</fullName>
+                <default>false</default>
+                <label>Mediaplex</label>
+            </value>
+            <value>
+                <fullName>Rubicon</fullName>
+                <default>false</default>
+                <label>Rubicon</label>
+            </value>
+            <value>
+                <fullName>EyeReturn</fullName>
+                <default>false</default>
+                <label>EyeReturn</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

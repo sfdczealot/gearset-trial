@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>b2b_user_restriction</fullName>
+    <active>true</active>
+    <description>[AUTOMATION-9878]</description>
+    <errorConditionFormula>AND(RecordType.Name=&#39;B2B - Account&#39;,
+    OR(
+    ISNEW(),
+    ISCHANGED(Name),
+    ISCHANGED(ParentId),
+    ISCHANGED(RecordTypeId),
+    ISCHANGED(Country__c),
+    ISCHANGED(Customer_Type__c),
+    ISCHANGED(CurrencyIsoCode),
+    ISCHANGED(NetSuite_Id__c)
+    ),
+    NOT($User.Profile_Name__c =&#39;API User Profile&#39;),
+    NOT($User.Profile_Name__c =&#39;System Administrator&#39;),
+    NOT($User.Profile_Name__c =&#39;Integration Profile&#39;),
+    NOT($User.Profile_Name__c =&#39;Sales Enablement User&#39;)
+)</errorConditionFormula>
+    <errorMessage>You do not have access to create b2b accounts or update these fields.</errorMessage>
+</ValidationRule>

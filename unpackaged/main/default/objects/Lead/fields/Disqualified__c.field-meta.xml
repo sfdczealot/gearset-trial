@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Disqualified__c</fullName>
+    <externalId>false</externalId>
+    <label>Disqualified sub-reason</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>Disqualified_Reason__c</controllingField>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Don&#39;t need a subscription / product</fullName>
+                <default>false</default>
+                <label>Don&#39;t need a subscription / product</label>
+            </value>
+            <value>
+                <fullName>Agent will call back if keen on product</fullName>
+                <default>false</default>
+                <label>Agent will call back if keen on product</label>
+            </value>
+            <value>
+                <fullName>Pricing/ Too Expensive</fullName>
+                <default>false</default>
+                <label>Pricing/ Too Expensive</label>
+            </value>
+            <value>
+                <fullName>No budget</fullName>
+                <default>false</default>
+                <label>No budget</label>
+            </value>
+            <value>
+                <fullName>Features are not attractive</fullName>
+                <default>false</default>
+                <label>Features are not attractive</label>
+            </value>
+            <value>
+                <fullName>Inactive</fullName>
+                <default>false</default>
+                <label>Inactive</label>
+            </value>
+            <value>
+                <fullName>Unhappy with change of features</fullName>
+                <default>false</default>
+                <label>Unhappy with change of features</label>
+            </value>
+            <value>
+                <fullName>Past Bad Customer Experience</fullName>
+                <default>false</default>
+                <label>Past Bad Customer Experience</label>
+            </value>
+            <value>
+                <fullName>Not receiving leads</fullName>
+                <default>false</default>
+                <label>Not receiving leads</label>
+            </value>
+            <value>
+                <fullName>Too many credits left</fullName>
+                <default>false</default>
+                <label>Too many credits left</label>
+            </value>
+            <value>
+                <fullName>Don&#39;t need so many concurrent listings</fullName>
+                <default>false</default>
+                <label>Don&#39;t need so many concurrent listings</label>
+            </value>
+            <value>
+                <fullName>Credits are not useful</fullName>
+                <default>false</default>
+                <label>Credits are not useful</label>
+            </value>
+            <value>
+                <fullName>Not enough credits to boost</fullName>
+                <default>false</default>
+                <label>Not enough credits to boost</label>
+            </value>
+            <value>
+                <fullName>Content is irrelevant</fullName>
+                <default>false</default>
+                <label>Content is irrelevant</label>
+            </value>
+            <value>
+                <fullName>Location is inaccessible</fullName>
+                <default>false</default>
+                <label>Location is inaccessible</label>
+            </value>
+            <value>
+                <fullName>Not available at the time slot</fullName>
+                <default>false</default>
+                <label>Not available at the time slot</label>
+            </value>
+            <value>
+                <fullName>Bad experience with our workshop / event</fullName>
+                <default>false</default>
+                <label>Bad experience with our workshop / event</label>
+            </value>
+            <value>
+                <fullName>Using STProp/SRX product</fullName>
+                <default>false</default>
+                <label>Using STProp/SRX product</label>
+            </value>
+            <value>
+                <fullName>Using 99.co product</fullName>
+                <default>false</default>
+                <label>Using 99.co product</label>
+            </value>
+            <value>
+                <fullName>Using iProp product</fullName>
+                <default>false</default>
+                <label>Using iProp product</label>
+            </value>
+            <value>
+                <fullName>Using The Edge product</fullName>
+                <default>false</default>
+                <label>Using The Edge product</label>
+            </value>
+            <value>
+                <fullName>With other competitors</fullName>
+                <default>false</default>
+                <label>With other competitors</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>Not Interested</controllingFieldValue>
+            <valueName>Don&#39;t need a subscription / product</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Not Interested</controllingFieldValue>
+            <valueName>Agent will call back if keen on product</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Not Interested</controllingFieldValue>
+            <valueName>Pricing/ Too Expensive</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Not Interested</controllingFieldValue>
+            <valueName>No budget</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Not Interested</controllingFieldValue>
+            <valueName>Features are not attractive</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Not Interested</controllingFieldValue>
+            <valueName>Inactive</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Not Interested</controllingFieldValue>
+            <valueName>Unhappy with change of features</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Not Interested</controllingFieldValue>
+            <valueName>Past Bad Customer Experience</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Not Interested</controllingFieldValue>
+            <valueName>Not receiving leads</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Not Interested</controllingFieldValue>
+            <valueName>Too many credits left</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Not Interested</controllingFieldValue>
+            <valueName>Don&#39;t need so many concurrent listings</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Not Interested</controllingFieldValue>
+            <valueName>Credits are not useful</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Not Interested</controllingFieldValue>
+            <valueName>Not enough credits to boost</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Not Interested</controllingFieldValue>
+            <valueName>Content is irrelevant</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Not Interested</controllingFieldValue>
+            <valueName>Location is inaccessible</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Not Interested</controllingFieldValue>
+            <valueName>Not available at the time slot</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Not Interested</controllingFieldValue>
+            <valueName>Bad experience with our workshop / event</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Not Interested</controllingFieldValue>
+            <valueName>Using STProp/SRX product</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Not Interested</controllingFieldValue>
+            <valueName>Using 99.co product</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Not Interested</controllingFieldValue>
+            <valueName>Using iProp product</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Not Interested</controllingFieldValue>
+            <valueName>Using The Edge product</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Not Interested</controllingFieldValue>
+            <valueName>With other competitors</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

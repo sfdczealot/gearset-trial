@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Premium_Flat_Rate_and_Premium_Percentage</fullName>
+    <active>true</active>
+    <description>Premium Flat Rate and Premium Percentage cannot be both populated or empty, only one can be populated.</description>
+    <errorConditionFormula>(NOT(ISBLANK(Premium_Flat_Rate__c))  &amp;&amp; NOT(ISBLANK(Premium_Percentage__c)))  || (ISBLANK(Premium_Flat_Rate__c)  &amp;&amp; ISBLANK(Premium_Percentage__c))</errorConditionFormula>
+    <errorMessage>Premium Flat Rate and Premium Percentage cannot be both populated or empty, only one can be populated.</errorMessage>
+</ValidationRule>

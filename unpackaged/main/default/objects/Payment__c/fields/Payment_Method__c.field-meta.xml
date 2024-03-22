@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Payment_Method__c</fullName>
+    <deleteConstraint>Restrict</deleteConstraint>
+    <description>Denotes the payment method that is integrated with PG system</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Denotes the payment method that is integrated with PG system</inlineHelpText>
+    <label>Payment Method (NS)</label>
+    <referenceTo>Payment_Method__c</referenceTo>
+    <relationshipLabel>Payments</relationshipLabel>
+    <relationshipName>Payments</relationshipName>
+    <required>true</required>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

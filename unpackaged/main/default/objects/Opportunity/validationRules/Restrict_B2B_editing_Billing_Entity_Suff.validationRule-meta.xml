@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Restrict_B2B_editing_Billing_Entity_Suff</fullName>
+    <active>true</active>
+    <description>Restrict B2B salesperson from editing of billing entity suffix</description>
+    <errorConditionFormula>AND(ISCHANGED(Billing_Entity_Suffix__c),$Profile.Name == &#39;B2B Sales User&#39;)</errorConditionFormula>
+    <errorMessage>You don&#39;t have access to update Billing Entity Suffix</errorMessage>
+</ValidationRule>

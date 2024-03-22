@@ -1,0 +1,68 @@
+/**
+ * Created by sasa.marjancic on 21.4.2020..
+ */
+.c-container {
+    margin: 10px 0 20px 0;
+}
+.header-title {
+    display: inline;
+    padding-left: 10px;
+}
+.header-column {
+    padding: 0px 30px 0px 0px;
+}
+.formatted-text-summary {
+    font-size: 0.85rem;
+    vertical-align: top;
+} 
+.layout-item {
+    padding: 10px 10px 0px 10px;
+}
+
+.empty {
+    background: white;
+}
+
+.pending{
+    background: #ffff6d;
+}
+
+.approved{
+    background: #4bca81;
+}
+
+.rejected{
+    background: #ff7070;
+}
+
+.circle{
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 1px solid gray;
+}
+.circleCell{
+    padding-top: 2px  ;
+    padding-bottom: 3px;
+    padding-left: 10px;
+    width: 40px;
+}
+.rTableCell{
+    display: table-cell;
+    vertical-align: middle;
+}
+.layout-item-approval {
+    padding-right: 40px;
+}
+.approval-monitor {
+    padding: 0px;
+}
+.spinner-salesOrder {
+    position: relative;
+    display: inline-block;
+    margin-left: 15px;
+    width: 30px;
+    height: 30px;
+    vertical-align: middle;
+    white-space: nowrap;
+}

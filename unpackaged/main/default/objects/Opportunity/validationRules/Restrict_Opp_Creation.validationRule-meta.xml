@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Restrict_Opp_Creation</fullName>
+    <active>true</active>
+    <description>All users except System Admin, Sr System Admin and API User Profile should not be allowed to create an opportunity if account owner is Agent Queue B2C SG.</description>
+    <errorConditionFormula>AND(
+ISNEW(),
+!ISBLANK(AccountId),
+Account.Owner.FirstName = &#39;Agent Queue&#39;,
+Account.Owner.LastName = &#39;B2C SG&#39;,
+!$Permission.System_Admin_Compliance_Access
+)</errorConditionFormula>
+    <errorMessage>You are not allowed to create an opportunity for this account.</errorMessage>
+</ValidationRule>

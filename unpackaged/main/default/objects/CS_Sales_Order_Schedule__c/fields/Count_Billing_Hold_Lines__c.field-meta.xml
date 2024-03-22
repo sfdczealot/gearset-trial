@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Count_Billing_Hold_Lines__c</fullName>
+    <description>Specifies that all billing for the Sales Order should be held</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Specifies that all billing for the Sales Order should be held</inlineHelpText>
+    <label>Count Billing Hold Lines</label>
+    <summarizedField>CS_Billing_Schedule__c.Billing_on_Hold__c</summarizedField>
+    <summaryForeignKey>CS_Billing_Schedule__c.CS_Sales_Order_Schedule__c</summaryForeignKey>
+    <summaryOperation>sum</summaryOperation>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Subsidiary__c</fullName>
+    <caseSensitive>false</caseSensitive>
+    <description>Contains Subsidiary Code that matches Opportunity Subsidiary CODE to find emails</description>
+    <externalId>false</externalId>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <label>Subsidiary</label>
+    <length>10</length>
+    <required>true</required>
+    <type>Text</type>
+    <unique>true</unique>
+</CustomField>

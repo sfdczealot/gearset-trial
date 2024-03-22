@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SNo_is_only_populated_for_child_items</fullName>
+    <active>true</active>
+    <description>SNo is only populated for child items of Kits and Item Group</description>
+    <errorConditionFormula>AND( NOT( ISBLANK( SNo__c ) ) , Parent_Product__r.Item_Type__c &lt;&gt; &#39;Kit Item&#39;,Parent_Product__r.Item_Type__c &lt;&gt; &#39;Item Group&#39;)</errorConditionFormula>
+    <errorDisplayField>SNo__c</errorDisplayField>
+    <errorMessage>SNo is only populated for child items of Kits and Item Group</errorMessage>
+</ValidationRule>

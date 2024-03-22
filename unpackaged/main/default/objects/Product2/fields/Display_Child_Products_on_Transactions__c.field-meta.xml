@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Display_Child_Products_on_Transactions__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Denotes netsuite field &quot;Display Components on Transactions&quot; field.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Denotes netsuite field &quot;Display Components on Transactions&quot; field.</inlineHelpText>
+    <label>Display Child Products on Transactions</label>
+    <trackHistory>true</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

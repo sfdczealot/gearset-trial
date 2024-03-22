@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Ready_To_Export__c</fullName>
+    <description>Checkbox to indicate record is ready for integration to export data.</description>
+    <externalId>false</externalId>
+    <formula>AND(
+ISPICKVAL( Status__c, &#39;Ready&#39;) , 
+NOT(Sales_Order_Billing_On_Hold__c),
+Exported_to_Integration__c = false,
+Exported_to_ERP__c = false,
+Bill_Run__r.Is_Release_to_Finance_Date__c
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>Checkbox to indicate record is ready for integration to export data.</inlineHelpText>
+    <label>Ready To Export</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

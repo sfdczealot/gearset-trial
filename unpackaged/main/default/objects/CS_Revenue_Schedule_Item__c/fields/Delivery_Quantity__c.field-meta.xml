@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Delivery_Quantity__c</fullName>
+    <description>Delivery Quantity is always calculated based on DFP Actuals as follows : 
+Delivery Quantity = Overwrite Quantity if not 0 otherwise DFP Actuals.</description>
+    <externalId>false</externalId>
+    <label>Delivery Quantity</label>
+    <precision>14</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

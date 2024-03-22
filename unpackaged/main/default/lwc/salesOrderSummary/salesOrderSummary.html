@@ -1,0 +1,178 @@
+<template>
+    <div>
+    <!-- error alert  -->
+    <div
+            if:true={errorMsg}
+            class="slds-notify slds-notify_alert slds-theme_alert-texture slds-theme_error"
+            role="alert"
+    >
+        <span class="slds-assistive-text">error</span>
+        <span
+                class="slds-icon_container slds-icon-utility-error slds-m-right_x-small"
+                title="Description of icon when needed"
+        >
+            <lightning-icon
+                    icon-name="utility:error"
+                    size="small"
+            ></lightning-icon>
+        </span>
+        <p>
+            {errorMsg}
+        </p>
+    </div>
+  
+    <lightning-spinner
+            variant="brand"
+            size="small"
+            if:true={hasToShowSpinner}
+    >
+    </lightning-spinner>
+
+    <article if:false={errorMsg} class="slds-card sales-order-main-header">
+        <div class="slds-card__body slds-card__body_inner">
+            <template if:true={salesOrder}>
+                <div class="c-container" style="background: white">
+                    <lightning-layout>
+                        <lightning-layout-item class="layout-item">
+                            <div class="header-column">
+                                <p class="slds-text-title slds-truncate" title="Sales Order Status">Sales Order Status</p>
+                                <p class="fieldComponent slds-text-body--regular slds-show_inline-block slds-truncate formatted-text-summary">
+                                    <lightning-formatted-text value={displayStatus}></lightning-formatted-text>
+                                    <lightning-spinner if:true={showSpiner} alternative-text="Loading" size="small" class="spinner-salesOrder"></lightning-spinner>
+                                </p>
+                            </div>
+                        </lightning-layout-item>
+                        <lightning-layout-item class="layout-item">
+                            <div class="header-column">
+                                <p class="slds-text-title slds-truncate" title="Total Price">Total Price</p>
+                                <p class="fieldComponent slds-text-body--regular slds-show_inline-block slds-truncate formatted-text-summary">
+                                    <lightning-formatted-text value={totalPrice}></lightning-formatted-text>
+                                </p>
+                            </div>
+                        </lightning-layout-item>
+                        <lightning-layout-item class="layout-item">
+                            <div class="header-column">
+                                <p class="slds-text-title slds-truncate" title="Total Impressions">Total Impressions</p>
+                                <p class="fieldComponent slds-text-body--regular slds-show_inline-block slds-truncate formatted-text-summary">
+                                    <lightning-formatted-number value={totalImpressions}></lightning-formatted-number>
+                                </p>
+                            </div>
+                        </lightning-layout-item>
+                        <lightning-layout-item class="layout-item">
+                            <div class="header-column">
+                                <p class="slds-text-title slds-truncate" title="Number of Line Items">Number of Line Items</p>
+                                <p class="fieldComponent slds-text-body--regular slds-show_inline-block slds-truncate formatted-text-summary">
+                                    <lightning-formatted-number value={numberOfLines}></lightning-formatted-number>
+                                </p>
+                            </div>
+                        </lightning-layout-item>
+                        <!--Duration-->
+                        <lightning-layout-item class="layout-item">
+                            <div class="header-column">
+                                <p class="slds-text-title slds-truncate" title="Number of Line Items">Duration in Months</p>
+                                <p class="fieldComponent slds-text-body--regular slds-show_inline-block slds-truncate formatted-text-summary">
+                                    <lightning-formatted-number value={monDuration}></lightning-formatted-number>
+                                </p>
+                            </div>
+                        </lightning-layout-item>
+                        <lightning-layout-item class="layout-item">
+                            <div class="header-column">
+                                <p class="slds-text-title slds-truncate" title="Start Date">Start Date</p>
+                                <p class="fieldComponent slds-text-body--regular slds-show_inline-block slds-truncate formatted-text-summary">
+                                    <lightning-formatted-date-time value={startDate}></lightning-formatted-date-time>
+                                </p>
+                            </div>
+                        </lightning-layout-item>
+                        <lightning-layout-item class="layout-item">
+                            <div class="header-column">
+                                <p class="slds-text-title slds-truncate" title="End Date">End Date</p>
+                                <p class="fieldComponent slds-text-body--regular slds-show_inline-block slds-truncate formatted-text-summary">
+                                    <lightning-formatted-date-time value={endDate}></lightning-formatted-date-time>
+                                </p>
+                            </div>
+                        </lightning-layout-item>
+                        <lightning-layout-item class="layout-item">
+                            <div class="header-column">
+                                <p class="slds-text-title slds-truncate" title="Total Delivered to Date">Total Delivered to Date</p>
+                                <p class="fieldComponent slds-text-body--regular slds-show_inline-block slds-truncate formatted-text-summary">
+                                    <lightning-formatted-number value={totalDelivered}></lightning-formatted-number>
+                                </p>
+                            </div>
+                        </lightning-layout-item>
+                        <lightning-layout-item class="layout-item">
+                            <div class="header-column">
+                                <p class="slds-text-title slds-truncate" title="Total Spent to Date">Total Spent to Date</p>
+                                <p class="fieldComponent slds-text-body--regular slds-show_inline-block slds-truncate formatted-text-summary">
+                                    <lightning-formatted-number value={totalSpend} format-style="currency" currency-code={currency} currency-display-as="code"></lightning-formatted-number>
+                                </p>
+                            </div>
+                        </lightning-layout-item>
+                    </lightning-layout>
+                </div>
+                <div class="slds-card__body slds-card__body_inner approval-monitor">
+                    <lightning-layout if:true={salesOrder}>
+                        <template for:each={approvals} for:item="approval">
+                            <lightning-layout-item class="layout-item-approval" key={approval.name}>
+                                <div class="circleCell rTableCell">
+                                    <div class={approval.classText}></div>
+                                </div>
+                                <div class="rTableCell fieldComponent slds-text-title slds-show_inline-block slds-truncate">{approval.name}</div>
+                            </lightning-layout-item>
+                        </template>
+                    </lightning-layout>
+                </div>
+            </template>
+        </div>
+    </article>
+
+    <article if:false={errorMsg} class="slds-card sales-order-main-header">
+        <div class="slds-card__body slds-card__body_inner">
+            <!-- path assistant -->
+            <div class="slds-path">
+                <div class="slds-grid slds-path__track">
+                    <div class="slds-grid slds-path__scroller-container">
+                        <div class="slds-path__scroller" role="application">
+                            <div class="slds-path__scroller_inner">
+                                <!-- spinner -->
+                                <ul
+                                        if:true={isLoaded}
+                                        class="slds-path__nav"
+                                        role="listbox"
+                                        aria-orientation="horizontal"
+                                >
+                                    <template for:each={steps} for:item="step">
+                                        <li
+                                                key={step.value}
+                                                class={step.classText}
+                                                role="presentation"
+                                        >
+                                            <p
+                                                    aria-selected="false"
+                                                    class="slds-path__link"
+                                                    role="option"
+                                                    tabindex="-1"
+                                                    data-value={step.value}
+                                            >
+                                                <span class="slds-path__stage">
+                                                    <lightning-icon
+                                                            icon-name="utility:check"
+                                                            size="xx-small"
+                                                            variant="inverse"
+                                                    ></lightning-icon>
+                                                </span>
+                                                <span class="slds-path__title"
+                                                >{step.label}</span
+                                                >
+                                            </p>
+                                        </li>
+                                    </template>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </article>
+    </div>
+</template>

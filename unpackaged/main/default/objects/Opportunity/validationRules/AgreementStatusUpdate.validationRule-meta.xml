@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>AgreementStatusUpdate</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(ISCHANGED(Agreement_Status__c),
+
+$Profile.Name !=&#39;clickapprove Profile&#39;,
+OR(TEXT(Agreement_Status__c)=&#39;Cancelled / Declined&#39;,
+TEXT(Agreement_Status__c)=&#39;Signed&#39;),
+	ISBLANK(			 PRIORVALUE(Agreement_Status__c)))</errorConditionFormula>
+    <errorMessage>you must click &quot;send approval - manual&quot; or &quot;send approval - click approve&quot; to indicate that you have sent the contract for customer approval</errorMessage>
+</ValidationRule>

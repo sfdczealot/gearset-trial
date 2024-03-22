@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>PG_Payment_Validation</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(	NOT( Opportunity_Record__r.RecordType.Name=&#39;B2C Self-Serve&#39;),IF(!ISBLANK(Amount2__c),IF(Amount2__c &lt;= 0, TRUE, FALSE),FALSE) == TRUE)</errorConditionFormula>
+    <errorMessage>Payment Creation Failed! 
+Payment Amount is greater than 0.</errorMessage>
+</ValidationRule>

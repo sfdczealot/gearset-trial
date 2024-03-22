@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Total_Amount_of_Managerial_Discount__c</fullName>
+    <externalId>false</externalId>
+    <label>Total Amount of Managerial Discount</label>
+    <summarizedField>QuoteLineItem.Price_before_discount1__c</summarizedField>
+    <summaryForeignKey>QuoteLineItem.QuoteId</summaryForeignKey>
+    <summaryOperation>sum</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <type>Summary</type>
+</CustomField>

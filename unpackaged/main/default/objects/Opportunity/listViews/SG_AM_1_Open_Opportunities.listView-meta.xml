@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SG_AM_1_Open_Opportunities</fullName>
+    <columns>OPPORTUNITY.NAME</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>Account_Phone__c</columns>
+    <columns>OPPORTUNITY.STAGE_NAME</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <columns>OPPORTUNITY.CLOSE_DATE</columns>
+    <columns>Account_Rule_Code__c</columns>
+    <columns>Subscription_End_Date__c</columns>
+    <columns>Renewal_State__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>OPPORTUNITY.RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Opportunity.B2C</value>
+    </filters>
+    <filters>
+        <field>Country__c</field>
+        <operation>equals</operation>
+        <value>Singapore</value>
+    </filters>
+    <filters>
+        <field>Opportunity_Type__c</field>
+        <operation>equals</operation>
+        <value>B2C - Renewal</value>
+    </filters>
+    <filters>
+        <field>OPPORTUNITY.CLOSED</field>
+        <operation>equals</operation>
+        <value>0</value>
+    </filters>
+    <filters>
+        <field>OPPORTUNITY.NAME</field>
+        <operation>startsWith</operation>
+        <value>JULY 2020 Renew</value>
+    </filters>
+    <label>SG AM+1 Open Opportunities</label>
+    <sharedTo>
+        <role>CEO</role>
+    </sharedTo>
+</ListView>

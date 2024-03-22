@@ -1,0 +1,103 @@
+<template>
+    <!-- lightning button for open modal window -->
+    <lightning-button variant="brand" label="View Price Forecast" title="View
+        Price Forecast" onclick={openModal} class="slds-m-horizontal_x-small">
+    </lightning-button>
+
+    <!-- modal start -->
+    <template if:true={bShowModal}>
+        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true"
+            aria-describedby="modal-content-id-1" class="slds-modal
+            slds-fade-in-open">
+            <div class="slds-modal__container">
+                <!-- modal header start -->
+                <header class="slds-modal__header">
+                    <button class="slds-button slds-button_icon
+                        slds-modal__close slds-button_icon-inverse" title="Close" onclick={closeModal}>
+                        <lightning-icon icon-name="utility:close" alternative-text="close" variant="inverse"
+                            size="small"></lightning-icon>
+                        <span class="slds-assistive-text">Close</span>
+                    </button>
+                    <h2 id="modal-heading-01" class="slds-text-heading_medium
+                        slds-hyphenate">Price Forecast</h2>
+                </header>
+                <!-- modal body start -->
+                <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                    <div class="forecast-details slds-scrollable_x slds-box
+                        slds-p-around_none slds-m-vertical_large">
+                        <table class="slds-table slds-table_bordered
+                            slds-no-row-hover slds-table_col-bordered
+                            slds-table_fixed-layout">
+                            <thead>
+                                <tr>
+                                    <th scope="col" style="width: 9rem;">
+                                        <div class="slds-truncate
+                                            slds-hyphenate" title="Package
+                                            Name">Package Name
+                                        </div>
+                                    </th>
+                                    <template for:each={columnList} for:item="colpackage">
+                                        <th key={colpackage.weekno} style="width: 8rem;">
+                                            <div class="slds-truncate
+                                                slds-align_absolute-center">Week
+                                                {colpackage.weekno}
+                                            </div>
+                                            <div class="slds-truncate
+                                                slds-align_absolute-center
+                                                slds-text-body_small
+                                                headerSmallFont">
+                                                <lightning-formatted-date-time value={colpackage.startdate}>
+                                                </lightning-formatted-date-time>
+                                            </div>
+                                            <div class="slds-truncate
+                                                slds-align_absolute-center
+                                                slds-text-body_small
+                                                headerSmallFont">
+                                                to
+                                            </div>
+                                            <div class="slds-truncate
+                                                slds-align_absolute-center
+                                                slds-text-body_small
+                                                headerSmallFont">
+                                                <lightning-formatted-date-time value={colpackage.enddate}>
+                                                </lightning-formatted-date-time>
+                                            </div>
+                                        </th>
+                                    </template>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <template for:each={rowList} for:item="rowpackage">
+                                    <tr key={rowpackage.pacakagename}>
+                                        <td key={listdata} class="slds-cell-wrap">
+                                            <div class="slds-line-clamp">{rowpackage.pacakagename}</div>
+                                        </td>
+                                        <template for:each={rowpackage.listdatas} for:item="listdata">
+
+                                            <td key={listdata} class="slds-cell-wrap
+                                                slds-text-align_center">
+                                                <div class="slds-line-clamp">
+                                                    SGD
+                                                    <lightning-formatted-number value={listdata}
+                                                        maximum-fraction-digits="2"></lightning-formatted-number>
+                                                </div>
+                                            </td>
+                                        </template>
+
+
+                                    </tr>
+                                </template>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <!-- modal footer start-->
+                <footer class="slds-modal__footer">
+                    <button class="slds-button slds-button_neutral" onclick={closeModal}>Cancel</button>
+                </footer>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open customBackdrop"></div>
+    </template>
+    <!-- modal end -->
+</template>

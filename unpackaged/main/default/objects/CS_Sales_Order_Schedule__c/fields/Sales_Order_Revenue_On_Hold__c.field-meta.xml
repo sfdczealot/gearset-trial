@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Sales_Order_Revenue_On_Hold__c</fullName>
+    <externalId>false</externalId>
+    <formula>OR((Count_Revenue_Hold_Lines__c &gt; 0), NOT(Sales_Order__r.Sold__c))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Sales Order Revenue On Hold</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

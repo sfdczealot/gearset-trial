@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Next_Rev_Rec_Date__c</fullName>
+    <externalId>false</externalId>
+    <label>Next Rev Rec Date</label>
+    <summarizedField>CS_Revenue_Schedule__c.Next_Rev_Rec_Date__c</summarizedField>
+    <summaryForeignKey>CS_Revenue_Schedule__c.CS_Sales_Order_Schedule__c</summaryForeignKey>
+    <summaryOperation>min</summaryOperation>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>

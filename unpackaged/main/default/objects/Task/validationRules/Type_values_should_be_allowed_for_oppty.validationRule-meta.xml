@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Type_values_should_be_allowed_for_oppty</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(NOT(BEGINS(WhatId, &#39;006&#39;)),
+OR(TEXT(Type)= &#39;General&#39;,
+TEXT(Type)= &#39;QBR Follow up&#39;,
+TEXT(Type)= &#39;FastKey Renewal Risk - Usage Low&#39;,
+TEXT(Type)= &#39;FastKey Renewal Risk - Senior Influencer / Decision Maker not engaged&#39;,
+TEXT(Type)= &#39;FastKey Renewal Risk - Key Stakeholder Departed&#39;,
+TEXT(Type)= &#39;FastKey Renewal Risk - Considering alternatives&#39;,
+TEXT(Type)= &#39;FastKey Renewal Risk - Group platform being considered&#39;))</errorConditionFormula>
+    <errorMessage>You are not allowed to update Type field for this record.</errorMessage>
+</ValidationRule>

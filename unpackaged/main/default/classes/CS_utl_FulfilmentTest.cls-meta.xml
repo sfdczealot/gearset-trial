@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ApexClass xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>44.0</apiVersion>
+    <packageVersions>
+        <majorNumber>1</majorNumber>
+        <minorNumber>32</minorNumber>
+        <namespace>csam</namespace>
+    </packageVersions>
+    <packageVersions>
+        <majorNumber>1</majorNumber>
+        <minorNumber>484</minorNumber>
+        <namespace>cscfga</namespace>
+    </packageVersions>
+    <packageVersions>
+        <majorNumber>1</majorNumber>
+        <minorNumber>6</minorNumber>
+        <namespace>csdf</namespace>
+    </packageVersions>
+    <packageVersions>
+        <majorNumber>19</majorNumber>
+        <minorNumber>178</minorNumber>
+        <namespace>csmso</namespace>
+    </packageVersions>
+    <status>Active</status>
+</ApexClass>

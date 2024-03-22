@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Opportunity_Need_Approval</fullName>
+    <active>true</active>
+    <errorConditionFormula>And(isChanged(Stage__c),isPickval(Stage__c ,&#39;Pending Online Payment&#39;),RecordType.DeveloperName ==&#39;B2C&#39;,or(
+if(to_FOC_Approval__c,&#39;true&#39;,&#39;false&#39;)&lt;&gt;if(FOC_Approved__c,&#39;true&#39;,&#39;false&#39;) ,
+if(to_Managerial_Approval__c ,&#39;true&#39;,&#39;false&#39;)&lt;&gt;if(Managerial_Approved__c,&#39;true&#39;,&#39;false&#39;))
+,ISNULL(Invoice_Id__c)
+)</errorConditionFormula>
+    <errorMessage>Your Quote Need Approval ! Please Submit Approval before change to the next stage</errorMessage>
+</ValidationRule>

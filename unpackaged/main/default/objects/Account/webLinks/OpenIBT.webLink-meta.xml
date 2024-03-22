@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>OpenIBT</fullName>
+    <availability>online</availability>
+    <displayType>button</displayType>
+    <encodingKey>UTF-8</encodingKey>
+    <linkType>url</linkType>
+    <masterLabel>OpenIBT</masterLabel>
+    <openType>replace</openType>
+    <protected>false</protected>
+    <url>{!$Site.BaseSecureUrl}/apex/csinvgridspt__InventoryGrid?accountId=0010T000005KY49QAG&amp;salesOrderId=a2m0T000000CcjRQAS</url>
+</WebLink>

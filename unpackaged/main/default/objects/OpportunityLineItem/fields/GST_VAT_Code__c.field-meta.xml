@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>GST_VAT_Code__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>Allow sales user to change the tax code of the product line if is different from Product Master</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Select a different tax code if applicable</inlineHelpText>
+    <label>GST/VAT Code</label>
+    <lookupFilter>
+        <active>true</active>
+        <filterItems>
+            <field>Tax_Code__c.Active__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </filterItems>
+        <isOptional>false</isOptional>
+    </lookupFilter>
+    <referenceTo>Tax_Code__c</referenceTo>
+    <relationshipLabel>Opportunity Product</relationshipLabel>
+    <relationshipName>Opportunity_Product</relationshipName>
+    <required>false</required>
+    <type>Lookup</type>
+</CustomField>

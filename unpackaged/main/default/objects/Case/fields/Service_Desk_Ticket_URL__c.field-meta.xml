@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Service_Desk_Ticket_URL__c</fullName>
+    <description>The URL of the Ticket raised in JIRA App Support Service Desk</description>
+    <externalId>false</externalId>
+    <inlineHelpText>The URL of the raised JIRA App Support Service Desk ticket.</inlineHelpText>
+    <label>Service Desk Ticket URL</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Url</type>
+</CustomField>

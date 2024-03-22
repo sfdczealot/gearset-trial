@@ -1,0 +1,34 @@
+<aura:component implements="force:lightningQuickActionWithoutHeader,force:hasRecordId" Controller="OMCApprovalValidation_cc" >
+    <aura:attribute name="recordId" type="String"/>
+    <aura:attribute name="headerText" type="String" default="OMC Approval" />    
+    <aura:attribute name="errorMessage" type="String" default="" />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <div class="omc-approval" style="height: 640px;">
+        <section role="dialog" tabindex="-1" aria-labelledby="modal-omcApporvalValidation" aria-modal="true" aria-describedby="modal-omcApporvalValidation" class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container omcApporvalValidation">
+                <header class="slds-modal__header" aura:id="modalHeader">
+                    <lightning:buttonIcon class="slds-modal__close slds-button__icon_large" iconName="utility:close" variant="bare-inverse" title="close" onclick="{!c.closeModal}" alternativeText="Close"/>
+                    <h2 id="modalHeaderTitle" class="slds-text-heading_medium slds-hyphenate">{!v.headerText}</h2>
+                </header>
+                <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                    <div aura:id="errorMessagePanel" class="slds-m-around_large slds-hide">
+                        {!v.errorMessage}
+                    </div>
+                    <div aura:id="spinner" class="slds-card__header" style="position:relative;margin:50px;">
+                        <div class="slds-form--compound">                            
+                            <div class="slds-spinner_container" >
+                                <div class="slds-spinner slds-spinner--medium" aria-hidden="false" role="alert">
+                                    <div class="slds-spinner__dot-a"></div>
+                                    <div class="slds-spinner__dot-b"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <footer class="slds-modal__footer slds-hide" aura:id="modalFooter">
+                    <button class="slds-button slds-button_neutral" onclick="{!c.closeModal}">OK</button>
+                </footer>
+            </div>
+        </section>
+    </div>
+</aura:component>

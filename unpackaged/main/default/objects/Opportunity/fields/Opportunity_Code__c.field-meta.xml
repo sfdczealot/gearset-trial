@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Opportunity_Code__c</fullName>
+    <description>Opportunity Number</description>
+    <displayFormat>OPP-{000000}</displayFormat>
+    <externalId>true</externalId>
+    <inlineHelpText>This is an automatically generated number that can act as a key for other systems</inlineHelpText>
+    <label>Opportunity Code</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>AutoNumber</type>
+</CustomField>

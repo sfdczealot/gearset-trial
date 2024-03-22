@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Appr_Code_mandatory</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(ISBLANK(Appr_Code__c),
+				NOT( Opportunity_Record__r.RecordType.Name=&#39;B2C Self-Serve&#39;), 
+    TEXT(Payment_Mode__c)=&#39;Offline&#39;,
+				Opportunity_Record__r.Country__c=&#39;Thailand&#39;,
+				Payment_Method__r.NS_Internal_ID__c = &#39;32&#39;)</errorConditionFormula>
+    <errorMessage>Payment Creation Failed!
+		Appr Code is mandatory</errorMessage>
+</ValidationRule>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Theme__c</fullName>
+    <description>Denotes theme in Self Serve front-end application</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Denotes theme in Self Serve front-end application</inlineHelpText>
+    <label>Theme</label>
+    <length>255</length>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

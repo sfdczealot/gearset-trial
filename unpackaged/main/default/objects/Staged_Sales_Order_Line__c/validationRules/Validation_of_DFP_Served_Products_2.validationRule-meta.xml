@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Validation_of_DFP_Served_Products_2</fullName>
+    <active>true</active>
+    <description>Only apply this rule to DFP Served products (and ignore for non DFP products such as Production Costs etc).</description>
+    <errorConditionFormula>AND( 
+  TEXT(Served_By__c) =&#39;DFP&#39;,
+  OR(
+    ISNULL(AccountId__c),
+    ISBLANK(TEXT(Ad_Location_Description__c)),
+    ISNULL( Bill_To_Account_Id__c ),
+    ISNULL( Line_Item_Description__c ),
+    ISBLANK( TEXT(Calculation_Type__c) ),
+    ISNULL(  Flight_Begin__c  ),
+    ISNULL(  Flight_Begin_Time__c  ),
+    ISNULL(  Flight_End__c  ),
+    ISNULL(  Flight_End_Time__c  ),
+    (Gross_Unit_Price__c &lt; 0),
+    NOT( Insertion_Quantity__c  &gt; 0),
+    ISNULL(Insertion_Unit_Type__c),
+    ISNULL(Market__c),
+    (Net_Unit_Price__c &lt; 0),
+    (Final_Price__c &lt; 0),
+    ISNULL(Migrated_Order_Line_Id__c),
+    ISPICKVAL(Billing_Calendar__c,&#39;&#39;),
+    ISPICKVAL(Billing_Source__c,&#39;&#39;),
+    ISNULL(Booking_Time_Zone__c),
+    ISNULL(Product__c),
+    ISNULL(Scheduled_Quantity__c),
+    AND (
+      ISPICKVAL(Billing_Source__c,&#39;3rd Party Actuals&#39;),
+      X3rd_Party_Ad_Server__c = &#39;&#39;
+    ),
+    AND(
+    !ISNULL(Agency__c), 
+      OR (
+      ISNULL(Agency_Commission__c),
+      ISNULL( Agency_Commission_Amount__c )
+      )
+    )
+  )
+)</errorConditionFormula>
+    <errorMessage>Not all of the mandatory fields have been populated for DFP records. Please see the STG Required Field list for more information.</errorMessage>
+</ValidationRule>

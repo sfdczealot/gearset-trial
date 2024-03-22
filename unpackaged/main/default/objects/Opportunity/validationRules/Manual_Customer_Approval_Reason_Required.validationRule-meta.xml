@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Manual_Customer_Approval_Reason_Required</fullName>
+    <active>false</active>
+    <errorConditionFormula>AND(RecordType.Name =&#39;B2B&#39;,ISCHANGED( Agreement_Status__c ),ISPICKVAL(Agreement_Status__c,&quot;Signed&quot;), SO_for_Customer_Approval__r.Is_Manual_Approval__c,ISBLANK(Reason_for_manual_signature__c))</errorConditionFormula>
+    <errorDisplayField>Reason_for_manual_signature__c</errorDisplayField>
+    <errorMessage>Need to populate reason for Manual Customer Approval before setting it to Signed status.</errorMessage>
+</ValidationRule>

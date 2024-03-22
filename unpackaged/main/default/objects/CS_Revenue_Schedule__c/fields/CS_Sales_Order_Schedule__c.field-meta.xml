@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CS_Sales_Order_Schedule__c</fullName>
+    <description>Link to Sales Order Schedule</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Link to Sales Order Schedule</inlineHelpText>
+    <label>CS Sales Order Schedule</label>
+    <referenceTo>CS_Sales_Order_Schedule__c</referenceTo>
+    <relationshipName>Revenue_Schedule_Headers</relationshipName>
+    <relationshipOrder>0</relationshipOrder>
+    <reparentableMasterDetail>false</reparentableMasterDetail>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>MasterDetail</type>
+    <writeRequiresMasterRead>false</writeRequiresMasterRead>
+</CustomField>

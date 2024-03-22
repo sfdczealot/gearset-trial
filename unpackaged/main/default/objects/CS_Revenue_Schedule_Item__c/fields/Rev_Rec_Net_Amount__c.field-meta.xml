@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Rev_Rec_Net_Amount__c</fullName>
+    <description>Rev Rec Net Amount is calculated as Rev Rec Quantity * Net Rate using Workflow Field Update.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Rev Rec Net Amount is calculated as Rev Rec Quantity * Net Rate using Workflow Field Update.</inlineHelpText>
+    <label>Rev Rec Net Amount</label>
+    <precision>16</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

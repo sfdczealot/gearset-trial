@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>STG_Overbook__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF( ISPICKVAL(Ad_Type__c , &#39;Price Priority&#39;) || ISPICKVAL(Ad_Type__c , &#39;Network&#39;) || ISPICKVAL(Ad_Type__c , &#39;Bulk&#39;) || ISPICKVAL(Ad_Type__c , &#39;House&#39;), false, true)</formula>
+    <label>STG Overbook</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

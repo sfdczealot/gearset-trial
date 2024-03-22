@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>STG_Total_Errors__c</fullName>
+    <description>Count of all the Lines with the Contains Error Flag set to true</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Count of all the Lines with the Contains Error Flag set to true</inlineHelpText>
+    <label>STG Total Errors</label>
+    <summaryFilterItems>
+        <field>Staged_Sales_Order_Line__c.STG_Contains_Errors__c</field>
+        <operation>equals</operation>
+        <value>True</value>
+    </summaryFilterItems>
+    <summaryForeignKey>Staged_Sales_Order_Line__c.Staged_Sales_Order__c</summaryForeignKey>
+    <summaryOperation>count</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>PG_Automation_B2B</fullName>
+    <columns>CASES.CASE_NUMBER</columns>
+    <columns>CASES.CREATED_DATE_DATE_ONLY</columns>
+    <columns>CASES.PRIORITY</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>Opportunity__c</columns>
+    <columns>Business_Channel__c</columns>
+    <columns>CASES.SUBJECT</columns>
+    <columns>CASES.STATUS</columns>
+    <columns>Resolution__c</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <columns>Service_Desk_Ticket_URL__c</columns>
+    <columns>CEA_License__c</columns>
+    <columns>CREATEDBY_USER.ALIAS</columns>
+    <columns>CASES.ESCALATION_STATE</columns>
+    <columns>Requester_Subsidiary__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>CASES.RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Case.Sales_Enablement</value>
+    </filters>
+    <filters>
+        <field>Business_Channel__c</field>
+        <operation>equals</operation>
+        <value>B2B</value>
+    </filters>
+    <filters>
+        <field>Case_Sub_Category__c</field>
+        <operation>equals</operation>
+        <value>Close Lost Opportunity</value>
+    </filters>
+    <label>PGAUTO (B2B)</label>
+    <sharedTo>
+        <role>CEO</role>
+        <role>CXO</role>
+        <role>C_level_Mgt</role>
+        <role>Director</role>
+        <role>Regional_Support_Groups</role>
+    </sharedTo>
+</ListView>

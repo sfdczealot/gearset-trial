@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Total_Closed_Booked_Quantity__c</fullName>
+    <externalId>false</externalId>
+    <label>Total Closed Booked Quantity</label>
+    <summarizedField>CS_Billing_Schedule_Item__c.Booked_Quantity__c</summarizedField>
+    <summaryFilterItems>
+        <field>CS_Billing_Schedule_Item__c.Is_Closed__c</field>
+        <operation>equals</operation>
+        <value>True</value>
+    </summaryFilterItems>
+    <summaryForeignKey>CS_Billing_Schedule_Item__c.Billing_Schedule__c</summaryForeignKey>
+    <summaryOperation>sum</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>

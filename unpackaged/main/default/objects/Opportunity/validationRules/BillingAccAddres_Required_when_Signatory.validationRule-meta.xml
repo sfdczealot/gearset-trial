@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>BillingAccAddres_Required_when_Signatory</fullName>
+    <active>false</active>
+    <description>Billing Account Address is required when Pending Client Signatory or Pending OMC Approval.</description>
+    <errorConditionFormula>AND( 
+NOT(ISCLONE()), 
+OR ( 
+ISPICKVAL(StageName, &quot;Pending Client Signatory&quot;), 
+ISPICKVAL(StageName, &quot;Pending OMC Approval&quot;) 
+), 
+OR(
+ISBLANK(Billing_Street_new__c),
+ISBLANK(Billing_City_new__c),
+ISBLANK(Billing_Country_new__c)
+)
+)</errorConditionFormula>
+    <errorDisplayField>AccountId</errorDisplayField>
+    <errorMessage>Company&#39;s Billing Street, City, Country must be entered.</errorMessage>
+</ValidationRule>

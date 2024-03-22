@@ -1,0 +1,13 @@
+.THIS {
+}
+.THIS.scrollerSize {
+    width:100%;
+}
+.THIS table.slds-table label span
+{
+    display:none;
+}
+.THIS table.slds-table input[type='checkbox']
+{
+    width: 40%;
+}

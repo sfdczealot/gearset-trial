@@ -1,0 +1,156 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,force:lightningQuickAction" 
+                access="global" controller="SearchRecord_cc" >
+    <aura:attribute name="recordId" type="String"/>
+    <aura:attribute name="disable" type="Boolean" default ="true"/>
+    <!--  <aura:attribute name="sObjectData" type="List"/> -->
+    <aura:attribute name="sObjectType" type="String"/>
+    <!-- <aura:attribute name="str" type="String"/> -->
+    <lightning:quickActionAPI aura:id="quickActionAPI"/>
+    <aura:attribute name="quickAction" type="String"/>
+    <aura:attribute name="SearchFields" type="List"/>
+    <aura:attribute name="agentOrOpp" type="String"/>
+    <aura:attribute name="EndPoint" type="String"/>
+    <aura:attribute name="OwnerId" type="String"/>
+    <aura:attribute name="fmList" type="List"/>
+    <aura:attribute name="displayFmList" type="List"/>
+    <aura:attribute name="showData" type="Boolean"/>
+    <aura:attribute name="isAcc" type="Boolean"/>
+    <aura:attribute name="selectedAttribute" type="String"/>
+    <aura:attribute name="externalField" type="String"/>
+    <aura:attribute name="showSelect" type="Boolean"/>
+    <aura:attribute name="ShowSpinner" type="Boolean"/>
+    
+    <!--pagination-->
+    <aura:attribute name="startPage" type="Integer" />
+    <aura:attribute name="endPage" type="Integer"/>
+    <aura:attribute name="totalRecords" type="Integer"/>
+    <aura:attribute name="pageSize" type="Integer" default="10"/>
+    <aura:attribute name="PaginationList" type="List"/>
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    
+    <div>
+        <div class="slds-grid slds-wrap slds-gutters">
+            
+            <aura:if isTrue="{!v.isAcc}">
+                
+                <aura:iteration items="{!v.fmList}" var="fieldName">
+                    
+                    <aura:if isTrue="{!fieldName.DataType__c == 'Date'}">
+                        <div class="slds-col slds-m-left--xx-small ">
+                            <lightning:input type="date"  name="{!fieldName}" disabled="true" aura:id="newFields" label="{!fieldName.Label__c }" />
+                        </div>
+                        <aura:set attribute="else">
+                            <aura:if isTrue="{!fieldName.DataType__c == 'Number'}">
+                                <div class="slds-col slds-m-left--xx-small">
+                                    <lightning:input name="{!fieldName}" type="number" disabled="true" aura:id="newFields" label="{!fieldName.Label__c }" />
+                                </div>
+                                <aura:set attribute="else">
+                                    <aura:if isTrue="{!fieldName.Label__c == 'Country'}">
+                                        <div class="slds-hide">
+                                            <lightning:input name="{!fieldName}" value="{!fieldName.from__c}" aura:id="newFields" label="{!fieldName.Label__c }" />
+                                        </div>
+                                        <aura:set attribute="else">
+                                            <div class="slds-col slds-m-left--xx-small">
+                                                <lightning:input name="{!fieldName }" disabled="true" value="{!fieldName.from__c}" aura:id="newFields" label="{!fieldName.Label__c }" />
+                                            </div>
+                                        </aura:set>
+                                    </aura:if>
+                                </aura:set>
+                            </aura:if>
+                        </aura:set>
+                    </aura:if>
+                    
+                </aura:iteration>
+            </aura:if>
+        </div>
+        <div class ="slds-align--absolute-center slds-size--1-of-1 slds-grid slds-m-top--small">
+           <!-- <aura:if isTrue="{!v.isAcc}">
+                <div>
+                    <lightning:button title="Search based on the criteria set above" onclick="{!c.searchData}" label="Search"  disabled="{!v.disable}" variant="brand"/>
+                </div>
+                
+            </aura:if>-->
+            <aura:if isTrue="{!v.showData}">
+                <div class="slds-m-left--large">
+                    <lightning:button title="{! 'Tag the selected record to current '+ v.agentOrOpp +' as an overlapping ' + v.agentOrOpp}" variant="brand" label="Tag" disabled="{!v.disable}" onclick="{! c.updateRecord }" />
+                </div>
+            </aura:if>
+            <div class="slds-m-left--large">
+                <lightning:button title="{!'Designate '+ v.agentOrOpp +' as non overlapping ' + v.agentOrOpp }" onclick="{!c.unTagAccount}" label="Un-tag" disabled="{!v.disable}" variant="brand"/>
+            </div>
+            <div class="slds-m-left--large">
+                <lightning:button title="{!'Create '+ v.agentOrOpp +' in IPP system and mark current record as overlapping '+ v.agentOrOpp}" variant="brand" label="Create" disabled="{!v.disable}" onclick="{! c.createRecord }" />
+            </div>
+        </div>
+        
+        
+    </div>
+    <aura:if isTrue="{!v.showData}">
+        <div class="slds-m-around--x-small slds-align--absolute-center" >
+            <lightning:buttonGroup >
+                <lightning:button label="Previous" disabled="{!v.startPage == 0}"  
+                                  onclick="{!c.previous}" variant="brand"
+                                  iconName='utility:back'/>
+                &nbsp; &nbsp; &nbsp;
+                <lightning:button label="Next" disabled="{!v.endPage >= v.totalRecords}" 
+                                  onclick="{!c.next}" variant="brand"
+                                  iconName='utility:forward' iconPosition='right'/>
+            </lightning:buttonGroup>
+        </div>
+    </aura:if>
+    <div  class="slds-scrollable">
+        
+        <ui:scrollerWrapper class="sWrapTest">
+            <aura:if isTrue="{!v.showData}">
+                <table style="
+                              font-family: Arial, Helvetica, sans-serif;
+                              border-collapse: collapse;
+                              width: 100%;
+                              ">
+                    <tr>
+                          <aura:if isTrue="{!v.showSelect}">
+                        <th style="border: 1px solid #ddd; padding: 8px;">
+                            <ui:outputText value="Select" />
+                        </th>
+                        </aura:if>
+                        <aura:iteration items="{!v.SearchFields}" var="fieldName">
+                            <th style="border: 1px solid #ddd;padding: 8px;text-align: left;">
+                                <ui:outputText value="{!fieldName.value}" />
+                            </th>
+                        </aura:iteration>
+                        
+                    </tr>
+                    <aura:iteration items="{!v.PaginationList}" var="object" >
+                        <tr>
+                              <aura:if isTrue="{!v.showSelect}">
+                            <td style="border: 1px solid #ddd;padding: 8px;text-align: left;">
+                                <ui:inputRadio name="others"  label="{!object}" 
+                                               labelClass="assistiveText" change="{!c.getSelectedValue}" />
+                            </td>
+                            </aura:if>
+                            <aura:iteration items="{!v.SearchFields}" var="fieldName">
+                                <td style="border: 1px solid #ddd;padding: 8px;text-align: left;">
+                                    <c:sObjectAndFieldName object="{!object}" fieldName="{!fieldName.key}" endPoint="{!v.EndPoint}"/>
+                                </td>
+                            </aura:iteration>
+                            
+                            
+                            
+                        </tr>
+                    </aura:iteration>
+                    
+                    
+                </table>
+                
+                
+            </aura:if>
+        </ui:scrollerWrapper>
+    </div>
+        <aura:if isTrue = "{!v.ShowSpinner}">
+    <div class="exampleHolder">
+        <lightning:spinner alternativeText="Loading" size="small" />
+
+        </div>
+        </aura:if>
+</aura:component>

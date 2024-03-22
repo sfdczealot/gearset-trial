@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Pending_Forecast_Recalculation__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Specifies if the Billing Schedule forecast requires recalculation after the records have been exported to Finance systems.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Specifies if the Billing Schedule forecast requires recalculation after the records have been exported to Finance systems.</inlineHelpText>
+    <label>Pending Forecast Recalculation</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

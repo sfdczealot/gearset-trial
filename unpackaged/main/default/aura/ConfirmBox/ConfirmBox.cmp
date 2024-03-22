@@ -1,0 +1,5 @@
+<aura:component implements="flexipage:availableForRecordHome,force:hasRecordId,force:lightningQuickAction" access="global" >
+	<aura:handler name="init" action="{!c.doInit}" value="{!this}" />
+    <lightning:button label="Yes" onclick="{!c.clickYes}"/>
+    <lightning:button label="No" onclick="{!c.clickNo}"/>
+</aura:component>

@@ -1,0 +1,463 @@
+<aura:component
+                implements="force:lightningQuickActionWithoutHeader"
+                controller="OpportunityProductRegistrationStinger_cc"
+                access="GLOBAL"
+                >
+    <aura:dependency resource="markup://force:navigateToSObject" type="EVENT" />
+    <aura:attribute name="recordId" type="string" />
+    <aura:attribute name="currentProductUnit" type="string" />
+    <aura:attribute name="currentProductValue" type="string" />
+    <aura:attribute name="showErrorMsg" type="boolean" default="false" />
+    <aura:attribute name="errorMsg" type="string" />
+    <aura:attribute name="showErrorOnExistingOpp" type="boolean" default="false" />
+    <aura:attribute name="errorMsgOnExistingOpp" type="string" />
+    <aura:attribute name="consumedAC" type="integer" default="0" />
+    <aura:attribute name="proRatedAC" type="integer" default="0" />
+    <aura:attribute name="upgPackageAC" type="integer" default="0" />
+    <aura:attribute name="currentPackageAC" type="integer" default="0" />
+    <aura:attribute name="proRatedDiscAC" type="integer" default="0" />
+    <aura:attribute name="refreshStatus" type="string" />
+    <aura:attribute name="showCalloutError" type="boolean" default="false" />
+    <aura:attribute name="balanceAC" type="integer" default="0" />
+    <aura:attribute name="consumedPC" type="decimal" default="0" />
+    <aura:attribute name="balancePC" type="decimal" default="0" />
+    <aura:attribute name="proRatedPC" type="decimal" default="0" />
+    <aura:attribute name="upgPackagePC" type="integer" default="0" />
+    <aura:attribute name="currentPackagePC" type="integer" default="0" />
+    <aura:attribute name="resultData" type="Object"/>
+    
+    <!-- Created for weekly calculation (Singapore) -->
+    <aura:attribute name="weekUtilized" type="Integer" default="0" />
+    <aura:attribute name="wrapResponseSG" type="Object" />
+    <aura:attribute name="proRatedDiscPC" type="decimal" default="0" />
+    <aura:attribute
+                    name="agentObj"
+                    type="Account"
+                    default="{sobjectType : 'Account'}"
+                    />
+    <aura:attribute
+                    name="loyaltyDetail"
+                    type="OpportunityProductRegistration_cc.DiscountInfo"
+                    />
+    <aura:attribute name="listAvailablePackage" type="list" />
+    <aura:attribute name="mapPackage" type="map" />
+    <aura:attribute name="selectedPackage" type="string" />
+    <aura:attribute name="upgradeStartDate" type="date" />
+    <aura:attribute name="dayUtilised" type="Integer" default="0" />
+    <aura:attribute name="monthUtilised" type="Integer" default="0" />
+    <aura:attribute name="previousProRate" type="Decimal" default="0" />
+    <aura:attribute name="currentProRate" type="Decimal" default="0" />
+    <aura:attribute name="totalAmountAfterDiscount" type="Decimal" default="0" />
+    <aura:attribute name="error" type="String" />
+    <aura:attribute name="advancePlusConversionMsg" type="String" />
+    <aura:attribute name="entitlementAC" type="String" default="Pro-Rated AC Entitlement"/>
+    <aura:attribute name="entitlementPC" type="String" default="Offset PC Entitlement"/>
+    <aura:attribute name="failedInit" type="boolean" default="false" />
+    <aura:attribute name="isAdvancePlus" type="boolean" default="false" />
+    <aura:attribute name="advToAdvPlusConversion" type="boolean" default="false" />
+    <aura:attribute name="Spinner" type="boolean" default="false" />
+    <aura:attribute name="newPackageStartDate" type="date" />
+    <aura:handler event="aura:waiting" action="{!c.showSpinner}" />
+    <aura:handler event="aura:doneWaiting" action="{!c.hideSpinner}" />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:html tag="style">
+        .cuf-content{
+        padding:0 !important;
+        }
+        .slds-p-around--medium{
+        padding:0 !important;
+        }
+        
+        .slds-modal__content{
+        overflow-y:visible;
+        height:unset !important;
+        max-height:unset !important;
+        }
+        @media (max-width: 767px){
+        .slds-modal__container{margin-left:1rem;margin-right:1rem}    
+        }
+    </aura:html> 
+    <!-- <div aura:id="leadModal" class="demo-only">
+        <section
+                 role="dialog"
+                 tabindex="-1"
+                 aria-labelledby="modal-heading-01"
+                 aria-describedby="modal-content-id-1"
+                 class="slds-modal slds-fade-in-open"
+                 >
+            <div class="slds-modal__container" style="width: 100%">-->
+                <!--loading spinner start... style=Brand Medium (blue dots)-->
+                
+                <aura:if isTrue="{!v.Spinner}">
+                    <div aura:id="spinnerId" class="slds-spinner_container">
+                        <div
+                             class="slds-spinner--brand  slds-spinner slds-spinner--large slds-is-relative"
+                             role="alert"
+                             >
+                            <span class="slds-assistive-text">Loading</span>
+                            <div class="slds-spinner__dot-a"></div>
+                            <div class="slds-spinner__dot-b"></div>
+                        </div>
+                    </div>
+                </aura:if>
+                <header class="slds-modal__header">
+                    <button
+                            class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse"
+                            title="Close"
+                            onclick="{!c.cancelBtn}"
+                            >
+                        <lightning:icon
+                                        iconName="utility:close"
+                                        size="x-small"
+                                        alternativeText="Close"
+                                        variant="inverse"
+                                        />
+                    </button>
+                    <h2
+                        id="modal-heading-01"
+                        class="slds-text-heading_medium slds-hyphenate"
+                        >Upgrade Package</h2 
+                        >
+                    
+                    
+                </header>
+                
+                <aura:if isTrue="{!!v.failedInit}">
+                    <div class="slds-modal__content custom-modal-content">
+                        <div class="slds-form slds-form_compound slds-form_stacked slds-m-top_small" >
+
+                            <!--Added To Restrict Opp Creation Based On Renewal and Upgrade (PGAUTO-5237 and PGAUTO-5245)-->
+                            <aura:if isTrue="{!(or(v.showErrorOnExistingOpp,v.showCalloutError))}">
+                                <div class="slds-scoped-notification slds-media slds-media_center slds-theme_error slds-m-right_x-large slds-m-bottom_x-small" role="status">                                    <div class="slds-media__body">
+                                    <p>
+                                        {!v.errorMsgOnExistingOpp}
+                                    </p>
+                                    </div>
+                                </div>
+                            </aura:if>   
+                            <ui:message
+                                        aura:id="errorAlert"
+                                        title="Error"
+                                        class="slds-hide"
+                                        severity="error"
+                                        closable="true"
+                                        >
+                                <aura:unescapedHtml value="{!v.error}" />
+                            </ui:message>
+                            <aura:if isTrue="{!v.loyaltyDetail.IsLoyalty}">
+                                <div class="slds-text-longform">
+                                    <h2 class="slds-text-heading_medium"
+                                        >{!v.agentObj.Name} is eligible for</h2
+                                        >
+                                    <ul>
+                                        <li>
+                                            <div class="slds-text-body_regular"
+                                                 >{!v.loyaltyDetail.Name} :
+                                                <aura:unescapedHtml
+                                                                    value="{!v.loyaltyDetail.Description}"
+                                                                    /></div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </aura:if>
+                            <aura:if isTrue="{!v.advToAdvPlusConversion}">
+                                <div>
+                                <h2 
+                                        >{!v.advancePlusConversionMsg}</h2
+                                        >
+                                </div>
+                            </aura:if>
+                            <div class="slds-form-element">
+                                <div class="slds-form-element__group">
+                                    <div class="slds-form-element__row">
+                                        <div class="slds-form-element slds-size_12-of-12">
+                                            <ui:inputSelect
+                                                            class="slds-select"
+                                                            value="{!v.selectedPackage}"
+                                                            change="{!c.calculateProRate}"
+                                                            required="true"
+                                                            aura:id="selectedPackage"
+                                                            label="Select Upgrade Package"
+                                                            >
+                                                
+                                                <aura:iteration
+                                                                items="{!v.listAvailablePackage}"
+                                                                var="row"
+                                                                >
+                                                    <ui:inputSelectOption
+                                                                          text="{!row.Id}"
+                                                                          label="{!row.Label}"
+                                                                          />
+                                                </aura:iteration>
+                                            </ui:inputSelect>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="slds-form-element">
+                                <div class="slds-form-element__group">
+                                    <div class="slds-form-element__row">
+                                        <div class="slds-form-element slds-size_12-of-12">
+                                          <aura:if isTrue="{!!v.advToAdvPlusConversion}">
+                                            <ui:inputNumber
+                                                            label="Amount Collected"
+                                                            disabled="true"
+                                                            class="slds-input"
+                                                            format="#,##0.##"
+                                                            value="{!v.agentObj.Current_Subscription_Spending_Amount__c}"
+                                                            />
+                                          </aura:if>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="slds-form-element">
+                                <div class="slds-form-element__group">
+                                    <div class="slds-form-element__row">
+                                        <div class="slds-form-element slds-size_6-of-12">
+                                            <ui:inputDate
+                                                          class="slds-input"
+                                                          label="Current Start Date"
+                                                          disabled="true"
+                                                          displayDatePicker="false"
+                                                          value="{!v.agentObj.Subscription_Start_Date__c}"
+                                                          />
+                                        </div>
+                                        <div class="slds-form-element slds-size_6-of-12">
+                                            <ui:inputDate
+                                                          class="slds-input"
+                                                          label="New Package Start Date"
+                                                          aura:id="upgradeStartDate"
+                                                          required="true"
+                                                          displayDatePicker="true"
+                                                          value="{!v.upgradeStartDate}"
+                                                          change="{!c.changeStartDate}"
+                                                          />
+                                            <!-- Show error msg on New Package Start Date field-->
+                                            <aura:if isTrue="{!v.showErrorMsg}">
+                                                <div class="slds-text-color_error slds-p-left_x-small">
+                                                    {!v.errorMsg}
+                                                </div>
+                                            </aura:if>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="slds-form-element">
+                                <div class="slds-form-element__group">
+                                    <div class="slds-form-element__row">
+                                        <div class="slds-form-element slds-size_6-of-12">
+                                            <aura:if isTrue="{!!v.advToAdvPlusConversion}">
+                                            <ui:inputNumber
+                                                            label="Previous Pro Rate Amount"
+                                                            disabled="true"
+                                                            class="slds-input"
+                                                            value="{!v.previousProRate}"
+                                                            change="{!c.calculateProRate}"
+                                                            />
+                                            </aura:if>
+                                        </div>
+                                        <aura:if isTrue = "{!v.agentObj.Country__c != 'Singapore'}">
+                                            <div class="slds-form-element slds-size_6-of-12">
+                                                <ui:inputNumber
+                                                                label="No. Of Month Utilised"
+                                                                disabled="true"
+                                                                class="slds-input"
+                                                                value="{!v.monthUtilised}"
+                                                                />
+                                            </div>
+                                            <!-- For Singapore-->
+                                            <aura:set attribute="else">  
+                                                <div class="slds-form-element slds-size_6-of-12">
+                                                    <aura:if isTrue="{!!v.advToAdvPlusConversion}">
+                                                    <ui:inputNumber
+                                                                    label="No. Of Week Utilized"
+                                                                    disabled="true"
+                                                                    class="slds-input"
+                                                                    value="{!v.weekUtilized}"
+                                                                    />
+                                                    </aura:if>
+                                                </div>
+                                            </aura:set>
+                                        </aura:if>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="slds-form-element">
+                                <div class="slds-form-element__group">
+                                    <div class="slds-form-element__row">
+                                        <aura:if isTrue = "{!v.agentObj.Country__c != 'Singapore'}">
+                                            <div class="slds-form-element slds-size_6-of-12">
+                                                <ui:inputNumber
+                                                                label="Pro Rate"
+                                                                disabled="true"
+                                                                format="#,##0.##"
+                                                                class="slds-input"
+                                                                value="{!v.currentProRate}"
+                                                                />
+                                            </div>
+                                            <div class="slds-form-element slds-size_6-of-12">
+                                                <ui:inputNumber
+                                                                label="Total Amount (after discount)"
+                                                                disabled="true"
+                                                                class="slds-input"
+                                                                value="{!v.totalAmountAfterDiscount}"
+                                                                />
+                                            </div>
+                                            <!-- For Singapore-->
+                                            <aura:set attribute ="else">
+                                                <div class="slds-form-element slds-size_6-of-12">
+                                                    <aura:if isTrue="{!!v.advToAdvPlusConversion}">
+                                                    <ui:inputNumber
+                                                                    label="Pro Rate"
+                                                                    disabled="true"
+                                                                    format="#,##0.##"
+                                                                    class="slds-input"
+                                                                    value="{!v.currentProRate}"
+                                                                    />
+                                                    </aura:if>
+                                                </div>
+                                                <div class="slds-form-element slds-size_6-of-12">
+                                                    <aura:if isTrue="{!!v.advToAdvPlusConversion}">
+                                                    <ui:inputNumber
+                                                                    label="Total Amount (after discount)"
+                                                                    disabled="true"
+                                                                    class="slds-input"
+                                                                    value="{!v.totalAmountAfterDiscount}"
+                                                                    />
+                                                    </aura:if>
+                                                </div>
+                                            </aura:set>
+                                        </aura:if>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="slds-form-element">
+                                <div class="slds-form-element__group">
+                                    <div class="slds-form-element__row">
+                                        <aura:if isTrue = "{!v.agentObj.Country__c == 'Singapore'}">
+                                            <div class="slds-form-element slds-size_6-of-12">
+                                                Consumed Ad Credit {!v.refreshStatus}
+                                                 <aura:if isTrue = "{!and(not(v.showCalloutError),not(v.showErrorOnExistingOpp))}">
+                                                 <a href="javascript:void(0);" onclick="{!c.refreshAdCredit}"> (Refresh)</a>
+                                                </aura:if>
+                                                     <ui:inputNumber
+                                                                disabled="true"
+                                                                class="slds-input"
+                                                                value="{!v.consumedAC}"
+                                                                />
+
+                                            </div>
+                                            <div class="slds-form-element slds-size_6-of-12">
+                                                <ui:inputNumber
+                                                                label="{!v.entitlementAC}"
+                                                                disabled="true"
+                                                                class="slds-input"
+                                                                value="{!v.proRatedAC}"
+                                                                />
+                                            </div>
+                                        </aura:if>
+                                    </div>
+                                    <div class="slds-form-element__row">
+                                        <aura:if isTrue = "{!v.agentObj.Country__c == 'Singapore'}">
+                                            <aura:if isTrue = "{!!v.isAdvancePlus}">
+                                            <div class="slds-form-element slds-size_6-of-12">
+                                                <ui:inputNumber
+                                                                label="Carry Over Ad Credit"
+                                                                disabled="true"
+                                                                class="slds-input"
+                                                                value="{!v.proRatedDiscAC}"
+                                                                />
+                                            </div>
+                                            </aura:if>
+                                        </aura:if>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="slds-form-element">
+                                <div class="slds-form-element__group">
+                                    <div class="slds-form-element__row">
+                                        <aura:if isTrue = "{!v.agentObj.Country__c == 'Singapore'}">
+                                            <div class="slds-form-element slds-size_6-of-12">
+                                                Consumed Prime Credit {!v.refreshStatus}
+                                                 <aura:if isTrue = "{!and(not(v.showCalloutError),not(v.showErrorOnExistingOpp))}">
+                                                 <a href="javascript:void(0);" onclick="{!c.refreshPrimeCredit}"> (Refresh)</a>
+                                                </aura:if>
+                                                     <ui:inputNumber
+                                                                disabled="true"
+                                                                class="slds-input"
+                                                                value="{!v.consumedPC}"
+                                                                />
+
+                                            </div>
+                                            <div class="slds-form-element slds-size_6-of-12">
+                                                <ui:inputNumber
+                                                                label="{!v.entitlementPC}"
+                                                                disabled="true"
+                                                                class="slds-input"
+                                                                value="{!v.proRatedPC}"
+                                                                />
+                                            </div>
+                                        </aura:if>
+                                    </div>
+                                    <div class="slds-form-element__row">
+                                        <aura:if isTrue = "{!v.agentObj.Country__c == 'Singapore'}">
+                                            <div class="slds-form-element slds-size_6-of-12">
+                                                <ui:inputNumber
+                                                                label="Carry Over Prime Credit"
+                                                                disabled="true"
+                                                                class="slds-input"
+                                                                value="{!v.proRatedDiscPC}"
+                                                                />
+                                            </div>
+                                        </aura:if>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <aura:set attribute="else">
+                        <div class="slds-modal__content">
+                            <div class="slds-form slds-form_compound slds-form_stacked slds-m-top_small slds-m-bottom_medium slds-m-left_medium slds-m-right_medium">
+                                <div class="slds-form-element">
+                                    <div class="slds-scoped-notification slds-media slds-media_center slds-theme_error slds-m-right_x-large slds-m-bottom_x-small slds-m-vertical_x-large slds-text-heading_small" role="status">                                    
+                                        <div class="slds-media__body">
+                                            <p>
+                                                <aura:unescapedHtml value="{!v.error}" />
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </aura:set>
+                </aura:if>
+                <footer class="slds-modal__footer">
+                    <lightning:button
+                                      aura:id="cancelBtn"
+                                      label="Cancel"
+                                      class="slds-button slds-button--neutral uiButton"
+                                      onclick="{!c.cancelBtn}"
+                                      />
+                    <aura:if isTrue="{!!v.failedInit}">
+                        <!-- Calling Price Forecast LWC-->
+                        <aura:if isTrue = "{!v.agentObj.Country__c == 'Singapore'}">
+                            <c:upgradeForecast recordId = "{!v.recordId}"/>
+                        </aura:if>
+                        
+                        <!-- Hide Save button on incorrect New Package Start Date Field and to restrict Opp creation-->
+                        <aura:if isTrue ="{!and(and(not(v.showErrorMsg), not(v.showErrorOnExistingOpp)), not(v.showCalloutError))}">
+                            <lightning:button
+                                            aura:id="saveBtn"
+                                            label="Save"
+                                            class="slds-button slds-button_brand uiButton"
+                                            onclick="{!c.saveBtn}"
+                                            />
+                        </aura:if>
+                    </aura:if>
+                </footer>
+          <!--  </div>
+        </section>
+    </div>-->
+</aura:component>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>External_ID__c</fullName>
+    <description>External ID formed by SO ID_BillingMonth_BillingYear</description>
+    <externalId>false</externalId>
+    <formula>Sales_Order__c &amp; &#39;_&#39; &amp; TEXT(MONTH(Billing_Date__c)) &amp; &#39;_&#39; &amp;  TEXT(YEAR(Billing_Date__c))</formula>
+    <inlineHelpText>External ID formed by SO ID_BillingMonth_BillingYear</inlineHelpText>
+    <label>External ID</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

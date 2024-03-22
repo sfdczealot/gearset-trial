@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>BasketId__c</fullName>
+    <description>Denotes the basketId field set by Self Serve Portal to identify baskets/carts</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Denotes the basketId field set by Self Serve Portal to identify baskets/carts</inlineHelpText>
+    <label>BasketId</label>
+    <length>255</length>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

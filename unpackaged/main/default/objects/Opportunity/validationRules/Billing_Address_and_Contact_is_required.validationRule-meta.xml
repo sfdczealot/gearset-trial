@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Billing_Address_and_Contact_is_required</fullName>
+    <active>false</active>
+    <errorConditionFormula>AND(
+$RecordType.Name == &quot;B2B&quot;,
+NOT(ISCLONE()),
+OR (
+ISPICKVAL(StageName, &quot;Pending Client Signatory&quot;),
+ISPICKVAL(StageName, &quot;Pending OMC Approval&quot;)
+),OR(
+ISBLANK(Billing_Street_new__c),
+ISBLANK(Billing_City_new__c),
+ISBLANK(Billing_Country_new__c),
+ISBLANK( Billing_Contact__c )
+))</errorConditionFormula>
+    <errorMessage>Company&#39;s Billing Street, City, Country and Billing Contact must be entered.</errorMessage>
+</ValidationRule>

@@ -1,0 +1,36 @@
+<aura:component
+  implements="force:lightningQuickActionWithoutHeader,force:hasRecordId"
+  controller="OpportunityProductRegistrationStinger_cc"
+  access="GLOBAL"
+>
+  <aura:attribute name="recordId" type="string" />
+  <aura:attribute name="accObj" type="Account" />
+  <aura:attribute name="showError" type="boolean" default="false" />
+  <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+  <aura:if isTrue="{!(!v.showError)}">
+    <aura:if
+      isTrue="{!v.accObj.Country__c=='Singapore' || v.accObj.Country__c=='Thailand'}"
+    >
+      <!-- SG DONT FORGET REMOVE THE MY BELOW-->
+      <c:AgentUpgradeCmp_Stinger recordId="{!v.recordId}" />
+      <aura:set attribute="else">
+        <aura:if isTrue="{!v.accObj.Country__c=='Malaysia'}">
+          <!-- MY -->
+          <c:AgentUpgradeMYCmp_Stinger recordId="{!v.recordId}" />
+          <!-- FOR OTHER COUNTRY
+                <aura:set attribute="else">
+                    <aura:if isTrue="{!v.oppObj.Country__c=='...'}" >
+                        <c:AgentUpgrade..Cmp recordId="{!v.recordId}" />
+                    </aura:if>
+                </aura:set>
+                -->
+        </aura:if>
+      </aura:set>
+    </aura:if>
+  </aura:if>
+  <aura:if isTrue="{!v.showError}">
+    <ui:message title="Error" severity="error" closable="true">
+      Cannot upgrade when there is a subscription pending activation
+    </ui:message>
+  </aura:if>
+</aura:component>

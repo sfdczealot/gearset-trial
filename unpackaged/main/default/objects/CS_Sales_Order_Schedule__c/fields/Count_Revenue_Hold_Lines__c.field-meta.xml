@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Count_Revenue_Hold_Lines__c</fullName>
+    <description>The total number of Schedules with lines on Hold for Revenue Processing.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>The total number of Schedules with lines on Hold for Revenue Processing.</inlineHelpText>
+    <label>Count Revenue Hold Lines</label>
+    <summarizedField>CS_Revenue_Schedule__c.Revenue_on_Hold__c</summarizedField>
+    <summaryForeignKey>CS_Revenue_Schedule__c.CS_Sales_Order_Schedule__c</summaryForeignKey>
+    <summaryOperation>sum</summaryOperation>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>

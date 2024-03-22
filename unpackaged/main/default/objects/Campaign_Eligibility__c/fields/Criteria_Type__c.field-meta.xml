@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Criteria_Type__c</fullName>
+    <description>Denotes the type of entry of criteria</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Denotes the type of entry of criteria</inlineHelpText>
+    <label>Criteria Type</label>
+    <required>false</required>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>SOQL</fullName>
+                <default>false</default>
+                <label>SOQL</label>
+            </value>
+            <value>
+                <fullName>Apex Method</fullName>
+                <default>false</default>
+                <label>Apex Method</label>
+            </value>
+            <value>
+                <fullName>Custom Metadata</fullName>
+                <default>false</default>
+                <label>Custom Metadata</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

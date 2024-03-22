@@ -1,0 +1,33 @@
+.THIS .custom-table-class .object-name-col{
+    width: 75%;
+}
+.THIS .custom-table-class .slds-form-element__label{
+    display:block;
+    position: absolute;
+    left: -13px;
+    z-index: 1111;
+    top: -6px;
+}
+.THIS .custom-table-class .slds-checkbox [type=checkbox][disabled]+.slds-checkbox__label .slds-checkbox_faux{
+    width: 25px;
+    height: 25px;
+    border-color: rgb(196, 198, 202);
+}
+.THIS .custom-table-class .slds-checkbox [type=checkbox][disabled]+.slds-checkbox__label .slds-checkbox_faux:after{
+    height: 0.5rem;
+    width: .80rem;
+    transform: translate(-50%, -85%) rotate(-45deg);
+}
+.THIS .custom-table-class .slds-checkbox [type=checkbox]+.slds-checkbox__label .slds-checkbox_faux{
+    width: 25px;
+    height: 25px;
+    border-color: rgb(0, 112, 210);
+}
+.THIS .custom-table-class .slds-checkbox [type=checkbox]+.slds-checkbox__label .slds-checkbox_faux:after{
+    height: 0.5rem;
+    width: .80rem;
+    transform: translate(-50%, -85%) rotate(-45deg);
+}
+.THIS .custom-table-class .box-shadow-none .slds-button:focus{
+    box-shadow: none;
+}

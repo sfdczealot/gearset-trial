@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>IsDiscretionaryAC__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Checkbox to differentiate carryover Ad Credit From Bundle Ad Credit</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Checkbox to carryover discretionary Ad Credit From Bundle Ad Credit</inlineHelpText>
+    <label>Is Discretionary AC</label>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

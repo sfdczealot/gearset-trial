@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>STG_Configuration_Package_ID__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF (ISPICKVAL(Served_By__c,&#39;DFP&#39;),
+$Setup.CS_Migration_Settings__c.Default_Package_To_Clone__c,
+$Setup.CS_Migration_Settings__c.Non_DFP_Package_To_Clone__c)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>STG Configuration Package ID</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

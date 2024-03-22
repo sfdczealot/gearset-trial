@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Accruals_Imported_To_ERP__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Used for Exporting additional Accruals related to Broadcast Calendar end dates passing beyond the calendar month end of the order line</description>
+    <externalId>false</externalId>
+    <label>Accruals Imported To ERP</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

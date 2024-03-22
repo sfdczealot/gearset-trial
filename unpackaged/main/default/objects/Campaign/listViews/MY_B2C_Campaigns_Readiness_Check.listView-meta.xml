@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MY_B2C_Campaigns_Readiness_Check</fullName>
+    <columns>CAMPAIGN.NAME</columns>
+    <columns>CAMPAIGN.START_DATE</columns>
+    <columns>CAMPAIGN.END_DATE</columns>
+    <columns>CAMPAIGN.CAMPAIGN_TYPE</columns>
+    <columns>CAMPAIGN.ACTIVE</columns>
+    <columns>CAMPAIGN.NUM_CONTACTS</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>CAMPAIGN.START_DATE</field>
+        <operation>lessOrEqual</operation>
+        <value>TODAY</value>
+    </filters>
+    <filters>
+        <field>CAMPAIGN.END_DATE</field>
+        <operation>lessOrEqual</operation>
+        <value>TODAY</value>
+    </filters>
+    <filters>
+        <field>Country__c</field>
+        <operation>equals</operation>
+        <value>Malaysia</value>
+    </filters>
+    <filters>
+        <field>CAMPAIGN.RECORDTYPE</field>
+        <operation>notEqual</operation>
+        <value>Campaign.B2B_Developer_Online_Form,Campaign.B2B_TM_Events</value>
+    </filters>
+    <filters>
+        <field>CAMPAIGN.NUM_CONTACTS</field>
+        <operation>greaterOrEqual</operation>
+        <value>0</value>
+    </filters>
+    <label>MY B2C Campaigns Readiness Check</label>
+    <sharedTo>
+        <role>MY_B2C</role>
+    </sharedTo>
+</ListView>

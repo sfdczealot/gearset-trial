@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Changed_when_Opportunity_Closed_Lost</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND( RecordType.DeveloperName = &#39;B2C_Closed_Lost&#39;, OR(isCHANGED(Name),isCHANGED(CloseDate),isCHANGED(CurrencyIsoCode),isCHANGED(StageName),isChanged(OwnerId)), LastModifiedById !=&#39;0057F000000K3uFQAS&#39;)</errorConditionFormula>
+    <errorMessage>This opportunity is closed!</errorMessage>
+</ValidationRule>

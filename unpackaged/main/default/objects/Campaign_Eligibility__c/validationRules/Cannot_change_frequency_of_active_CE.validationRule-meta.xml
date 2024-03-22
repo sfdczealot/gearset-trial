@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Cannot_change_frequency_of_active_CE</fullName>
+    <active>false</active>
+    <errorConditionFormula>Campaign__r.IsActive = true &amp;&amp;
+ ISCHANGED(Run_Frequency__c) &amp;&amp;
+	NOT(ISBLANK(PRIORVALUE(Run_Frequency__c)))</errorConditionFormula>
+    <errorMessage>you cannot change run frequency of active campaign</errorMessage>
+</ValidationRule>

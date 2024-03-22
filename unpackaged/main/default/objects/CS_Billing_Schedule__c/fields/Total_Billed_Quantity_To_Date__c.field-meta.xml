@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Total_Billed_Quantity_To_Date__c</fullName>
+    <description>Sum of Total Billed to Date for Ready + Pending Clousure + Closed Lines</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Sum of Total Billed to Date for Ready + Pending Clousure + Closed Lines</inlineHelpText>
+    <label>Total Billed Qty To Date</label>
+    <summarizedField>CS_Billing_Schedule_Item__c.Billing_Quantity__c</summarizedField>
+    <summaryFilterItems>
+        <field>CS_Billing_Schedule_Item__c.Status__c</field>
+        <operation>equals</operation>
+        <value>Closed, Pending Closure</value>
+    </summaryFilterItems>
+    <summaryForeignKey>CS_Billing_Schedule_Item__c.Billing_Schedule__c</summaryForeignKey>
+    <summaryOperation>sum</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>

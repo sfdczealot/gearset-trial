@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Disqualified_Reason__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>What is the reason why this lead is rejected?</inlineHelpText>
+    <label>Disqualified Reason</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>Status</controllingField>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Unable to reach</fullName>
+                <default>false</default>
+                <label>Unable to reach</label>
+            </value>
+            <value>
+                <fullName>Inaccurate data</fullName>
+                <default>false</default>
+                <label>Inaccurate data</label>
+            </value>
+            <value>
+                <fullName>No interest/need</fullName>
+                <default>false</default>
+                <label>No interest/need</label>
+            </value>
+            <value>
+                <fullName>No budget</fullName>
+                <default>false</default>
+                <label>No budget</label>
+            </value>
+            <value>
+                <fullName>No fit</fullName>
+                <default>false</default>
+                <label>No fit</label>
+            </value>
+            <value>
+                <fullName>Not ready to buy</fullName>
+                <default>false</default>
+                <label>Not ready to buy</label>
+            </value>
+            <value>
+                <fullName>No authority</fullName>
+                <default>false</default>
+                <label>No authority</label>
+            </value>
+            <value>
+                <fullName>Other reasons</fullName>
+                <default>false</default>
+                <label>Other reasons</label>
+            </value>
+            <value>
+                <fullName>Merged</fullName>
+                <default>false</default>
+                <label>Merged</label>
+            </value>
+            <value>
+                <fullName>Not Interested</fullName>
+                <default>false</default>
+                <label>Not Interested</label>
+            </value>
+            <value>
+                <fullName>Unable to reach (at least 5 attempts)</fullName>
+                <default>false</default>
+                <label>Unable to reach (at least 5 attempts)</label>
+            </value>
+            <value>
+                <fullName>Already Renewed/Purchased/Registered/Bosted</fullName>
+                <default>false</default>
+                <label>Already Renewed/Purchased/Registered/Bosted</label>
+            </value>
+            <value>
+                <fullName>Duplicate Record</fullName>
+                <default>false</default>
+                <label>Duplicate Record</label>
+            </value>
+            <value>
+                <fullName>Not Eligible</fullName>
+                <default>false</default>
+                <label>Not Eligible</label>
+            </value>
+            <value>
+                <fullName>DO NOT CALL List</fullName>
+                <default>false</default>
+                <label>DO NOT CALL List</label>
+            </value>
+            <value>
+                <fullName>Wrong Number</fullName>
+                <default>false</default>
+                <label>Wrong Number</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>Disqualified</controllingFieldValue>
+            <valueName>Unable to reach</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Disqualified</controllingFieldValue>
+            <valueName>Inaccurate data</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Disqualified</controllingFieldValue>
+            <valueName>No interest/need</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Disqualified</controllingFieldValue>
+            <valueName>No budget</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Disqualified</controllingFieldValue>
+            <valueName>No fit</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Disqualified</controllingFieldValue>
+            <valueName>Not ready to buy</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Disqualified</controllingFieldValue>
+            <valueName>No authority</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Disqualified</controllingFieldValue>
+            <valueName>Other reasons</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Disqualified</controllingFieldValue>
+            <valueName>Merged</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Disqualified</controllingFieldValue>
+            <valueName>Not Interested</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Disqualified</controllingFieldValue>
+            <valueName>Unable to reach (at least 5 attempts)</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Disqualified</controllingFieldValue>
+            <valueName>Already Renewed/Purchased/Registered/Bosted</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Disqualified</controllingFieldValue>
+            <valueName>Duplicate Record</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Disqualified</controllingFieldValue>
+            <valueName>Not Eligible</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Disqualified</controllingFieldValue>
+            <valueName>DO NOT CALL List</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Disqualified</controllingFieldValue>
+            <valueName>Wrong Number</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

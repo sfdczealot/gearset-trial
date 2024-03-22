@@ -1,0 +1,67 @@
+<template>
+   
+    <div class="slds-box slds-theme_shade" >
+        <div style="width:150px; margin-bottom : 10px">
+         <lightning-combobox
+                name="Country"
+                label="Country"
+                value={value}
+                placeholder="Country"
+                options={options}
+                onchange={handleChange} >
+    </lightning-combobox>
+ </div>
+ <div style="width:250px; margin-bottom : 10px;margin-left: -10px">
+        
+ <lightning-button variant="brand" label="Run Rewards Calculation" title="Primary action" onclick={runCalculation} class="slds-m-left_x-small"></lightning-button>
+  </div>  
+ 
+  <div style="margin-right: -16px;margin-left: -16px">
+    <template if:true={previousBatch_records}>
+       <lightning-datatable
+       key-field="id"
+       columns={columns}
+       data={display_records}
+       hide-checkbox-column
+       show-row-number-column
+       row-number-offset={rowOffset}
+       default-sort-direction={defaultSortDirection}
+       sorted-direction={sortDirection}
+       sorted-by={sortedBy}
+       onsort={onHandleSort}
+       onrowaction={callRowAction}>
+ </lightning-datatable>
+ 
+ <template if:true={isDisplayNoRecords}>
+    <div class="slds-align_absolute-center">
+        <br/>
+        No records found
+    </div>
+ </template>
+ <br/>
+ <div class="slds-align_absolute-center"> 
+    <div class="slds-p-right_xx-small">
+            
+        <lightning-button label="Prev"
+        disabled={isPrev} onclick={handlePrev}
+                            variant="brand"
+                            icon-name="utility:back"
+                            name="prev"> </lightning-button>  
+    </div>
+  
+    <span class="slds-badge slds-badge_lightest">
+        {recordStart}-{recordEnd} of {totalRecords} | Page {pageNumber} of {totalPages}
+    </span>
+    <div class="slds-p-left_xx-small">
+        <lightning-button label="Next"
+        disabled={isNext} onclick={handleNext}
+                            variant="brand"
+                            icon-name="utility:forward"
+                            icon-position="right"
+                            name="next"></lightning-button>
+    </div>
+ </div>  
+ </template>
+ </div>
+ </div>
+ </template>

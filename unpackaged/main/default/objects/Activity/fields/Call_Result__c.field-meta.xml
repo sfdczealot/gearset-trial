@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Call_Result__c</fullName>
+    <externalId>false</externalId>
+    <label>Call Result</label>
+    <required>false</required>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Budget Issues</fullName>
+                <default>false</default>
+                <label>Budget Issues</label>
+            </value>
+            <value>
+                <fullName>Busy</fullName>
+                <default>false</default>
+                <label>Busy</label>
+            </value>
+            <value>
+                <fullName>Downgrade</fullName>
+                <default>false</default>
+                <label>Downgrade</label>
+            </value>
+            <value>
+                <fullName>Migrate to other portals</fullName>
+                <default>false</default>
+                <label>Migrate to other portals</label>
+            </value>
+            <value>
+                <fullName>New Sign-Up</fullName>
+                <default>false</default>
+                <label>New Sign-Up</label>
+            </value>
+            <value>
+                <fullName>No Answer</fullName>
+                <default>false</default>
+                <label>No Answer</label>
+            </value>
+            <value>
+                <fullName>No longer an Agent</fullName>
+                <default>false</default>
+                <label>No longer an Agent</label>
+            </value>
+            <value>
+                <fullName>Not Interested</fullName>
+                <default>false</default>
+                <label>Not Interested</label>
+            </value>
+            <value>
+                <fullName>Pending Payment</fullName>
+                <default>false</default>
+                <label>Pending Payment</label>
+            </value>
+            <value>
+                <fullName>Requested for more info</fullName>
+                <default>false</default>
+                <label>Requested for more info</label>
+            </value>
+            <value>
+                <fullName>T&amp;C / online payment</fullName>
+                <default>false</default>
+                <label>T&amp;C / online payment</label>
+            </value>
+            <value>
+                <fullName>Through Account Manager</fullName>
+                <default>false</default>
+                <label>Through Account Manager</label>
+            </value>
+            <value>
+                <fullName>Upgrade</fullName>
+                <default>false</default>
+                <label>Upgrade</label>
+            </value>
+            <value>
+                <fullName>Wrong / Invalid Number</fullName>
+                <default>false</default>
+                <label>Wrong / Invalid Number</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>4</visibleLines>
+</CustomField>

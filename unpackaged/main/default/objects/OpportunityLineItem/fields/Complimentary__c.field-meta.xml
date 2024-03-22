@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Complimentary__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Indicate this product is given to customer as Complimentary</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Check if this product is Complimentary</inlineHelpText>
+    <label>Complimentary</label>
+    <type>Checkbox</type>
+</CustomField>

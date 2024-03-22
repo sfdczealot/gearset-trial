@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Reach_Measurement_Vendor_2__c</fullName>
+    <externalId>false</externalId>
+    <label>Reach Measurement Vendor 2</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>N/A</fullName>
+                <default>false</default>
+                <label>N/A</label>
+            </value>
+            <value>
+                <fullName>Nielsen Digital Ad Ratings - Client Commissioned</fullName>
+                <default>false</default>
+                <label>Nielsen Digital Ad Ratings - Client Commissioned</label>
+            </value>
+            <value>
+                <fullName>Nielsen Digital Ad Ratings - Spotify Commissioned</fullName>
+                <default>false</default>
+                <label>Nielsen Digital Ad Ratings - Spotify Commissioned</label>
+            </value>
+            <value>
+                <fullName>MOAT</fullName>
+                <default>false</default>
+                <label>MOAT</label>
+            </value>
+            <value>
+                <fullName>comScore vCE</fullName>
+                <default>false</default>
+                <label>comScore vCE</label>
+            </value>
+            <value>
+                <fullName>IAS</fullName>
+                <default>false</default>
+                <label>IAS</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

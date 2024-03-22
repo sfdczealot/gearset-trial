@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Subsidiary__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>Denotes the PG subsidiary to which the account belongs to</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Denotes the PG subsidiary to which the account belongs to</inlineHelpText>
+    <label>Subsidiary</label>
+    <referenceTo>Subsidiary__c</referenceTo>
+    <relationshipLabel>Accounts</relationshipLabel>
+    <relationshipName>Accounts</relationshipName>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <type>Lookup</type>
+</CustomField>

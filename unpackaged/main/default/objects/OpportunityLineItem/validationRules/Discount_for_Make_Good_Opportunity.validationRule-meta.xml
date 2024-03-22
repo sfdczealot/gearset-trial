@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Discount_for_Make_Good_Opportunity</fullName>
+    <active>false</active>
+    <description>All the Opportunity have order type Contract - Make Good should be 100% discount</description>
+    <errorConditionFormula>AND(
+Opportunity.RecordType.Name = &#39;B2B&#39;, ISPICKVAL( Opportunity.Order_Type_Clone__c , &#39;Contract - Make Good&#39;),Discount__c != 1)</errorConditionFormula>
+    <errorDisplayField>Discount__c</errorDisplayField>
+    <errorMessage>Make Good Opportunity must have 100% Discount</errorMessage>
+</ValidationRule>

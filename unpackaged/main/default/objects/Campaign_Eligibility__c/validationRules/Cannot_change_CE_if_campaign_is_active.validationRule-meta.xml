@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Cannot_change_CE_if_campaign_is_active</fullName>
+    <active>true</active>
+    <description>Campaign Eligibility cannot be created and edited if campaign is active.</description>
+    <errorConditionFormula>AND(
+Campaign__r.IsActive = true,
+$Profile.Name = &quot;Trade Marketing&quot;
+)</errorConditionFormula>
+    <errorMessage>You cannot perform the operation as campaign is active.</errorMessage>
+</ValidationRule>

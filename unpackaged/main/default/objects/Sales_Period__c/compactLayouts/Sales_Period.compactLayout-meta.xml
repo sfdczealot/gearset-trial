@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CompactLayout xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Sales_Period</fullName>
+    <fields>Name</fields>
+    <fields>Subsidiary__c</fields>
+    <fields>Period_Start__c</fields>
+    <fields>Period_End__c</fields>
+    <label>Sales Period</label>
+</CompactLayout>

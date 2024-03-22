@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CEA_and_Birthday_are_mandatory</fullName>
+    <active>true</active>
+    <description>Agent  Identification Number and BirthDate fields are mandatory for SG - Cust Care profile</description>
+    <errorConditionFormula>AND(IsPersonAccount , RecordType.Name = &#39;Agent&#39;,ISPICKVAL(Country__c , &#39;Singapore&#39;),AND ( ISBLANK(PersonBirthdate )|| ISBLANK(CEA_Salesperson_Number__c )) )</errorConditionFormula>
+    <errorMessage>Agent Identification Number and BirthDate cannot be blank</errorMessage>
+</ValidationRule>

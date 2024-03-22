@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Print_Item_Rule__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <externalId>false</externalId>
+    <label>Print Item Rule</label>
+    <lookupFilter>
+        <active>true</active>
+        <filterItems>
+            <field>Billing_Rule_Class__c.Rule_Type__c</field>
+            <operation>equals</operation>
+            <value>Print Fulfilment factory</value>
+        </filterItems>
+        <isOptional>false</isOptional>
+    </lookupFilter>
+    <referenceTo>Billing_Rule_Class__c</referenceTo>
+    <relationshipLabel>Billing Schedule Rules (Print Item Factory)</relationshipLabel>
+    <relationshipName>Billing_Schedule_Rules4</relationshipName>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

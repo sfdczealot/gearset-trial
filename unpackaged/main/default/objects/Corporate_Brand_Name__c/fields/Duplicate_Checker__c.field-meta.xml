@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Duplicate_Checker__c</fullName>
+    <caseSensitive>false</caseSensitive>
+    <externalId>true</externalId>
+    <inlineHelpText>This field does not allow duplicates. A workflow copies the brand name to this field. If the brand name is not unique an error will be thrown...</inlineHelpText>
+    <label>Duplicate Checker</label>
+    <length>200</length>
+    <required>false</required>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>true</unique>
+</CustomField>

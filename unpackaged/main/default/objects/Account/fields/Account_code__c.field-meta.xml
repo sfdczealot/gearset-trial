@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Account_code__c</fullName>
+    <description>This is the unique ID for this account within SFDC and may be used for mapping across other systems (ERP, etc)</description>
+    <displayFormat>ACC-{000000}</displayFormat>
+    <externalId>true</externalId>
+    <inlineHelpText>This is the unique ID for this account within SFDC and may be used for mapping across other systems (ERP, etc)</inlineHelpText>
+    <label>Account code</label>
+    <trackHistory>false</trackHistory>
+    <type>AutoNumber</type>
+</CustomField>

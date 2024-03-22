@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Price_before_discount1__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF( Complimentary__c = TRUE , IF( Record_Type__c  &lt;&gt; &#39;B2C&#39;, (UnitPrice * Quantity) -  Total_Price__c , IF(  FLOOR( SNo__c ) =SNo__c   , (UnitPrice * Quantity) , 0) ) , (UnitPrice * Quantity))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Price before discount1</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackHistory>false</trackHistory>
+    <type>Currency</type>
+</CustomField>

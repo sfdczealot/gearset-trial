@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Accepted_Vendor_Tag__c</fullName>
+    <externalId>false</externalId>
+    <label>Accepted Vendor Tag</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>N/A</fullName>
+                <default>false</default>
+                <label>N/A</label>
+            </value>
+            <value>
+                <fullName>Lucid</fullName>
+                <default>false</default>
+                <label>Lucid</label>
+            </value>
+            <value>
+                <fullName>Survata</fullName>
+                <default>false</default>
+                <label>Survata</label>
+            </value>
+            <value>
+                <fullName>Dynata/Research Now</fullName>
+                <default>false</default>
+                <label>Dynata/Research Now</label>
+            </value>
+            <value>
+                <fullName>AudienceProject</fullName>
+                <default>false</default>
+                <label>AudienceProject</label>
+            </value>
+            <value>
+                <fullName>Ninth Decimal</fullName>
+                <default>false</default>
+                <label>Ninth Decimal</label>
+            </value>
+            <value>
+                <fullName>Cuebiq</fullName>
+                <default>false</default>
+                <label>Cuebiq</label>
+            </value>
+            <value>
+                <fullName>PlaceIQ</fullName>
+                <default>false</default>
+                <label>PlaceIQ</label>
+            </value>
+            <value>
+                <fullName>Samba</fullName>
+                <default>false</default>
+                <label>Samba</label>
+            </value>
+            <value>
+                <fullName>Marketing Evolution</fullName>
+                <default>false</default>
+                <label>Marketing Evolution</label>
+            </value>
+            <value>
+                <fullName>C3</fullName>
+                <default>false</default>
+                <label>C3</label>
+            </value>
+            <value>
+                <fullName>Kochava</fullName>
+                <default>false</default>
+                <label>Kochava</label>
+            </value>
+            <value>
+                <fullName>Alphonso</fullName>
+                <default>false</default>
+                <label>Alphonso</label>
+            </value>
+            <value>
+                <fullName>Appsflyer</fullName>
+                <default>false</default>
+                <label>Appsflyer</label>
+            </value>
+            <value>
+                <fullName>TV Ad Sync</fullName>
+                <default>false</default>
+                <label>TV Ad Sync</label>
+            </value>
+            <value>
+                <fullName>Nielsen CPG MTA</fullName>
+                <default>false</default>
+                <label>Nielsen CPG MTA</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

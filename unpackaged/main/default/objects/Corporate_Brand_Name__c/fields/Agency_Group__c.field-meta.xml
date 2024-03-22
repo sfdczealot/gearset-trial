@@ -1,0 +1,1129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Agency_Group__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>Mid-level agency group association</inlineHelpText>
+    <label>Brand Group</label>
+    <required>false</required>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>Agency_Holding_Company__c</controllingField>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>24/7 Media</fullName>
+                <default>false</default>
+                <label>24/7 Media</label>
+            </value>
+            <value>
+                <fullName>9ine Sports &amp; Entertainment</fullName>
+                <default>false</default>
+                <label>9ine Sports &amp; Entertainment</label>
+            </value>
+            <value>
+                <fullName>A. Eicoff &amp; Co</fullName>
+                <default>false</default>
+                <label>A. Eicoff &amp; Co</label>
+            </value>
+            <value>
+                <fullName>Acceleration</fullName>
+                <default>false</default>
+                <label>Acceleration</label>
+            </value>
+            <value>
+                <fullName>AKQA</fullName>
+                <default>false</default>
+                <label>AKQA</label>
+            </value>
+            <value>
+                <fullName>Alliance</fullName>
+                <default>false</default>
+                <label>Alliance</label>
+            </value>
+            <value>
+                <fullName>BDG Architecture + Design</fullName>
+                <default>false</default>
+                <label>BDG Architecture + Design</label>
+            </value>
+            <value>
+                <fullName>Blue State Digital</fullName>
+                <default>false</default>
+                <label>Blue State Digital</label>
+            </value>
+            <value>
+                <fullName>B to D Group</fullName>
+                <default>false</default>
+                <label>B to D Group</label>
+            </value>
+            <value>
+                <fullName>Buchanan Communications</fullName>
+                <default>false</default>
+                <label>Buchanan Communications</label>
+            </value>
+            <value>
+                <fullName>Clarion Communications</fullName>
+                <default>false</default>
+                <label>Clarion Communications</label>
+            </value>
+            <value>
+                <fullName>Clover Park Group</fullName>
+                <default>false</default>
+                <label>Clover Park Group</label>
+            </value>
+            <value>
+                <fullName>Coley Prter Bell</fullName>
+                <default>false</default>
+                <label>Coley Prter Bell</label>
+            </value>
+            <value>
+                <fullName>Dewey Square Group</fullName>
+                <default>false</default>
+                <label>Dewey Square Group</label>
+            </value>
+            <value>
+                <fullName>Dialogue</fullName>
+                <default>false</default>
+                <label>Dialogue</label>
+            </value>
+            <value>
+                <fullName>Digit</fullName>
+                <default>false</default>
+                <label>Digit</label>
+            </value>
+            <value>
+                <fullName>Dmollan/Headcount</fullName>
+                <default>false</default>
+                <label>Dmollan/Headcount</label>
+            </value>
+            <value>
+                <fullName>Dovetail</fullName>
+                <default>false</default>
+                <label>Dovetail</label>
+            </value>
+            <value>
+                <fullName>EWA</fullName>
+                <default>false</default>
+                <label>EWA</label>
+            </value>
+            <value>
+                <fullName>F.Biz</fullName>
+                <default>false</default>
+                <label>F.Biz</label>
+            </value>
+            <value>
+                <fullName>GCI Health</fullName>
+                <default>false</default>
+                <label>GCI Health</label>
+            </value>
+            <value>
+                <fullName>GHG</fullName>
+                <default>false</default>
+                <label>GHG</label>
+            </value>
+            <value>
+                <fullName>Grey Group</fullName>
+                <default>false</default>
+                <label>Grey Group</label>
+            </value>
+            <value>
+                <fullName>Group M</fullName>
+                <default>false</default>
+                <label>Group M</label>
+            </value>
+            <value>
+                <fullName>Hering Schuppener</fullName>
+                <default>false</default>
+                <label>Hering Schuppener</label>
+            </value>
+            <value>
+                <fullName>Hill + Knowlton Strategies</fullName>
+                <default>false</default>
+                <label>Hill + Knowlton Strategies</label>
+            </value>
+            <value>
+                <fullName>Hogarth Worldwide</fullName>
+                <default>false</default>
+                <label>Hogarth Worldwide</label>
+            </value>
+            <value>
+                <fullName>JWT</fullName>
+                <default>false</default>
+                <label>JWT</label>
+            </value>
+            <value>
+                <fullName>Kantar</fullName>
+                <default>false</default>
+                <label>Kantar</label>
+            </value>
+            <value>
+                <fullName>Mando</fullName>
+                <default>false</default>
+                <label>Mando</label>
+            </value>
+            <value>
+                <fullName>Maxx Marketing</fullName>
+                <default>false</default>
+                <label>Maxx Marketing</label>
+            </value>
+            <value>
+                <fullName>Metro</fullName>
+                <default>false</default>
+                <label>Metro</label>
+            </value>
+            <value>
+                <fullName>MJM</fullName>
+                <default>false</default>
+                <label>MJM</label>
+            </value>
+            <value>
+                <fullName>Mosaicamd</fullName>
+                <default>false</default>
+                <label>Mosaicamd</label>
+            </value>
+            <value>
+                <fullName>Ogilvy Group</fullName>
+                <default>false</default>
+                <label>Ogilvy Group</label>
+            </value>
+            <value>
+                <fullName>OHAL</fullName>
+                <default>false</default>
+                <label>OHAL</label>
+            </value>
+            <value>
+                <fullName>Other (WPP)</fullName>
+                <default>false</default>
+                <label>Other (WPP)</label>
+            </value>
+            <value>
+                <fullName>Pace</fullName>
+                <default>false</default>
+                <label>Pace</label>
+            </value>
+            <value>
+                <fullName>PBN Hill+ Knowlton Strategies</fullName>
+                <default>false</default>
+                <label>PBN Hill+ Knowlton Strategies</label>
+            </value>
+            <value>
+                <fullName>Possible</fullName>
+                <default>false</default>
+                <label>Possible</label>
+            </value>
+            <value>
+                <fullName>Prime Policy Group</fullName>
+                <default>false</default>
+                <label>Prime Policy Group</label>
+            </value>
+            <value>
+                <fullName>Prism Group</fullName>
+                <default>false</default>
+                <label>Prism Group</label>
+            </value>
+            <value>
+                <fullName>QGA</fullName>
+                <default>false</default>
+                <label>QGA</label>
+            </value>
+            <value>
+                <fullName>RLM Finsbury</fullName>
+                <default>false</default>
+                <label>RLM Finsbury</label>
+            </value>
+            <value>
+                <fullName>Rockfish</fullName>
+                <default>false</default>
+                <label>Rockfish</label>
+            </value>
+            <value>
+                <fullName>Salmon</fullName>
+                <default>false</default>
+                <label>Salmon</label>
+            </value>
+            <value>
+                <fullName>Santo</fullName>
+                <default>false</default>
+                <label>Santo</label>
+            </value>
+            <value>
+                <fullName>Scholz &amp; Friends</fullName>
+                <default>false</default>
+                <label>Scholz &amp; Friends</label>
+            </value>
+            <value>
+                <fullName>Soho Square</fullName>
+                <default>false</default>
+                <label>Soho Square</label>
+            </value>
+            <value>
+                <fullName>Team Detroit</fullName>
+                <default>false</default>
+                <label>Team Detroit</label>
+            </value>
+            <value>
+                <fullName>Tenthavenue</fullName>
+                <default>false</default>
+                <label>Tenthavenue</label>
+            </value>
+            <value>
+                <fullName>The Data Alliance</fullName>
+                <default>false</default>
+                <label>The Data Alliance</label>
+            </value>
+            <value>
+                <fullName>The Farm Group</fullName>
+                <default>false</default>
+                <label>The Farm Group</label>
+            </value>
+            <value>
+                <fullName>The Food Group</fullName>
+                <default>false</default>
+                <label>The Food Group</label>
+            </value>
+            <value>
+                <fullName>The Geppetto Group</fullName>
+                <default>false</default>
+                <label>The Geppetto Group</label>
+            </value>
+            <value>
+                <fullName>The Media Innovation Group</fullName>
+                <default>false</default>
+                <label>The Media Innovation Group</label>
+            </value>
+            <value>
+                <fullName>United Visions</fullName>
+                <default>false</default>
+                <label>United Visions</label>
+            </value>
+            <value>
+                <fullName>Young &amp; Rubicam Group</fullName>
+                <default>false</default>
+                <label>Young &amp; Rubicam Group</label>
+            </value>
+            <value>
+                <fullName>BBDO Worldwide</fullName>
+                <default>false</default>
+                <label>BBDO Worldwide</label>
+            </value>
+            <value>
+                <fullName>CDM Group</fullName>
+                <default>false</default>
+                <label>CDM Group</label>
+            </value>
+            <value>
+                <fullName>DDB Worldwide</fullName>
+                <default>false</default>
+                <label>DDB Worldwide</label>
+            </value>
+            <value>
+                <fullName>FleishmanHillard</fullName>
+                <default>false</default>
+                <label>FleishmanHillard</label>
+            </value>
+            <value>
+                <fullName>Ketchum</fullName>
+                <default>false</default>
+                <label>Ketchum</label>
+            </value>
+            <value>
+                <fullName>Marketing Arm</fullName>
+                <default>false</default>
+                <label>Marketing Arm</label>
+            </value>
+            <value>
+                <fullName>Omnicom Media Group</fullName>
+                <default>false</default>
+                <label>Omnicom Media Group</label>
+            </value>
+            <value>
+                <fullName>Other (Omnicom)</fullName>
+                <default>false</default>
+                <label>Other (Omnicom)</label>
+            </value>
+            <value>
+                <fullName>TBWA/Worldwide</fullName>
+                <default>false</default>
+                <label>TBWA/Worldwide</label>
+            </value>
+            <value>
+                <fullName>Bartle Bogle Hegarty</fullName>
+                <default>false</default>
+                <label>Bartle Bogle Hegarty</label>
+            </value>
+            <value>
+                <fullName>DigitasLBi</fullName>
+                <default>false</default>
+                <label>DigitasLBi</label>
+            </value>
+            <value>
+                <fullName>Leo Burnett Worldwide</fullName>
+                <default>false</default>
+                <label>Leo Burnett Worldwide</label>
+            </value>
+            <value>
+                <fullName>MSLGroup</fullName>
+                <default>false</default>
+                <label>MSLGroup</label>
+            </value>
+            <value>
+                <fullName>Other (Publicis)</fullName>
+                <default>false</default>
+                <label>Other (Publicis)</label>
+            </value>
+            <value>
+                <fullName>Publicis Worldwide</fullName>
+                <default>false</default>
+                <label>Publicis Worldwide</label>
+            </value>
+            <value>
+                <fullName>Razorfish</fullName>
+                <default>false</default>
+                <label>Razorfish</label>
+            </value>
+            <value>
+                <fullName>Saatchi &amp; Saatchi</fullName>
+                <default>false</default>
+                <label>Saatchi &amp; Saatchi</label>
+            </value>
+            <value>
+                <fullName>Starcom Media Vest Group</fullName>
+                <default>false</default>
+                <label>Starcom Media Vest Group</label>
+            </value>
+            <value>
+                <fullName>ZenithOptimedia</fullName>
+                <default>false</default>
+                <label>ZenithOptimedia</label>
+            </value>
+            <value>
+                <fullName>FCB</fullName>
+                <default>false</default>
+                <label>FCB</label>
+            </value>
+            <value>
+                <fullName>IPG Mediabrands</fullName>
+                <default>false</default>
+                <label>IPG Mediabrands</label>
+            </value>
+            <value>
+                <fullName>Lowe + Partners Worldwide</fullName>
+                <default>false</default>
+                <label>Lowe + Partners Worldwide</label>
+            </value>
+            <value>
+                <fullName>McCann Worldwide</fullName>
+                <default>false</default>
+                <label>McCann Worldwide</label>
+            </value>
+            <value>
+                <fullName>Other (Interpublic)</fullName>
+                <default>false</default>
+                <label>Other (Interpublic)</label>
+            </value>
+            <value>
+                <fullName>Aegis Media</fullName>
+                <default>false</default>
+                <label>Aegis Media</label>
+            </value>
+            <value>
+                <fullName>Dentsu</fullName>
+                <default>false</default>
+                <label>Dentsu</label>
+            </value>
+            <value>
+                <fullName>Dentsu Network</fullName>
+                <default>false</default>
+                <label>Dentsu Network</label>
+            </value>
+            <value>
+                <fullName>Arnold Worldwide</fullName>
+                <default>false</default>
+                <label>Arnold Worldwide</label>
+            </value>
+            <value>
+                <fullName>Havas Media Group</fullName>
+                <default>false</default>
+                <label>Havas Media Group</label>
+            </value>
+            <value>
+                <fullName>Havas Worldwide</fullName>
+                <default>false</default>
+                <label>Havas Worldwide</label>
+            </value>
+            <value>
+                <fullName>Universal</fullName>
+                <default>false</default>
+                <label>Universal</label>
+            </value>
+            <value>
+                <fullName>Sony</fullName>
+                <default>false</default>
+                <label>Sony</label>
+            </value>
+            <value>
+                <fullName>Warner</fullName>
+                <default>false</default>
+                <label>Warner</label>
+            </value>
+            <value>
+                <fullName>Independent</fullName>
+                <default>false</default>
+                <label>Independent</label>
+            </value>
+            <value>
+                <fullName>MDC Partners</fullName>
+                <default>false</default>
+                <label>MDC Partners</label>
+            </value>
+            <value>
+                <fullName>Horizon Media</fullName>
+                <default>false</default>
+                <label>Horizon Media</label>
+            </value>
+            <value>
+                <fullName>Haworth Marketing + Media</fullName>
+                <default>false</default>
+                <label>Haworth Marketing + Media</label>
+            </value>
+            <value>
+                <fullName>KBS+</fullName>
+                <default>false</default>
+                <label>KBS+</label>
+            </value>
+            <value>
+                <fullName>Maxxcom Global Media</fullName>
+                <default>false</default>
+                <label>Maxxcom Global Media</label>
+            </value>
+            <value>
+                <fullName>RMS Radio Marketing Service</fullName>
+                <default>false</default>
+                <label>RMS Radio Marketing Service</label>
+            </value>
+            <value>
+                <fullName>The Richards Group</fullName>
+                <default>false</default>
+                <label>The Richards Group</label>
+            </value>
+            <value>
+                <fullName>Colleges and Universities</fullName>
+                <default>false</default>
+                <label>Colleges and Universities</label>
+            </value>
+            <value>
+                <fullName>Live Nation</fullName>
+                <default>false</default>
+                <label>Live Nation</label>
+            </value>
+            <value>
+                <fullName>pilot</fullName>
+                <default>false</default>
+                <label>pilot</label>
+            </value>
+            <value>
+                <fullName>Digitize Media Solutions</fullName>
+                <default>false</default>
+                <label>Digitize Media Solutions</label>
+            </value>
+            <value>
+                <fullName>IMS</fullName>
+                <default>false</default>
+                <label>IMS</label>
+            </value>
+            <value>
+                <fullName>Httpool Online Marketing</fullName>
+                <default>false</default>
+                <label>Httpool Online Marketing</label>
+            </value>
+            <value>
+                <fullName>BDS</fullName>
+                <default>false</default>
+                <label>BDS</label>
+            </value>
+            <value>
+                <fullName>Essence Digital</fullName>
+                <default>false</default>
+                <label>Essence Digital</label>
+            </value>
+            <value>
+                <fullName>AdWeb</fullName>
+                <default>false</default>
+                <label>AdWeb</label>
+            </value>
+            <value>
+                <fullName>Ignited</fullName>
+                <default>false</default>
+                <label>Ignited</label>
+            </value>
+            <value>
+                <fullName>PGR Media</fullName>
+                <default>false</default>
+                <label>PGR Media</label>
+            </value>
+            <value>
+                <fullName>AEG</fullName>
+                <default>false</default>
+                <label>AEG</label>
+            </value>
+            <value>
+                <fullName>Cogent Entertainment Marketing</fullName>
+                <default>false</default>
+                <label>Cogent Entertainment Marketing</label>
+            </value>
+            <value>
+                <fullName>Astus Group</fullName>
+                <default>false</default>
+                <label>Astus Group</label>
+            </value>
+            <value>
+                <fullName>Wieden Kennedy</fullName>
+                <default>false</default>
+                <label>Wieden Kennedy</label>
+            </value>
+            <value>
+                <fullName>Magna Global</fullName>
+                <default>false</default>
+                <label>Magna Global</label>
+            </value>
+            <value>
+                <fullName>N/A</fullName>
+                <default>true</default>
+                <label>N/A</label>
+            </value>
+            <value>
+                <fullName>Independent Agency</fullName>
+                <default>false</default>
+                <label>Independent Agency</label>
+            </value>
+            <value>
+                <fullName>Reseller</fullName>
+                <default>false</default>
+                <label>Reseller</label>
+            </value>
+            <value>
+                <fullName>Independent Label</fullName>
+                <default>false</default>
+                <label>Independent Label</label>
+            </value>
+            <value>
+                <fullName>Diversified Agency Services (DAS)</fullName>
+                <default>false</default>
+                <label>Diversified Agency Services (DAS)</label>
+            </value>
+            <value>
+                <fullName>Publicis Media</fullName>
+                <default>false</default>
+                <label>Publicis Media</label>
+            </value>
+            <value>
+                <fullName>Publicis Communications</fullName>
+                <default>false</default>
+                <label>Publicis Communications</label>
+            </value>
+            <value>
+                <fullName>Publicis.Sapient</fullName>
+                <default>false</default>
+                <label>Publicis.Sapient</label>
+            </value>
+            <value>
+                <fullName>Publicis Health</fullName>
+                <default>false</default>
+                <label>Publicis Health</label>
+            </value>
+            <value>
+                <fullName>Dentsu Aegis Network</fullName>
+                <default>false</default>
+                <label>Dentsu Aegis Network</label>
+            </value>
+            <value>
+                <fullName>Dentsu Inc</fullName>
+                <default>false</default>
+                <label>Dentsu Inc</label>
+            </value>
+            <value>
+                <fullName>Havas Media</fullName>
+                <default>false</default>
+                <label>Havas Media</label>
+            </value>
+            <value>
+                <fullName>Havas Health &amp; You</fullName>
+                <default>false</default>
+                <label>Havas Health &amp; You</label>
+            </value>
+            <value>
+                <fullName>Havas Creative</fullName>
+                <default>false</default>
+                <label>Havas Creative</label>
+            </value>
+            <value>
+                <fullName>WPP (other)</fullName>
+                <default>false</default>
+                <label>WPP (other)</label>
+            </value>
+            <value>
+                <fullName>Wunderman</fullName>
+                <default>false</default>
+                <label>Wunderman</label>
+            </value>
+            <value>
+                <fullName>Omnicom Affiliated</fullName>
+                <default>false</default>
+                <label>Omnicom Affiliated</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>Reseller</controllingFieldValue>
+            <valueName>Reseller</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Independent Agency</controllingFieldValue>
+            <valueName>Independent Agency</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>N/A</controllingFieldValue>
+            <valueName>N/A</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Independent Label</controllingFieldValue>
+            <valueName>Independent Label</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Dentsu</controllingFieldValue>
+            <valueName>Aegis Media</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Dentsu</controllingFieldValue>
+            <valueName>Dentsu</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Dentsu</controllingFieldValue>
+            <valueName>Dentsu Network</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Dentsu</controllingFieldValue>
+            <valueName>Dentsu Aegis Network</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Dentsu</controllingFieldValue>
+            <valueName>Dentsu Inc</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Havas</controllingFieldValue>
+            <valueName>Arnold Worldwide</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Havas</controllingFieldValue>
+            <valueName>Havas Media Group</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Havas</controllingFieldValue>
+            <valueName>Havas Worldwide</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Havas</controllingFieldValue>
+            <valueName>Havas Media</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Havas</controllingFieldValue>
+            <valueName>Havas Health &amp; You</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Havas</controllingFieldValue>
+            <valueName>Havas Creative</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Interpublic</controllingFieldValue>
+            <valueName>FCB</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Interpublic</controllingFieldValue>
+            <valueName>IPG Mediabrands</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Interpublic</controllingFieldValue>
+            <valueName>Lowe + Partners Worldwide</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Interpublic</controllingFieldValue>
+            <valueName>McCann Worldwide</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Interpublic</controllingFieldValue>
+            <valueName>Other (Interpublic)</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Interpublic</controllingFieldValue>
+            <valueName>Magna Global</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Omnicom Group</controllingFieldValue>
+            <valueName>BBDO Worldwide</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Omnicom Group</controllingFieldValue>
+            <valueName>CDM Group</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Omnicom Group</controllingFieldValue>
+            <valueName>DDB Worldwide</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Omnicom Group</controllingFieldValue>
+            <valueName>FleishmanHillard</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Omnicom Group</controllingFieldValue>
+            <valueName>Ketchum</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Omnicom Group</controllingFieldValue>
+            <valueName>Marketing Arm</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Omnicom Group</controllingFieldValue>
+            <valueName>Omnicom Media Group</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Omnicom Group</controllingFieldValue>
+            <valueName>Other (Omnicom)</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Omnicom Group</controllingFieldValue>
+            <valueName>TBWA/Worldwide</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Omnicom Group</controllingFieldValue>
+            <valueName>Diversified Agency Services (DAS)</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Omnicom Group</controllingFieldValue>
+            <valueName>Omnicom Affiliated</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Publicis Group</controllingFieldValue>
+            <valueName>Bartle Bogle Hegarty</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Publicis Group</controllingFieldValue>
+            <valueName>DigitasLBi</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Publicis Group</controllingFieldValue>
+            <valueName>Leo Burnett Worldwide</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Publicis Group</controllingFieldValue>
+            <valueName>MSLGroup</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Publicis Group</controllingFieldValue>
+            <valueName>Other (Publicis)</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Publicis Group</controllingFieldValue>
+            <valueName>Publicis Worldwide</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Publicis Group</controllingFieldValue>
+            <valueName>Razorfish</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Publicis Group</controllingFieldValue>
+            <valueName>Saatchi &amp; Saatchi</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Publicis Group</controllingFieldValue>
+            <valueName>Starcom Media Vest Group</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Publicis Group</controllingFieldValue>
+            <valueName>ZenithOptimedia</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Publicis Group</controllingFieldValue>
+            <valueName>Publicis Media</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Publicis Group</controllingFieldValue>
+            <valueName>Publicis Communications</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Publicis Group</controllingFieldValue>
+            <valueName>Publicis.Sapient</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Publicis Group</controllingFieldValue>
+            <valueName>Publicis Health</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>WPP</controllingFieldValue>
+            <valueName>24/7 Media</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>WPP</controllingFieldValue>
+            <valueName>9ine Sports &amp; Entertainment</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>WPP</controllingFieldValue>
+            <valueName>A. Eicoff &amp; Co</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>WPP</controllingFieldValue>
+            <valueName>Acceleration</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>WPP</controllingFieldValue>
+            <valueName>AKQA</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>WPP</controllingFieldValue>
+            <valueName>Alliance</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>WPP</controllingFieldValue>
+            <valueName>BDG Architecture + Design</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>WPP</controllingFieldValue>
+            <valueName>Blue State Digital</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>WPP</controllingFieldValue>
+            <valueName>B to D Group</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>WPP</controllingFieldValue>
+            <valueName>Buchanan Communications</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>WPP</controllingFieldValue>
+            <valueName>Clarion Communications</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>WPP</controllingFieldValue>
+            <valueName>Clover Park Group</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>WPP</controllingFieldValue>
+            <valueName>Coley Prter Bell</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>WPP</controllingFieldValue>
+            <valueName>Dewey Square Group</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>WPP</controllingFieldValue>
+            <valueName>Dialogue</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>WPP</controllingFieldValue>
+            <valueName>Digit</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>WPP</controllingFieldValue>
+            <valueName>Dmollan/Headcount</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>WPP</controllingFieldValue>
+            <valueName>Dovetail</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>WPP</controllingFieldValue>
+            <valueName>EWA</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>WPP</controllingFieldValue>
+            <valueName>F.Biz</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>WPP</controllingFieldValue>
+            <valueName>GCI Health</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>WPP</controllingFieldValue>
+            <valueName>GHG</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>WPP</controllingFieldValue>
+            <valueName>Grey Group</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>WPP</controllingFieldValue>
+            <valueName>Group M</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>WPP</controllingFieldValue>
+            <valueName>Hering Schuppener</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>WPP</controllingFieldValue>
+            <valueName>Hill + Knowlton Strategies</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>WPP</controllingFieldValue>
+            <valueName>Hogarth Worldwide</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>WPP</controllingFieldValue>
+            <valueName>JWT</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>WPP</controllingFieldValue>
+            <valueName>Kantar</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>WPP</controllingFieldValue>
+            <valueName>Mando</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>WPP</controllingFieldValue>
+            <valueName>Maxx Marketing</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>WPP</controllingFieldValue>
+            <valueName>Metro</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>WPP</controllingFieldValue>
+            <valueName>MJM</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>WPP</controllingFieldValue>
+            <valueName>Mosaicamd</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>WPP</controllingFieldValue>
+            <valueName>Ogilvy Group</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>WPP</controllingFieldValue>
+            <valueName>OHAL</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>WPP</controllingFieldValue>
+            <valueName>Other (WPP)</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>WPP</controllingFieldValue>
+            <valueName>Pace</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>WPP</controllingFieldValue>
+            <valueName>PBN Hill+ Knowlton Strategies</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>WPP</controllingFieldValue>
+            <valueName>Possible</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>WPP</controllingFieldValue>
+            <valueName>Prime Policy Group</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>WPP</controllingFieldValue>
+            <valueName>Prism Group</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>WPP</controllingFieldValue>
+            <valueName>QGA</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>WPP</controllingFieldValue>
+            <valueName>RLM Finsbury</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>WPP</controllingFieldValue>
+            <valueName>Rockfish</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>WPP</controllingFieldValue>
+            <valueName>Salmon</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>WPP</controllingFieldValue>
+            <valueName>Santo</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>WPP</controllingFieldValue>
+            <valueName>Scholz &amp; Friends</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>WPP</controllingFieldValue>
+            <valueName>Soho Square</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>WPP</controllingFieldValue>
+            <valueName>Team Detroit</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>WPP</controllingFieldValue>
+            <valueName>Tenthavenue</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>WPP</controllingFieldValue>
+            <valueName>The Data Alliance</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>WPP</controllingFieldValue>
+            <valueName>The Farm Group</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>WPP</controllingFieldValue>
+            <valueName>The Food Group</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>WPP</controllingFieldValue>
+            <valueName>The Geppetto Group</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>WPP</controllingFieldValue>
+            <valueName>The Media Innovation Group</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>WPP</controllingFieldValue>
+            <valueName>United Visions</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>WPP</controllingFieldValue>
+            <valueName>Young &amp; Rubicam Group</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>WPP</controllingFieldValue>
+            <valueName>WPP (other)</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>WPP</controllingFieldValue>
+            <valueName>Wunderman</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Label (Commercial)</controllingFieldValue>
+            <valueName>Universal</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Label (Commercial)</controllingFieldValue>
+            <valueName>Sony</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Label (Commercial)</controllingFieldValue>
+            <valueName>Warner</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Label (Commercial)</controllingFieldValue>
+            <valueName>Independent</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>MDC Partners</controllingFieldValue>
+            <valueName>MDC Partners</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>MDC Partners</controllingFieldValue>
+            <valueName>KBS+</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>MDC Partners</controllingFieldValue>
+            <valueName>Maxxcom Global Media</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

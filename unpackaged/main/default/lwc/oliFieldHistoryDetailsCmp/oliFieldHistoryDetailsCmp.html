@@ -1,0 +1,30 @@
+<template>
+    <header class="slds-modal__header" >
+        <h2 id="modalheading" class="slds-modal__title slds-hyphenate">
+            OLI Field Histories
+        </h2>
+    </header>
+    <div class="min-modal-height">
+        <template if:true={response}>
+            <lightning-datatable
+            class="slds-m-top_small"
+                key-field="Id"
+                data={response}
+                columns={columns}
+                sorted-by="CreatedDate"
+                sorted-direction="desc"
+                hide-checkbox-column="true">
+            </lightning-datatable>
+        </template>
+        <template if:true={errorMessage}>
+           <div class="slds-align_absolute-center slds-m-top_small">
+                <h1>{errorMessage}</h1>
+           </div>
+        </template>
+        <template if:true={spinner}>
+            <div class="slds-is-relative">
+                <lightning-spinner alternative-text="Loading" size="medium" variant="brand"></lightning-spinner>
+            </div>
+        </template>
+    </div>    
+</template>

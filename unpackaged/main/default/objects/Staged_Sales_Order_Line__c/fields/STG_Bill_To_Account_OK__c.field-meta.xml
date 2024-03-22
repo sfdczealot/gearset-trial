@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>STG_Bill_To_Account_OK__c</fullName>
+    <description>Checks that Bill To Account are be populated for DFP lines</description>
+    <externalId>false</externalId>
+    <formula>IF( ISPICKVAL(Served_By__c,&#39;DFP&#39;), !ISBLANK(Bill_To_Account_Id__c) , True)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>Checks that Bill To Account are be populated for DFP lines</inlineHelpText>
+    <label>STG Bill To Account OK</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

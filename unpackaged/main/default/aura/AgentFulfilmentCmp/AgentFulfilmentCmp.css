@@ -1,0 +1,9 @@
+.THIS {
+}
+.THIS.scrollerSize {
+    width:100%;
+}
+.THIS table.slds-table label span
+{
+    display:none;
+}

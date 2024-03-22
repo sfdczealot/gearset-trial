@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Subsidiary_NS_Internal_ID__c</fullName>
+    <description>Denotes the NS Subsidiary internal id of PG subsidiary to which the pricebook belongs to</description>
+    <externalId>false</externalId>
+    <formula>Subsidiary__r.NS_Subsidiary_Internal_ID__c</formula>
+    <inlineHelpText>Denotes the PG subsidiary to which the pricebook belongs to</inlineHelpText>
+    <label>Subsidiary NS Internal ID</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

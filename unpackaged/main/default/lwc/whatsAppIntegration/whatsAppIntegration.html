@@ -1,0 +1,12 @@
+<template>
+    <lightning-card title="WhatsApp Messenger">
+        <div class="slds-p-around_medium">
+            <div class="slds-align_absolute-center">
+                <lightning-button label="Send Template" variant="brand" onclick={onSendMessage}></lightning-button>
+            </div>
+            <div class="slds-p-top_medium">
+                <p class={messageClass}>{chatMessage}</p>
+            </div>
+        </div>
+    </lightning-card>
+</template>

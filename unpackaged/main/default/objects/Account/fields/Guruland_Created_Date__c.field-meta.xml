@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Guruland_Created_Date__c</fullName>
+    <description>Denotes the creation timestamp of corresponding record in PG system</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Denotes the creation timestamp of corresponding record in PG system</inlineHelpText>
+    <label>Created Date in PG System</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>DateTime</type>
+</CustomField>

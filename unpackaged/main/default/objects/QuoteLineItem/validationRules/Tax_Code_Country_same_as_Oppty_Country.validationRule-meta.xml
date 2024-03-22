@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Tax_Code_Country_same_as_Oppty_Country</fullName>
+    <active>true</active>
+    <description>This tax code&#39;s country must be the same as oppty country</description>
+    <errorConditionFormula>IF
+(
+AND(ISCHANGED ( GST_VAT_Code1__c ),
+(TEXT( GST_VAT_Code1__r.Country__c  ) &lt;&gt; Quote.Country__c)),TRUE,
+FALSE
+)</errorConditionFormula>
+    <errorDisplayField>GST_VAT_Code1__c</errorDisplayField>
+    <errorMessage>The selected Tax Code isn&#39;t of the same country as Opportunity&#39;s Subsidiary.</errorMessage>
+</ValidationRule>

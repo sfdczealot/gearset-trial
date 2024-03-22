@@ -1,0 +1,86 @@
+.THIS .showPromo{
+    color: #5c67ef;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    text-align: center;
+    vertical-align: middle;
+    -webkit-box-pack: center;
+    justify-content: center;
+    border: 1px solid #dddbda;
+    transition: border .15s linear;
+    background-color: #4bca81;
+    border-color: #4bca81;
+    color: #080707;
+}
+.THIS .deleteOli{
+    color: #d2361d;
+}
+.THIS .removePromo{
+    color: red;
+}
+.THIS .custom-table-prop thead th{
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.THIS .custom-table-prop tbody td{
+    padding-top: 10px;
+    padding-bottom: 5px;
+}
+.THIS .custom-table-prop .slds-form-element__label{
+    display:none;
+}
+.THIS .setInputSize{
+    text-align: -webkit-center;
+}
+.THIS .slds-spinner_container {  
+    z-index: 10000;
+    position: fixed;   
+}
+.THIS .subtotal-class .slds-form-element__label{
+    color: black;
+    font-weight: bold;
+    width: 193px;
+}
+.THIS .subtotal-class .slds-input{
+    border:none;
+    text-align: right;
+}
+.THIS .slds-hide{
+    position: relative;
+    display: inline-block;
+    width: 80px;
+    height: 80px;
+}
+.THIS .filterPromo{
+    
+    padding-left: 1rem;
+    padding-right: 1rem;
+    text-align: center;
+    vertical-align: middle;
+    -webkit-box-pack: center;
+    justify-content: center;
+    border: 1px solid #dddbda;
+    transition: border .15s linear;
+    background-color: #4bca81;
+    border-color: #4bca81;
+    color: #080707;  
+}
+.THIS .setInputSize.slds-text-align_right .slds-input{
+    text-align: right;
+}
+.THIS .setInputSize.slds-resizable__input.slds-text-align_right.slds-form-element{
+    width: 100px;
+}
+
+.THIS .product-btn{
+    flex-wrap:wrap
+}
+.THIS .product-btn .slds-col{
+    max-width: 156px;
+    flex: none;
+    display: flex;
+
+}
+.THIS .custom-table-cont{
+    max-height: 299px;
+}

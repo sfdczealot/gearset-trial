@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Next_Subscription_Activation_Date__c</fullName>
+    <description>Denotes the next subscription activation date after a successful purchase of a Agent subscription</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Denotes the next subscription activation date after a successful purchase of a Agent subscription</inlineHelpText>
+    <label>Next Subscription Activation Date</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <type>Date</type>
+</CustomField>

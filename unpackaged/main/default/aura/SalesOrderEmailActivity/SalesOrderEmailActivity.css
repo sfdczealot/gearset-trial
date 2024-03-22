@@ -1,0 +1,7 @@
+.THIS .slds-form-element__label{
+    font-size: large !important;
+    color:black;
+}
+.THIS.hideLabel label{
+    display:none !important;
+}

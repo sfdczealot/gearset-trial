@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Accruals_Ready_To_Export__c</fullName>
+    <description>Used by integration processes to determine if a Broadcast Calendar Accrual is required, and if so that it is ready to be exported.</description>
+    <externalId>false</externalId>
+    <formula>AND(
+Requires_Additional_Accruals__c,
+NOT(Accruals_Exported_by_Integration__c),
+  Billing_Period_End_Date__c  &lt; Today())</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>Used by integration processes to determine if a Broadcast Calendar Accrual is required, and if so that it is ready to be exported.</inlineHelpText>
+    <label>Accruals Ready To Export</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

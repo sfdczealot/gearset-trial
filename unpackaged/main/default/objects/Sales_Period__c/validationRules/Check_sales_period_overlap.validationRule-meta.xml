@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Check_sales_period_overlap</fullName>
+    <active>true</active>
+    <errorConditionFormula>IF( !ISBLANK(Next_Sales_Period__c),  Next_Sales_Period__r.Period_Start__c &lt;  Period_End__c, FALSE )</errorConditionFormula>
+    <errorMessage>Next sales period should not overlap with current sales period</errorMessage>
+</ValidationRule>

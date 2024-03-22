@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Readable_Value__c</fullName>
+    <description>This value is used for displaying what reporting has failure in the email being sent.</description>
+    <externalId>false</externalId>
+    <label>Readable Value</label>
+    <length>80</length>
+    <required>true</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

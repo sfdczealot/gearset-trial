@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Account_Long_ID__c</fullName>
+    <description>Denotes the 18 digit id of the record</description>
+    <externalId>false</externalId>
+    <formula>casesafeid(Id)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>Denotes the 18 digit id of the record</inlineHelpText>
+    <label>Account Long ID</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

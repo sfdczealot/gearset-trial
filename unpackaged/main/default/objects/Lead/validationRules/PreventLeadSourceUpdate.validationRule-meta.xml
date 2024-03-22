@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>PreventLeadSourceUpdate</fullName>
+    <active>true</active>
+    <description>Prevent lead source updates for Leads created from MC by non system administrator profile (allowing updates from MC as using system administrator profile)</description>
+    <errorConditionFormula>AND(
+!$Permission.System_Admin_Compliance_Access,
+$Profile.Name &lt;&gt; &#39;Integration Profile&#39;,
+NOT(ISBLANK( MC_Created_Date__c )),
+ISCHANGED ( LeadSource ) )</errorConditionFormula>
+    <errorDisplayField>LeadSource</errorDisplayField>
+    <errorMessage>Lead Source can not be changed</errorMessage>
+</ValidationRule>

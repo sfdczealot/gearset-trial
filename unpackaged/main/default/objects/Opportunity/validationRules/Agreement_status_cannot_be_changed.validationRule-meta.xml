@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Agreement_status_cannot_be_changed</fullName>
+    <active>true</active>
+    <description>when customer Agreement Status = Signed and the Customer Approval on the SO = Approved, it won&#39;t allow the status to revert to a cancelled/declined status.</description>
+    <errorConditionFormula>AND(
+                ByPass_Apex__c = false,
+				ISPICKVAL(Primary_Sales_Order__r.Customer_Approval__c, &quot;Approved&quot;),
+				ISCHANGED(Agreement_Status__c),
+				ISPICKVAL(PRIORVALUE(Agreement_Status__c),&quot;Signed&quot;),
+				ISPICKVAL(Agreement_Status__c, &quot;Cancelled / Declined&quot;)
+				)</errorConditionFormula>
+    <errorMessage>Agreement status cannot be changed once status signed. If you would like to recall from OMC approval, click Recall on the Sales Order instead</errorMessage>
+</ValidationRule>

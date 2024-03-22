@@ -1,0 +1,37 @@
+<aura:component implements="flexipage:availableForRecordHome,force:hasRecordId" controller="UploadAgencyLogoCont" access="global" >
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" /> 
+    <aura:attribute name="showFileComp" type="Boolean" default="false"/>
+    <aura:attribute name="showNoFile" type="Boolean" default="false"/>
+    <aura:attribute name="contents" type="List" default="[]"/>
+    <aura:attribute name="prefixURL" type="String" default="/sfc/servlet.shepherd/version/download/"/>
+    <aura:if isTrue="{!not(v.showFileComp)}">
+        
+        <lightning:card>
+            <lightning:layout multipleRows="true" title="Agency Logo Upload" >
+                <aura:if isTrue="{!v.showNoFile}">
+                    <lightning:layoutItem padding="around-small" size="4" >
+                        <img src="https://icon-library.net/images/no-image-available-icon/no-image-available-icon-6.jpg" height="250" width="250"/>
+                    </lightning:layoutItem>
+                    <lightning:layoutItem padding="around-small" size="8" >
+                    </lightning:layoutItem>
+                    <lightning:layoutItem padding="around-small" size="3" >
+                        <lightning:button aura:id="toggleButton" label="Upload New Logo" class="slds-float_right" variant="brand" onclick="{!c.onUploadNewLogo}" />
+                    </lightning:layoutItem>
+                </aura:if>
+                <aura:iteration items="{!v.contents}" var="content">
+                    <lightning:layoutItem padding="around-small" size="4" >
+                        <img src="{!v.prefixURL + content.Id}" height="250" width="250"/>
+                    </lightning:layoutItem>
+                    <lightning:layoutItem padding="around-small" size="8" >
+                    </lightning:layoutItem>
+                    <lightning:layoutItem padding="around-small" size="3" >
+                        <lightning:button aura:id="toggleButton" label="Upload New Logo" class="slds-float_right" variant="brand" onclick="{!c.onUploadNewLogo}" />
+                    </lightning:layoutItem>
+                </aura:iteration>
+            </lightning:layout>
+        </lightning:card>
+        <aura:set attribute="else">
+            <c:UploadAgencyLogo recordId="{!v.recordId}"/>
+        </aura:set>
+    </aura:if>
+</aura:component>

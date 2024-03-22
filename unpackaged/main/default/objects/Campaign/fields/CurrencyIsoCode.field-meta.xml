@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CurrencyIsoCode</fullName>
+    <description>Denotes the currency of promotions tied to the campaign</description>
+    <inlineHelpText>Denotes the currency of promotions tied to the campaign</inlineHelpText>
+    <trackHistory>true</trackHistory>
+</CustomField>

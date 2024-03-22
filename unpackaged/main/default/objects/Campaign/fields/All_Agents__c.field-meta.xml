@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>All_Agents__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Denotes if this campaign applies to all agents or not</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Denotes if this campaign applies to all agents or not</inlineHelpText>
+    <label>All Agents</label>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

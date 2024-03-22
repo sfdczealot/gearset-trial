@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Bill_to_Account__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>Bill To Account</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Bill To Account</inlineHelpText>
+    <label>Bill to Account</label>
+    <referenceTo>Account</referenceTo>
+    <relationshipLabel>Revenue Schedule Items (Bill to Account)</relationshipLabel>
+    <relationshipName>Revenue_Schedule_Items</relationshipName>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

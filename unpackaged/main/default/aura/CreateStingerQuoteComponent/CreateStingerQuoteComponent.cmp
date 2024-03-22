@@ -1,0 +1,20 @@
+<aura:component implements="force:hasRecordId,force:lightningQuickAction" controller="B2CQuoteDisplayController" >
+    
+    <aura:attribute name="record" type="Opportunity"/>
+    <aura:attribute name="simpleRecord" type="Object"/>
+    <aura:attribute name="recordError" type="String"/>
+    
+    <force:recordData aura:id="recordEditor"
+                      layoutType="FULL"
+                      recordId="{!v.recordId}"
+                      targetError="{!v.recordError}"
+                      targetRecord="{!v.record}"
+                      recordUpdated="{! c.afterRecordUpdate}"
+                      targetFields ="{!v.simpleRecord}"
+                      mode="EDIT" />
+    <!-- Display Lightning Data Service errors, if any -->
+    <aura:if isTrue="{!not(empty(v.recordError))}">
+        <div class="slds-notify slds-notify_alert slds-theme_alert-texture slds-theme_error">
+            {!v.recordError}</div>
+    </aura:if>
+</aura:component>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>RestrictB2BOpportunityCreationForAgency</fullName>
+    <active>true</active>
+    <errorConditionFormula>OR(AND( ISNEW(),
+Account.RecordType.DeveloperName = &quot;Agency&quot;, RecordType.DeveloperName==&quot;B2B&quot;  
+),
+AND( ISCHANGED(AccountId),Account.RecordType.DeveloperName = &quot;Agency&quot;, RecordType.DeveloperName==&quot;B2B&quot;  )		)</errorConditionFormula>
+    <errorMessage>Opportunity with account of agency Account record Type is not allowed</errorMessage>
+</ValidationRule>

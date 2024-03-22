@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Website</fullName>
+    <description>Denotes the website of accounts</description>
+    <inlineHelpText>For agent record type, this website reflects in agent profiles in AgentNet and PropertyGuru websites</inlineHelpText>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+</CustomField>

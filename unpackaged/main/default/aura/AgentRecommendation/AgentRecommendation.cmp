@@ -1,0 +1,81 @@
+<aura:component implements="flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global"
+                controller="AgentRecommendation_cc">
+    <aura:attribute name="recordId" type="String"/>
+    <aura:attribute name="message" type="String"/>
+    <aura:attribute name="isSuccess" type="Boolean"/>
+    <aura:attribute name="data" type="List"/>
+     <aura:attribute name="tableData" type="String"/>
+    <aura:attribute name="columns" type="List"/>
+
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    
+    <aura:if isTrue="{!v.isSuccess}">
+    <div>
+         <aura:unescapedHtml value="{!v.tableData}"/>
+        <!-- <table>
+           
+            
+               <tr>
+                <th></th>
+                <td>Essentials</td>
+                <td>Concurrent Listings</td>
+                <td>Ad Credits</td>
+                <td>Floor Plans/mnth</td>
+                <td>Commercial Listing</td>
+                <td>Agent Profile</td>
+            </tr>
+            
+            <aura:iteration items="{!v.data}" var="pkg" indexVar="Name">   
+                <tr>
+                    <th> 
+                        <aura:if isTrue="{!pkg.isRecommended ==	 true}">
+                            <div >
+                                Recommended
+                            </div>
+                        </aura:if>
+                    </th>
+                    
+                    <td>
+                        
+                        <div>
+                            {!pkg.Name}
+                        </div>
+                        <div>
+                            {!pkg.price} / {!pkg.validity}
+                        </div>
+                        <div>
+                            ( {!pkg.perDay} / day)
+                        </div>
+                    </td> 
+                    <td>
+                        {!pkg.Concurrent_Listings}
+                    </td>
+                    <td>
+                        {!pkg.Ad_Credits}
+                    </td>
+                    
+                    <td>
+                        {!pkg.Floor_Plans}
+                    </td>
+                    <td>
+                        <aura:if isTrue ="{!pkg.Commercial_Listing == true}">
+                            <lightning:icon iconName="action:approval" title="Approved"  size="small"  class="my-icon"/>
+                        </aura:if>
+                    </td>
+                    <td>
+                        <aura:if isTrue ="{!pkg.Agent_Profile == true}">
+                            <lightning:icon iconName="action:approval"  title="Approved"  size="small" />
+                        </aura:if>
+                    </td>
+                </tr>
+            </aura:iteration>
+            
+        </table>-->
+    </div>
+       <aura:set attribute="else">
+    <div>
+        {!v.message}
+    </div>
+        </aura:set>
+        </aura:if>
+</aura:component>

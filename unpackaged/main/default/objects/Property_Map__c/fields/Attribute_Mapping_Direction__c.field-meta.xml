@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Attribute_Mapping_Direction__c</fullName>
+    <externalId>false</externalId>
+    <label>Attribute Mapping Direction</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Map Attributes to Fields</fullName>
+                <default>false</default>
+                <label>Map Attributes to Fields</label>
+            </value>
+            <value>
+                <fullName>Map Fields to Attributes</fullName>
+                <default>false</default>
+                <label>Map Fields to Attributes</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

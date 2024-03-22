@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>One_field_can_be_populated_at_a_time</fullName>
+    <active>true</active>
+    <description>Usage of Discount %, Total Discount per line Item, Discount Per Unit and Entitlement Product/Quantity within a single Promotion Entitlement are mutually exclusive.</description>
+    <errorConditionFormula>AND(
+( IF(ISBLANK(Discount__c),0,1) +
+IF(ISBLANK(Discounted_amt__c),0,1) +
+IF(ISBLANK(Discount_per_unit__c),0,1) +
+IF(ISBLANK(Entitlement_Product__c),0,1)
+) &gt; 1,
+Promo_Mechanic__r.Campaign_Eligibility__r.Campaign__r.RecordType.DeveloperName = &quot;Marketing_Promo&quot;
+)</errorConditionFormula>
+    <errorMessage>Please fill only one : Discount % or Total Discount per line item or Discount Per Unit or Entitlement Product.</errorMessage>
+</ValidationRule>

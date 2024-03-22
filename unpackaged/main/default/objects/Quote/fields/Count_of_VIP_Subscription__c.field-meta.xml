@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Count_of_VIP_Subscription__c</fullName>
+    <externalId>false</externalId>
+    <label>Count of VIP Subscription</label>
+    <summaryFilterItems>
+        <field>QuoteLineItem.Product_Category__c</field>
+        <operation>equals</operation>
+        <value>Subscription</value>
+    </summaryFilterItems>
+    <summaryFilterItems>
+        <field>QuoteLineItem.Discount_Reason__c</field>
+        <operation>equals</operation>
+        <value>VIP (Relationship), VIP (Spending), VIP (migration)</value>
+    </summaryFilterItems>
+    <summaryForeignKey>QuoteLineItem.QuoteId</summaryForeignKey>
+    <summaryOperation>count</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <type>Summary</type>
+</CustomField>

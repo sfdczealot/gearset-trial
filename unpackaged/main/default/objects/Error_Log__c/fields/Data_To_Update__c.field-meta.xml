@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Data_To_Update__c</fullName>
+    <description>data in json format which system wants to update</description>
+    <externalId>false</externalId>
+    <label>Data To Update</label>
+    <length>131072</length>
+    <trackTrending>false</trackTrending>
+    <type>LongTextArea</type>
+    <visibleLines>25</visibleLines>
+</CustomField>

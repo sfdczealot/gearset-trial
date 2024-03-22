@@ -1,0 +1,76 @@
+<aura:component implements="force:lightningQuickActionWithoutHeader,force:hasRecordId" Controller="OpportunityQuoteAPIStinger" >
+    <aura:attribute name="recordId" type="String"/>
+    <aura:attribute name="oppId" type="String"/>
+    <aura:attribute name="quoteId" type="String"/>
+    <aura:attribute name="headerText" type="String" default="Send To AdminNet" />
+
+    <aura:attribute name="errorMessage" type="String" default="" />
+    <!--PGAUTO-2805-->
+    <aura:attribute name="emailID" type="String"/>
+    <aura:attribute name="quoteObj" type="Quote"/>
+    <aura:attribute name="showEmail" type="Boolean" default="false"/>
+    <!--PGAUTO-2805-->
+    <!--PGAUTO-6444-->
+    <aura:attribute name="showSendAnywayButton" type="Boolean" default="false"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <!--Payment email address PGAUTO-2732 START-->
+    <aura:if isTrue="{!v.showEmail}">
+        <section role="dialog" tabindex="-1" aria-labelledby="modal-send-to-guruland" aria-modal="true" aria-describedby="modal-send-to-guruland" class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container sendToGuruLandModal">
+                <header class="slds-modal__header" aura:id="modalHeaderEmail">
+                    <h2 id="modalHeaderTitleEmail" class="slds-text-heading_medium slds-hyphenate">{!v.headerText}</h2>
+                </header>
+                <div class="slds-modal__content slds-p-around_medium">
+                      <div class="slds-align--absolute-center">
+                         <ui:inputText aura:id = "NewEmail"  label="Please update alternate email address if required" value="{!v.emailID}"/>
+                    </div>
+                                 </div>
+                <footer class="slds-modal__footer" aura:id="modalFooterEmail">
+                    <button class="slds-button slds-button_neutral" onclick="{!c.updateEmailAddressonQuote}">Send</button>
+
+                    <button class="slds-button slds-button_neutral" onclick="{!c.closeModal}">Cancel</button>
+                </footer>
+            </div>
+        </section>
+    </aura:if>
+
+    <!--Payment email address PGAUTO-2732 END-->
+    <aura:if isTrue="{!(!v.showEmail)}">
+    <div class="send-to-guruland" style="height: 640px;width:110% !important;">
+        <section role="dialog" tabindex="-1" aria-labelledby="modal-send-to-guruland" aria-modal="true" aria-describedby="modal-send-to-guruland" class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container sendToGuruLandModal">
+                <header class="slds-modal__header" aura:id="modalHeader">
+                    <lightning:buttonIcon class="slds-modal__close slds-button__icon_large" iconName="utility:close" variant="bare-inverse" title="close" onclick="{!c.closeModal}" alternativeText="Close"/>
+                    <h2 id="modalHeaderTitle" class="slds-text-heading_medium slds-hyphenate">{!v.headerText}</h2>
+                </header>
+                <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                    <div aura:id="errorMessagePanel" class="slds-m-around_large slds-hide">
+                        <aura:unescapedHtml value="{!v.errorMessage}" /> 
+                        <aura:if isTrue="{!v.showSendAnywayButton}">
+                            <br/>
+                        	<aura:unescapedHtml value="{!$Label.c.CEA_FAIL_MESSAGE}" />
+                        </aura:if>
+                    </div>
+                    <div aura:id="spinner" class="slds-card__header" style="position:relative;margin:50px;">
+                        <div class="slds-form--compound">
+                            <div class="slds-spinner_container" >
+                                <div class="slds-spinner slds-spinner--medium" aria-hidden="false" role="alert">
+                                    <div class="slds-spinner__dot-a"></div>
+                                    <div class="slds-spinner__dot-b"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <footer class="slds-modal__footer slds-hide" aura:id="modalFooter">
+                    <button class="slds-button slds-button_neutral" onclick="{!c.closeModal}">OK</button>
+                    <aura:if isTrue="{!v.showSendAnywayButton}">
+                        <button class="slds-button slds-button_neutral" onclick="{!c.sendPaymentLinkAnyway}">Proceed to generate Payment Link</button>
+                    </aura:if>
+                </footer>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </div>
+    </aura:if>
+</aura:component>

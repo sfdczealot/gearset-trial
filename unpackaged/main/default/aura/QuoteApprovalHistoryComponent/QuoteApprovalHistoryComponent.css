@@ -1,0 +1,30 @@
+.THIS .slds-table th,
+.THIS .slds-table td{
+    padding: 5px 10px;
+}
+.THIS .slds-textarea{
+    height: 150px;
+}
+.THIS .custom-date-col{
+    width: 150px;
+}
+.THIS .custom-status-col{
+    width: 90px;
+}
+.THIS .custom-assigned-col,
+.THIS .custom-aprover-col{
+    width: 130px;
+}
+.THIS .custom-whitespace-normal{
+    white-space: normal;
+}
+@media (max-width: 575px){
+    .THIS .custom-card-header .slds-card__header .slds-media{
+        margin-bottom: 10px;
+        flex-wrap: wrap;
+    }
+    .THIS .custom-card-header .slds-card__header .slds-media .slds-no-flex{
+        width: 100%;
+        margin-top: 10px;
+    }
+}

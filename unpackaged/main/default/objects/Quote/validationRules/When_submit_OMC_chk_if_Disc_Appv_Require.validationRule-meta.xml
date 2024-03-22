@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>When_submit_OMC_chk_if_Disc_Appv_Require</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+NOT(ISCLONE()),
+NOT(ISNEW()),
+ISPICKVAL(Stage__c,&quot;Pending OMC Approval&quot;),
+ISPICKVAL( Approval_Status__c , &quot;&quot;),
+OR(
+PG_Product_Max_Discount__c &gt; $Setup.Approval_Discount_Tiers__c.Tier_1_Max_Discount__c,
+Events_Product_Max_Discount__c &gt;  $Setup.Approval_Discount_Tiers__c.Events_Tier_1_Max_Discount__c,
+EPT_Product_Max_Discount__c &gt;  $Setup.Approval_Discount_Tiers__c.Events_Tier_1_Max_Discount__c ,
+Homepage_Product_Max_Discount__c &gt; $Setup.Approval_Discount_Tiers__c.Homepage_Tier_1_Max_Discount__c
+)
+)</errorConditionFormula>
+    <errorMessage>Discount Approval required. Submit to OMC for approval, only after discount is approved. 
+
+Err ID: 03d7F000000D903</errorMessage>
+</ValidationRule>

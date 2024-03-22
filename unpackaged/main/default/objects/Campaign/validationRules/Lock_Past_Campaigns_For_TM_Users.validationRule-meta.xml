@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Lock_Past_Campaigns_For_TM_Users</fullName>
+    <active>true</active>
+    <description>Restrict Trade Marketing users to update past campaigns.</description>
+    <errorConditionFormula>AND(
+Campaign_End_DateTime__c &lt; NOW(), 
+$Profile.Name  = &quot;Trade Marketing&quot;,
+!ISNEW()
+)</errorConditionFormula>
+    <errorMessage>You cannot perform the operation as campaign has passed its end date time.</errorMessage>
+</ValidationRule>

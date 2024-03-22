@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Currency_required</fullName>
+    <active>true</active>
+    <description>Currency is required field.</description>
+    <errorConditionFormula>ISBLANK(TEXT( CurrencyIsoCode ))</errorConditionFormula>
+    <errorMessage>Currency is required field.</errorMessage>
+</ValidationRule>

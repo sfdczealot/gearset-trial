@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Agency_and_Agents_Country_Check</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+RecordType.DeveloperName  = &#39;Agent&#39;,
+!ISBLANK(Agency__c),
+TEXT( Country__c ) &lt;&gt; TEXT(Agency__r.Country__c)
+)</errorConditionFormula>
+    <errorMessage>Agent&#39;s country should be the same as the country of the Agency.</errorMessage>
+</ValidationRule>

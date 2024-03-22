@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Remarks__c</fullName>
+    <description>Denotes details of the split which can be by project/product</description>
+    <externalId>false</externalId>
+    <inlineHelpText>For split details per invoice</inlineHelpText>
+    <label>Remarks</label>
+    <required>false</required>
+    <type>TextArea</type>
+</CustomField>

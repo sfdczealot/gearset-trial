@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Agency_Holding_Company__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>Top level agency holding company association</inlineHelpText>
+    <label>Holding Company</label>
+    <required>false</required>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>Classificaiton_del__c</controllingField>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Dentsu</fullName>
+                <default>false</default>
+                <label>Dentsu</label>
+            </value>
+            <value>
+                <fullName>Havas</fullName>
+                <default>false</default>
+                <label>Havas</label>
+            </value>
+            <value>
+                <fullName>Interpublic</fullName>
+                <default>false</default>
+                <label>Interpublic</label>
+            </value>
+            <value>
+                <fullName>Omnicom Group</fullName>
+                <default>false</default>
+                <label>Omnicom Group</label>
+            </value>
+            <value>
+                <fullName>Publicis Group</fullName>
+                <default>false</default>
+                <label>Publicis Group</label>
+            </value>
+            <value>
+                <fullName>WPP</fullName>
+                <default>false</default>
+                <label>WPP</label>
+            </value>
+            <value>
+                <fullName>Diversified Agency Services (DAS)</fullName>
+                <default>false</default>
+                <label>Diversified Agency Services (DAS)</label>
+            </value>
+            <value>
+                <fullName>Label (Commercial)</fullName>
+                <default>false</default>
+                <label>Label (Commercial)</label>
+            </value>
+            <value>
+                <fullName>Spotify</fullName>
+                <default>false</default>
+                <label>Spotify</label>
+            </value>
+            <value>
+                <fullName>MDC Partners</fullName>
+                <default>false</default>
+                <label>MDC Partners</label>
+            </value>
+            <value>
+                <fullName>Reseller</fullName>
+                <default>false</default>
+                <label>Reseller</label>
+            </value>
+            <value>
+                <fullName>Independent Agency</fullName>
+                <default>false</default>
+                <label>Independent Agency</label>
+            </value>
+            <value>
+                <fullName>Warner Music</fullName>
+                <default>false</default>
+                <label>Warner Music</label>
+            </value>
+            <value>
+                <fullName>Universal Music</fullName>
+                <default>false</default>
+                <label>Universal Music</label>
+            </value>
+            <value>
+                <fullName>Sony Music</fullName>
+                <default>false</default>
+                <label>Sony Music</label>
+            </value>
+            <value>
+                <fullName>N/A</fullName>
+                <default>true</default>
+                <label>N/A</label>
+            </value>
+            <value>
+                <fullName>Independent Label</fullName>
+                <default>false</default>
+                <label>Independent Label</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>Big 6 Agency Holding Companies</controllingFieldValue>
+            <valueName>Dentsu</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Big 6 Agency Holding Companies</controllingFieldValue>
+            <valueName>Havas</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Big 6 Agency Holding Companies</controllingFieldValue>
+            <valueName>Interpublic</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Big 6 Agency Holding Companies</controllingFieldValue>
+            <valueName>Omnicom Group</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Big 6 Agency Holding Companies</controllingFieldValue>
+            <valueName>Publicis Group</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Big 6 Agency Holding Companies</controllingFieldValue>
+            <valueName>WPP</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Independent Agency</controllingFieldValue>
+            <valueName>MDC Partners</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Independent Agency</controllingFieldValue>
+            <valueName>Independent Agency</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Verified Advertiser</controllingFieldValue>
+            <controllingFieldValue>Unverified Advertiser</controllingFieldValue>
+            <valueName>N/A</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Reseller</controllingFieldValue>
+            <valueName>Reseller</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Major Label</controllingFieldValue>
+            <valueName>Warner Music</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Major Label</controllingFieldValue>
+            <valueName>Universal Music</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Major Label</controllingFieldValue>
+            <valueName>Sony Music</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Independent Label</controllingFieldValue>
+            <valueName>Independent Label</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

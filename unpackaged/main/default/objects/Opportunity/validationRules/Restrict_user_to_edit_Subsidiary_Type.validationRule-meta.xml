@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Restrict_user_to_edit_Subsidiary_Type</fullName>
+    <active>true</active>
+    <errorConditionFormula>OR( NOT(ISNEW()) &amp;&amp; ISCHANGED(Subsidiary_Type__c) &amp;&amp; $Profile.Name != &#39;System Administrator&#39; )</errorConditionFormula>
+    <errorMessage>You don&#39;t have access to update Subsidiary Type</errorMessage>
+</ValidationRule>

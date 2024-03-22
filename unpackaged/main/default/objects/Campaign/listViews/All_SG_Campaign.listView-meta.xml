@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>All_SG_Campaign</fullName>
+    <columns>CAMPAIGN.ACTIVE</columns>
+    <columns>CAMPAIGN.NAME</columns>
+    <columns>CAMPAIGN.START_DATE</columns>
+    <columns>CAMPAIGN.END_DATE</columns>
+    <columns>CAMPAIGN.CAMPAIGN_TYPE</columns>
+    <columns>CAMPAIGN.STATUS</columns>
+    <columns>CAMPAIGN.NUM_CONTACTS</columns>
+    <columns>CAMPAIGN.NUM_LEADS</columns>
+    <columns>CAMPAIGN.NUM_WON_OPPORTUNITIES</columns>
+    <columns>AMOUNT_WON</columns>
+    <columns>AMOUNT_ALL</columns>
+    <columns>CAMPAIGN.RECORDTYPE</columns>
+    <columns>CAMPAIGN.CREATED_DATE</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Country__c</field>
+        <operation>equals</operation>
+        <value>Singapore</value>
+    </filters>
+    <label>All SG Campaign</label>
+</ListView>

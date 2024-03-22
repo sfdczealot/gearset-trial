@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Monitor_Fields__c</fullName>
+    <description>Holds information about Sales Order fields that need to be monitored for approvals. Change on those fields will cause approval logic to re-evaluate the Sales Order for approvals.</description>
+    <externalId>false</externalId>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <inlineHelpText>Holds information about Sales Order fields that need to be monitored for approvals. Change on those fields will cause approval logic to re-evaluate the Sales Order for approvals.</inlineHelpText>
+    <label>Monitor Fields</label>
+    <length>255</length>
+    <required>false</required>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Block_Manual_Data_From_Integrated_Server</fullName>
+    <active>false</active>
+    <description>Block manual upload of data for Ad Servers that are integrated via AdJuster</description>
+    <errorConditionFormula>AND(Source__c == &#39;Manual&#39;,
+ (Local_Server_Name__c == &#39;MediaMind&#39; ||
+  Local_Server_Name__c == &#39;DFA by Google&#39; ||
+  Local_Server_Name__c == &#39;FlashTalking&#39; ||
+  Local_Server_Name__c == &#39;Innovid3P&#39; ||
+  Local_Server_Name__c == &#39;Dart Report Reader&#39; ||
+  Local_Server_Name__c == &#39;Mediaplex&#39; ||
+  Local_Server_Name__c == &#39;Rubicon&#39; ||
+  Local_Server_Name__c == &#39;EyeReturn&#39;)
+)</errorConditionFormula>
+    <errorMessage>Manual upload of 3rd Party Data cannot be performed for Ad Servers integrated via AdJuster</errorMessage>
+</ValidationRule>

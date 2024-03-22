@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Tax_reg_cannot_be_blank</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(Subsidiary__r.Name=&#39;PT. AllProperty Media&#39;,		
+		ISBLANK( Tax_Reg_Number__c ),RecordType.Name=&#39;B2B - Account&#39;
+	
+)</errorConditionFormula>
+    <errorMessage>GST REG. / VAT REG. / NPWP is Mandatory</errorMessage>
+</ValidationRule>

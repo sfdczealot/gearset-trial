@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>When_submit_OMC_check_Reprint</fullName>
+    <active>false</active>
+    <description>When stage is change to Pending OMC Approval (to submit for OMC), Re-print needs to be false. Users need to re-print before changing to stage as Pending OMC Approval.</description>
+    <errorConditionFormula>AND(
+$RecordType.Name = &quot;B2B&quot;,
+AND(
+NOT(ISCLONE()), 
+NOT(ISNEW()), 
+ISPICKVAL(StageName,&quot;Pending OMC Approval&quot;), 
+Re_print_Contract__c = TRUE
+)
+)</errorConditionFormula>
+    <errorMessage>Some changes are made on the Oppty which requires Re-print of Contract. Please re-print and gets client&#39;s signatory before submitting for OMC Approval.</errorMessage>
+</ValidationRule>

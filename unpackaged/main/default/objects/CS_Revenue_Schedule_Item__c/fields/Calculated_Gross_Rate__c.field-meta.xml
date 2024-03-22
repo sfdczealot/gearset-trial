@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Calculated_Gross_Rate__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(Insertion_Unit_Type__c = &#39;CPCV&#39; || Insertion_Unit_Type__c = &#39;CPCL&#39;, (Gross_Rate__c/1000), Gross_Rate__c)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Gross Rate</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>4</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Currency</type>
+</CustomField>

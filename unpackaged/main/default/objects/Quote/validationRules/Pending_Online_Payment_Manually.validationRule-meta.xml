@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Pending_Online_Payment_Manually</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND( 
+RecordType.Name = &quot;B2C&quot;, 
+ISPICKVAL(Stage__c,&#39;Pending Online Payment&#39;),
+From_Button__c = false,
+OR(ISPICKVAL(PRIORVALUE(Stage__c ),&quot;New&quot;),
+ISPICKVAL(PRIORVALUE(Stage__c ),&quot;Proposal&quot;)) 
+,ISNULL(Invoice_Id__c)
+)</errorConditionFormula>
+    <errorMessage>Cannot change stage to pending online payment! Please click button read for payment.</errorMessage>
+</ValidationRule>

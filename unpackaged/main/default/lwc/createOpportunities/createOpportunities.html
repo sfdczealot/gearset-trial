@@ -1,0 +1,136 @@
+<template>
+    <template if:true={eligibleAgent}>
+        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true"
+        aria-describedby="modal-content-id-1" class="slds-modal
+        slds-fade-in-open createOpp-modal">
+        <div class="slds-modal__container">
+            <!-- modal header start -->
+            <header class="slds-modal__header">
+                <button class="slds-button slds-button_icon
+                    slds-modal__close slds-button_icon-inverse" title="Close" onclick={closePopUp}>
+                    <lightning-icon icon-name="utility:close" alternative-text="close" variant="inverse"
+                        size="small"></lightning-icon>
+                    <span class="slds-assistive-text">Close</span>
+                </button>
+                <h1 id="modal-heading-01" class="slds-text-heading_medium
+                    slds-hyphenate">{Title}</h1>
+            </header>
+            <!-- modal body start -->
+            <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                
+                        <div class="slds-grid slds-wrap slds-gutters" style=" padding-left: 20px;  padding-right: 20px;">
+                            
+                             <template for:each={fmList} for:item='item'>
+                                <div key={item.id} class="slds-col slds-size_1-of-2 slds-xx-small ">
+                                   
+                                    <template if:true={item.NonPicklist}>
+                                        <template if:true={item.isCheckbox}>
+                                            <div style=" padding-top: 10px;"> 
+                                       
+                                    <lightning-Input type={item.datatype}  label={item.label} value={item.value} name={item.api}  onchange={updateValue} required={item.required}></lightning-input>
+                                   </div> 
+                                </template>
+                                <template if:false={item.isCheckbox}>
+                                    <div > 
+                               
+                            <lightning-Input type={item.datatype}  label={item.label} value={item.value} name={item.api}  onchange={updateValue} required={item.required}></lightning-input>
+                           </div> 
+                        </template>
+                                 </template> 
+                                    <template if:true={item.lookup}>
+                                        <div  data-key ={item.api} class=" lookup create-lookup" >
+                                        <c-custom-lookup obj-name={item.relatedObjectAPI} obj-label ={item.label} selected-name={selectedname} default-id={selectedId} is-value-selected={valueSelected} filter={item.filter} search-placeholder={item.Related_List_Label} icon-name="standard:account"  onlookupselected={handleAccountSelection} > </c-custom-lookup>
+                                        </div>
+                                    </template>
+                                    <template if:true={item.picklist}>
+                                        <div >
+                                        <lightning-combobox  name={item.api} label={item.label} value={stageName}   dropdown-alignment="auto"
+                        
+                                        options={item.value} onchange={updateValue} required>
+                    
+                                    </lightning-combobox>
+                                    </div>
+                                 </template>
+                                 </div>
+                                </template>
+                            
+                    
+                <template if:true={createOpp}>
+                    <div  class="slds-col slds-size_1-of-2 slds-xx-small " >
+                        <lightning-Input type=date  label="Subscription Start date" value={stageName} name="Startdate"  onchange={updateValue} required></lightning-input>  
+                    </div>
+                    <div  class="slds-col slds-size_1-of-2 slds-xx-small" >
+                                <lightning-combobox name="PGProducts" label="PG Products" value={stageName}  dropdown-alignment="auto"
+                        
+                                        options={PGProducts} onchange={updateValue} >
+                    
+                                    </lightning-combobox>
+                
+                    </div>
+                
+                
+                    <div  class="slds-col slds-size_1-of-2 slds-xx-small"  >
+                        <lightning-combobox name="iPProducts" label="iPP Products" value={stageName}   dropdown-alignment="left"
+                        
+                        options={iPProducts} onchange={updateValue} >
+                
+                    </lightning-combobox>
+                </div>
+                            
+                 </template>  
+                 <!--template if:true={createAcc}>
+                    <div  class="slds-col slds-size_1-of-2 slds-xx-small " style="padding-left: 10px;padding-top: 10px;">
+                        <lightning-input  type="checkbox" data-id="checkbox" label="Tag Account" name="IsOverlapping"
+                        onchange={updateValue} >
+
+                        </lightning-input>
+                
+                    </div>
+                </template-->         
+                         </div>
+                
+                <br/><br/>
+                <div class="slds-var-p-around_small slds-align_absolute-center">
+                    <lightning-button variant="neutral" label="Cancel" onclick ={closePopUp} ></lightning-button>
+                    <lightning-button variant="brand" label="Save" class="slds-var-m-left_small" onclick ={createOpportunity}></lightning-button>
+                  </div>
+                
+                  <template if:true={showSpinner}>
+                    <div class="spins">
+                        <lightning-spinner alternative-text="Loading" size="large" variant ="brand">
+                        </lightning-spinner>
+                    </div>
+                  </template>
+                
+            </div>
+           
+        </div>
+    </section>
+    <div class="slds-backdrop slds-backdrop_open customBackdrop"></div>
+
+    </template>
+   
+<template if:true={isToast}>
+  
+    <div class="slds-notify_container slds-is-relative">
+        <div class={toastClass} role="status">
+        <span class="slds-assistive-text">{endResult}</span>
+        <span class="slds-icon_container slds-icon-utility-success slds-m-right_small slds-no-flex slds-align-top" title="Description of icon when needed">
+            <lightning-icon icon-name={toastButton} alternative-text="close" variant="inverse"
+            size="small"></lightning-icon>
+        </span>
+        <div class="slds-notify__content">
+        <h2 class="slds-text-heading_small ">{message}</h2>
+        </div>
+        <div class="slds-notify__close">
+            <button class="slds-button slds-button_icon
+            slds-modal__close slds-button_icon-inverse" title="Close" onclick={closePopUp}>
+            <lightning-icon icon-name="utility:close" alternative-text="close" variant="inverse"
+                size="small"></lightning-icon>
+            <span class="slds-assistive-text">Close</span>
+        </button>
+        </div>
+        </div>
+        </div>
+</template>
+</template>

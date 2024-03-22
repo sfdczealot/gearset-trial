@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>B2C_Upgrade_Closed_Date_Can_not_be_chang</fullName>
+    <active>true</active>
+    <description>xpected Close Date is not updatable for B2C upgrade oppties by non system admins.</description>
+    <errorConditionFormula>AND(
+ISCHANGED(CloseDate),
+!$Permission.System_Admin_Compliance_Access,
+ISPICKVAL( Opportunity_Type__c , &#39;B2C - Upgrade&#39;),
+RecordType.Name =&#39;B2C&#39;
+)</errorConditionFormula>
+    <errorMessage>Expected Closed Date cannot be changed for B2C -Upgrade Opportunity.</errorMessage>
+</ValidationRule>

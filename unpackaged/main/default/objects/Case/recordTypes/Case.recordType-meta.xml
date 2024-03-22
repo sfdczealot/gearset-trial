@@ -1,0 +1,608 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Case</fullName>
+    <active>true</active>
+    <businessProcess>Case</businessProcess>
+    <label>Case</label>
+    <picklistValues>
+        <picklist>Business_Channel__c</picklist>
+        <values>
+            <fullName>B2B</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>B2C Assisted Sales</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>B2C Self-Serve</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Others</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>CSPOFA__Orchestration_Step_Close_Reason__c</picklist>
+        <values>
+            <fullName>Cannot Fix</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Completed successfully</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Could not be completed</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Resolved</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Caller_Type__c</picklist>
+        <values>
+            <fullName>Agent</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Consumer</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Others</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Case_Sub_Category__c</picklist>
+        <values>
+            <fullName>Account</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Account Inquiry</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Account Suspension%2FTermination</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Ad Credit Log</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Add Campaign Member</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Add%2FRemove Agency</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>AdminNet</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>AdminNet - Account Record not sync</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>AdminNet Issue</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Agent</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Agent Error</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Agent Verification</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>AgentNet</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Auto-Repost</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Automated Email Reply</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Banner</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Billing Receipt</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Boost</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Call Dropped</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Campaign Inquiry</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Close Lost Opportunity</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Commercial Guru</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Concurrent Listing</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Cross-Selling Sales Order</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Developer Sales %2F Media Agency %2F Non Developer Sales</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Discretionary Products</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Edit Listing</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FastKey</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Floor Plan</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>General</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Home Finance</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Incident Follow Up</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Intercom</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Listing</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Listing inquiry</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Loyalty Discount</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Media</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>MyWeb%2FAgentWeb%2FDomain Name</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>MyWeb%2FAgentWeb%2FDomain Name Related</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>NetSuite - Discount Amount</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>NetSuite - Others</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>New Sign up</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>No Further Action Required</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>OMC Submission</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other Department%2F Specify Person</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Overseas Listing</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Owner Inquiry</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>PG Consumer</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>PG Tenure</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>PG Website</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>PLA Service</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Payment Issue</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Platform</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pricing</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Product</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Product Inquiry</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Remove Google Link</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Renewal</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Renewals</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Report Suspicious Activity</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Repost</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Resend Verification Link%2FSMS</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reset Password</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Roll Out</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Salesforce</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Service</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SocialCast</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Spam</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SpotLight</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Statistics Inquiry</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Sync to directory</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Testing%2FExperiment</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Transactional Pricing</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Trial Account Inquiry</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Uncheck Auto Activation</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Unsubscribe Newsletter</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Update %2F Add Directory</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Update %2F Add TOP</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Update Agency</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Update Agency Logo</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Update Agent Licence Number</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Update Billing Address</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Update Billing Information</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Update Data</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Update Date</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Update Discount Amount</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Update Email</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Update Job Title</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Update Memo Entry</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Update MyWeb%2FAgentweb%2FDomain Name</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Update Opportunity Split</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Update Profile Name</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Update Profile Photo</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Update Record Ownership</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Update Remarks</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Update mobile Number</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Update%2FDisable Find agent profile</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Update%2FRemove Alternate Number</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Upgrade Enquiries</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Upgrade amount incorrect</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>User Management</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Win Back</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Wrong No%2E</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Country__c</picklist>
+        <values>
+            <fullName>Indonesia</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Malaysia</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Singapore</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Thailand</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Internal_External__c</picklist>
+        <values>
+            <fullName>External</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Internal</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Origin</picklist>
+        <values>
+            <fullName>Email</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Manual</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Phone</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Web</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Priority</picklist>
+        <values>
+            <fullName>High</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Low</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Medium</fullName>
+            <default>true</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Reason</picklist>
+        <values>
+            <fullName>Complex functionality</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Existing problem</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Instructions not clear</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>New problem</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>User didn%27t attend training</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Resolution__c</picklist>
+        <values>
+            <fullName>Cancelled</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Duplicate</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Invalid</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Resolved</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Type</picklist>
+        <values>
+            <fullName>AdminNet%2FNetsuite Related</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Cross-Selling Sales Order</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Data Sync Issue</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Enquiries</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Others</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Sales Support %28General%29</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+</RecordType>

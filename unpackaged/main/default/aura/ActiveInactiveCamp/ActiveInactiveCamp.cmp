@@ -1,0 +1,63 @@
+<aura:component implements="force:lightningQuickActionWithoutHeader,force:hasRecordId"
+                controller="ActiveInactiveCampController"
+                access="GLOBAL">
+    
+    <aura:attribute name="recordId" type="string" />
+    <aura:attribute name="Loader" type="boolean" default="false"/>
+    <aura:attribute name="showConfirmationMsg" type="boolean" default="false"/>
+    <aura:attribute name="activeOrInactive" type="String" />
+    <aura:attribute name="campData" type="Object" />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    
+    <aura:if isTrue="{!v.showConfirmationMsg}">
+        <header class="slds-modal__header">
+            <div class="slds-text-heading_medium slds-hyphenate slds-align_absolute-center">
+                Active / Inactive Campaign
+            </div>
+        </header>
+        <h6 id="modal-heading-03" class="slds-text-heading_medium slds-hyphenate slds-align_absolute-center slds-modal__content slds-p-around_medium">
+            Are you sure you want to {!v.activeOrInactive} campaign?
+        </h6>
+        <footer class="slds-modal__footer">
+            
+                <lightning:button variant="neutral"
+                                  label="No"
+                                  title="No"
+                                  onclick="{!c.noBtn}"/>
+                <lightning:button variant="brand"
+                                  label="Yes"
+                                  title="Yes"
+                                  disabled="false"
+                                  onclick="{!c.yesBtn}"/>
+           
+        </footer>
+    </aura:if>
+    
+    <aura:if isTrue="{!v.Loader}">
+        <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate slds-align_absolute-center slds-modal__content slds-p-around_medium">
+            Please Wait...
+        </h2>
+        
+        <footer class="slds-modal__footer">
+            <lightning:button variant="brand"
+                              label="Cancel"
+                              title="Cancel"
+                              onclick="{!c.noBtn}"/>
+        </footer>
+    </aura:if>
+    
+    <aura:html tag="style">
+        .cuf-content {
+        padding: 0 0rem !important;
+        
+        }
+        .slds-p-around--medium {
+        padding: 0rem !important;
+        }       
+        .slds-modal__content{
+        overflow-y:hidden !important;
+        height:unset !important;
+        max-height:unset !important;
+        }
+    </aura:html>
+</aura:component>
